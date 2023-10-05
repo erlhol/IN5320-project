@@ -2,21 +2,24 @@
   "name": "myapp",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://pages.github.uio.no/erlinhol/IN5320-group_project/",
   "license": "BSD-3-Clause",
   "private": true,
   "scripts": {
     "build": "d2-app-scripts build",
     "start": "concurrently \"d2-app-scripts start\" \"npx dhis-portal --target=https://data.research.dhis2.org/in5320/\"",
     "test": "d2-app-scripts test",
-    "deploy": "d2-app-scripts deploy"
+    "deploy": "d2-app-scripts deploy",
+    "predeploy": "npm run build",
+    "build_gh": "react-scripts build",
+    "deploy_gh": "gh-pages -d build"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@dhis2/cli-app-scripts": "^10.3.10",
-    "concurrently": "^8.2.1"
+    "gh-pages": "^6.0.0"
   },
   "dependencies": {
     "@dhis2/app-runtime": "^3.9.4",
-    "reactstrap": "^9.2.0"
+    "concurrently": "^8.2.1"
   }
 }
