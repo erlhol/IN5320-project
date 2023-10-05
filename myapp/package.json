@@ -1,0 +1,22 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "scripts": {
+    "build": "d2-app-scripts build",
+    "start": "concurrently \"d2-app-scripts start\" \"npx dhis-portal --target=https://data.research.dhis2.org/in5320/\"",
+    "test": "d2-app-scripts test",
+    "deploy": "d2-app-scripts deploy"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@dhis2/cli-app-scripts": "^10.3.10",
+    "concurrently": "^8.2.1"
+  },
+  "dependencies": {
+    "@dhis2/app-runtime": "^3.9.4",
+    "reactstrap": "^9.2.0"
+  }
+}
