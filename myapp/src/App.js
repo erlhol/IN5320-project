@@ -1,7 +1,9 @@
-import React from 'react'
-import { DataQuery } from '@dhis2/app-runtime'
+import React, { useState, useEffect } from 'react';
+import { DataQuery, useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import classes from './App.module.css'
+import { stockRequest, transRequest } from './requests';
+import { mergeCommodityAndValue } from './utilities';
 
 const query = {
     me: {
@@ -9,7 +11,30 @@ const query = {
     },
 }
 
-const MyApp = () => (
+
+const MyApp = () => {
+
+
+    // 1. For Stock Page
+    const { loading, error, data } = useDataQuery(stockRequest, {
+        variables: {
+            orgUnit: "ZpE2POxvl9P",
+            period: "202305",
+        }
+    })
+
+    const [commodityAndValueData, setCommodityAndValueData] = useState([])
+
+    useEffect(() => {
+        if ( data) 
+           setCommodityAndValueData(mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements))
+    }, [data])
+
+
+    // 2. For Transaction Page
+
+
+    return (
     <div className={classes.container}>
         <DataQuery query={query}>
             {({ error, loading, data }) => {
@@ -26,6 +51,6 @@ const MyApp = () => (
             }}
         </DataQuery>
     </div>
-)
+)}
 
 export default MyApp
