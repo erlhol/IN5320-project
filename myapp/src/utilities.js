@@ -1,7 +1,7 @@
 export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
   const commodityData = {};
-  console.log("dataValues", dataValues);
-  console.log("dataSetElements", dataSetElements);
+  // console.log("dataValues", dataValues);
+  // console.log("dataSetElements", dataSetElements);
 
   // Process dataValues and accumulate values based on categoryOptionCombo
   dataValues?.forEach(dataValue => {
@@ -30,6 +30,6 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
   });
 
   const commodityList = Object.values(commodityData);
-  console.log(commodityList);
+  //console.log(commodityList);
   return commodityList
 }

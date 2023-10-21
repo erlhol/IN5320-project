@@ -12,23 +12,43 @@ export const stockRequest = {
     // https://data.research.dhis2.org/in5320/api/dataValueSets.json?dataSet=ULowA8V3ucd&period=202310&orgUnit=ZpE2POxvl9P
     dataValues: {
         resource: "/dataValueSets",
-        params: ({ orgUnit, period }) => ({
-            orgUnit,
+        params: ({  period }) => ({
             period,
+            orgUnit: "ZpE2POxvl9P",
             dataSet: "ULowA8V3ucd"
         })
     }
 }
 
-export const transRequest = {
-    transactionHistory: {
-        resource: "/dataStore/IN5320-G19/restockHistory"
-    },
-
+export const stockUpdateRequest = {
+    resource: "dataValueSets",
+    dataSet: "ULowA8V3ucd",
+    type: "create",
+    data: ({ dataElement, value, categoryOptionCombo }) => ({
+        orgUnit: "ZpE2POxvl9P",
+        period: "202310",
+        dataValues: [
+            {
+                dataElement,
+                categoryOptionCombo,
+                value,
+            }
+        ]
+    })
 }
 
 
+export const transRequest = {
+    transactionHistory: {
+        resource: "/dataStore/IN5320-G21/transactions"
+    },
+}
 
+export const transUpdateRequest = {
+    resource: "dataStore/IN5320-G21/transactions",
+    type: "update",
+    data: (transactions) => transactions
+}
 
 
 // export function fetchHospitalData() {
