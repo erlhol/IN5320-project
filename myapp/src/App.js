@@ -4,6 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import classes from './App.module.css'
 import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from './requests';
 import { mergeCommodityAndValue } from './utilities';
+import Sidenav from './components/Sidenav';
 
 const query = {
     me: {
@@ -11,8 +12,15 @@ const query = {
     },
 }
 
-
 const MyApp = () => {
+
+    /* State for handling navigation */
+    const [activePage, setActivePage] = useState("Dashboard");
+
+    function activePageHandler(page) {
+        setActivePage(page);
+    }
+
     // 1. For Stock Display
     const [stockData, setStockData] = useState([])
     const { loading, error, data } = useDataQuery(stockRequest, { variables: {period: "202305"}})
@@ -55,25 +63,6 @@ const MyApp = () => {
     // useEffect(() => {
     //   updateTrans({ data: transData })
     // }, [])
-    
-   
-    return (
-    <div className={classes.container}>
-        <DataQuery query={query}>
-            {({ error, loading, data }) => {
-                if (error) return <span>ERROR</span>
-                if (loading) return <span>...</span>
-                return (
-                    <>
-                        <h1>
-                            {i18n.t('Hello {{name}}', { name: data.me.name })}
-                        </h1>
-                        <h3>{i18n.t('Welcome to DHIS2!')}</h3>
-                    </>
-                )
-            }}
-        </DataQuery>
-    </div>
-)}
+    return (<Sidenav activePage={activePage} activePageHandler={activePageHandler}></Sidenav>)}
 
 export default MyApp
