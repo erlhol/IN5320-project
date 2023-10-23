@@ -1,5 +1,3 @@
-import {Menu, MenuItem } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
 import React from "react";
 const Dashboard = () => {
     return(
@@ -9,14 +7,6 @@ const Dashboard = () => {
                     <p>Page subtitle (optional)</p>
                     
                 </div>
-            </div>)
- }
-
- /* 
- <div>
-        <h1>Dashboard</h1>
-        <p>Page subtitle (optional)</p>
-        </div>
- */
+            </div>)}
 
 export default Dashboard
