@@ -13,6 +13,8 @@ import {
 } from "@dhis2/ui";
 
 const CommodityTable= (props) => {
+
+  // TODO: replace the mock data
   return (
     <>
       <DataTable>

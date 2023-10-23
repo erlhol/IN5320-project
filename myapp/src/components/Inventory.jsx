@@ -6,7 +6,7 @@ import CommodityTable from "../utilities/CommodityTable";
 
 const Inventory = () => {
 
-  // Mock values:
+  // TODO: Replace these mock values
   let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
   let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
   const list = [commodity,commodity2]

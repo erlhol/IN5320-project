@@ -7,7 +7,7 @@ const Transactions = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h1 style={{ display: 'inline', margin: 0 }}>Transactions</h1>
                 <div style={{ display: 'flex', gap: '10px'}}>
-                    <Button name="Primary button" onClick={() => console.log("test")} secondary value="default" style={{ height: '100%'}}>
+                    <Button name="Secondary button" onClick={() => console.log("test")} secondary value="default" style={{ height: '100%'}}>
                     Add Stock
                     </Button>
                     <Button name="Primary button" onClick={() => console.log("test")} primary value="default" style={{ height: '100%' }}>
