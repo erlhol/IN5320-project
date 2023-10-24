@@ -1,4 +1,4 @@
-import {LogoIcon, Menu, MenuItem, IconHome16, IconLayoutRows16, IconReorder16 } from '@dhis2/ui'
+import { Menu, MenuItem, IconHome16, IconLayoutRows16, IconReorder16 } from '@dhis2/ui'
 import React from "react";
 
 import Dashboard from './Dashboard';
