@@ -7,6 +7,7 @@ const TransactionsForDay = (props) => {
             <h2>{props.date}</h2>
             {props.transactions.map((transaction, i) =>
                 <Menu key={i}>
+                    {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <p>{transaction.commodity_name}</p>
                         <p>{transaction.time}</p>
