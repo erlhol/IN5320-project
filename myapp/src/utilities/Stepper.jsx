@@ -19,7 +19,7 @@ const Step = (props) => {
 const Stepper = (props) => {
     
     /* props.step1, props.step2, props.step3 */
-    return (<Modal large>
+    return (<Modal onClose={() => props.onClose('')} large>
         <ModalTitle>
             {props.title}
         </ModalTitle>
