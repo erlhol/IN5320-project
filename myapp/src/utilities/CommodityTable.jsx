@@ -12,7 +12,7 @@ import {
   Pagination,
 } from "@dhis2/ui";
 
-const CommodityTable= (props) => {
+const CommodityTable = (props) => {
 
   // TODO: replace the mock data
   return (
