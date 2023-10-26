@@ -27,22 +27,31 @@ const MyApp = () => {
     useEffect(() => {
         if ( data) 
             setStockData(mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements))
+            console.log("stockData: ", stockData);
     }, [data])
 
-    // 2. For Stock Update
-    const [updateStock] = useDataMutation(stockUpdateRequest);
+    
+    // 2. For Transaction Display
+    const { loadingT, errorT, transactionData } = useDataQuery(transRequest)
+    useEffect(() => {
+        if (transactionData) console.log("transactionData: ",transactionData);
+    }, [transactionData])
+
+    
+
+    // 3. For Stock Update
+   /*  const [updateStock] = useDataMutation(stockUpdateRequest);
     useEffect(() => {
       updateStock({
           dataElement: "W1XtQhP6BGd",
           categoryOptionCombo: "J2Qf1jtZuj8",  //endBalance
           value: "321",
       })
-    }, [])
-    
-    // 3. For Transaction Display
-    // QUESTION:  transaction plus&minus?
-    //const { loadingT, errorT, transactionData } = useDataQuery(transRequest)
-    const [transData, setTransData] = useState([{
+    }, []) */
+
+
+    //4. For Transaction Update
+       /* const [transData, setTransData] = useState([{
         date: "2023-05-23",
         time:"14:20:00",
         commodityId: "d352wSd",
@@ -51,14 +60,7 @@ const MyApp = () => {
         dispensedTo: "Jenny",
         amount: -23,
         balanceAfterTrans: 34
-    }])
-
-    // useEffect(() => {
-    //     if (dataT) console.log("dataT",dataT);
-    // }, [dataT])
-
-
-    //4. For Transaction Update
+    }]) */
     // const [updateTrans] = useDataMutation(transUpdateRequest);
     // useEffect(() => {
     //   updateTrans({ data: transData })

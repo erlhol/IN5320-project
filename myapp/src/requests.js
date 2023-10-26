@@ -1,3 +1,5 @@
+
+// 1. For Stock Display
 export const stockRequest = {
     // Read all commodities in live saving commodities dataset
     // https://data.research.dhis2.org/in5320/api/dataSets/ULowA8V3ucd.json?fields=name,id,dataSetElements[dataElement[name,id,categoryCombo[name,id,[name,id]]]categoryOptionCombos
@@ -20,6 +22,17 @@ export const stockRequest = {
     }
 }
 
+
+// 2. For Transaction Display
+export const transRequest = {
+    transactionHistory: {
+        resource: "/dataStore/IN5320-G21/transactions"
+    },
+}
+
+
+
+// 3. For Stock Update
 export const stockUpdateRequest = {
     resource: "dataValueSets",
     dataSet: "ULowA8V3ucd",
@@ -38,12 +51,8 @@ export const stockUpdateRequest = {
 }
 
 
-export const transRequest = {
-    transactionHistory: {
-        resource: "/dataStore/IN5320-G21/transactions"
-    },
-}
 
+// 4. For Transaction Update
 export const transUpdateRequest = {
     resource: "dataStore/IN5320-G21/transactions",
     type: "update",
