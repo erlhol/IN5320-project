@@ -58,10 +58,10 @@ const CommodityTable = (props) => {
                     value={i}
                 />
                 </DataTableCell>
-                <DataTableCell>{commodity.name}</DataTableCell>
-                <DataTableCell>{commodity.stockBalance}</DataTableCell>
+                <DataTableCell>{commodity.commodityName}</DataTableCell>
+                <DataTableCell>{commodity.endBalance}</DataTableCell>
                 <DataTableCell>{commodity.consumption}</DataTableCell>
-                <DataTableCell>{commodity.lastdispensing}</DataTableCell>
+                <DataTableCell>{commodity.period}</DataTableCell>
                 <DataTableCell>
                 <Button name="Small button" onClick={() => console.log("Dispense ID "+i)} small value="default">
                     Dispense
