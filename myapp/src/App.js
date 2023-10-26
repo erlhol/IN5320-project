@@ -40,14 +40,14 @@ const MyApp = () => {
     
 
     // 3. For Stock Update
-   /*  const [updateStock] = useDataMutation(stockUpdateRequest);
+   const [updateStock] = useDataMutation(stockUpdateRequest);
     useEffect(() => {
       updateStock({
           dataElement: "W1XtQhP6BGd",
           categoryOptionCombo: "J2Qf1jtZuj8",  //endBalance
           value: "321",
       })
-    }, []) */
+    }, []) 
 
 
     //4. For Transaction Update
