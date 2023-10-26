@@ -31,7 +31,6 @@ export const transRequest = {
 }
 
 
-
 // 3. For Stock Update
 export const stockUpdateRequest = {
     resource: "dataValueSets",
@@ -49,7 +48,6 @@ export const stockUpdateRequest = {
         ]
     })
 }
-
 
 
 // 4. For Transaction Update

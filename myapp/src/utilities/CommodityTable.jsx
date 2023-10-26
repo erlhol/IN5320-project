@@ -51,47 +51,23 @@ const CommodityTable = (props) => {
 
         <TableBody>
             {props.commodities.map((commodity, i) => 
-            <DataTableRow>
+            <DataTableRow> {/* if the row should be selected, add the property: selected */ }
                 <DataTableCell width="48px">
                 <Checkbox
                     onChange={() => console.log("Toggle selected ID "+i)}
-                    value={i}
-                />
+                    value={i} 
+                /> {/* if it should be checked, add the property: checked */}
                 </DataTableCell>
-                <DataTableCell>{commodity.name}</DataTableCell>
-                <DataTableCell>{commodity.stockBalance}</DataTableCell>
+                <DataTableCell>{commodity.commodityName}</DataTableCell>
+                <DataTableCell>{commodity.endBalance}</DataTableCell>
                 <DataTableCell>{commodity.consumption}</DataTableCell>
-                <DataTableCell>{commodity.lastdispensing}</DataTableCell>
+                <DataTableCell>{commodity.period}</DataTableCell>
                 <DataTableCell>
                 <Button name="Small button" onClick={() => console.log("Dispense ID "+i)} small value="default">
                     Dispense
                 </Button>
                 </DataTableCell>
             </DataTableRow>)}
-
-          <DataTableRow selected>
-            <DataTableCell width="48px">
-              <Checkbox
-                checked
-                onChange={() => console.log("Toggle selected ID 2")}
-                value="id_2"
-              />
-            </DataTableCell>
-            <DataTableCell>Commodity 2</DataTableCell>
-            <DataTableCell>150</DataTableCell>
-            <DataTableCell>-25</DataTableCell>
-            <DataTableCell>08/11/2010</DataTableCell>
-            <DataTableCell>
-              <Button
-                name="Small button"
-                onClick={() => console.log("Dispense ID 2")}
-                small
-                value="default"
-              >
-                Dispense
-              </Button>
-            </DataTableCell>
-          </DataTableRow>
 
         </TableBody>
         <TableFoot>

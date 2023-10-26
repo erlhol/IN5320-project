@@ -7,7 +7,7 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(element => element.dataElement?.id === dataValue.dataElement);
     if (dataSetElement) {
-      const commodityName = dataSetElement.dataElement.name;
+      const commodityName = dataSetElement.dataElement.name.slice(14);
       const categoryOptionCombo = dataValue.categoryOptionCombo;
       const value = parseInt(dataValue.value, 10);
 
@@ -30,6 +30,6 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: " ,commodityList);
+  console.log("commodityList in line33 in utilities.js: " ,commodityList);
   return commodityList
 }
