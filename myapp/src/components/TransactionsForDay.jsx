@@ -3,7 +3,6 @@ import React from "react";
 const TransactionsForDay = (props) => {
     /* Displays the transactions for a chosen day.
     The data is passed in through props */
-    console.log("props",props);
     return(<>
             <h2>{props.date}</h2>
             {props.transactions.data.map((transaction, i) =>
@@ -24,7 +23,6 @@ const TransactionsForDay = (props) => {
                 </Menu>
             )}
         </>)
-    return <h1>dd</h1>
  }
 
 export default TransactionsForDay
