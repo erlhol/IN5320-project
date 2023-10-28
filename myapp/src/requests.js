@@ -22,14 +22,12 @@ export const stockRequest = {
     }
 }
 
-
 // 2. For Transaction Display
 export const transRequest = {
     transactionHistory: {
         resource: "/dataStore/IN5320-G21/transactions"
     },
 }
-
 
 // 3. For Stock Update
 export const stockUpdateRequest = {

@@ -61,7 +61,7 @@ const CommodityTable = (props) => {
                 <DataTableCell>{commodity.commodityName}</DataTableCell>
                 <DataTableCell>{commodity.endBalance}</DataTableCell>
                 <DataTableCell>{commodity.consumption}</DataTableCell>
-                <DataTableCell>{commodity.period}</DataTableCell>
+                <DataTableCell>{commodity.lastDispensing}</DataTableCell>
                 <DataTableCell>
                 <Button name="Small button" onClick={() => console.log("Dispense ID "+i)} small value="default">
                     Dispense

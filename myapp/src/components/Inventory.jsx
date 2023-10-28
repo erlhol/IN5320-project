@@ -9,7 +9,7 @@ import CommodityTable from "../utilities/CommodityTable";
 import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../requests';
 
-const Inventory = () => {
+const Inventory = (props) => {
 
   // TODO: Replace these mock values
   // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
@@ -27,7 +27,7 @@ const Inventory = () => {
   if (error) return <span>ERROR: {error.message}</span>
   if (loading) return <CircularLoader large />
   if (data) {
-    const stockData = mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements)
+    const stockData = mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements, props.transactionData)
     return (
       <>
         {/* The header and the add stock button */}

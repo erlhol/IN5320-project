@@ -6,11 +6,36 @@ import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } fr
 
 import Sidenav from './components/Sidenav';
 
-const query = {
-    me: {
-        resource: 'me',
+const transMockDta = [{
+    date: "2023-05-23",
+    time:"14:20:00",
+    commodityId: "d352wSd",
+    commodityName: "Female Kondom",
+    dispensedBy: "John",
+    dispensedTo: "Jenny",
+    amount: -23,
+    balanceAfterTrans: 34
+},
+    {
+        date: "2023-05-21",
+        time: "13:22:00",
+        commodityId: "vdslkas",
+        commodityName: "Chlorhexidine",
+        dispensedBy: "Some one",
+        dispensedTo: "Another one",
+        amount: 44,
+        balanceAfterTrans: 11
     },
-}
+    {
+        date: "2023-08-13",
+        time: "18:27:00",
+        commodityId: "dkdisw",
+        commodityName: "Antenatal Corticosteroids",
+        dispensedBy: "Who",
+        dispensedTo: "Whom",
+        amount: 32,
+        balanceAfterTrans: 12
+}]
 
 const MyApp = () => {
 
@@ -23,52 +48,23 @@ const MyApp = () => {
 
 
     // 3. For Stock Update
-//    const [updateStock] = useDataMutation(stockUpdateRequest);
-//     useEffect(() => {
-//       updateStock({
-//           dataElement: "W1XtQhP6BGd",
-//           categoryOptionCombo: "J2Qf1jtZuj8",  //endBalance
-//           value: "321",
-//       })
-//     }, []) 
+    //    const [updateStock] = useDataMutation(stockUpdateRequest);
+    //     useEffect(() => {
+    //       updateStock({
+    //           dataElement: "W1XtQhP6BGd",
+    //           categoryOptionCombo: "J2Qf1jtZuj8",  //endBalance
+    //           value: "321",
+    //       })
+    //     }, []) 
 
 
     //4. For Transaction Update
-    // const [transData, setTransData] = useState([{
-    //     date: "2023-05-23",
-    //     time:"14:20:00",
-    //     commodityId: "d352wSd",
-    //     commodityName: "Female Kondom",
-    //     dispensedBy: "John",
-    //     dispensedTo: "Jenny",
-    //     amount: -23,
-    //     balanceAfterTrans: 34
-    // },
-    //     {
-    //         date: "2023-05-21",
-    //         time: "13:22:00",
-    //         commodityId: "vdslkas",
-    //         commodityName: "Chlorhexidine",
-    //         dispensedBy: "Some one",
-    //         dispensedTo: "Another one",
-    //         amount: 44,
-    //         balanceAfterTrans: 11
-    //     },
-    //     {
-    //         date: "2023-08-13",
-    //         time: "18:27:00",
-    //         commodityId: "dkdisw",
-    //         commodityName: "Antenatal Corticosteroids",
-    //         dispensedBy: "Who",
-    //         dispensedTo: "Whom",
-    //         amount: 32,
-    //         balanceAfterTrans: 12
-    //     }]) 
-
+    // const [transData, setTransData] = useState(transMockDta) 
     // const [updateTrans] = useDataMutation(transUpdateRequest);
     // useEffect(() => {
     //   updateTrans({ data: transData })
     // }, [])
+
     return (<Sidenav activePage={activePage} activePageHandler={activePageHandler}></Sidenav>)}
 
 export default MyApp

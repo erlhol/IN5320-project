@@ -3,10 +3,11 @@ import React from "react";
 const TransactionsForDay = (props) => {
     /* Displays the transactions for a chosen day.
     The data is passed in through props */
-    console.log("props",props);
+    //console.log("props in TransactionsForDay: ", props);
+ 
     return(<>
-            <h2>{props.date}</h2>
-            {props.transactions.data.map((transaction, i) =>
+        <h2>{props.date}</h2>
+            {props.transactions.map((transaction, i) =>
                 <Menu key={i}>
                     {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -24,7 +25,7 @@ const TransactionsForDay = (props) => {
                 </Menu>
             )}
         </>)
-    return <h1>dd</h1>
+    //return <h1>dd</h1>
  }
 
 export default TransactionsForDay
