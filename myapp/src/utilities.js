@@ -43,14 +43,6 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements, transactionD
   return commodityList
 }
 
-
-// export const getTransByPeriod =(transactions, startDate, endDate) =>
-//   transactions.filter(transaction => {
-//     const transactionDate = new Date(transaction.date);
-//     console.log(transactionDate +" || "+startDate);
-//     return transactionDate >= startDate && transactionDate <= endDate;
-//   });
-
 export const getTransByPeriod = (transactions, startDate, endDate) => {
   const filteredTrans = {};
   for (const date in transactions) {
@@ -61,11 +53,7 @@ export const getTransByPeriod = (transactions, startDate, endDate) => {
   return filteredTrans;
 }
 
-
-// export const getTransByName = (transactions, commodityName) =>
-//   transactions.filter(transaction => transaction.commodityName === commodityName);
-
-export const getTransByName = (transactions, commodityName) => {
+export const getTransByCommodityName = (transactions, commodityName) => {
   if (!commodityName) return transactions
   const filteredTrans = {};
   for (const date in transactions) {
@@ -89,6 +77,20 @@ export const categorizeTransByDate =(transactions)=> {
   );
 
   return sortedCategorized
+}
+
+export const getTransByRecipient = (transactions, recipient) => {
+  if (!recipient) return transactions
+  const filteredTrans = {};
+  for (const date in transactions) {
+    console.log();
+    const matchedTrans = transactions[date].filter(transaction => transaction.dispensedTo === recipient);
+    if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans
+  }
+  return filteredTrans;
+
+
+
 
   // return {
   //   "2023-05-23": [

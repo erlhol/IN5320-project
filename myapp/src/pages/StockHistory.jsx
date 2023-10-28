@@ -7,22 +7,24 @@ import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
 import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import { getTransByName, getTransByPeriod, categorizeTransByDate } from '../utilities';
+import { getTransByCommodityName, getTransByPeriod, getTransByRecipient, categorizeTransByDate } from '../utilities';
 
 const Transactions = (props) => {
     const [currentModal, setCurrentModal] = useState('')
     const [selectedPeriod, setSelectedPeriod] = useState({ start: new Date("2023-05-21"), end: new Date("2023-05-23") })
+    const [selectedReceipient, setSelectedReceipient] = useState("Jenny")
     const [selectedCommodity, setSelectedCommodity] = useState(null)
     const [visibleTrans, setVisibleTrans] = useState(()=>categorizeTransByDate(props.transactionData) )
 
     useEffect(() => {
         const filteredByPeriod = getTransByPeriod(visibleTrans, selectedPeriod.start, selectedPeriod.end);
-        const filteredByName = getTransByName(filteredByPeriod, selectedCommodity);
+        const filteredByName = getTransByCommodityName(filteredByPeriod, selectedCommodity);
+        const filteredByReceipient = getTransByRecipient(filteredByName,selectedReceipient)
         // console.log("visibleTrans: ", visibleTrans);
         // console.log("filteredByPeriod: ", filteredByPeriod);
         // console.log("filteredByName: ", filteredByName);
-        setVisibleTrans(filteredByName);
-    }, [selectedPeriod, selectedCommodity]);
+        setVisibleTrans(filteredByReceipient);
+    }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
 
     const handleOnModalChange = (value) => {

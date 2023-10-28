@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import i18n from "@dhis2/d2-i18n";
 import classes from "./App.module.css";
+import {  CircularLoader } from "@dhis2/ui";
 import { transRequest,} from "./requests";
 
 import Sidenav from "./components/common/Sidenav";
@@ -35,7 +36,7 @@ const MyApp = () => {
     // useEffect(() => {
     //   updateTrans({ data: transData })
     // }, [])
-    
+
     const { loading, error, data } = useDataQuery(transRequest)
     if (error) return <span>ERROR in getting transaction/stock history data: {error.message}</span>
     if (loading) return <CircularLoader large />
