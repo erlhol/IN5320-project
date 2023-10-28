@@ -1,21 +1,18 @@
 import React from "react";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
-import Dropdown from "../utilities/Dropdown";
-import Search from "../utilities/Search";
-import Stepper from '../utilities/Stepper'
-import { mergeCommodityAndValue } from '../utilities';
+import { useDataQuery } from "@dhis2/app-runtime";
+
+import classes from "../App.module.css";
+import Header from "../components/common/Header";
+import Dropdown from "../components/common/Dropdown";
+import Search from "../components/common/Search";
+import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
-import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../requests';
+import { mergeCommodityAndValue } from "../utilities";
+import {stockRequest} from "../requests";
 
-const Inventory = (props) => {
-
-  // TODO: Replace these mock values
-  // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
-  // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
-  // const list = [commodity,commodity2]
-
+const Inventory = props => {
   const [currentModal, setCurrentModal] = useState('')
   // TODO: repace the period
   const { loading, error, data } = useDataQuery(stockRequest, { variables: { period: "202305" } })
@@ -24,42 +21,36 @@ const Inventory = (props) => {
     setCurrentModal(value)
   };
 
-  if (error) return <span>ERROR: {error.message}</span>
+  if (error) return <span>ERROR in getting stock data: {error.message}</span>
   if (loading) return <CircularLoader large />
   if (data) {
     const stockData = mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements, props.transactionData)
     return (
       <>
         {/* The header and the add stock button */}
-        <div
-          style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
-        >
-          <h1 style={{ display: "inline", margin: 0 }}>Inventory</h1>
-          <div style={{ textAlign: "right", flex: 1 }}>
-            <Button name="Primary button" onClick={() => handleOnModalChange('add_stock')} primary value="default" style={{ height: "100%" }}>
-              Add Stock
-            </Button>
-          </div>
-        </div>
-        <p></p>
+        <Header
+          title="Stock Overview"
+          primaryButtonLabel="Add Stock"
+          primaryButtonClick={() => handleOnModalChange("add_stock")}
+        />
 
         {/* The input fields */}
-        <div style={{ display: "flex", gap: '10px' }}>
-        
-          <Search placeholder='Search commodity' width={'320px'}></Search>
-          <Dropdown placeholder='Period' ></Dropdown>
+        <div className={classes.filterOptions}>
+          <Search placeholder="Search commodity" width={"320px"} />
+          <Dropdown placeholder="Period" />
         </div>
 
         <p></p>
 
         {/* The commodity table */}
-        <CommodityTable commodities={stockData}></CommodityTable>
+        <CommodityTable commodities={stockData} />
 
-        {currentModal === 'add_stock' && <Stepper title={'Add stock'} onClose={handleOnModalChange} ></Stepper>}
-
+        {currentModal === "add_stock" && (
+          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+        )}
       </>
     );
-  };
-}
+  }
+};
 
 export default Inventory;

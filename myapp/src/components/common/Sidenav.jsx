@@ -1,70 +1,30 @@
 import { Menu, MenuItem, IconHome16, IconLayoutRows16, IconReorder16, CircularLoader } from '@dhis2/ui'
-import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../../requests';
-import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import React from "react";
 
-
-import Dashboard from '../../pages/Dashboard';
-import Inventory from '../../pages/StockOverview';
-import Transactions from '../../pages/StockHistory';
 const Sidenav = (props) => {
-    const { loading, error, data } = useDataQuery(transRequest)
-    if (loading) return <CircularLoader large />
-    if (data) {
-        let transactionData = data.transactionHistory.data
-        
-        return (
-            <main
-                style={{
-                    border: '1px solid grey',
-                    display: 'flex',
-                    height: '100%'
-                }}
-            >
-                <aside
-                    style={{
-                        flexGrow: 0,
-                        height: '100%',
-                        width: 200,
-                        backgroundColor: 'rgb(33,41,52)'
-                        
-                    }}
-                >
-                    <Menu>
-                        <MenuItem
-                            style={{ fontSize: '5px' }}
-                            icon={<IconHome16></IconHome16>}
-                            label="Dashboard"
-                            active={props.activePage === "Dashboard"}
-                            onClick={() => props.activePageHandler("Dashboard")}
-                        />
-                        <MenuItem
-                            label="Inventory"
-                            icon={<IconLayoutRows16></IconLayoutRows16>}
-                            active={props.activePage === "Inventory"}
-                            onClick={() => props.activePageHandler("Inventory")}
-                        />
-                        <MenuItem
-                            label="Transactions"
-                            icon={<IconReorder16></IconReorder16>} // could not find the correct icon
-                            active={props.activePage === "Transactions"}
-                            onClick={() => props.activePageHandler("Transactions")}
-                        />
-                    </Menu>
-                </aside>
-                <section
-                    style={{
-                        borderLeft: '1px solid grey',
-                        flexGrow: 1,
-                        padding: 20
-                    }}
-                >
-                    {props.activePage === "Dashboard" && <Dashboard />}
-                    {props.activePage === "Inventory" && <Inventory transactionData={transactionData}/>}
-                    {props.activePage === "Transactions" && <Transactions transactionData={transactionData} />}
-                </section>
-            </main>)
+    return (
+        <Menu>
+            <MenuItem
+                icon={<IconHome16></IconHome16>}
+                label="Dashboard"
+                active={props.activePage === "Dashboard"}
+                onClick={() => props.activePageHandler("Dashboard")}
+            />
+            <MenuItem
+                label="Stock Overview"
+                icon={<IconLayoutRows16></IconLayoutRows16>}
+                active={props.activePage === "StockOverview"}
+                onClick={() => props.activePageHandler("StockOverview")}
+            />
+            <MenuItem
+                label="Stock History"
+                icon={<IconReorder16></IconReorder16>} // could not find the correct icon
+                active={props.activePage === "StockHistory"}
+                onClick={() => props.activePageHandler("StockHistory")}
+            />
+        </Menu>
+        )
     }
-}
+
 
 export default Sidenav

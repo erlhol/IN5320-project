@@ -1,31 +1,48 @@
-import { Menu, IconArrowRight24, IconMore24  } from '@dhis2/ui'
 import React from "react";
-const TransactionsForDay = (props) => {
-    /* Displays the transactions for a chosen day.
-    The data is passed in through props */
-    //console.log("props in TransactionsForDay: ", props);
- 
-    return(<>
-        <h2>{props.date}</h2>
-            {props.transactions.map((transaction, i) =>
-                <Menu key={i}>
-                    {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <p>{transaction.commodityName}</p>
-                        <p>{transaction.date} {transaction.time}</p>
-                        <p>{transaction.dispensedBy}</p>
-                        <IconArrowRight24></IconArrowRight24>
-                        <p>{transaction.dispensedTo}</p>
-                        <div>
-                            <p>{transaction.amount}</p>
-                            <p>Updated stock: {transaction.balanceAfterTrans}</p>
-                        </div>
-                        <IconMore24></IconMore24>
-                    </div>     
-                </Menu>
-            )}
-        </>)
-    //return <h1>dd</h1>
- }
+import { Card, IconArrowRight24, IconMore24 } from "@dhis2/ui";
+import classes from "../../App.module.css";
 
-export default TransactionsForDay
+const TransactionsForDay = props => {
+  /* Displays the transactions for a chosen day.
+    The data is passed in through props */
+  return (
+    <>
+      <h2>{props.date}</h2>
+      <div className={classes.transactionsItems}>
+        {props.transactions.map((transaction, i) => (
+          <div key={i}>
+            {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
+            <Card className={classes.transactionItem}>
+              <div className={classes.transactionItemFirstHalf}>
+                <span className={classes.transactionCommodities}>
+                  {transaction.commodityName}
+                </span>
+                <span>{transaction.time}</span>
+              </div>
+              <div className={classes.transactionItemSecondHalf}>
+                <div
+                  className={`${classes.stockHistoryData} ${classes.transactionActors}`}
+                >
+                  <span className={classes.transactionActor}>
+                    {transaction.dispensedBy}
+                  </span>
+                  <IconArrowRight24></IconArrowRight24>
+                  <span className={classes.transactionActor}>
+                    {transaction.dispensedTo}
+                  </span>
+                </div>
+                <div className={classes.transactionAmount}>
+                  <div>{transaction.amount}</div>
+                  <div>Updated stock: {transaction.balanceAfterTrans}</div>
+                </div>
+              </div>
+              <IconMore24></IconMore24>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default TransactionsForDay;
