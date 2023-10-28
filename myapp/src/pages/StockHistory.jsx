@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from 'react'
 import Search from '../utilities/Search';
 import Dropdown from '../utilities/Dropdown';
-import TransactionsForDay from './TransactionsForDay'
+import TransactionsForDay from '../components/stockHistory/TransactionsForDay'
 import Stepper from '../utilities/Stepper'
 import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../requests';

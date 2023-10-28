@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import classes from './App.module.css'
 import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from './requests';
 
-import Sidenav from './components/Sidenav';
+import Sidenav from './components/common/Sidenav';
 
 const transMockDta = [{
     date: "2023-05-23",

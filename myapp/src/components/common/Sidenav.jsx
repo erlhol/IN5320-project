@@ -1,12 +1,12 @@
 import { Menu, MenuItem, IconHome16, IconLayoutRows16, IconReorder16, CircularLoader } from '@dhis2/ui'
-import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../requests';
+import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../../requests';
 import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import React from "react";
 
 
-import Dashboard from './Dashboard';
-import Inventory from './Inventory';
-import Transactions from './Transactions';
+import Dashboard from '../../pages/Dashboard';
+import Inventory from '../../pages/StockOverview';
+import Transactions from '../../pages/StockHistory';
 const Sidenav = (props) => {
     const { loading, error, data } = useDataQuery(transRequest)
     if (loading) return <CircularLoader large />

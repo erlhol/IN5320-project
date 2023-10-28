@@ -5,7 +5,7 @@ import Dropdown from "../utilities/Dropdown";
 import Search from "../utilities/Search";
 import Stepper from '../utilities/Stepper'
 import { mergeCommodityAndValue } from '../utilities';
-import CommodityTable from "../utilities/CommodityTable";
+import CommodityTable from "../components/stockOverview/CommodityTable";
 import { DataQuery, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import { stockRequest, stockUpdateRequest, transRequest, transUpdateRequest } from '../requests';
 
