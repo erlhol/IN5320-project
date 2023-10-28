@@ -1,4 +1,4 @@
-/* @import "../src/css/common.css"; */
+/* common */
 
 .container {
   display: flex;
@@ -15,5 +15,19 @@
   flex-grow: 1;
   min-height: 100vh;
   padding: 26px 16px 0;
-  background: #F8F9FA;
+  background: #f8f9fa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  margin: 0;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 12px;
 }

@@ -1,12 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
+import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+
+import Header from "../components/common/Header";
 import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
-import { mergeCommodityAndValue } from "../utilities";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { mergeCommodityAndValue } from "../utilities";
 import {
   stockRequest,
   stockUpdateRequest,
@@ -40,27 +42,11 @@ const Inventory = () => {
     return (
       <>
         {/* The header and the add stock button */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h1 style={{ display: "inline", margin: 0 }}>Stock Overview</h1>
-          <div style={{ textAlign: "right", flex: 1 }}>
-            <Button
-              name="Primary button"
-              onClick={() => handleOnModalChange("add_stock")}
-              primary
-              value="default"
-              style={{ height: "100%" }}
-            >
-              Add Stock
-            </Button>
-          </div>
-        </div>
-        <p></p>
+        <Header
+          title="Stock Overview"
+          primaryButtonLabel="Add Stock"
+          primaryButtonClick={() => handleOnModalChange("add_stock")}
+        />
 
         {/* The input fields */}
         <div style={{ display: "flex", gap: "10px" }}>

@@ -1,11 +1,13 @@
-import { Button, CircularLoader } from "@dhis2/ui";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Button, CircularLoader } from "@dhis2/ui";
+import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+
+import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
-import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import Stepper from "../components/common/Stepper";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import {
   stockRequest,
   stockUpdateRequest,
@@ -52,36 +54,12 @@ const Transactions = () => {
     return (
       <>
         {/* Navigation buttons to add stock or new dispensing */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h1 style={{ display: "inline", margin: 0 }}>Stock History</h1>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <Button
-              name="Secondary button"
-              onClick={() => handleOnModalChange("add_stock")}
-              secondary
-              value="add_stock"
-              style={{ height: "100%" }}
-            >
-              Add Stock
-            </Button>
-            <Button
-              name="Primary button"
-              onClick={() => handleOnModalChange("new_dispensing")}
-              primary
-              value="new_dispensing"
-              style={{ height: "100%" }}
-            >
-              New Dispensing
-            </Button>
-          </div>
-        </div>
-        <p></p>
+        <Header
+          title="Stock History"
+          primaryButtonLabel="New Dispensing"
+          primaryButtonClick={() => handleOnModalChange("new_dispensing")}
+        />
+
         {/* The different search and filter options */}
         <div style={{ display: "flex", gap: "10px" }}>
           <Search placeholder="Search commodity" width={"320px"}></Search>
