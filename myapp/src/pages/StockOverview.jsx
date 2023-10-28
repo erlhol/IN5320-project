@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
+import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
@@ -49,18 +50,18 @@ const Inventory = () => {
         />
 
         {/* The input fields */}
-        <div style={{ display: "flex", gap: "10px" }}>
-          <Search placeholder="Search commodity" width={"320px"}></Search>
-          <Dropdown placeholder="Period"></Dropdown>
+        <div className={classes.filterOptions}>
+          <Search placeholder="Search commodity" width={"320px"} />
+          <Dropdown placeholder="Period" />
         </div>
 
         <p></p>
 
         {/* The commodity table */}
-        <CommodityTable commodities={stockData}></CommodityTable>
+        <CommodityTable commodities={stockData} />
 
         {currentModal === "add_stock" && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange}></Stepper>
+          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
       </>
     );

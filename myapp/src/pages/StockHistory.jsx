@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
+import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
@@ -61,11 +62,11 @@ const Transactions = () => {
         />
 
         {/* The different search and filter options */}
-        <div style={{ display: "flex", gap: "10px" }}>
-          <Search placeholder="Search commodity" width={"320px"}></Search>
-          <Dropdown placeholder="Period"></Dropdown>
-          <Dropdown placeholder="All transactions"></Dropdown>
-          <Dropdown placeholder="Recipient"></Dropdown>
+        <div className={classes.filterOptions}>
+          <Search placeholder="Search commodity" width={"320px"} />
+          <Dropdown placeholder="Period" />
+          <Dropdown placeholder="All transactions" />
+          <Dropdown placeholder="Recipient" />
         </div>
 
         {/* Multiple transactions can be listed here: */}
@@ -74,27 +75,25 @@ const Transactions = () => {
         <TransactionsForDay
           date={transactionData.data.date}
           transactions={transactionData}
-        ></TransactionsForDay>
+        />
 
         {currentModal === "add_stock" && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange}></Stepper>
+          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
         {currentModal === "new_dispensing" && (
-          <Stepper
-            title={"New dispensing"}
-            onClose={handleOnModalChange}
-          ></Stepper>
+          <Stepper title={"New dispensing"} onClose={handleOnModalChange} />
         )}
       </>
     );
-  } else
+  }
+  // TODO: add empty state
+  else
     return (
       <Button
-        name="Secondary button"
-        onClick={() => handleOnModalChange("add_stock")}
         secondary
+        name="Secondary button"
         value="add_stock"
-        style={{ height: "100%" }}
+        onClick={() => handleOnModalChange("add_stock")}
       >
         Add Stock
       </Button>
