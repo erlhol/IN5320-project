@@ -10,21 +10,27 @@ import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import { mergeCommodityAndValue } from "../utilities";
-import {stockRequest} from "../requests";
+import { stockRequest } from "../requests";
 
 const Inventory = props => {
-  const [currentModal, setCurrentModal] = useState('')
+  const [currentModal, setCurrentModal] = useState("");
   // TODO: repace the period
-  const { loading, error, data } = useDataQuery(stockRequest, { variables: { period: "202305" } })
+  const { loading, error, data } = useDataQuery(stockRequest, {
+    variables: { period: "202305" },
+  });
 
-  const handleOnModalChange = (value) => {
-    setCurrentModal(value)
+  const handleOnModalChange = value => {
+    setCurrentModal(value);
   };
 
-  if (error) return <span>ERROR in getting stock data: {error.message}</span>
-  if (loading) return <CircularLoader large />
+  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
+  if (loading) return <CircularLoader large />;
   if (data) {
-    const stockData = mergeCommodityAndValue(data.dataValues?.dataValues, data.commodities?.dataSetElements, props.transactionData)
+    const stockData = mergeCommodityAndValue(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements,
+      props.transactionData
+    );
     return (
       <>
         {/* The header and the add stock button */}
