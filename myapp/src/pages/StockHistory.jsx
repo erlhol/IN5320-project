@@ -51,6 +51,7 @@ const Transactions = () => {
   if (error) return <span>ERROR: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
+    // Can data be false?
     let transactionData = data.transactionHistory;
     return (
       <>
@@ -87,6 +88,7 @@ const Transactions = () => {
     );
   }
   // TODO: add empty state
+  // Can data be false?
   else
     return (
       <Button
