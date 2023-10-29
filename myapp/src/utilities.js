@@ -5,9 +5,11 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
 
   // Process dataValues and accumulate values based on categoryOptionCombo
   dataValues?.forEach(dataValue => {
-    const dataSetElement = dataSetElements?.find(element => element.dataElement?.id === dataValue.dataElement);
+    const dataSetElement = dataSetElements?.find(
+      element => element.dataElement?.id === dataValue.dataElement
+    );
     if (dataSetElement) {
-      const commodityName = dataSetElement.dataElement.name.slice(14);
+      const commodityName = dataSetElement.dataElement.name.slice(14); // Why slice 14?
       const categoryOptionCombo = dataValue.categoryOptionCombo;
       const value = parseInt(dataValue.value, 10);
 
@@ -16,7 +18,7 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
           commodityName,
           endBalance: 0,
           consumption: 0,
-          period: 0
+          period: 0,
         };
       }
 
@@ -25,11 +27,11 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
       } else if (categoryOptionCombo === "rQLFnNXXIL0") {
         commodityData[commodityName].consumption += value;
       }
-      commodityData[commodityName].period = dataValue.period
+      commodityData[commodityName].period = dataValue.period;
     }
   });
 
   const commodityList = Object.values(commodityData);
-  console.log("commodityList in line33 in utilities.js: " ,commodityList);
-  return commodityList
-}
+  console.log("commodityList in line33 in utilities.js: ", commodityList);
+  return commodityList;
+};
