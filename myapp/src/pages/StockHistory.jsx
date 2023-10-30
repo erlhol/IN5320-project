@@ -87,19 +87,6 @@ const Transactions = () => {
       </>
     );
   }
-  // TODO: add empty state
-  // Can data be false?
-  else
-    return (
-      <Button
-        secondary
-        name="Secondary button"
-        value="add_stock"
-        onClick={() => handleOnModalChange("add_stock")}
-      >
-        Add Stock
-      </Button>
-    );
 };
 
 export default Transactions;
