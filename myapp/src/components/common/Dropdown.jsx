@@ -1,18 +1,21 @@
 import React from "react";
 import { SingleSelectField, SingleSelectOption } from "@dhis2/ui";
 const Dropdown = props => {
-  // TODO: replace with real values. Can be passed with props
-  console.log(props.placeholder);
   return (
     <>
       <SingleSelectField
         inputWidth="250px"
-        onChange={() => console.log("Period changed")}
-        placeholder={props.placeholder}
+        onChange={props.onChange}
         required
+        selected={props.chosenValue}
+        helpText={props.helpText}
       >
-        <SingleSelectOption label="one" value="1" />
-        <SingleSelectOption label="two" value="2" />
+        {/* Not sure what the best practice is here
+        I want to structure values as a list with two elements,
+        the first element is label, the second is value */}
+        {props.values.map(value => (
+          <SingleSelectOption label={value[0]} value={value[1]} />
+        ))}
       </SingleSelectField>
     </>
   );

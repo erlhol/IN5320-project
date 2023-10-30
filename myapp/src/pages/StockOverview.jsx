@@ -16,6 +16,7 @@ import {
   transRequest,
   transUpdateRequest,
 } from "../requests";
+import { getCurrentMonth, getPeriods } from "../dates";
 
 const Inventory = () => {
   // TODO: Replace these mock values
@@ -24,13 +25,23 @@ const Inventory = () => {
   // const list = [commodity,commodity2]
 
   const [currentModal, setCurrentModal] = useState("");
+  const [chosenPeriod, setChosenPeriod] = useState(getCurrentMonth());
   // TODO: repace the period
-  const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: "202305" },
+  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
+    variables: { period: chosenPeriod },
   });
+
+  /* Refetch from API if chosenPeriod is changed */
+  useEffect(() => {
+    refetch({ period: chosenPeriod });
+  }, [chosenPeriod]);
 
   const handleOnModalChange = value => {
     setCurrentModal(value);
+  };
+
+  const handleOnPeriodChange = value => {
+    setChosenPeriod(value.selected);
   };
 
   if (error) return <span>ERROR: {error.message}</span>;
@@ -52,7 +63,12 @@ const Inventory = () => {
         {/* The input fields */}
         <div className={classes.filterOptions}>
           <Search placeholder="Search commodity" width={"320px"} />
-          <Dropdown placeholder="Period" />
+          <Dropdown
+            values={getPeriods()}
+            chosenValue={chosenPeriod}
+            helpText={"Choose period"}
+            onChange={handleOnPeriodChange}
+          />
         </div>
 
         <p></p>
