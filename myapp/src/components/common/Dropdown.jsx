@@ -6,7 +6,7 @@ const Dropdown = props => {
   return (
     <>
       <SingleSelectField
-        inputWidth="200px"
+        inputWidth="250px"
         onChange={() => console.log("Period changed")}
         placeholder={props.placeholder}
         required
