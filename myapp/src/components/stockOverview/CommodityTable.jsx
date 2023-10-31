@@ -80,6 +80,7 @@ const CommodityTable = props => {
         <TableFoot>
           <DataTableRow>
             <DataTableCell colSpan="6">
+              {/* TODO: add pagination logic */}
               <Pagination
                 onPageChange={() => console.log("Page Changed")}
                 onPageSizeChange={() => console.log("Page Size Changed")}

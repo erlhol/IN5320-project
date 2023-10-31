@@ -93,7 +93,6 @@ export const getTransByRecipient = (transactions, recipient) => {
   if (!recipient) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
-    console.log();
     const matchedTrans = transactions[date].filter(
       transaction => transaction.dispensedTo === recipient
     );
