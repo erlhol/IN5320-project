@@ -5,9 +5,10 @@ const Search = props => {
   return (
     <InputField
       inputWidth={props.width}
+      value={props.currentSearch}
       name="defaultName"
       type="search"
-      onChange={() => console.log("Fix")}
+      onChange={props.onSearchChange}
       placeholder={props.placeholder}
     />
   );

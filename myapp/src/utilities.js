@@ -32,6 +32,5 @@ export const mergeCommodityAndValue = (dataValues, dataSetElements) => {
   });
 
   const commodityList = Object.values(commodityData);
-  console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
 };

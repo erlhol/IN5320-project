@@ -13,7 +13,7 @@ const Dropdown = props => {
         {/* Not sure what the best practice is here
         I want to structure values as a list with two elements,
         the first element is label, the second is value */}
-        {props.values.map(value => (
+        {props.values?.map(value => (
           <SingleSelectOption label={value[0]} value={value[1]} />
         ))}
       </SingleSelectField>

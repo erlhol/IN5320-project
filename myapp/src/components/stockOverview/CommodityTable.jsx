@@ -49,7 +49,7 @@ const CommodityTable = props => {
         </TableHead>
 
         <TableBody>
-          {props.commodities.map((commodity, i) => (
+          {props.commodities?.map((commodity, i) => (
             <DataTableRow>
               {" "}
               {/* if the row should be selected, add the property: selected */}

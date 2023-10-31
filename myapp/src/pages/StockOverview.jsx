@@ -17,6 +17,7 @@ import {
   transUpdateRequest,
 } from "../requests";
 import { getCurrentMonth, getPeriods } from "../dates";
+import { filterBySearch } from "../search";
 
 const Inventory = () => {
   // TODO: Replace these mock values
@@ -26,6 +27,7 @@ const Inventory = () => {
 
   const [currentModal, setCurrentModal] = useState("");
   const [chosenPeriod, setChosenPeriod] = useState(getCurrentMonth());
+  const [currentSearch, setCurrentSearch] = useState("");
   // TODO: repace the period
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: chosenPeriod },
@@ -44,6 +46,10 @@ const Inventory = () => {
     setChosenPeriod(value.selected);
   };
 
+  const handleOnChangeSearch = value => {
+    setCurrentSearch(value.value);
+  };
+
   if (error) return <span>ERROR: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
@@ -51,6 +57,7 @@ const Inventory = () => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements
     );
+    const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>
         {/* The header and the add stock button */}
@@ -62,7 +69,12 @@ const Inventory = () => {
 
         {/* The input fields */}
         <div className={classes.filterOptions}>
-          <Search placeholder="Search commodity" width={"320px"} />
+          <Search
+            currentSearch={currentSearch}
+            onSearchChange={handleOnChangeSearch}
+            placeholder="Search commodity"
+            width={"320px"}
+          />
           <Dropdown
             values={getPeriods()}
             chosenValue={chosenPeriod}
@@ -74,7 +86,7 @@ const Inventory = () => {
         <p></p>
 
         {/* The commodity table */}
-        <CommodityTable commodities={stockData} />
+        <CommodityTable commodities={filteredStockData} />
 
         {currentModal === "add_stock" && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
