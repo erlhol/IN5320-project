@@ -18,9 +18,9 @@ const Transactions = props => {
   const [currentModal, setCurrentModal] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState({
     start: new Date("2023-05-21"),
-    end: new Date("2023-05-23"),
+    end: new Date("2023-08-23"),
   });
-  const [selectedReceipient, setSelectedReceipient] = useState("Jenny");
+  const [selectedReceipient, setSelectedReceipient] = useState(null);
   const [selectedCommodity, setSelectedCommodity] = useState(null);
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
