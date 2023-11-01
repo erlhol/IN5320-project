@@ -16,7 +16,7 @@ import {
   transRequest,
   transUpdateRequest,
 } from "../requests";
-import { getCurrentMonth, getPeriods } from "../dates";
+import { getCurrentMonth } from "../dates";
 import { filterBySearch } from "../search";
 
 const Inventory = () => {
@@ -25,25 +25,15 @@ const Inventory = () => {
   // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
   // const list = [commodity,commodity2]
 
-  const [currentModal, setCurrentModal] = useState("");
-  const [chosenPeriod, setChosenPeriod] = useState(getCurrentMonth());
+  const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
   // TODO: repace the period
-  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-    variables: { period: chosenPeriod },
+  const { loading, error, data } = useDataQuery(stockRequest, {
+    variables: { period: getCurrentMonth() },
   });
 
-  /* Refetch from API if chosenPeriod is changed */
-  useEffect(() => {
-    refetch({ period: chosenPeriod });
-  }, [chosenPeriod]);
-
-  const handleOnModalChange = value => {
-    setCurrentModal(value);
-  };
-
-  const handleOnPeriodChange = value => {
-    setChosenPeriod(value.selected);
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
   };
 
   const handleOnChangeSearch = value => {
@@ -75,12 +65,6 @@ const Inventory = () => {
             placeholder="Search commodity"
             width={"320px"}
           />
-          <Dropdown
-            values={getPeriods()}
-            chosenValue={chosenPeriod}
-            helpText={"Choose period"}
-            onChange={handleOnPeriodChange}
-          />
         </div>
 
         <p></p>
@@ -88,7 +72,7 @@ const Inventory = () => {
         {/* The commodity table */}
         <CommodityTable commodities={filteredStockData} />
 
-        {currentModal === "add_stock" && (
+        {modalPresent && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
       </>
