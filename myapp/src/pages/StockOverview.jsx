@@ -46,11 +46,10 @@ const Inventory = props => {
           <Dropdown placeholder="Period" />
         </div>
 
-        <p></p>
-
         {/* The commodity table */}
         <CommodityTable commodities={stockData} />
 
+        {/* TODO: remove stepper component */}
         {currentModal === "add_stock" && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
