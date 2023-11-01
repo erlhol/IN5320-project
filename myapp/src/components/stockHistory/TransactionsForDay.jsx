@@ -9,7 +9,7 @@ const TransactionsForDay = props => {
     <>
       <h2>{props.date}</h2>
       <div className={classes.transactionsItems}>
-        {props.transactions.data.map((transaction, i) => (
+        {props.transactions.map((transaction, i) => (
           <div key={i}>
             {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
             <Card className={classes.transactionItem}>
@@ -17,7 +17,7 @@ const TransactionsForDay = props => {
                 <span className={classes.transactionCommodities}>
                   {transaction.commodityName}
                 </span>
-                <span>{transaction.time}</span>
+                <span>{transaction.time.substring(0, 5)}</span>
               </div>
               <div className={classes.transactionItemSecondHalf}>
                 <div

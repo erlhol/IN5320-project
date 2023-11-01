@@ -12,8 +12,7 @@ import {
   Pagination,
 } from "@dhis2/ui";
 
-const CommodityTable = (props) => {
-
+const CommodityTable = props => {
   // TODO: replace the mock data
   return (
     <>
@@ -42,7 +41,7 @@ const CommodityTable = (props) => {
               sortDirection="desc"
               sortIconTitle="Sort by Consumption"
             >
-              Consumption
+              Monthly Consumption
             </DataTableColumnHeader>
             <DataTableColumnHeader>Last Dispensing</DataTableColumnHeader>
             <DataTableColumnHeader></DataTableColumnHeader>
@@ -50,29 +49,37 @@ const CommodityTable = (props) => {
         </TableHead>
 
         <TableBody>
-            {props.commodities.map((commodity, i) => 
-            <DataTableRow> {/* if the row should be selected, add the property: selected */ }
-                <DataTableCell width="48px">
+          {props.commodities.map((commodity, i) => (
+            <DataTableRow>
+              {/* if the row should be selected, add the property: selected */}
+              <DataTableCell width="48px">
                 <Checkbox
-                    onChange={() => console.log("Toggle selected ID "+i)}
-                    value={i} 
-                /> {/* if it should be checked, add the property: checked */}
-                </DataTableCell>
-                <DataTableCell>{commodity.commodityName}</DataTableCell>
-                <DataTableCell>{commodity.endBalance}</DataTableCell>
-                <DataTableCell>{commodity.consumption}</DataTableCell>
-                <DataTableCell>{commodity.period}</DataTableCell>
-                <DataTableCell>
-                <Button name="Small button" onClick={() => console.log("Dispense ID "+i)} small value="default">
-                    Dispense
+                  onChange={() => console.log("Toggle selected ID " + i)}
+                  value={i}
+                />{" "}
+                {/* if it should be checked, add the property: checked */}
+              </DataTableCell>
+              <DataTableCell>{commodity.commodityName}</DataTableCell>
+              <DataTableCell>{commodity.endBalance}</DataTableCell>
+              <DataTableCell>{commodity.consumption}</DataTableCell>
+              <DataTableCell>{commodity.lastDispensing}</DataTableCell>
+              <DataTableCell>
+                <Button
+                  name="Small button"
+                  onClick={() => console.log("Dispense ID " + i)}
+                  small
+                  value="default"
+                >
+                  Dispense
                 </Button>
-                </DataTableCell>
-            </DataTableRow>)}
-
+              </DataTableCell>
+            </DataTableRow>
+          ))}
         </TableBody>
         <TableFoot>
           <DataTableRow>
             <DataTableCell colSpan="6">
+              {/* TODO: add pagination logic */}
               <Pagination
                 onPageChange={() => console.log("Page Changed")}
                 onPageSizeChange={() => console.log("Page Size Changed")}
