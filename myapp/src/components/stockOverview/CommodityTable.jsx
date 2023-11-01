@@ -41,7 +41,7 @@ const CommodityTable = props => {
               sortDirection="desc"
               sortIconTitle="Sort by Consumption"
             >
-              Consumption
+              Monthly Consumption
             </DataTableColumnHeader>
             <DataTableColumnHeader>Last Dispensing</DataTableColumnHeader>
             <DataTableColumnHeader></DataTableColumnHeader>
