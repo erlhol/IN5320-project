@@ -17,10 +17,10 @@ import {
 const Transactions = props => {
   const [currentModal, setCurrentModal] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-05-21"),
-    end: new Date("2023-05-23"),
+    start: new Date("2023-05-23"),
+    end: new Date("2023-08-23"),
   });
-  const [selectedReceipient, setSelectedReceipient] = useState("Jenny");
+  const [selectedReceipient, setSelectedReceipient] = useState(null);
   const [selectedCommodity, setSelectedCommodity] = useState(null);
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
@@ -70,11 +70,12 @@ const Transactions = props => {
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
                 <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay> */}
-      {Object.keys(visibleTrans).map(date => (
+      {Object.keys(visibleTrans).map((date, i) => (
         <TransactionsForDay
+          key={i}
           date={date}
           transactions={visibleTrans[date]}
-        ></TransactionsForDay>
+        />
       ))}
 
       {currentModal === "add_stock" && (

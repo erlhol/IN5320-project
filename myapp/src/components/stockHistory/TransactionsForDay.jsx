@@ -17,7 +17,7 @@ const TransactionsForDay = props => {
                 <span className={classes.transactionCommodities}>
                   {transaction.commodityName}
                 </span>
-                <span>{transaction.time}</span>
+                <span>{transaction.time.substring(0, 5)}</span>
               </div>
               <div className={classes.transactionItemSecondHalf}>
                 <div

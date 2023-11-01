@@ -17,7 +17,7 @@ export const mergeCommodityAndValue = (
     );
 
     if (dataSetElement) {
-      const commodityName = dataSetElement.dataElement.name.slice(14);
+      const commodityName = dataSetElement.dataElement.name.split(" - ")[1];
       const categoryOptionCombo = dataValue.categoryOptionCombo;
       const value = parseInt(dataValue.value, 10);
 
@@ -41,8 +41,9 @@ export const mergeCommodityAndValue = (
       commodityData[commodityName].commodityId = dataValue.dataElement;
 
       if (transaction)
+        //console.log("W1XtQhP6BGd: ", transaction);
         commodityData[commodityName].lastDispensing =
-          transaction.date + " " + transaction.time;
+          transaction.date + " " + transaction.time.substring(0, 5);
     }
   });
 
@@ -83,7 +84,7 @@ export const categorizeTransByDate = transactions => {
     categorized[date].push(transaction);
   });
   const sortedCategorized = Object.fromEntries(
-    Object.entries(categorized).sort(([a], [b]) => a.localeCompare(b))
+    Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
   );
 
   return sortedCategorized;
@@ -93,7 +94,6 @@ export const getTransByRecipient = (transactions, recipient) => {
   if (!recipient) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
-    console.log();
     const matchedTrans = transactions[date].filter(
       transaction => transaction.dispensedTo === recipient
     );
@@ -115,28 +115,28 @@ export const getTransByRecipient = (transactions, recipient) => {
   //     }
   //   ],
   //   "2023-05-21": [
-  //     {
-  //       "amount": 44,
-  //       "balanceAfterTrans": 11,
-  //       "commodityId": "o15CyZiTvxa",
-  //       "commodityName": "Magnesium Sulfate",
-  //       "date": "2023-05-21",
-  //       "dispensedBy": "Some one",
-  //       "dispensedTo": "Another one",
-  //       "time": "13:22:00"
-  //     }
+  // {
+  //   "amount": 44,
+  //   "balanceAfterTrans": 11,
+  //   "commodityId": "o15CyZiTvxa",
+  //   "commodityName": "Magnesium Sulfate",
+  //   "date": "2023-05-21",
+  //   "dispensedBy": "Some one",
+  //   "dispensedTo": "Another one",
+  //   "time": "13:22:00"
+  // }
   //   ],
   //   "2023-08-13": [
-  //     {
-  //       "amount": 32,
-  //       "balanceAfterTrans": 12,
-  //       "commodityId": "TCfIC3NDgQK",
-  //       "commodityName": "Zinc",
-  //       "date": "2023-08-13",
-  //       "dispensedBy": "Who",
-  //       "dispensedTo": "Whom",
-  //       "time": "18:27:00"
-  //     }
+  // {
+  //   "amount": 32,
+  //   "balanceAfterTrans": 12,
+  //   "commodityId": "TCfIC3NDgQK",
+  //   "commodityName": "Zinc",
+  //   "date": "2023-08-13",
+  //   "dispensedBy": "Who",
+  //   "dispensedTo": "Whom",
+  //   "time": "18:27:00"
+  // }
   //   ]
   // };
 };

@@ -51,7 +51,6 @@ const CommodityTable = props => {
         <TableBody>
           {props.commodities.map((commodity, i) => (
             <DataTableRow>
-              {" "}
               {/* if the row should be selected, add the property: selected */}
               <DataTableCell width="48px">
                 <Checkbox

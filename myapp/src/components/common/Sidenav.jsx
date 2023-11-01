@@ -4,7 +4,6 @@ import {
   IconHome16,
   IconLayoutRows16,
   IconReorder16,
-  CircularLoader,
 } from "@dhis2/ui";
 import React from "react";
 
