@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
@@ -27,7 +27,7 @@ const Inventory = () => {
 
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
-  // TODO: repace the period
+
   const { loading, error, data } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
