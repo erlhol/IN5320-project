@@ -17,8 +17,8 @@ import {
 const Transactions = props => {
   const [currentModal, setCurrentModal] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-05-23"),
-    end: new Date("2023-08-23"),
+    start: new Date("2022-10-01"),
+    end: new Date("2023-10-30"),
   });
   const [selectedReceipient, setSelectedReceipient] = useState(null);
   const [selectedCommodity, setSelectedCommodity] = useState(null);
@@ -27,6 +27,7 @@ const Transactions = props => {
   );
 
   useEffect(() => {
+    console.log("props.transactionData", props.transactionData);
     const filteredByPeriod = getTransByPeriod(
       visibleTrans,
       selectedPeriod.start,

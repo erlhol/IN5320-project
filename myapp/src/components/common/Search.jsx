@@ -10,6 +10,7 @@ const Search = props => {
       onChange={() => console.log("Fix")}
       placeholder={props.placeholder}
     />
+
   );
 };
 export default Search;

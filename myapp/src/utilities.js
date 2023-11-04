@@ -43,12 +43,16 @@ export const mergeCommodityAndValue = (
       if (transaction)
         //console.log("W1XtQhP6BGd: ", transaction);
         commodityData[commodityName].lastDispensing =
-          transaction.date + " " + transaction.time.substring(0, 5);
+          transaction.date +
+          " " +
+          transaction.time.substring(0, 5) +
+          "  | " +
+          transaction.amount;
     }
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: " ,commodityList);
+  console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
 };
 
@@ -83,11 +87,11 @@ export const categorizeTransByDate = transactions => {
     }
     categorized[date].push(transaction);
   });
-  const sortedCategorized = Object.fromEntries(
-    Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
-  );
+  // const sortedCategorized = Object.fromEntries(
+  //   Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
+  // );
 
-  return sortedCategorized;
+  return categorized;
 };
 
 export const getTransByRecipient = (transactions, recipient) => {

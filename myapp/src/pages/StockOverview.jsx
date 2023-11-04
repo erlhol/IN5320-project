@@ -31,6 +31,7 @@ const Inventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
+
     return (
       <>
         {/* The header and the add stock button */}
@@ -51,7 +52,11 @@ const Inventory = props => {
 
         {/* TODO: remove stepper component */}
         {currentModal === "add_stock" && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+          <Stepper
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            allCommodities={data.commodities?.dataSetElements}
+          />
         )}
       </>
     );
