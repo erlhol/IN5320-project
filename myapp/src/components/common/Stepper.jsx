@@ -86,37 +86,44 @@ const Stepper = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
 
+  // If adding stock, only updateStockInApi
+  // if new dispensing, both updateStockInApi and updateTransInApi
   const onConfirm = () => {
-    if (props.title === "Add stock") updateStockInApi();
+    updateStockInApi();
     if (props.title === "New dispensing") updateTransInApi();
+    alert("Stock successfully added!!");
   };
 
-  // case1: If it's add stock, for each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue
+  //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
   const updateStockInApi = () =>
     selectedCommodities.forEach(commodity => {
+      let value = Number(commodity.inputValue) + Number(commodity.endBalance);
+      if (props.title === "New dispensing")
+        value = Number(commodity.endBalance) - Number(commodity.inputValue);
       updateStock({
         dataElement: commodity.commodityId,
         categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
-        value: commodity.inputValue + commodity.endBalance,
+        value,
       });
     });
 
-  // case2: If it's add dispensing,for each commodity in selectedCommodities,update  the endBalance to endBalance-inputValue with stockUpdateRequest AND add a transaction to the array, then update the transaction with transUpdateRequest
+  //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
   const updateTransInApi = () => {
     let transData = selectedCommodities.map(commodity => {
-      const balanceAfterTrans = commodity.endBalance - commodity.inputValue;
+      const balanceAfterTrans =
+        Number(commodity.endBalance) - Number(commodity.inputValue);
       return {
         commodityId: commodity.commodityId,
         commodityName: commodity.commodityName,
         amount: -commodity.inputValue,
         balanceAfterTrans,
-        dispensedBy: "",
-        dispensedTo: "",
-        date: "",
-        time: "",
+        dispensedBy: "test",
+        dispensedTo: "test",
+        date: "11/5/2023",
+        time: "12:00:00",
       };
     });
-    transData = { ...transData, ...props.existedTransData };
+    transData = [...transData, ...props.existedTransData];
     updateTrans({ data: transData });
   };
 
@@ -188,7 +195,7 @@ const Stepper = props => {
             <Button onClick={() => console.log("Hei")} secondary>
               Previous
             </Button>
-            <Button onClick={() => console.log("Hei")} primary>
+            <Button onClick={() => onConfirm()} primary>
               Next
             </Button>
           </ButtonStrip>

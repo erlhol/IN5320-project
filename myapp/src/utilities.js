@@ -7,7 +7,6 @@ export const mergeCommodityAndValue = (
   // console.log("dataValues", dataValues);
   // console.log("dataSetElements", dataSetElements);
   // console.log("transactionData in mergeCommodityAndValue: ",transactionData);
-  // Process dataValues and accumulate values based on categoryOptionCombo
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
@@ -140,6 +139,14 @@ export const getTransByRecipient = (transactions, recipient) => {
   //   "dispensedBy": "Who",
   //   "dispensedTo": "Whom",
   //   "time": "18:27:00"
+  // }，
+  //  {
+  //    "clustered": true
+  //    "commodityNames": "Zinc, Female Condom, Magnesium Sulfate";
+  //    "date": "2023-08-13",
+  //    "dispensedBy": "Who",
+  //    "dispensedTo": "Whom",
+  //    "details": []
   // }
   //   ]
   // };
