@@ -50,22 +50,19 @@ const Transactions = props => {
     setCurrentModal(value);
   };
 
-  return (
-    <>
-      {/* Navigation buttons to add stock or new dispensing */}
-      <Header
-        title="Stock History"
-        primaryButtonLabel="New Dispensing"
-        primaryButtonClick={() => handleOnModalChange("new_dispensing")}
-      />
-
-      {/* The different search and filter options */}
-      <div className={classes.filterOptions}>
-        <Search placeholder="Search commodity" width={"320px"} />
-        <Dropdown placeholder="Period" />
-        <Dropdown placeholder="All transactions" />
-        <Dropdown placeholder="Recipient" />
-      </div>
+  if (error) return <span>ERROR: {error.message}</span>;
+  if (loading) return <CircularLoader large />;
+  if (data) {
+    // Can data be false?
+    let transactionData = data.transactionHistory;
+    return (
+      <>
+        {/* Navigation buttons to add stock or new dispensing */}
+        <Header
+          title="Stock History"
+          primaryButtonLabel="New Dispensing"
+          primaryButtonClick={() => handleOnModalChange("new_dispensing")}
+        />
 
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
@@ -78,14 +75,15 @@ const Transactions = props => {
         />
       ))}
 
-      {currentModal === "add_stock" && (
-        <Stepper title={"Add stock"} onClose={handleOnModalChange} />
-      )}
-      {currentModal === "new_dispensing" && (
-        <Stepper title={"New dispensing"} onClose={handleOnModalChange} />
-      )}
-    </>
-  );
+        {currentModal === "add_stock" && (
+          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+        )}
+        {currentModal === "new_dispensing" && (
+          <Stepper title={"New dispensing"} onClose={handleOnModalChange} />
+        )}
+      </>
+    );
+  }
 };
 
 export default Transactions;
