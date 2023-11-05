@@ -19,7 +19,7 @@ import {
 import { getCurrentMonth } from "../dates";
 import { filterBySearch } from "../search";
 
-const Inventory = () => {
+const Inventory = props => {
   // TODO: Replace these mock values
   // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
   // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}

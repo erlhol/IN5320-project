@@ -15,7 +15,7 @@ import {
 } from "../utilities";
 
 const Transactions = props => {
-  const [currentModal, setCurrentModal] = useState("");
+  const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState({
     start: new Date("2023-05-23"),
     end: new Date("2023-08-23"),
@@ -46,23 +46,18 @@ const Transactions = props => {
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
-  const handleOnModalChange = value => {
-    setCurrentModal(value);
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
   };
 
-  if (error) return <span>ERROR: {error.message}</span>;
-  if (loading) return <CircularLoader large />;
-  if (data) {
-    // Can data be false?
-    let transactionData = data.transactionHistory;
-    return (
-      <>
-        {/* Navigation buttons to add stock or new dispensing */}
-        <Header
-          title="Stock History"
-          primaryButtonLabel="New Dispensing"
-          primaryButtonClick={() => handleOnModalChange("new_dispensing")}
-        />
+  return (
+    <>
+      {/* Navigation buttons to add stock or new dispensing */}
+      <Header
+        title="Stock History"
+        primaryButtonLabel="New Dispensing"
+        primaryButtonClick={() => handleOnModalChange("new_dispensing")}
+      />
 
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
@@ -75,15 +70,11 @@ const Transactions = props => {
         />
       ))}
 
-        {currentModal === "add_stock" && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
-        )}
-        {currentModal === "new_dispensing" && (
-          <Stepper title={"New dispensing"} onClose={handleOnModalChange} />
-        )}
-      </>
-    );
-  }
+      {modalPresent && (
+        <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+      )}
+    </>
+  );
 };
 
 export default Transactions;
