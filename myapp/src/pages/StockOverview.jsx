@@ -17,7 +17,7 @@ import {
   transUpdateRequest,
 } from "../requests";
 import { getCurrentMonth } from "../dates";
-import { filterBySearch } from "../search";
+import { filterBySearch } from "../utilities";
 
 const Inventory = props => {
   // TODO: Replace these mock values

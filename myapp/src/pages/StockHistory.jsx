@@ -58,6 +58,13 @@ const Transactions = props => {
         primaryButtonLabel="New Dispensing"
         primaryButtonClick={() => handleOnModalChange("new_dispensing")}
       />
+      {/* The different search and filter options */}
+      <div className={classes.filterOptions}>
+        <Search placeholder="Search commodity" width={"320px"} />
+        <Dropdown placeholder="Period" />
+        <Dropdown placeholder="All transactions" />
+        <Dropdown placeholder="Recipient" />
+      </div>
 
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
@@ -71,7 +78,7 @@ const Transactions = props => {
       ))}
 
       {modalPresent && (
-        <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+        <Stepper title={"New Dispensing"} onClose={handleOnModalChange} />
       )}
     </>
   );
