@@ -16,7 +16,7 @@ const Inventory = props => {
   const [currentModal, setCurrentModal] = useState("");
   // TODO: repace the period
   const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: "202305" },
+    variables: { period: "202310" },
   });
 
   const handleOnModalChange = value => {
@@ -56,6 +56,7 @@ const Inventory = props => {
             title={"Add stock"}
             onClose={handleOnModalChange}
             allCommodities={data.commodities?.dataSetElements}
+            existedTransData={props.transactionData}
           />
         )}
       </>

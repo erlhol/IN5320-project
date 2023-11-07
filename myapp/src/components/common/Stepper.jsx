@@ -23,6 +23,7 @@ import {
 } from "../../requests";
 import { mergeCommodityAndValue } from "../../utilities";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { getDateAndTime } from "../../utilities";
 
 const Step = props => {
   return (
@@ -39,9 +40,20 @@ const Step = props => {
 const Stepper = props => {
   /* props.step1, props.step2, props.step3 */
   // {id, name, balance, newBalance}
-  const [selectedCommodities, setSelectedCommodities] = useState([]);
 
-  const currentMonth = new Date().getMonth() + 1;
+  // {
+  //   amount: -6,
+  //   commodityId: "Boy3QwztgeZ",
+  //   commodityName: "Amoxicillin",
+  //   balanceAfterTrans: 0,
+  // }
+
+  const [selectedCommodities, setSelectedCommodities] = useState([]);
+  const [updateStock] = useDataMutation(stockUpdateRequest);
+  const [updateTrans] = useDataMutation(transUpdateRequest);
+
+  // The reason why I fetch the stock data again is: when add dispencing, we need the commodity list (id+name),
+  //const currentMonth = (new Date().getMonth() + 1).toString();
   const { loading, error, data } = useDataQuery(stockRequest, {
     variables: { period: "202310" },
   });
@@ -83,48 +95,62 @@ const Stepper = props => {
     setSelectedCommodities(updatedCommodies);
   };
 
-  const [updateStock] = useDataMutation(stockUpdateRequest);
-  const [updateTrans] = useDataMutation(transUpdateRequest);
-
-  // If adding stock, only updateStockInApi
-  // if new dispensing, both updateStockInApi and updateTransInApi
   const onConfirm = () => {
     updateStockInApi();
-    if (props.title === "New dispensing") updateTransInApi();
-    alert("Stock successfully added!!");
+    updateTransInApi();
+    alert("Stock/Dispencing successfully added!!");
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
   const updateStockInApi = () =>
     selectedCommodities.forEach(commodity => {
-      let value = Number(commodity.inputValue) + Number(commodity.endBalance);
-      if (props.title === "New dispensing")
-        value = Number(commodity.endBalance) - Number(commodity.inputValue);
       updateStock({
         dataElement: commodity.commodityId,
         categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
-        value,
+        value: getValuesBasedOnTitel(commodity).updatedStockBalance,
       });
     });
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
   const updateTransInApi = () => {
-    let transData = selectedCommodities.map(commodity => {
-      const balanceAfterTrans =
-        Number(commodity.endBalance) - Number(commodity.inputValue);
+    const commodities = selectedCommodities.map(commodity => {
+      const { updatedStockBalance, transAmount } =
+        getValuesBasedOnTitel(commodity);
       return {
         commodityId: commodity.commodityId,
         commodityName: commodity.commodityName,
-        amount: -commodity.inputValue,
-        balanceAfterTrans,
-        dispensedBy: "test",
-        dispensedTo: "test",
-        date: "11/5/2023",
-        time: "12:00:00",
+        amount: transAmount,
+        balanceAfterTrans: updatedStockBalance,
       };
     });
-    transData = [...transData, ...props.existedTransData];
+
+    const { date, time } = getDateAndTime(new Date());
+    let transData = {
+      type: props.title === "New dispensing" ? "Dispensing" : "Restock",
+      commodities,
+      dispensedBy: "test",
+      dispensedTo: "test",
+      date,
+      time,
+    };
+    transData = [transData, ...props.existedTransData];
     updateTrans({ data: transData });
+  };
+
+  const getValuesBasedOnTitel = commodity => {
+    const allValues = {
+      updatedStockBalance: 0,
+      transAmount: "",
+    };
+    allValues["updatedStockBalance"] =
+      props.title === "New dispensing"
+        ? Number(commodity.endBalance) - Number(commodity.inputValue)
+        : Number(commodity.endBalance) + Number(commodity.inputValue);
+    allValues["transAmount"] =
+      props.title === "New dispensing"
+        ? "-" + commodity.inputValue
+        : "+" + commodity.inputValue;
+    return allValues;
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
