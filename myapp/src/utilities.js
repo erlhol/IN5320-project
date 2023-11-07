@@ -145,7 +145,7 @@ export const getTransByRecipient = (transactions, recipient) => {
 function search(element, searchWord) {
   const words = element.commodityName.split(/(\s+)/);
   for (const word of words) {
-    if (word.toLowerCase().startsWith(searchWord.toLowerCase())) {
+    if (word.toLowerCase().includes(searchWord.toLowerCase())) {
       return true; // Return true if any word matches the search term
     }
   }
