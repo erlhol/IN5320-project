@@ -12,12 +12,35 @@ import {
   TableFoot,
   Pagination,
 } from "@dhis2/ui";
+import { colors, theme, spacers, layers, elevation } from "@dhis2/ui";
 
 const CommodityTable = props => {
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order
   });
+
+  const [pageSize, setPageSize] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageCount = () => {
+    return (props.commodities.length / pageSize) % 1 != 0
+      ? Math.floor(props.commodities.length / pageSize) + 1
+      : props.commodities.length / pageSize;
+  };
+
+  const [displayedCommodities, setDisplayedCommodities] = useState(
+    props.commodities
+  );
+
+  const handlePageSize = value => {
+    //setDisplayedCommodities()
+    setPageSize(value);
+  };
+
+  const handleCurrentPage = value => {
+    // setDisplayedCommodities()
+    setCurrentPage(value);
+  };
 
   const handleSort = column => {
     setSortOrder(prevSortOrder => ({
@@ -29,8 +52,8 @@ const CommodityTable = props => {
     }));
   };
 
-  // A sorting function that compares two and two elements a and b
-  const sortedData = [...props.commodities].sort((a, b) => {
+  // A sorting function that sorts the commodities using a lambda function
+  const sortedData = [...displayedCommodities].sort((a, b) => {
     const columnA = a[sortOrder.column];
     const columnB = b[sortOrder.column];
     if (sortOrder.order === "asc") {
@@ -45,13 +68,15 @@ const CommodityTable = props => {
       <DataTable>
         <TableHead>
           <DataTableRow>
-            <DataTableColumnHeader width="48px">
+            <DataTableColumnHeader width={spacers.dp48}>
               <Checkbox onChange={() => console.log("Toggle All")} />
             </DataTableColumnHeader>
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("commodityName")}
               sortDirection={
-                sortOrder.column === "commodityName" ? sortOrder.order : "none"
+                sortOrder.column === "commodityName"
+                  ? sortOrder.order
+                  : "default"
               }
               sortIconTitle="Sort by Commodity Name"
             >
@@ -60,7 +85,7 @@ const CommodityTable = props => {
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("endBalance")}
               sortDirection={
-                sortOrder.column === "endBalance" ? sortOrder.order : "none"
+                sortOrder.column === "endBalance" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Stock Balance"
             >
@@ -69,7 +94,7 @@ const CommodityTable = props => {
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("consumption")}
               sortDirection={
-                sortOrder.column === "consumption" ? sortOrder.order : "none"
+                sortOrder.column === "consumption" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Consumption"
             >
@@ -82,9 +107,9 @@ const CommodityTable = props => {
 
         <TableBody>
           {sortedData.map((commodity, i) => (
-            <DataTableRow>
+            <DataTableRow key={i}>
               {/* if the row should be selected, add the property: selected */}
-              <DataTableCell width="48px">
+              <DataTableCell width={spacers.dp48}>
                 <Checkbox
                   onChange={() => console.log("Toggle selected ID " + i)}
                   value={i}
@@ -113,11 +138,11 @@ const CommodityTable = props => {
             <DataTableCell colSpan="6">
               {/* TODO: add pagination logic */}
               <Pagination
-                onPageChange={() => console.log("Page Changed")}
-                onPageSizeChange={() => console.log("Page Size Changed")}
-                page={1}
-                pageCount={2}
-                pageSize={10}
+                onPageChange={handleCurrentPage}
+                onPageSizeChange={handlePageSize}
+                page={currentPage}
+                pageCount={pageCount()}
+                pageSize={pageSize}
                 total={props.commodities.length}
               />
             </DataTableCell>
