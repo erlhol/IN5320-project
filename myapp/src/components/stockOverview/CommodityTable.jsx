@@ -51,7 +51,9 @@ const CommodityTable = props => {
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("commodityName")}
               sortDirection={
-                sortOrder.column === "commodityName" ? sortOrder.order : "none"
+                sortOrder.column === "commodityName"
+                  ? sortOrder.order
+                  : "default"
               }
               sortIconTitle="Sort by Commodity Name"
             >
@@ -60,7 +62,7 @@ const CommodityTable = props => {
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("endBalance")}
               sortDirection={
-                sortOrder.column === "endBalance" ? sortOrder.order : "none"
+                sortOrder.column === "endBalance" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Stock Balance"
             >
@@ -69,7 +71,7 @@ const CommodityTable = props => {
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("consumption")}
               sortDirection={
-                sortOrder.column === "consumption" ? sortOrder.order : "none"
+                sortOrder.column === "consumption" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Consumption"
             >
@@ -82,12 +84,12 @@ const CommodityTable = props => {
 
         <TableBody>
           {sortedData.map((commodity, i) => (
-            <DataTableRow>
+            <DataTableRow key={i}>
               {/* if the row should be selected, add the property: selected */}
               <DataTableCell width="48px">
                 <Checkbox
                   onChange={() => console.log("Toggle selected ID " + i)}
-                  value={i}
+                  value={"" + i}
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
