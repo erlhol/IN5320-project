@@ -115,7 +115,7 @@ const Stepper = props => {
     let transData = {
       type: props.title === "New dispensing" ? "Dispensing" : "Restock",
       commodities,
-      dispensedBy: "test",
+      dispensedBy: data.me.displayName,
       dispensedTo: "test",
       date,
       time,
@@ -143,6 +143,7 @@ const Stepper = props => {
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
+    console.log("me: ", data.me.displayName);
     const allCommodities = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
