@@ -7,7 +7,6 @@ import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
-import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import {
   stockRequest,
@@ -78,12 +77,12 @@ const Transactions = () => {
           transactions={transactionData}
         />
 
-        {currentModal === "add_stock" && (
+       {/*  {currentModal === "add_stock" && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
         {currentModal === "new_dispensing" && (
           <Stepper title={"New dispensing"} onClose={handleOnModalChange} />
-        )}
+        )} */}
       </>
     );
   }

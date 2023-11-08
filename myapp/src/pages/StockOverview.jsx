@@ -7,7 +7,7 @@ import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
-import Stepper from "../components/common/Stepper";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import { mergeCommodityAndValue } from "../utilities";
 import {
@@ -73,7 +73,12 @@ const Inventory = () => {
         <CommodityTable commodities={filteredStockData} />
 
         {modalPresent && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+          <CommodityTransferModal
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            stockData={stockData}
+            dispensing={false}
+          />
         )}
       </>
     );
