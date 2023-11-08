@@ -17,7 +17,7 @@ import {
   stockRequest,
   stockUpdateRequest,
   transUpdateRequest,
-} from "../../requests";
+} from "../../utilities/requests";
 import { getCurrentMonth } from "../../utilities/dates";
 import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/datautility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";

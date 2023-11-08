@@ -6,7 +6,7 @@ import {
   transRequest,
   transUpdateRequest,
   stockUpdateRequest,
-} from "./requests";
+} from "./utilities/requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
