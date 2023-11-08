@@ -7,9 +7,6 @@ import {
   Button,
   ButtonStrip,
   Chip,
-} from "@dhis2/ui";
-import Search from "./Search";
-import {
   CircularLoader,
   InputField,
   SingleSelectOption,
@@ -21,9 +18,9 @@ import {
   stockUpdateRequest,
   transUpdateRequest,
 } from "../../requests";
-import { mergeCommodityAndValue } from "../../utilities";
+import { getCurrentMonth } from "../../utilities/dates";
+import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/datautility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
-import { getDateAndTime } from "../../utilities";
 
 const Step = props => {
   return (
@@ -39,23 +36,12 @@ const Step = props => {
 
 const Stepper = props => {
   /* props.step1, props.step2, props.step3 */
-  // {id, name, balance, newBalance}
-
-  // {
-  //   amount: -6,
-  //   commodityId: "Boy3QwztgeZ",
-  //   commodityName: "Amoxicillin",
-  //   balanceAfterTrans: 0,
-  // }
-
   const [selectedCommodities, setSelectedCommodities] = useState([]);
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
 
-  // The reason why I fetch the stock data again is: when add dispencing, we need the commodity list (id+name),
-  //const currentMonth = (new Date().getMonth() + 1).toString();
   const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: "202310" },
+    variables: { period: getCurrentMonth() },
   });
 
   useEffect(() => {

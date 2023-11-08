@@ -8,8 +8,6 @@ import {
   stockUpdateRequest,
 } from "./requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
-//import mockData from "./data/mockdata11-04.json";
-
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/StockOverview";

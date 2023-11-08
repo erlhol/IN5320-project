@@ -12,10 +12,10 @@ import {
   getTransByPeriod,
   getTransByRecipient,
   categorizeTransByDate,
-} from "../utilities";
+} from "../utilities/datautility";
 
 const Transactions = props => {
-  const [currentModal, setCurrentModal] = useState("");
+  const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState({
     start: new Date("2023-08-01"),
     end: new Date("2023-11-30"),
@@ -46,8 +46,8 @@ const Transactions = props => {
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
-  const handleOnModalChange = value => {
-    setCurrentModal(value);
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
   };
 
   return (
@@ -58,7 +58,6 @@ const Transactions = props => {
         primaryButtonLabel="New Dispensing"
         primaryButtonClick={() => handleOnModalChange("new_dispensing")}
       />
-
       {/* The different search and filter options */}
       <div className={classes.filterOptions}>
         <Search placeholder="Search commodity" width={"320px"} />
@@ -78,10 +77,7 @@ const Transactions = props => {
         />
       ))}
 
-      {currentModal === "add_stock" && (
-        <Stepper title={"Add stock"} onClose={handleOnModalChange} />
-      )}
-      {currentModal === "new_dispensing" && (
+      {modalPresent && (
         <Stepper
           title={"New dispensing"}
           onClose={handleOnModalChange}
