@@ -12,7 +12,7 @@ import {
   getTransByPeriod,
   getTransByRecipient,
   categorizeTransByDate,
-} from "../utilities";
+} from "../utilities/datautility";
 
 const Transactions = props => {
   const [modalPresent, setModalPresent] = useState(false);

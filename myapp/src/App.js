@@ -3,7 +3,7 @@ import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import i18n from "@dhis2/d2-i18n";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import { transRequest, transUpdateRequest } from "./requests";
+import { transRequest, transUpdateRequest } from "./utilities/requests";
 
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";

@@ -9,15 +9,15 @@ import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities";
+import { mergeCommodityAndValue } from "../utilities/datautility";
 import {
   stockRequest,
   stockUpdateRequest,
   transRequest,
   transUpdateRequest,
-} from "../requests";
-import { getCurrentMonth } from "../dates";
-import { filterBySearch } from "../utilities";
+} from "../utilities/requests";
+import { getCurrentMonth } from "../utilities/dates";
+import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
   // TODO: Replace these mock values
