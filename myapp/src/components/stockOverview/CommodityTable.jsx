@@ -94,7 +94,7 @@ const CommodityTable = props => {
               <DataTableCell>{commodity.commodityName}</DataTableCell>
               <DataTableCell>{commodity.endBalance}</DataTableCell>
               <DataTableCell>{commodity.consumption}</DataTableCell>
-              <DataTableCell>{commodity.period}</DataTableCell>
+              <DataTableCell>{commodity.lastDispensing}</DataTableCell>
               <DataTableCell>
                 <Button
                   name="Small button"
@@ -115,10 +115,10 @@ const CommodityTable = props => {
               <Pagination
                 onPageChange={() => console.log("Page Changed")}
                 onPageSizeChange={() => console.log("Page Size Changed")}
-                page={10}
-                pageCount={21}
-                pageSize={50}
-                total={1035}
+                page={1}
+                pageCount={2}
+                pageSize={10}
+                total={props.commodities.length}
               />
             </DataTableCell>
           </DataTableRow>
