@@ -29,16 +29,27 @@ const CommodityTable = props => {
   };
 
   const [displayedCommodities, setDisplayedCommodities] = useState(
-    props.commodities
+    props.commodities.slice(
+      pageSize * (currentPage - 1),
+      Math.min(pageSize * currentPage, props.commodities.length)
+    )
   );
 
   const handlePageSize = value => {
-    //setDisplayedCommodities()
+    setDisplayedCommodities(
+      props.commodities.slice(0, Math.min(value, props.commodities.length))
+    );
     setPageSize(value);
+    setCurrentPage(1);
   };
 
   const handleCurrentPage = value => {
-    // setDisplayedCommodities()
+    setDisplayedCommodities(
+      props.commodities.slice(
+        pageSize * (value - 1),
+        Math.min(pageSize * value, props.commodities.length)
+      )
+    );
     setCurrentPage(value);
   };
 
@@ -112,7 +123,7 @@ const CommodityTable = props => {
               <DataTableCell width={spacers.dp48}>
                 <Checkbox
                   onChange={() => console.log("Toggle selected ID " + i)}
-                  value={i}
+                  value={"" + i}
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
