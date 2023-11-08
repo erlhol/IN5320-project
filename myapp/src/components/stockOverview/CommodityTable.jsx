@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   DataTable,
@@ -15,42 +15,47 @@ import {
 import { colors, theme, spacers, layers, elevation } from "@dhis2/ui";
 
 const CommodityTable = props => {
+  // Takes out the number of elements from the search commodities based on pagesize and the current page number
+  function setPagination(pSize, cPage) {
+    return props.commodities.slice(
+      pSize * (cPage - 1),
+      Math.min(pSize * cPage, props.commodities.length)
+    );
+  }
+
+  // States for sorting
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order
   });
 
+  // States for pagination
   const [pageSize, setPageSize] = useState(5);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const pageCount = () => {
     return (props.commodities.length / pageSize) % 1 != 0
       ? Math.floor(props.commodities.length / pageSize) + 1
       : props.commodities.length / pageSize;
   };
-
   const [displayedCommodities, setDisplayedCommodities] = useState(
-    props.commodities.slice(
-      pageSize * (currentPage - 1),
-      Math.min(pageSize * currentPage, props.commodities.length)
-    )
+    setPagination(pageSize, props.currentPage)
   );
 
-  const handlePageSize = value => {
-    setDisplayedCommodities(
-      props.commodities.slice(0, Math.min(value, props.commodities.length))
-    );
-    setPageSize(value);
-    setCurrentPage(1);
+  // Need to listen for changes to the searched commodities from the parant component
+  useEffect(() => {
+    setDisplayedCommodities(setPagination(pageSize, props.currentPage));
+  }, [props.commodities]);
+
+  // Handles a update of pagesize. This will reset current page (set current page to 1)
+  const handlePageSize = curSize => {
+    setDisplayedCommodities(setPagination(curSize, 1));
+    setPageSize(curSize);
+    props.setCurrentPage(1);
   };
 
-  const handleCurrentPage = value => {
-    setDisplayedCommodities(
-      props.commodities.slice(
-        pageSize * (value - 1),
-        Math.min(pageSize * value, props.commodities.length)
-      )
-    );
-    setCurrentPage(value);
+  const handleCurrentPage = curPage => {
+    setDisplayedCommodities(setPagination(pageSize, curPage));
+    props.setCurrentPage(curPage);
   };
 
   const handleSort = column => {
@@ -151,7 +156,7 @@ const CommodityTable = props => {
               <Pagination
                 onPageChange={handleCurrentPage}
                 onPageSizeChange={handlePageSize}
-                page={currentPage}
+                page={props.currentPage}
                 pageCount={pageCount()}
                 pageSize={pageSize}
                 total={props.commodities.length}

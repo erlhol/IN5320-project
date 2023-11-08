@@ -20,11 +20,6 @@ import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
-  // TODO: Replace these mock values
-  // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
-  // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
-  // const list = [commodity,commodity2]
-
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
@@ -32,12 +27,15 @@ const Inventory = props => {
     variables: { period: getCurrentMonth() },
   });
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
 
-  const handleOnChangeSearch = value => {
-    setCurrentSearch(value.value);
+  const handleOnChangeSearch = searchobj => {
+    setCurrentSearch(searchobj.value);
+    setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -69,7 +67,11 @@ const Inventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={filteredStockData} />
+        <CommodityTable
+          commodities={filteredStockData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
         {modalPresent && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
