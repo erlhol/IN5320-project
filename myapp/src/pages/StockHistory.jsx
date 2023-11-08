@@ -85,6 +85,7 @@ const Transactions = props => {
         <Stepper
           title={"New dispensing"}
           onClose={handleOnModalChange}
+          refetchData={props.refetchTransData}
           existedTransData={props.transactionData}
         />
       )}

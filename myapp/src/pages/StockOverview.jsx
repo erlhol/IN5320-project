@@ -15,7 +15,7 @@ import { stockRequest } from "../requests";
 const Inventory = props => {
   const [currentModal, setCurrentModal] = useState("");
   // TODO: repace the period
-  const { loading, error, data } = useDataQuery(stockRequest, {
+  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: "202310" },
   });
 
@@ -55,6 +55,7 @@ const Inventory = props => {
           <Stepper
             title={"Add stock"}
             onClose={handleOnModalChange}
+            refetchData = {refetch}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
           />

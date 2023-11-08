@@ -59,7 +59,7 @@ const MyApp = () => {
   //   updateTrans({ data: transData });
   // }, []);
 
-  const { loading, error, data } = useDataQuery(transRequest);
+  const { loading, error, data, refetch } = useDataQuery(transRequest);
   if (error)
     return (
       <span>
@@ -83,7 +83,10 @@ const MyApp = () => {
             <Inventory transactionData={transactionData} />
           )}
           {activePage === "StockHistory" && (
-            <Transactions transactionData={transactionData} />
+            <Transactions
+              transactionData={transactionData}
+              refetchTransData={refetch}
+            />
           )}
         </section>
       </div>

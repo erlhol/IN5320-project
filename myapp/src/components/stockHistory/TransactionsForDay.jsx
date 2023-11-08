@@ -10,15 +10,13 @@ const TransactionsForDay = props => {
   const getCommodityNames = commodities =>
     commodities.map(c => c.commodityName).join(", ");
 
-  const getTransactionAmount = commodities => {
-    const totalAmount = commodities.reduce((accumulator, obj) => {
-      const amount =
-        obj.amount[0] === "-"
-          ? Number(obj.amount.substring(1))
-          : Number(obj.amount);
-      return accumulator + amount;
-    }, 0);
-    return `${totalAmount >= 0 ? "+" : ""}${totalAmount}`;
+  const getTransactionAmount = (commodities, type) => {
+    if (commodities.length === 1) return commodities[0].amount;
+    const totalAmount = commodities.reduce(
+      (accumulator, obj) => accumulator + Number(obj.amount),
+      0
+    );
+    return `${totalAmount > 0 ? "+" : ""}${totalAmount}`;
   };
 
   return (
@@ -32,9 +30,12 @@ const TransactionsForDay = props => {
               <Card className={classes.transactionItem}>
                 <div className={classes.transactionItemFirstHalf}>
                   <span className={classes.transactionCommodities}>
-                    {getCommodityNames(transaction.commodities)}
+                    {getCommodityNames(
+                      transaction.commodities,
+                      transaction.type
+                    )}
                   </span>
-                  <span>{transaction.time.substring(0, 5)}</span>
+                  <span>{transaction.time.match(/(\d+:\d+):/)[1]}</span>
                 </div>
                 <div className={classes.transactionItemSecondHalf}>
                   <div

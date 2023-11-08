@@ -49,7 +49,7 @@ export const mergeCommodityAndValue = (
           matchedTrans.date +
           " " +
           matchedTrans.time.substring(0, 5) +
-          "  | " +
+          "    " +
           matchedTransCommodity.amount;
     }
   });

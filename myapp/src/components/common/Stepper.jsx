@@ -98,6 +98,7 @@ const Stepper = props => {
   const onConfirm = () => {
     updateStockInApi();
     updateTransInApi();
+    props.refetchData();
     alert("Stock/Dispencing successfully added!!");
   };
 
