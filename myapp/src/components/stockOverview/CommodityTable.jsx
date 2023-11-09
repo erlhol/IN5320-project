@@ -12,52 +12,74 @@ import {
   TableFoot,
   Pagination,
 } from "@dhis2/ui";
-import { colors, theme, spacers, layers, elevation } from "@dhis2/ui";
+import { spacers } from "@dhis2/ui";
+
+function setPagination(commodities, pSize, cPage) {
+  // Return the part of the array based on the pageSize and the currentPage
+  return commodities.slice(
+    pSize * (cPage - 1),
+    Math.min(pSize * cPage, commodities.length) // to avoid out of bounds
+  );
+}
+
+const PaginationOfTable = props => {
+  // Return the pageCount. This is based on the number of commodities. If the number is not round, for instance 2.4, then we will need to 2 pages + 1 page with the remaining amount of commodities
+  const pageCount = () => {
+    return (props.commodities.length / props.pageSize) % 1 != 0
+      ? Math.floor(props.commodities.length / props.pageSize) + 1
+      : props.commodities.length / props.pageSize;
+  };
+
+  // Need to listen for changes to the searched commodities from the parant component
+  useEffect(() => {
+    props.setDisplayedCommodities(
+      setPagination(props.commodities, props.pageSize, props.currentPage)
+    );
+  }, [props.commodities]);
+
+  // Handles a update of pagesize. This will reset current page (set current page to 1)
+  const handlePageSize = curSize => {
+    props.setDisplayedCommodities(setPagination(props.commodities, curSize, 1));
+    props.setPageSize(curSize);
+    props.setCurrentPage(1);
+  };
+
+  const handleCurrentPage = curPage => {
+    props.setDisplayedCommodities(
+      setPagination(props.commodities, props.pageSize, curPage)
+    );
+    props.setCurrentPage(curPage);
+  };
+
+  return (
+    <Pagination
+      onPageChange={handleCurrentPage}
+      onPageSizeChange={handlePageSize}
+      page={props.currentPage}
+      pageCount={pageCount()}
+      pageSize={props.pageSize}
+      total={props.commodities.length}
+    />
+  );
+};
 
 const CommodityTable = props => {
-  // Takes out the number of elements from the search commodities based on pagesize and the current page number
-  function setPagination(pSize, cPage) {
-    return props.commodities.slice(
-      pSize * (cPage - 1),
-      Math.min(pSize * cPage, props.commodities.length)
-    );
-  }
+  // State for the current pageSize selected
+  const [pageSize, setPageSize] = useState(5);
 
-  // States for sorting
+  // State for the displayed commodities. These are the commodities displayed (and constrained by the pagination component)
+  const [displayedCommodities, setDisplayedCommodities] = useState(
+    setPagination(props.commodities, pageSize, props.currentPage)
+  );
+
+  /* The sorting logic */
+  // State for sorting order
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order
   });
 
-  // States for pagination
-  const [pageSize, setPageSize] = useState(5);
-
-  const pageCount = () => {
-    return (props.commodities.length / pageSize) % 1 != 0
-      ? Math.floor(props.commodities.length / pageSize) + 1
-      : props.commodities.length / pageSize;
-  };
-  const [displayedCommodities, setDisplayedCommodities] = useState(
-    setPagination(pageSize, props.currentPage)
-  );
-
-  // Need to listen for changes to the searched commodities from the parant component
-  useEffect(() => {
-    setDisplayedCommodities(setPagination(pageSize, props.currentPage));
-  }, [props.commodities]);
-
-  // Handles a update of pagesize. This will reset current page (set current page to 1)
-  const handlePageSize = curSize => {
-    setDisplayedCommodities(setPagination(curSize, 1));
-    setPageSize(curSize);
-    props.setCurrentPage(1);
-  };
-
-  const handleCurrentPage = curPage => {
-    setDisplayedCommodities(setPagination(pageSize, curPage));
-    props.setCurrentPage(curPage);
-  };
-
+  // Handles the event when you want to change the sort order. If it is the same column, then we change the order, if it is not, we set the new order to asc
   const handleSort = column => {
     setSortOrder(prevSortOrder => ({
       column,
@@ -69,6 +91,7 @@ const CommodityTable = props => {
   };
 
   // A sorting function that sorts the commodities using a lambda function
+  // Works both for strings and numbers
   const sortedData = [...displayedCommodities].sort((a, b) => {
     const columnA = a[sortOrder.column];
     const columnB = b[sortOrder.column];
@@ -152,15 +175,14 @@ const CommodityTable = props => {
         <TableFoot>
           <DataTableRow>
             <DataTableCell colSpan="6">
-              {/* TODO: add pagination logic */}
-              <Pagination
-                onPageChange={handleCurrentPage}
-                onPageSizeChange={handlePageSize}
-                page={props.currentPage}
-                pageCount={pageCount()}
+              <PaginationOfTable
+                commodities={props.commodities}
                 pageSize={pageSize}
-                total={props.commodities.length}
-              />
+                currentPage={props.currentPage}
+                setPageSize={setPageSize}
+                setCurrentPage={props.setCurrentPage}
+                setDisplayedCommodities={setDisplayedCommodities}
+              ></PaginationOfTable>
             </DataTableCell>
           </DataTableRow>
         </TableFoot>
