@@ -11,8 +11,11 @@ import {
   DataTableCell,
   TableFoot,
   Pagination,
+  IconInfo24,
+  MenuItem,
 } from "@dhis2/ui";
 import StockDetail from "./StockDetail";
+import classes from "../../App.module.css";
 
 const CommodityTable = props => {
   const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
@@ -106,8 +109,14 @@ const CommodityTable = props => {
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
-              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
-                {commodity.commodityName}
+              <DataTableCell>
+                <div className={classes.inlineFlex}>
+                  <p>{commodity.commodityName}</p>
+                  <MenuItem
+                    onClick={() => handleSetSelectedStock(commodity)}
+                    icon={<IconInfo24></IconInfo24>}
+                  ></MenuItem>
+                </div>
               </DataTableCell>
               <DataTableCell>{commodity.endBalance}</DataTableCell>
               <DataTableCell>{commodity.consumption}</DataTableCell>
