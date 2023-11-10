@@ -12,12 +12,19 @@ import {
   TableFoot,
   Pagination,
 } from "@dhis2/ui";
+import StockDetail from "./StockDetail";
 
 const CommodityTable = props => {
+  const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
+
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order
   });
+
+  const handleSetSelectedStock = value => {
+    setSelectedStock(value);
+  };
 
   const handleSort = column => {
     setSortOrder(prevSortOrder => ({
@@ -42,6 +49,12 @@ const CommodityTable = props => {
 
   return (
     <>
+      {selectedStock && (
+        <StockDetail
+          selectedStock={selectedStock}
+          onClose={handleSetSelectedStock}
+        ></StockDetail>
+      )}
       <DataTable>
         <TableHead>
           <DataTableRow>
@@ -93,7 +106,9 @@ const CommodityTable = props => {
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
-              <DataTableCell>{commodity.commodityName}</DataTableCell>
+              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+                {commodity.commodityName}
+              </DataTableCell>
               <DataTableCell>{commodity.endBalance}</DataTableCell>
               <DataTableCell>{commodity.consumption}</DataTableCell>
               <DataTableCell>{commodity.lastDispensing}</DataTableCell>
