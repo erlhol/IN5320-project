@@ -9,7 +9,7 @@ import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities/datautility";
+import { mergeCommodityAndValue } from "../utilities/dataUtility";
 import {stockRequest,} from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";

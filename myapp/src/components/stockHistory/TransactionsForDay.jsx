@@ -1,11 +1,25 @@
-import React from "react";
+import React, {useState,useEffect}from "react";
 import { Card, IconArrowRight24, IconMore24 } from "@dhis2/ui";
 import classes from "../../App.module.css";
+import TransactionDetailModal from "./TransactionDetailModal";
 
 const TransactionsForDay = props => {
   /* Displays the transactions for a chosen day.
     The data is passed in through props */
   //console.log("props.transactions:", props.transactions);
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
+
+  const handleCardClick = (transaction) => {
+    console.log("dd");
+    setSelectedTransaction(transaction);
+  };
+
+  useEffect(() => {
+    console.log("selectedTransaction: ",selectedTransaction);
+
+
+  }, [])
+
 
   const getCommodityNames = commodities =>
     commodities.map(c => c.commodityName).join(", ");
@@ -25,7 +39,7 @@ const TransactionsForDay = props => {
       <div className={classes.transactionsItems}>
         {props.transactions.map((transaction, i) => {
           return (
-            <div key={i}>
+            <div key={i}  onClick={()=>handleCardClick(transaction)}>
               {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
               <Card className={classes.transactionItem}>
                 <div className={classes.transactionItemFirstHalf}>
@@ -66,6 +80,15 @@ const TransactionsForDay = props => {
           );
         })}
       </div>
+      {selectedTransaction && (
+        <div className={classes.transDetailModalWrapper}>
+          <TransactionDetailModal
+            transaction={selectedTransaction}
+            onClose={()=>setSelectedTransaction(null)}
+            transType = {selectedTransaction.type === 'Dispensing'?'Dispensed':'Restocked'}
+          />
+        </div>
+      )}
     </>
   );
 };
