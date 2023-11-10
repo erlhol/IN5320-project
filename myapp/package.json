@@ -15,7 +15,8 @@
     "deploy_gh": "gh-pages -d build"
   },
   "devDependencies": {
-    "@dhis2/cli-app-scripts": "^10.3.10"
+    "@dhis2/cli-app-scripts": "^10.3.10",
+    "prettier": "3.0.3"
   },
   "dependencies": {
     "@dhis2/app-runtime": "^3.9.4",

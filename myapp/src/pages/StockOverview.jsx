@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 
@@ -9,18 +9,35 @@ import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities";
-import { stockRequest } from "../requests";
+import { mergeCommodityAndValue } from "../utilities/datautility";
+import {
+  stockRequest,
+  stockUpdateRequest,
+  transRequest,
+  transUpdateRequest,
+} from "../utilities/requests";
+import { getCurrentMonth } from "../utilities/dates";
+import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
-  const [currentModal, setCurrentModal] = useState("");
-  // TODO: repace the period
+  // TODO: Replace these mock values
+  // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
+  // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
+  // const list = [commodity,commodity2]
+
+  const [modalPresent, setModalPresent] = useState(false);
+  const [currentSearch, setCurrentSearch] = useState("");
+
   const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: "202305" },
+    variables: { period: getCurrentMonth() },
   });
 
-  const handleOnModalChange = value => {
-    setCurrentModal(value);
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
+  };
+
+  const handleOnChangeSearch = value => {
+    setCurrentSearch(value.value);
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -31,6 +48,7 @@ const Inventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
+    const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>
         {/* The header and the add stock button */}
@@ -42,15 +60,18 @@ const Inventory = props => {
 
         {/* The input fields */}
         <div className={classes.filterOptions}>
-          <Search placeholder="Search commodity" width={"320px"} />
-          <Dropdown placeholder="Period" />
+          <Search
+            currentSearch={currentSearch}
+            onSearchChange={handleOnChangeSearch}
+            placeholder="Search commodity"
+            width={"320px"}
+          />
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={stockData} />
+        <CommodityTable commodities={filteredStockData} />
 
-        {/* TODO: remove stepper component */}
-        {currentModal === "add_stock" && (
+        {modalPresent && (
           <Stepper title={"Add stock"} onClose={handleOnModalChange} />
         )}
       </>

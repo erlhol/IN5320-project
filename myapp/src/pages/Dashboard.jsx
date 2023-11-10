@@ -8,8 +8,8 @@ import {
 } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 
-import { categorizeTransByDate, mergeCommodityAndValue } from "../utilities";
-import { stockRequest } from "../requests";
+import { categorizeTransByDate, mergeCommodityAndValue } from "../utilities/datautility";
+import { stockRequest } from "../utilities/requests";
 
 import classes from "../App.module.css";
 
