@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "@dhis2/app-runtime": "^3.9.4",
-    "concurrently": "^8.2.1"
+    "apexcharts": "^3.44.0",
+    "concurrently": "^8.2.1",
+    "react-apexcharts": "^1.4.1"
   }
 }
-
