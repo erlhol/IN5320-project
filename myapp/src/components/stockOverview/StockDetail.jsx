@@ -8,37 +8,42 @@ import {
   IconCalendar24,
 } from "@dhis2/ui";
 import classes from "../../App.module.css";
+const StockInfo = props => {
+  return (
+    <div className={classes.stockInfo}>
+      {props.icon}
+      <div>
+        <p>{props.infoString}</p>
+        <b>{props.infoValue}</b>
+      </div>
+    </div>
+  );
+};
+
 const StockDetail = props => {
   return (
     <Modal onClose={() => props.onClose(null)}>
       <h1>{props.selectedStock.commodityName}</h1>
       <div className={classes.modalContainer}>
-        <div className={classes.stockInfo}>
-          <div style={{ height: "100%" }}>
-            <IconDimensionData16
-              style={{ fontSize: "24px" }}
-            ></IconDimensionData16>
-          </div>
-          <div>
-            <p>Stock balance</p>
-            <b>{props.selectedStock.endBalance}</b>
-          </div>
-        </div>
-        <div className={classes.stockInfo}>
-          <IconArrowDown24></IconArrowDown24>
-          <div>
-            <p>Consumption</p>
-            <b>{props.selectedStock.consumption}</b>
-          </div>
-        </div>
-        <div className={classes.stockInfo}>
-          <IconCalendar24></IconCalendar24>
-          <div>
-            <p>Last dispensing</p>
-            <b>10/13/2023{props.selectedStock.lastDispensing}</b>
-          </div>
-        </div>
+        <StockInfo
+          infoString={"Stock balance"}
+          infoValue={props.selectedStock.endBalance}
+          icon={<IconDimensionData16></IconDimensionData16>}
+        ></StockInfo>
+
+        <StockInfo
+          infoString={"Consumption"}
+          infoValue={props.selectedStock.consumption}
+          icon={<IconArrowDown24></IconArrowDown24>}
+        ></StockInfo>
+
+        <StockInfo
+          infoString={"Last dispensing"}
+          infoValue={props.selectedStock.lastDispensing + "10/13/2023"}
+          icon={<IconCalendar24></IconCalendar24>}
+        ></StockInfo>
       </div>
+
       <ModalContent>StockDetail</ModalContent>
     </Modal>
   );
