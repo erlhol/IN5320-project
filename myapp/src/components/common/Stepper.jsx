@@ -19,7 +19,10 @@ import {
   transUpdateRequest,
 } from "../../utilities/requests";
 import { getCurrentMonth } from "../../utilities/dates";
-import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/dataUtility"
+import {
+  mergeCommodityAndValue,
+  getDateAndTime,
+} from "../../utilities/dataUtility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
 const Step = props => {
@@ -85,7 +88,7 @@ const Stepper = props => {
     updateStockInApi();
     updateTransInApi();
     props.refetchData();
-    alert("Stock/Dispencing successfully added!!");
+    alert("Stock/Dispensing successfully added!!");
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)

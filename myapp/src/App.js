@@ -11,7 +11,7 @@ import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/StockOverview";
-import Transactions from "./pages/StockHistory";
+import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
   /* State for handling navigation */
@@ -57,6 +57,9 @@ const MyApp = () => {
   // }, []);
 
   const { loading, error, data, refetch } = useDataQuery(transRequest);
+
+  const refetchData = () => setTimeout(() => refetch(), 2000);
+
   if (error)
     return (
       <span>
@@ -80,9 +83,9 @@ const MyApp = () => {
             <Inventory transactionData={transactionData} />
           )}
           {activePage === "StockHistory" && (
-            <Transactions
+            <StockHistory
               transactionData={transactionData}
-              refetchTransData={refetch}
+              refetchTransData={refetchData}
             />
           )}
         </section>

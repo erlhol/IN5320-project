@@ -46,6 +46,13 @@ const TransactionHistory = props => {
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
+  useEffect(() => {
+    console.log(
+      "props.transactionData in StockHistory: ",
+      props.transactionData
+    );
+  }, [props.transactionData]);
+
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };

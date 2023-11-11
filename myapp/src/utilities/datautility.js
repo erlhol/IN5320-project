@@ -48,8 +48,6 @@ export const mergeCommodityAndValue = (
         commodityData[commodityName].lastDispensing =
           matchedTrans.date +
           " " +
-          matchedTrans.time.substring(0, 5) +
-          "    " +
           matchedTransCommodity.amount;
     }
   });
