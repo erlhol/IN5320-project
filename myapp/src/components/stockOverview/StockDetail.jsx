@@ -41,12 +41,13 @@ const StockDetail = props => {
 
           <StockInfo
             infoString={"Last dispensing"}
-            infoValue={props.selectedStock.lastDispensing + "10/13/2023"}
+            infoValue={props.selectedStock.lastDispensing}
             icon={<IconCalendar24></IconCalendar24>}
           ></StockInfo>
         </div>
         <h3>Consumption History</h3>
         <ConsumptionHistoryChart></ConsumptionHistoryChart>
+        <h3>Transaction History</h3>
       </ModalContent>
     </Modal>
   );
