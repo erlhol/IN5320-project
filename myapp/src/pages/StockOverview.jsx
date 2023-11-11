@@ -23,7 +23,7 @@ const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  const { loading, error, data } = useDataQuery(stockRequest, {
+  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
 
@@ -74,7 +74,13 @@ const Inventory = props => {
         />
 
         {modalPresent && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+          <Stepper
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            refetchData={refetch}
+            allCommodities={data.commodities?.dataSetElements}
+            existedTransData={props.transactionData}
+          />
         )}
       </>
     );

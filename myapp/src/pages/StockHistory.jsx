@@ -17,8 +17,8 @@ import {
 const Transactions = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-05-23"),
-    end: new Date("2023-08-23"),
+    start: new Date("2023-08-01"),
+    end: new Date("2023-11-30"),
   });
   const [selectedReceipient, setSelectedReceipient] = useState(null);
   const [selectedCommodity, setSelectedCommodity] = useState(null);
@@ -78,7 +78,12 @@ const Transactions = props => {
       ))}
 
       {modalPresent && (
-        <Stepper title={"New Dispensing"} onClose={handleOnModalChange} />
+        <Stepper
+          title={"New dispensing"}
+          onClose={handleOnModalChange}
+          refetchData={props.refetchTransData}
+          existedTransData={props.transactionData}
+        />
       )}
     </>
   );
