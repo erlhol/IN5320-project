@@ -85,23 +85,3 @@
   gap: 8px;
   width: 160px;
 }
-
-.alertBarModal {
- position: absolute;
- bottom: 0;
- left: 50%;
- transform: translateX(-50%);
-}
-
-.addStockModal {
-  min-height: 450px;
-}
-
-.commoditySingleSelect {
-  flex-grow: 1;
-}
-
-.commoditySelectorContainer {
-  display: flex;
-  gap: 12px;
-}

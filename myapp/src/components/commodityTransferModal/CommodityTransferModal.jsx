@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Modal,
   ModalTitle,
@@ -13,28 +13,26 @@ import DateTimePicker from "./DateTimePicker";
 import RecipientInput from "./RecipientInput";
 import CancelConfirmationModal from "./CancelConfirmationModal";
 import CommoditySelect from "./CommoditySelect";
-import classes from "../../App.module.css";
+import modalStyles from "./CommodityTransferModal.module.css";
 
 const CommodityTransferModal = props => {
   const [selectedCommodities, setSelectedCommodities] = useState([]);
-  const [alertOpen, setAlertOpen] = useState(false);
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
   const [datetime, setDatetime] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [isValid, setIsValid] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
+  const validateInputs = status => {
+    setIsValid(status);
+  };
 
   const addCommodity = commodity => {
-    console.log(commodity);
-    if (
-      selectedCommodities.find(
-        selectedCommodity =>
-          selectedCommodity.commodityName === commodity.commodityName
-      )
-    ) {
-      setAlertOpen(true);
-      return;
-    }
-
-    const commodityWithRestockAmount = { ...commodity, amountToRestock: "" };
+    const commodityWithRestockAmount = {
+      ...commodity,
+      amountToRestock: "",
+      inputError: "",
+    };
     setSelectedCommodities([
       ...selectedCommodities,
       commodityWithRestockAmount,
@@ -63,14 +61,76 @@ const CommodityTransferModal = props => {
     );
   };
 
+  const createErrorMessages = () => {
+    // Go through selectedCommodities and validate each
+    const commoditiesWithValidation = selectedCommodities.map(commodity => {
+      const errorMessage = validateInput(
+        commodity.amountToRestock,
+        commodity.stockBalance
+      );
+      return {
+        ...commodity,
+        inputError: errorMessage,
+      };
+    })
+
+    setSelectedCommodities(commoditiesWithValidation);
+
+
+   /*  const allValid = selectedCommodities.every(
+      commodity => !commodity.inputError
+    );
+    setIsValid(allValid); */
+  };
+
+  const validateForm = () => {
+    createErrorMessages();
+    const allValid = selectedCommodities.every(
+      commodity => !commodity.inputError
+    );
+    setIsValid(allValid);
+    setSubmitAttempted(false);
+  }
+
+  /* useEffect(() => {
+    validateForm();
+  }, [submitAttempted]); */
+
+  const onSubmit = () => {
+    console.log(datetime);
+    setSubmitAttempted(true);
+    validateForm();
+    console.log(selectedCommodities);
+    if (isValid) {
+      console.log("submit");
+    }
+  };
+
+
+  const validateInput = (value, stockBalance) => {
+    if (value === "" || value === 0) {
+      return "Enter amount to restock";
+    } else if (value < 0) {
+      return "Amount must be a positive";
+    } else if (value > stockBalance && props.dispensing) {
+      return "Amount cannot be greater than stock balance";
+    }
+    return "";
+  };
+  //TODO: preselected commodities to
   return (
     <Modal large>
       <ModalTitle>{props.title}</ModalTitle>
-      <ModalContent className={classes.addStockModal}>
-        <div>
+      <ModalContent className={modalStyles.addStockModal}>
+        <div className={modalStyles.test}>
           <div style={{ display: "flex", width: "100%" }}>
             <div style={{ flex: 1, marginRight: "8px" }}>
-              <DateTimePicker datetime={datetime} setDatetime={setDatetime} />
+              <DateTimePicker
+                datetime={datetime}
+                setDatetime={setDatetime}
+                dateIsValid={false} //TODO: compare to current date
+                submitAttempted={submitAttempted}
+              />
             </div>
             {props.dispensing && (
               <div style={{ flex: 1 }}>
@@ -91,6 +151,8 @@ const CommodityTransferModal = props => {
             removeCommodity={removeCommodity}
             setAmountToRestock={setAmountToRestock}
             dispensing={props.dispensing}
+            validateInputs={validateInputs}
+            submitAttempted={submitAttempted}
           />
         </div>
         {cancelModalPresent && (
@@ -106,7 +168,7 @@ const CommodityTransferModal = props => {
             Cancel
           </Button>
           <Button
-            onClick={() => props.onClose(true)}
+            onClick={onSubmit}
             {...(datetime != "" && selectedCommodities.length > 0
               ? { primary: true }
               : { disabled: true })}
@@ -117,13 +179,6 @@ const CommodityTransferModal = props => {
           </Button>
         </ButtonStrip>
       </ModalActions>
-      <div className={classes.alertBarModal}>
-        {alertOpen && (
-          <AlertBar onHidden={() => setAlertOpen(false)} duration={1000}>
-            Commodity already selected!
-          </AlertBar>
-        )}
-      </div>
     </Modal>
   );
 };
