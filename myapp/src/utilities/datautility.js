@@ -7,13 +7,9 @@ export const mergeCommodityAndValue = (
   // console.log("dataValues", dataValues);
   // console.log("dataSetElements", dataSetElements);
   // console.log("transactionData in mergeCommodityAndValue: ",transactionData);
-  // Process dataValues and accumulate values based on categoryOptionCombo
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
-    );
-    const transaction = transactionData?.find(
-      trans => trans.commodityId === dataValue.dataElement
     );
 
     if (dataSetElement) {
@@ -40,15 +36,26 @@ export const mergeCommodityAndValue = (
       commodityData[commodityName].period = dataValue.period;
       commodityData[commodityName].commodityId = dataValue.dataElement;
 
-      if (transaction)
-        //console.log("W1XtQhP6BGd: ", transaction);
+      // Get the lastDispencing data from transactionData
+      const matchedTrans = transactionData?.find(trans =>
+        trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+      );
+      const matchedTransCommodity = matchedTrans?.commodities?.find(
+        c => c.commodityId === dataValue.dataElement
+      );
+
+      if (matchedTransCommodity)
         commodityData[commodityName].lastDispensing =
-          transaction.date + " " + transaction.time.substring(0, 5);
+          matchedTrans.date +
+          " " +
+          matchedTrans.time.substring(0, 5) +
+          "    " +
+          matchedTransCommodity.amount;
     }
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: " ,commodityList);
+  //console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
 };
 
@@ -66,11 +73,20 @@ export const getTransByCommodityName = (transactions, commodityName) => {
   if (!commodityName) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
-    const matchedTrans = transactions[date].filter(
-      transaction => transaction.commodityName === commodityName
+    const transactionsForDate = transactions[date];
+
+    const matchedTrans = transactionsForDate.filter(transaction =>
+      transaction.commodities.some(
+        commodity => commodity.commodityName === commodityName
+      )
     );
-    if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
+
+    if (matchedTrans.length !== 0) {
+      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
+      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
+    }
   }
+
   return filteredTrans;
 };
 
@@ -78,16 +94,14 @@ export const categorizeTransByDate = transactions => {
   const categorized = {};
   transactions.forEach(transaction => {
     const date = transaction.date;
-    if (!categorized[date]) {
-      categorized[date] = [];
-    }
+    if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  const sortedCategorized = Object.fromEntries(
-    Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
-  );
+  // const sortedCategorized = Object.fromEntries(
+  //   Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
+  // );
 
-  return sortedCategorized;
+  return categorized;
 };
 
 export const getTransByRecipient = (transactions, recipient) => {
@@ -136,7 +150,25 @@ export const getTransByRecipient = (transactions, recipient) => {
   //   "dispensedBy": "Who",
   //   "dispensedTo": "Whom",
   //   "time": "18:27:00"
+  // }，
+  //  {
+  //    "clustered": true
+  //    "commodityNames": "Zinc, Female Condom, Magnesium Sulfate";
+  //    "date": "2023-08-13",
+  //    "dispensedBy": "Who",
+  //    "dispensedTo": "Whom",
+  //    "details": []
   // }
   //   ]
   // };
+};
+
+export const getDateAndTime = dateTime => {
+  const month = (dateTime.getMonth() + 1).toString();
+  const day = dateTime.getDate().toString();
+  const year = dateTime.getFullYear().toString();
+
+  const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
+  const time = dateTime.toLocaleTimeString();
+  return { date, time };
 };
