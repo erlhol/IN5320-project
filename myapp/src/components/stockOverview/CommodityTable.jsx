@@ -126,6 +126,7 @@ const CommodityTable = props => {
                   name="Small button"
                   onClick={() => console.log("Dispense ID " + i)}
                   small
+                  primary
                   value="default"
                 >
                   Dispense
