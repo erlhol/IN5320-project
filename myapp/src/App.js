@@ -7,7 +7,7 @@ import { transRequest, transUpdateRequest } from "./utilities/requests";
 
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
-import Inventory from "./pages/StockOverview";
+import StockInventory from "./pages/StockOverview";
 import Transactions from "./pages/StockHistory";
 
 const MyApp = () => {
@@ -56,7 +56,7 @@ const MyApp = () => {
         <section className={classes.content}>
           {activePage === "Dashboard" && <Dashboard />}
           {activePage === "StockOverview" && (
-            <Inventory transactionData={transactionData} />
+            <StockInventory transactionData={transactionData} />
           )}
           {activePage === "StockHistory" && (
             <Transactions transactionData={transactionData} />
