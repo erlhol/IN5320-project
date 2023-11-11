@@ -1,14 +1,18 @@
-import React from "react";
-import { Card } from "@dhis2/ui";
+import React, { useState, useEffect } from "react";
+import { Card, SingleSelect, SingleSelectOption } from "@dhis2/ui";
+
 import ReactApexChart from "react-apexcharts";
+import { getNumberOfCurrentMonth, getMonth } from "../../../utilities/dates";
 import classes from "../../../App.module.css";
 
 const MostDispensed = props => {
-  const series = [
-    {
-      data: props.data.map(a => a.consumption),
-    },
-  ];
+  const [selectedMonth, setSelectedMonth] = useState(
+    getNumberOfCurrentMonth().toString()
+  );
+  const [seriesData, setSeriesData] = useState([
+    { data: [], name: "Consumption" },
+  ]);
+  const [xAxisCategories, setXAxisCategories] = useState([]);
 
   const options = {
     chart: {
@@ -16,25 +20,68 @@ const MostDispensed = props => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 4,
+        borderRadius: 2,
         horizontal: true,
-        barHeight: 20,
+        barHeight: 24,
       },
     },
     dataLabels: {
       enabled: false,
     },
     xaxis: {
-      categories: props.data.map(a => a.commodityName),
+      categories: xAxisCategories,
     },
+  };
+
+  const setChartData = month => {
+    const commodities = props.stockDataPerMonth[month]
+      .sort((a, b) => b.consumption - a.consumption)
+      .slice(0, 4);
+
+    const seriesData = {
+      data: commodities.map(commodity => commodity.consumption),
+    };
+    setSeriesData([seriesData]);
+
+    const xAxisCategories = commodities.map(
+      commodity => commodity.commodityName
+    );
+    setXAxisCategories(xAxisCategories);
+  };
+
+  useEffect(() => {
+    if (props.stockDataPerMonth) {
+      setChartData(selectedMonth);
+    }
+  }, [props.stockDataPerMonth]);
+
+  const handleSelectChange = value => {
+    setSelectedMonth(value.selected);
+    setChartData(value.selected);
   };
 
   return (
     <Card className={classes.chartCard}>
-      <div className={classes.dashboardCardTitle}>{props.title}</div>
+      <div className={classes.chartCardHeader}>
+        <div className={classes.dashboardCardTitle}>{props.title}</div>
+        <SingleSelect
+          className={classes.monthSelect}
+          onChange={handleSelectChange}
+          selected={selectedMonth}
+        >
+          {Object.keys(props.stockDataPerMonth).map((month, i) => (
+            <SingleSelectOption
+              key={month}
+              label={getMonth(i + 1)}
+              value={month}
+            />
+          ))}
+        </SingleSelect>
+      </div>
+
       <ReactApexChart
         options={options}
-        series={series}
+        series={seriesData}
         type="bar"
         height={250}
       />

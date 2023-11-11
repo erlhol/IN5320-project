@@ -59,7 +59,9 @@ const DispensingPerCommodity = props => {
 
   return (
     <Card className={classes.chartCard}>
-      <div className={classes.dashboardCardTitle}>{props.title}</div>
+      <div className={classes.chartCardHeader}>
+        <div className={classes.dashboardCardTitle}>{props.title}</div>
+      </div>
       <ReactApexChart
         options={options}
         series={series}

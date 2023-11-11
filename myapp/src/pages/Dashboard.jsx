@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { colors } from "@dhis2/ui";
 import {
   Box,
+  Button,
   IconBlock24,
   IconWarningFilled24,
   CircularLoader,
 } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 
-import { categorizeTransByDate, mergeCommodityAndValue } from "../utilities/datautility";
+import {
+  categorizeTransByDate,
+  mergeCommodityAndValue,
+} from "../utilities/datautility";
 import { stockRequest } from "../utilities/requests";
-
+import { getCurrentMonth, getPeriods } from "../utilities/dates";
 import classes from "../App.module.css";
 
 import Header from "../components/common/Header";
@@ -22,33 +26,42 @@ import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 
 const Dashboard = props => {
   const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: "202305" }, // TODO: right period?
+    variables: { period: getCurrentMonth() },
   });
 
   const [transactions, setTransactions] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
 
+  const stockDataPerMonth = [];
+  for (let period of getPeriods()) {
+    const { loading, error, data } = useDataQuery(stockRequest, {
+      variables: { period: period[1] },
+    });
+
+    const periodStockData = mergeCommodityAndValue(
+      data?.dataValues?.dataValues,
+      data?.commodities?.dataSetElements,
+      props.transactionData
+    );
+
+    stockDataPerMonth.push(periodStockData);
+  }
+
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
 
   if (loading) return <CircularLoader large />;
 
-  if (data) {
-    const stockData = mergeCommodityAndValue(
+  if (stockDataPerMonth && data) {
+    const currentStockData = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
     );
 
-    const numberCommoditiesOutOfStock = stockData.filter(
+    const numberCommoditiesOutOfStock = currentStockData.filter(
       commodity => commodity.endBalance == 0
     ).length;
-
-    const mostDispensedCommodities = stockData
-      .sort((a, b) => {
-        return b.consumption - a.consumption;
-      })
-      .slice(0, 4);
 
     return (
       <>
@@ -70,16 +83,19 @@ const Dashboard = props => {
           <Box className={classes.dashboardSecondRow}>
             <MostDispensed
               title="Most dispensed Commodities"
-              data={mostDispensedCommodities}
+              stockDataPerMonth={stockDataPerMonth}
             />
             <DispensingPerCommodity
               title="Dispensing per Commodity"
-              data={stockData}
             />
           </Box>
           <Box>
-            <span>Recent Transactions</span>
-            {/* TODO: add link */}
+            <div className={classes.transactionsHeader}>
+              <h2>Recent Transactions</h2>
+              <Button secondary name="secondary" value="add_stock">
+                Show all
+              </Button>
+            </div>
             {Object.keys(transactions)
               .slice(0, 2)
               .map((date, i) => (

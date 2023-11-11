@@ -121,7 +121,27 @@
 }
 
 .chartCard {
-  padding: 16px;
+  display: flex !important;
+  flex-direction: column;
+  padding: 16px 16px 16px 0;
+  gap: 12px;
+}
+
+.chartCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.monthSelect {
+  width: 130px;
+}
+
+.transactionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* stock history */
