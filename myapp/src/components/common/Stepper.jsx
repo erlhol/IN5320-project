@@ -19,7 +19,10 @@ import {
   transUpdateRequest,
 } from "../../utilities/requests";
 import { getCurrentMonth } from "../../utilities/dates";
-import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/dataUtility"
+import {
+  mergeCommodityAndValue,
+  getDateAndTime,
+} from "../../utilities/dataUtility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
 const Step = props => {
