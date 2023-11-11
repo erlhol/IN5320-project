@@ -89,19 +89,19 @@
   display: flex;
   align-items: center;
   text-align: center;
-  width: 190px;
+  width: 240px;
 }
 
 .dispensedBy {
   text-align: right;
   margin-right: 8px;
-  width: 80px;
+  width: 110px;
 }
 
 .dispensedTo {
   text-align: left;
   margin-left: 8px;
-  width: 80px;
+  width: 110px;
 }
 
 .transactionAmount {
@@ -163,4 +163,12 @@
   margin-top: 30px;
   margin-bottom: 15px;
   font-weight: 500px;
+}
+
+.commodityTableLastDispensing :first-child {
+  color: gray;
+}
+
+.commodityTableLastDispensing :nth-child(2) {
+  margin-left: 10px;
 }

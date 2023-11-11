@@ -23,7 +23,8 @@ export const mergeCommodityAndValue = (
           endBalance: 0,
           consumption: 0,
           period: 0,
-          lastDispensing: "",
+          lastDispensingDate: "",
+          lastDispensingAmount: "",
         };
       }
 
@@ -45,10 +46,9 @@ export const mergeCommodityAndValue = (
       );
 
       if (matchedTransCommodity)
-        commodityData[commodityName].lastDispensing =
-          matchedTrans.date +
-          " " +
-          matchedTransCommodity.amount;
+        commodityData[commodityName].lastDispensingDate = matchedTrans.date;
+      commodityData[commodityName].lastDispensingAmount =
+        matchedTransCommodity.amount;
     }
   });
 
