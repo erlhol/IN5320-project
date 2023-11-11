@@ -27,7 +27,17 @@ export const stockRequest = {
       dataSet: lifeSavingComDataSet,
     }),
   },
+  me: {
+        resource: 'me',
+    },
 };
+
+export const getCurrentAccount =
+{
+    me: {
+        resource: 'me',
+    },
+}
 
 // 2. For Transaction Display
 export const transRequest = {

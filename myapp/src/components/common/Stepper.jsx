@@ -7,8 +7,20 @@ import {
   Button,
   ButtonStrip,
   Chip,
+  CircularLoader,
+  InputField,
+  SingleSelectOption,
+  SingleSelectField,
 } from "@dhis2/ui";
-import Search from "./Search";
+import { useState, useEffect } from "react";
+import {
+  stockRequest,
+  stockUpdateRequest,
+  transUpdateRequest,
+} from "../../utilities/requests";
+import { getCurrentMonth } from "../../utilities/dates";
+import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/datautility";
+import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
 const Step = props => {
   return (
@@ -24,37 +36,186 @@ const Step = props => {
 
 const Stepper = props => {
   /* props.step1, props.step2, props.step3 */
-  return (
-    <Modal onClose={() => props.onClose("")} large>
-      <ModalTitle>{props.title}</ModalTitle>
-      <ModalContent>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {/* Steps: */}
-          <div
-            style={{ display: "flex", gap: "20px", flexDirection: "column" }}
-          >
-            <Step step={1} step_name={"Commodity"}></Step>
-            <Step step={2} step_name={"Additional information"}></Step>
-            <Step step={3} step_name={"Dispensing summary"}></Step>
+  const [selectedCommodities, setSelectedCommodities] = useState([]);
+  const [updateStock] = useDataMutation(stockUpdateRequest);
+  const [updateTrans] = useDataMutation(transUpdateRequest);
+
+  const { loading, error, data } = useDataQuery(stockRequest, {
+    variables: { period: getCurrentMonth() },
+  });
+
+  useEffect(() => {
+    console.log("selectedCommodities: ", selectedCommodities);
+  }, [selectedCommodities]);
+
+  const addToSelectedCommodities = commodity => {
+    const commodityAlreadySelected = selectedCommodities.find(
+      c => c.commodityName === commodity.commodityName
+    );
+    if (!commodityAlreadySelected) {
+      commodity["inputValue"] = null;
+      setSelectedCommodities([...selectedCommodities, commodity]);
+    }
+  };
+
+  const removeFromSelectedCommodities = commodityName => {
+    const updatedCommodities = selectedCommodities.filter(
+      commodity => commodity.commodityName !== commodityName
+    );
+    return updatedCommodities;
+  };
+
+  const getCommodityInputValue = commodityName => {
+    const commodity = selectedCommodities.find(
+      commodity => commodity.commodityName === commodityName
+    );
+    return commodity.inputValue;
+  };
+
+  const setCommodityInputValue = (name, value) => {
+    const updatedCommodies = selectedCommodities.map(commodity => {
+      if (commodity.commodityName === name)
+        return { ...commodity, inputValue: value };
+      return commodity; // Return unchanged commodities
+    });
+    setSelectedCommodities(updatedCommodies);
+  };
+
+  const onConfirm = () => {
+    updateStockInApi();
+    updateTransInApi();
+    props.refetchData();
+    alert("Stock/Dispencing successfully added!!");
+  };
+
+  //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
+  const updateStockInApi = () =>
+    selectedCommodities.forEach(commodity => {
+      updateStock({
+        dataElement: commodity.commodityId,
+        categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
+        value: getValuesBasedOnTitel(commodity).updatedStockBalance,
+      });
+    });
+
+  //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
+  const updateTransInApi = () => {
+    const commodities = selectedCommodities.map(commodity => {
+      const { updatedStockBalance, transAmount } =
+        getValuesBasedOnTitel(commodity);
+      return {
+        commodityId: commodity.commodityId,
+        commodityName: commodity.commodityName,
+        amount: transAmount,
+        balanceAfterTrans: updatedStockBalance,
+      };
+    });
+
+    const { date, time } = getDateAndTime(new Date());
+    let transData = {
+      type: props.title === "New dispensing" ? "Dispensing" : "Restock",
+      commodities,
+      dispensedBy: data.me.displayName,
+      dispensedTo: "test",
+      date,
+      time,
+    };
+    transData = [transData, ...props.existedTransData];
+    updateTrans({ data: transData });
+  };
+
+  const getValuesBasedOnTitel = commodity => {
+    const allValues = {
+      updatedStockBalance: 0,
+      transAmount: "",
+    };
+    allValues["updatedStockBalance"] =
+      props.title === "New dispensing"
+        ? Number(commodity.endBalance) - Number(commodity.inputValue)
+        : Number(commodity.endBalance) + Number(commodity.inputValue);
+    allValues["transAmount"] =
+      props.title === "New dispensing"
+        ? "-" + commodity.inputValue
+        : "+" + commodity.inputValue;
+    return allValues;
+  };
+
+  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
+  if (loading) return <CircularLoader large />;
+  if (data) {
+    console.log("me: ", data.me.displayName);
+    const allCommodities = mergeCommodityAndValue(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements,
+      props.transactionData
+    );
+
+    return (
+      <Modal onClose={() => props.onClose("")} large>
+        <ModalTitle>{props.title}</ModalTitle>
+        <ModalContent>
+          <div style={{ display: "flex", gap: "10px" }}>
+            {/* Steps: */}
+            <div
+              style={{ display: "flex", gap: "20px", flexDirection: "column" }}
+            >
+              <Step step={1} step_name={"Commodity"}></Step>
+              <Step step={2} step_name={"Additional information"}></Step>
+              <Step step={3} step_name={"Dispensing summary"}></Step>
+            </div>
+            {/* Main section */}
+            <div>
+              <h3>Commodity section</h3>
+              {/* <Search
+                placeholder="Search commodity"
+                width={"320px"}
+                onClick={() => setShoswDropDown(true)}
+              ></Search> */}
+              <SingleSelectField
+                onChange={value => addToSelectedCommodities(value.selected)}
+              >
+                {allCommodities.map(c => (
+                  <SingleSelectOption
+                    key={c.commodityName}
+                    label={c.commodityName}
+                    value={c}
+                  />
+                ))}
+              </SingleSelectField>
+              {selectedCommodities.map(selectedCommodity => (
+                <div
+                  style={{
+                    display: "flex",
+                  }}
+                >
+                  <div>{selectedCommodity.commodityName}</div>
+                  <div>{selectedCommodity.endBalance}</div>
+                  <InputField
+                    value={getCommodityInputValue(
+                      selectedCommodity.commodityName
+                    )}
+                    name={selectedCommodity.commodityName}
+                    onChange={({ name, value }) =>
+                      setCommodityInputValue(name, value)
+                    }
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Main section */}
-          <div>
-            <h3>Commodity section</h3>
-            <Search placeholder="Search commodity" width={"320px"}></Search>
-          </div>
-        </div>
-      </ModalContent>
-      <ModalActions>
-        <ButtonStrip end>
-          <Button onClick={() => console.log("Hei")} secondary>
-            Previous
-          </Button>
-          <Button onClick={() => console.log("Hei")} primary>
-            Next
-          </Button>
-        </ButtonStrip>
-      </ModalActions>
-    </Modal>
-  );
+        </ModalContent>
+        <ModalActions>
+          <ButtonStrip end>
+            <Button onClick={() => console.log("Hei")} secondary>
+              Previous
+            </Button>
+            <Button onClick={() => onConfirm()} primary>
+              Next
+            </Button>
+          </ButtonStrip>
+        </ModalActions>
+      </Modal>
+    );
+  }
 };
 export default Stepper;

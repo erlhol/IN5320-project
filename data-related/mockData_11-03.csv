@@ -1,0 +1,114 @@
+amount,balanceAfterTrans,commodityId,commodityName,date,dispensedBy,dispensedTo,time
+-3,197,W1XtQhP6BGd,Resuscitation Equipment,2023-08-29,John,Jenny,14:20:00
+-2,98,o15CyZiTvxa,Magnesium Sulfate,2023-08-28,Smith,Andy,13:22:00
+-8,392,TCfIC3NDgQK,Zinc,2023-08-28,Tim,Bob,18:27:00
+-3,97,hJNC4Bu2Mkv,Oxytocin,2023-08-28,Sara,Mia,09:45:00
+-4,62,BXgDHhPdFVU,Emergency Contraception,2023-08-26,Ella,Liam,16:18:00
+-7,54,f27B1G7B3m3,Misoprostol,2023-08-25,Oliver,Sophie,11:30:00
+-25,45,Dkapzovo8Ll,Implants,2023-08-23,Lucas,James,17:12:00
+-18,27,dY4OCwl0Y7Y,Female Condoms,2023-08-21,Noah,Mia,14:56:00
+-10,42,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-08-21,William,James,10:03:00
+-12,97,WjDoIR27f31,Chlorhexidine,2023-08-21,James,Sophia,13:40:00
+-3,40,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-08-20,Benjamin,Lucy,08:15:00
+-8,32,JIazHXNSnFJ,Injectable Antibiotics,2023-08-20,Henry,Harper,15:59:00
+-3,44,Boy3QwztgeZ,Amoxicillin,2023-08-18,Liam,Ella,12:04:00
+-4,20,BXgDHhPdFVU,Emergency Contraception,2023-08-18,Mason,Aria,19:27:00
+-5,192,W1XtQhP6BGd,Resuscitation Equipment,2023-08-18,Luna,Ethan,08:35:00
+50,192,W1XtQhP6BGd,Resuscitation Equipment,2023-08-17,Luna,Ethan,08:35:00
+-7,33,f27B1G7B3m3,Misoprostol,2023-08-17,Harper,Jackson,14:12:00
+-1,97,o15CyZiTvxa,Magnesium Sulfate,2023-08-15,Aiden,Avery,16:48:00
+-12,49,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-08-15,Emma,Sebastian,10:57:00
+-4,388,TCfIC3NDgQK,Zinc,2023-08-12,Nora,James,15:03:00
+-6,64,dY4OCwl0Y7Y,Female Condoms,2023-08-12,Lucy,James,12:44:00
+-1,96,hJNC4Bu2Mkv,Oxytocin,2023-08-12,Eva,Benjamin,09:12:00
+-9,70,WjDoIR27f31,Chlorhexidine,2023-08-11,Ava,William,13:55:00
+-4,56,JIazHXNSnFJ,Injectable Antibiotics,2023-08-11,Harper,Mia,18:14:00
+-11,67,Boy3QwztgeZ,Amoxicillin,2023-08-10,Liam,Ella,11:30:00
+-3,34,f27B1G7B3m3,Misoprostol,2023-08-09,Jackson,Sophie,09:45:00
+-5,92,o15CyZiTvxa,Magnesium Sulfate,2023-08-07,Aiden,Eva,14:20:00
+-17,51,Dkapzovo8Ll,Implants,2023-08-05,Smith,Andy,17:02:00
+-6,29,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-08-02,Nora,Daniel,10:10:00
+-6,45,TCfIC3NDgQK,Zinc,2023-08-02,Tim,Sophia,15:30:00
+-7,89,hJNC4Bu2Mkv,Oxytocin,2023-08-02,Lucy,James,13:55:00
+-5,40,WjDoIR27f31,Chlorhexidine,2023-08-01,Benjamin,Mia,14:28:00
+-9,75,f27B1G7B3m3,Misoprostol,2023-07-31,Oliver,Aria,16:42:00
+18,56,hJNC4Bu2Mkv,Oxytocin,2023-06-30,Sarah,Emily,10:15:00
+5,15,Dkapzovo8Ll,Implants,2023-06-29,Lucas,Olivia,09:30:00
+10,42,BXgDHhPdFVU,Emergency Contraception,2023-06-29,Ella,Liam,15:45:00
+25,36,dY4OCwl0Y7Y,Female Condoms,2023-06-29,Mia,Noah,17:20:00
+15,63,WjDoIR27f31,Chlorhexidine,2023-06-27,Aiden,Sophia,11:10:00
+12,23,f27B1G7B3m3,Misoprostol,2023-06-27,Ethan,Ava,12:55:00
+20,33,o15CyZiTvxa,Magnesium Sulfate,2023-06-25,Liam,Oliver,14:40:00
+30,58,W1XtQhP6BGd,Resuscitation Equipment,2023-06-23,Emma,James,16:25:00
+8,25,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-06-20,Ava,Charlotte,08:30:00
+17,41,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-06-20,Noah,Lily,10:45:00
+22,47,JIazHXNSnFJ,Injectable Antibiotics,2023-06-20,William,Ella,13:05:00
+9,18,Boy3QwztgeZ,Amoxicillin,2023-06-18,Oliver,Lucas,09:55:00
+13,31,TCfIC3NDgQK,Zinc,2023-06-18,Emily,Sophia,11:30:00
+19,35,hJNC4Bu2Mkv,Oxytocin,2023-06-18,Mason,William,14:15:00
+14,22,Dkapzovo8Ll,Implants,2023-06-16,Charlotte,Aiden,08:40:00
+28,45,BXgDHhPdFVU,Emergency Contraception,2023-06-16,James,Olivia,10:10:00
+17,79,hJNC4Bu2Mkv,Oxytocin,2023-06-16,Alice,Eve,10:15:00
+6,23,Dkapzovo8Ll,Implants,2023-06-16,John,Linda,16:45:00
+12,18,BXgDHhPdFVU,Emergency Contraception,2023-06-15,Sarah,Mike,09:30:00
+9,51,dY4OCwl0Y7Y,Female Condoms,2023-06-15,Laura,Kevin,14:10:00
+25,33,WjDoIR27f31,Chlorhexidine,2023-06-14,Megan,David,11:55:00
+18,22,f27B1G7B3m3,Misoprostol,2023-06-12,Paul,Lisa,17:20:00
+30,45,o15CyZiTvxa,Magnesium Sulfate,2023-06-12,Ethan,Olivia,12:40:00
+5,15,W1XtQhP6BGd,Resuscitation Equipment,2023-06-12,Sophia,James,08:05:00
+11,26,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-06-10,Nathan,Emily,14:55:00
+22,37,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-06-10,Logan,Ava,11:30:00
+13,41,JIazHXNSnFJ,Injectable Antibiotics,2023-06-09,Aiden,Sophie,09:10:00
+8,12,Boy3QwztgeZ,Amoxicillin,2023-06-08,Ella,Henry,16:25:00
+16,22,TCfIC3NDgQK,Zinc,2023-06-07,Grace,Michael,13:40:00
+14,31,hJNC4Bu2Mkv,Oxytocin,2023-06-03,Liam,Charlotte,10:50:00
+7,14,Dkapzovo8Ll,Implants,2023-06-03,Oliver,Evelyn,12:15:00
+19,42,BXgDHhPdFVU,Emergency Contraception,2023-06-01,Mia,Ethan,17:30:00
+10,40,dY4OCwl0Y7Y,Female Condoms,2023-06-01,Noah,Avery,09:55:00
+23,29,WjDoIR27f31,Chlorhexidine,2023-05-28,Lily,William,15:45:00
+21,43,f27B1G7B3m3,Misoprostol,2023-05-28,Mason,Victoria,14:20:00
+15,33,o15CyZiTvxa,Magnesium Sulfate,2023-05-27,Zoe,Jackson,16:10:00
+11,23,W1XtQhP6BGd,Resuscitation Equipment,2023-05-25,Samuel,Lillian,12:35:00
+24,32,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-05-25,Elijah,Harper,10:05:00
+13,26,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-05-24,Aiden,Zoe,15:15:00
+7,19,JIazHXNSnFJ,Injectable Antibiotics,2023-05-20,Ella,Liam,17:40:00
+12,24,Boy3QwztgeZ,Amoxicillin,2023-05-20,Olivia,Ethan,09:55:00
+8,18,TCfIC3NDgQK,Zinc,2023-05-19,Charlotte,Mason,14:30:00
+16,32,hJNC4Bu2Mkv,Oxytocin,2023-05-19,James,Lily,11:05:00
+9,22,Dkapzovo8Ll,Implants,2023-05-18,Evelyn,Elijah,13:25:00
+19,41,BXgDHhPdFVU,Emergency Contraception,2023-05-18,Liam,Mia,15:50:00
+14,29,dY4OCwl0Y7Y,Female Condoms,2023-05-16,Ella,Noah,09:15:00
+28,34,WjDoIR27f31,Chlorhexidine,2023-05-16,Zoe,Aiden,17:30:00
+10,26,f27B1G7B3m3,Misoprostol,2023-05-16,Ethan,Olivia,16:20:00
+-23,34,W1XtQhP6BGd,Resuscitation Equipment,2023-05-15,John,Jenny,14:20:00
+44,11,o15CyZiTvxa,Magnesium Sulfate,2023-05-14,Smith,Andy,13:22:00
+32,12,TCfIC3NDgQK,Zinc,2023-05-12,Tim,Bob,18:27:00
+12,45,hJNC4Bu2Mkv,Oxytocin,2023-05-12,Alice,Eve,10:15:00
+-7,29,BXgDHhPdFVU,Emergency Contraception,2023-05-10,David,Olivia,21:45:00
+18,42,JIazHXNSnFJ,Injectable Antibiotics,2023-05-10,Sarah,Liam,15:30:00
+25,33,Boy3QwztgeZ,Amoxicillin,2023-05-09,Lucas,Chloe,09:10:00
+-16,38,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-05-09,Mia,Noah,12:55:00
+14,21,f27B1G7B3m3,Misoprostol,2023-05-09,Ella,Mason,16:40:00
+30,39,dY4OCwl0Y7Y,Female Condoms,2023-05-08,Jackson,Ava,11:05:00
+-5,28,Dkapzovo8Ll,Implants,2023-05-06,Harper,William,19:20:00
+22,37,WjDoIR27f31,Chlorhexidine,2023-05-05,Sophia,Ethan,08:30:00
+38,49,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-05-05,Aiden,Oliver,07:15:00
+-19,26,hJNC4Bu2Mkv,Oxytocin,2023-05-04,Aria,Elijah,11:50:00
+10,36,BXgDHhPdFVU,Emergency Contraception,2023-05-04,Evelyn,Henry,15:55:00
+-12,23,JIazHXNSnFJ,Injectable Antibiotics,2023-05-04,Camila,Sebastian,10:40:00
+-23,34,W1XtQhP6BGd,Resuscitation Equipment,2023-05-03,John,Jenny,14:20:00
+44,11,o15CyZiTvxa,Magnesium Sulfate,2023-05-03,Smith,Andy,13:22:00
+32,12,TCfIC3NDgQK,Zinc,2023-05-03,Tim,Bob,18:27:00
+12,45,hJNC4Bu2Mkv,Oxytocin,2023-05-02,Alice,Eve,10:15:00
+-7,29,BXgDHhPdFVU,Emergency Contraception,2023-05-02,David,Olivia,21:45:00
+18,42,JIazHXNSnFJ,Injectable Antibiotics,2023-05-01,Sarah,Liam,15:30:00
+25,33,Boy3QwztgeZ,Amoxicillin,2023-05-01,Lucas,Chloe,09:10:00
+-16,38,Lz8MM2Y9DNh,Oral Rehydration Salts,2023-04-29,Mia,Noah,12:55:00
+14,21,f27B1G7B3m3,Misoprostol,2023-04-29,Ella,Mason,16:40:00
+30,39,dY4OCwl0Y7Y,Female Condoms,2023-04-24,Jackson,Ava,11:05:00
+-5,28,Dkapzovo8Ll,Implants,2023-04-24,Harper,William,19:20:00
+22,37,WjDoIR27f31,Chlorhexidine,2023-04-20,Sophia,Ethan,08:30:00
+38,49,d9vZ3HOlzAd,Antenatal Corticosteroids,2023-04-18,Aiden,Oliver,07:15:00
+-19,26,hJNC4Bu2Mkv,Oxytocin,2023-04-17,Aria,Elijah,11:50:00
+10,36,BXgDHhPdFVU,Emergency Contraception,2023-04-15,Evelyn,Henry,15:55:00
+-12,23,JIazHXNSnFJ,Injectable Antibiotics,2023-04-15,Camila,Sebastian,10:40:00

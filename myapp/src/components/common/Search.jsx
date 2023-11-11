@@ -11,6 +11,7 @@ const Search = props => {
       onChange={props.onSearchChange}
       placeholder={props.placeholder}
     />
+
   );
 };
 export default Search;

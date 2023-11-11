@@ -10,25 +10,15 @@ import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import { mergeCommodityAndValue } from "../utilities/datautility";
-import {
-  stockRequest,
-  stockUpdateRequest,
-  transRequest,
-  transUpdateRequest,
-} from "../utilities/requests";
+import {stockRequest,} from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
-  // TODO: Replace these mock values
-  // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
-  // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
-  // const list = [commodity,commodity2]
-
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  const { loading, error, data } = useDataQuery(stockRequest, {
+  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
 
@@ -72,7 +62,13 @@ const Inventory = props => {
         <CommodityTable commodities={filteredStockData} />
 
         {modalPresent && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+          <Stepper
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            refetchData = {refetch}
+            allCommodities={data.commodities?.dataSetElements}
+            existedTransData={props.transactionData}
+          />
         )}
       </>
     );
