@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
-import i18n from "@dhis2/d2-i18n";
 import classes from "./App.module.css";
+import { CircularLoader } from "@dhis2/ui";
 import {
-  stockRequest,
-  stockUpdateRequest,
   transRequest,
   transUpdateRequest,
-} from "./requests";
-
+  stockUpdateRequest,
+} from "./utilities/requests";
+import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/StockOverview";
 import Transactions from "./pages/StockHistory";
-
-const query = {
-  me: {
-    resource: "me",
-  },
-};
 
 const MyApp = () => {
   /* State for handling navigation */
@@ -28,67 +21,75 @@ const MyApp = () => {
     setActivePage(page);
   }
 
-  // 3. For Stock Update
-  //    const [updateStock] = useDataMutation(stockUpdateRequest);
-  //     useEffect(() => {
-  //       updateStock({
-  //           dataElement: "W1XtQhP6BGd",
-  //           categoryOptionCombo: "J2Qf1jtZuj8",  //endBalance
-  //           value: "321",
-  //       })
-  //     }, [])
+  // 3. For Stock Update:
+  // const [updateStock] = useDataMutation(stockUpdateRequest);
+  // useEffect(() => {
+  //   const endBalances = {
+  //     Boy3QwztgeZ: "0",
+  //     hJNC4Bu2Mkv: "0",
 
-  //4. For Transaction Update
-  // const [transData, setTransData] = useState([{
-  //     date: "2023-05-23",
-  //     time:"14:20:00",
-  //     commodityId: "d352wSd",
-  //     commodityName: "Female Kondom",
-  //     dispensedBy: "John",
-  //     dispensedTo: "Jenny",
-  //     amount: -23,
-  //     balanceAfterTrans: 34
-  // },
-  //     {
-  //         date: "2023-05-21",
-  //         time: "13:22:00",
-  //         commodityId: "vdslkas",
-  //         commodityName: "Chlorhexidine",
-  //         dispensedBy: "Some one",
-  //         dispensedTo: "Another one",
-  //         amount: 44,
-  //         balanceAfterTrans: 11
-  //     },
-  //     {
-  //         date: "2023-08-13",
-  //         time: "18:27:00",
-  //         commodityId: "dkdisw",
-  //         commodityName: "Antenatal Corticosteroids",
-  //         dispensedBy: "Who",
-  //         dispensedTo: "Whom",
-  //         amount: 32,
-  //         balanceAfterTrans: 12
-  //     }])
+  //     BXgDHhPdFVU: "16",
+  //     Dkapzovo8Ll: "28",
+  //     dY4OCwl0Y7Y: "24",
+  //     W1XtQhP6BGd: "197",
+  //     o15CyZiTvxa: "98",
+  //     f27B1G7B3m3: "54",
+  //     TCfIC3NDgQK: "392",
+  //     WjDoIR27f31: "97",
+  //     Lz8MM2Y9DNh: "42",
+  //     d9vZ3HOlzAd: "40",
+  //     JIazHXNSnFJ: "32",
+  //   };
 
+  //   for (const commodity in endBalances) {
+  //     updateStock({
+  //       dataElement: commodity,
+  //       categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
+  //       value: endBalances[commodity],
+  //     });
+  //   }
+  // }, []);
+
+  //4. For Transaction Update:
+  // const [transData, setTransData] = useState(mockData);
   // const [updateTrans] = useDataMutation(transUpdateRequest);
   // useEffect(() => {
-  //   updateTrans({ data: transData })
-  // }, [])
-  return (
-    <div className={classes.container}>
-      <div className={classes.sidenav}>
-        <Sidenav
-          activePage={activePage}
-          activePageHandler={activePageHandler}
-        />
+  //   updateTrans({ data: transData });
+  // }, []);
+
+  const { loading, error, data, refetch } = useDataQuery(transRequest);
+  if (error)
+    return (
+      <span>
+        ERROR in getting transaction/stock history data: {error.message}
+      </span>
+    );
+  if (loading) return <CircularLoader large />;
+  if (data) {
+    let transactionData = data.transactionHistory.data;
+    return (
+      <div className={classes.container}>
+        <div className={classes.sidenav}>
+          <Sidenav
+            activePage={activePage}
+            activePageHandler={activePageHandler}
+          />
+        </div>
+        <section className={classes.content}>
+          {activePage === "Dashboard" && <Dashboard />}
+          {activePage === "StockOverview" && (
+            <Inventory transactionData={transactionData} />
+          )}
+          {activePage === "StockHistory" && (
+            <Transactions
+              transactionData={transactionData}
+              refetchTransData={refetch}
+            />
+          )}
+        </section>
       </div>
-      <section className={classes.content}>
-        {activePage === "Dashboard" && <Dashboard />}
-        {activePage === "StockOverview" && <Inventory />}
-        {activePage === "StockHistory" && <Transactions />}
-      </section>
-    </div>
-  );
+    );
+  }
 };
 
 export default MyApp;
