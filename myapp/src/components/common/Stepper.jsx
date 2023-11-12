@@ -18,11 +18,8 @@ import {
   stockUpdateRequest,
   transUpdateRequest,
 } from "../../utilities/requests";
-import { getCurrentMonth } from "../../utilities/dates";
-import {
-  mergeCommodityAndValue,
-  getDateAndTime,
-} from "../../utilities/dataUtility";
+import { getCurrentMonth, getDateAndTime } from "../../utilities/dates";
+import { mergeCommodityAndValue } from "../../utilities/dataUtility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
 const Step = props => {
@@ -47,10 +44,10 @@ const Stepper = props => {
     variables: { period: getCurrentMonth() },
   });
 
-  useEffect(() => {
-    console.log("selectedCommodities: ", selectedCommodities);
-    console.log("props.transactionData in Stepper: ", props.transactionData);
-  }, [selectedCommodities, props.transactionData]);
+  // useEffect(() => {
+  //   console.log("selectedCommodities: ", selectedCommodities);
+  //   console.log("props.transactionData in Stepper: ", props.transactionData);
+  // }, [selectedCommodities, props.transactionData]);
 
   const addToSelectedCommodities = commodity => {
     const commodityAlreadySelected = selectedCommodities.find(

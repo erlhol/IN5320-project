@@ -6,15 +6,10 @@ import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
 import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import {
-  getTransByCommodityNameQuery,
-  getTransByPeriod,
-  getTransByRecipient,
-  categorizeTransByDate,
-} from "../utilities/dataUtility";
+import { categorizeTransByDate } from "../utilities/dataUtility";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
+import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
-//import { CalendarInput, CalendarStoryWrapper, Calendar } from "@dhis2/ui";
 import DatePicker from "react-multi-date-picker";
 
 const TransactionHistory = props => {
@@ -40,6 +35,15 @@ const TransactionHistory = props => {
     setVisibleTrans(categorizeTransByDate(filteredTrans));
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
+  };
+
+  const onSearch = event => {
+    if (event.name === "commodity") return setSelectedCommodity(event.value);
+    if (event.name === "recipient") return setSelectedReceipient(event.value);
+  };
+
   const filterTrans = () => {
     return props?.transactionData?.filter(transaction => {
       const transactionDate = new Date(transaction.date);
@@ -56,16 +60,6 @@ const TransactionHistory = props => {
         transactionDate <= new Date(selectedPeriod[1])
       );
     });
-  };
-
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
-  };
-
-  const onSearch = event => {
-    console.log("event in onSelectCommodity: ", event);
-    if (event.name === "commodity") return setSelectedCommodity(event.value);
-    if (event.name === "recipient") return setSelectedReceipient(event.value);
   };
 
   return (
@@ -92,14 +86,16 @@ const TransactionHistory = props => {
           onSearchChange={onSearch}
           currentSearch={selectedReceipient}
         />
-
-        <DatePicker
-          value={selectedPeriod}
-          onChange={values => setSelectedPeriod(values)}
-          format="MM/DD/YYYY"
-          range
-          style={{ height: "40px", width: "210px" }}
-        />
+        <div className={classes.datePicker}>
+          <IconCalendar24 />
+          <DatePicker
+            value={selectedPeriod}
+            onChange={values => setSelectedPeriod(values)}
+            format="MM/DD/YYYY"
+            range
+            style={{ height: "40px", width: "210px" }}
+          />
+        </div>
       </div>
 
       {/* Multiple transactions can be listed here: */}

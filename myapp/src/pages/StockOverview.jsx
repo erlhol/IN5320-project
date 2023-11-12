@@ -20,11 +20,8 @@ const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  // const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-  //   variables: { period: getCurrentMonth() },
-  // });
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-    variables: { period: ["202310", "202311"] },
+    variables: { period: getCurrentMonth() },
   });
 
   const handleOnModalChange = () => {
@@ -43,10 +40,7 @@ const Inventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
-    mergeDataForDashboard(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements
-    );
+
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>

@@ -93,7 +93,7 @@ const TransactionsForDay = props => {
                       ) : null}
                     </div>
                   </div>
-                  <IconMore24></IconMore24>
+                  <IconMore24 />
                 </Card>
               </Box>
             </div>
