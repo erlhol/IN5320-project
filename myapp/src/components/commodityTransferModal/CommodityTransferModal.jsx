@@ -131,8 +131,8 @@ const CommodityTransferModal = props => {
     let transData = {
       type: props.dispensing ? "Dispensing" : "Restock",
       commodities,
-      dispensedBy: data.me.displayName,
-      dispensedTo: recipient,
+      dispensedBy: props.dispensing ? data.me.displayName : "",
+      dispensedTo: props.dispensing ? recipient : data.me.displayName,
       date,
       time,
     };
@@ -162,7 +162,7 @@ const CommodityTransferModal = props => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
-    );
+    ).sort((a, b) => a.commodityName.localeCompare(b.commodityName));
 
     return (
       <Modal large>
