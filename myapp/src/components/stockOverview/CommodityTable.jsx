@@ -65,7 +65,7 @@ const PaginationOfTable = props => {
 
 const CommodityTable = props => {
   // State for the current pageSize selected
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(10);
 
   // State for the displayed commodities. These are the commodities displayed (and constrained by the pagination component)
   const [displayedCommodities, setDisplayedCommodities] = useState(
