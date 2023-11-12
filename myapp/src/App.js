@@ -57,8 +57,11 @@ const MyApp = () => {
   // }, []);
 
   const { loading, error, data, refetch } = useDataQuery(transRequest);
+  useEffect(() => {
+    console.log("transData in App: ", data);
+  }, [data]);
 
-  const refetchData = () => setTimeout(() => refetch(), 2000);
+  //const refetchData = () => setTimeout(() => refetch(), 2000);
 
   if (error)
     return (
@@ -85,7 +88,7 @@ const MyApp = () => {
           {activePage === "StockHistory" && (
             <StockHistory
               transactionData={transactionData}
-              refetchTransData={refetchData}
+              refetchTransData={() => refetch()}
             />
           )}
         </section>

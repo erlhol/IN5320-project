@@ -4,9 +4,7 @@ export const mergeCommodityAndValue = (
   transactionData
 ) => {
   const commodityData = {};
-  // console.log("dataValues", dataValues);
-  // console.log("dataSetElements", dataSetElements);
-  // console.log("transactionData in mergeCommodityAndValue: ",transactionData);
+  console.log("dataValues: ", dataValues);
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
@@ -17,8 +15,10 @@ export const mergeCommodityAndValue = (
       const categoryOptionCombo = dataValue.categoryOptionCombo;
       const value = parseInt(dataValue.value, 10);
 
-      if (!commodityData[commodityName]) {
-        commodityData[commodityName] = {
+      const key = `${commodityName}-${dataValue.period}`;
+
+      if (!commodityData[key]) {
+        commodityData[key] = {
           commodityName,
           endBalance: 0,
           consumption: 0,
@@ -29,32 +29,50 @@ export const mergeCommodityAndValue = (
       }
 
       if (categoryOptionCombo === "J2Qf1jtZuj8") {
-        commodityData[commodityName].endBalance += value;
+        commodityData[key].endBalance += value;
       } else if (categoryOptionCombo === "rQLFnNXXIL0") {
-        commodityData[commodityName].consumption += value;
+        commodityData[key].consumption += value;
       }
 
-      commodityData[commodityName].period = dataValue.period;
-      commodityData[commodityName].commodityId = dataValue.dataElement;
+      commodityData[key].period = dataValue.period;
+      commodityData[key].commodityId = dataValue.dataElement;
 
       // Get the lastDispencing data from transactionData
-      const matchedTrans = transactionData?.find(trans =>
-        trans.commodities.some(c => c.commodityId === dataValue.dataElement)
-      );
-      const matchedTransCommodity = matchedTrans?.commodities?.find(
-        c => c.commodityId === dataValue.dataElement
-      );
+      if (transactionData) {
+        const matchedTrans = transactionData?.find(trans =>
+          trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+        );
+        const matchedTransCommodity = matchedTrans?.commodities?.find(
+          c => c.commodityId === dataValue.dataElement
+        );
 
-      if (matchedTransCommodity)
-        commodityData[commodityName].lastDispensingDate = matchedTrans.date;
-      commodityData[commodityName].lastDispensingAmount =
-        matchedTransCommodity.amount;
+        if (matchedTransCommodity) {
+          commodityData[key].lastDispensingDate = matchedTrans.date;
+          commodityData[key].lastDispensingAmount =
+            matchedTransCommodity?.amount;
+        }
+      }
     }
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: ", commodityList);
+  console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
+};
+
+export const mergeDataForDashboard = (dataValues, dataSetElements) => {
+  const commodities = mergeCommodityAndValue(dataValues, dataSetElements, null);
+  const groupedCommodities = commodities.reduce((result, commodity) => {
+    const periodIndex = result.findIndex(
+      group => group[0]?.period === commodity.period
+    );
+    if (periodIndex !== -1) result[periodIndex].push(commodity);
+    else result.push([commodity]);
+    return result;
+  }, []);
+
+  console.log("groupedCommodities in dataUtility: ", groupedCommodities);
+  return groupedCommodities;
 };
 
 export const getTransByPeriod = (transactions, startDate, endDate) => {
@@ -67,15 +85,20 @@ export const getTransByPeriod = (transactions, startDate, endDate) => {
   return filteredTrans;
 };
 
-export const getTransByCommodityName = (transactions, commodityName) => {
-  if (!commodityName) return transactions;
+export const getTransByCommodityNameQuery = (
+  transactions,
+  commodityNameQuery
+) => {
+  if (!commodityNameQuery) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
     const transactionsForDate = transactions[date];
 
     const matchedTrans = transactionsForDate.filter(transaction =>
-      transaction.commodities.some(
-        commodity => commodity.commodityName === commodityName
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
       )
     );
 
@@ -84,7 +107,7 @@ export const getTransByCommodityName = (transactions, commodityName) => {
       else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
     }
   }
-
+  console.log("filteredTrans in dataUtility: ", filteredTrans);
   return filteredTrans;
 };
 

@@ -49,7 +49,8 @@ const Stepper = props => {
 
   useEffect(() => {
     console.log("selectedCommodities: ", selectedCommodities);
-  }, [selectedCommodities]);
+    console.log("props.transactionData in Stepper: ", props.transactionData);
+  }, [selectedCommodities, props.transactionData]);
 
   const addToSelectedCommodities = commodity => {
     const commodityAlreadySelected = selectedCommodities.find(
@@ -146,7 +147,6 @@ const Stepper = props => {
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
-    console.log("me: ", data.me.displayName);
     const allCommodities = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,

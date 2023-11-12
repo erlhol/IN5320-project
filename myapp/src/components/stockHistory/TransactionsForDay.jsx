@@ -10,7 +10,6 @@ const TransactionsForDay = props => {
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const handleCardClick = transaction => {
-    console.log("dd");
     setSelectedTransaction(transaction);
   };
 

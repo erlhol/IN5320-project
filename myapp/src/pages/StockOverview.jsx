@@ -2,15 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { Button, CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
-
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities/dataUtility";
-import {stockRequest,} from "../utilities/requests";
+import {
+  mergeCommodityAndValue,
+  mergeDataForDashboard,
+} from "../utilities/dataUtility";
+import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
@@ -18,8 +20,11 @@ const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
+  // const { loading, error, data, refetch } = useDataQuery(stockRequest, {
+  //   variables: { period: getCurrentMonth() },
+  // });
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-    variables: { period: getCurrentMonth() },
+    variables: { period: ["202310", "202311"] },
   });
 
   const handleOnModalChange = () => {
@@ -37,6 +42,10 @@ const Inventory = props => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
+    );
+    mergeDataForDashboard(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements
     );
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
@@ -65,7 +74,7 @@ const Inventory = props => {
           <Stepper
             title={"Add stock"}
             onClose={handleOnModalChange}
-            refetchData = {refetch}
+            refetchData={refetch}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
           />
