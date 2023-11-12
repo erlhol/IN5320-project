@@ -36,7 +36,7 @@ const MostDispensed = props => {
   const setChartData = month => {
     const commodities = props.stockDataPerMonth[month]
       .sort((a, b) => b.consumption - a.consumption)
-      .slice(0, 4);
+      .slice(0, 5);
 
     const seriesData = {
       data: commodities.map(commodity => commodity.consumption),
@@ -65,6 +65,7 @@ const MostDispensed = props => {
       <div className={classes.chartCardHeader}>
         <div className={classes.dashboardCardTitle}>{props.title}</div>
         <SingleSelect
+          dense
           className={classes.monthSelect}
           onChange={handleSelectChange}
           selected={selectedMonth}
@@ -83,7 +84,7 @@ const MostDispensed = props => {
         options={options}
         series={seriesData}
         type="bar"
-        height={250}
+        height={300}
       />
     </Card>
   );
