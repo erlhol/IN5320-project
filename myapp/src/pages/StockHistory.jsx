@@ -12,6 +12,7 @@ import {
   getTransByRecipient,
   categorizeTransByDate,
 } from "../utilities/datautility";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 
 const Transactions = props => {
   const [modalPresent, setModalPresent] = useState(false);
@@ -77,10 +78,10 @@ const Transactions = props => {
       ))}
 
       {modalPresent && (
-        <Stepper
-          title={"New dispensing"}
+        <CommodityTransferModal
+          title={"Add stock"}
           onClose={handleOnModalChange}
-          refetchData={props.refetchTransData}
+          dispensing={true}
           existedTransData={props.transactionData}
         />
       )}

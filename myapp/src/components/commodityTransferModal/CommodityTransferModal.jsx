@@ -7,31 +7,49 @@ import {
   ModalActions,
   Button,
   ButtonStrip,
-  AlertBar,
+  CircularLoader,
 } from "@dhis2/ui";
 import DateTimePicker from "./DateTimePicker";
 import RecipientInput from "./RecipientInput";
 import CancelConfirmationModal from "./CancelConfirmationModal";
 import CommoditySelect from "./CommoditySelect";
 import modalStyles from "./CommodityTransferModal.module.css";
+import { getCurrentMonth } from "../../utilities/dates";
+import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import {
+  stockRequest,
+  stockUpdateRequest,
+  transUpdateRequest,
+} from "../../utilities/requests";
+import {
+  mergeCommodityAndValue,
+  getDateAndTime,
+} from "../../utilities/datautility";
 
 const CommodityTransferModal = props => {
   const [selectedCommodities, setSelectedCommodities] = useState([]);
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
-  const [datetime, setDatetime] = useState("");
+
+  const [dateTimeState, setDateTimeState] = useState({
+    dateTime: "",
+    isValid: false,
+  });
+
   const [recipient, setRecipient] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [submitAttempted, setSubmitAttempted] = useState(false);
+   const [updateStock] = useDataMutation(stockUpdateRequest);
+   const [updateTrans] = useDataMutation(transUpdateRequest);
 
-  const validateInputs = status => {
-    setIsValid(status);
-  };
+  const { loading, error, data } = useDataQuery(stockRequest, {
+    variables: { period: getCurrentMonth() },
+  });
 
   const addCommodity = commodity => {
     const commodityWithRestockAmount = {
       ...commodity,
       amountToRestock: "",
-      inputError: "",
+      inputError: "Enter amount to restock",
     };
     setSelectedCommodities([
       ...selectedCommodities,
@@ -39,10 +57,11 @@ const CommodityTransferModal = props => {
     ]);
   };
 
-  const setAmountToRestock = (commodity, value) => {
+  const setAmountToRestock = (commodity, value, inputError) => {
     const commodityWithRestockAmount = {
       ...commodity,
       amountToRestock: value,
+      inputError: inputError,
     };
     setSelectedCommodities(
       selectedCommodities.map(selectedCommodity =>
@@ -61,74 +80,100 @@ const CommodityTransferModal = props => {
     );
   };
 
-  const createErrorMessages = () => {
-    // Go through selectedCommodities and validate each
-    const commoditiesWithValidation = selectedCommodities.map(commodity => {
-      const errorMessage = validateInput(
-        commodity.amountToRestock,
-        commodity.stockBalance
-      );
-      return {
-        ...commodity,
-        inputError: errorMessage,
-      };
-    })
-
-    setSelectedCommodities(commoditiesWithValidation);
-
-
-   /*  const allValid = selectedCommodities.every(
-      commodity => !commodity.inputError
-    );
-    setIsValid(allValid); */
-  };
-
   const validateForm = () => {
-    createErrorMessages();
-    const allValid = selectedCommodities.every(
-      commodity => !commodity.inputError
+    const amountInputsValid = selectedCommodities.every(
+      commodity => commodity.inputError === ""
     );
-    setIsValid(allValid);
-    setSubmitAttempted(false);
-  }
-
-  /* useEffect(() => {
-    validateForm();
-  }, [submitAttempted]); */
+    console.log("amountInputsValid", amountInputsValid);
+    console.log("dateTimeState.isValid", dateTimeState.isValid);
+    return (
+      amountInputsValid &&
+      dateTimeState.isValid &&
+      !(recipient === "" && props.dispensing)
+    );
+  };
 
   const onSubmit = () => {
-    console.log(datetime);
     setSubmitAttempted(true);
-    validateForm();
-    console.log(selectedCommodities);
-    if (isValid) {
-      console.log("submit");
+    if (validateForm()) {
+      updateStockInApi();
+      updateTransInApi();
+      props.refetchData();
+      props.onClose(true);
+
+      console.log("submitted", selectedCommodities);
     }
   };
 
+  //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
+  const updateStockInApi = () =>
+    selectedCommodities.forEach(commodity => {
+      updateStock({
+        dataElement: commodity.commodityId,
+        categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
+        value: calculateValuesForRequest(commodity).updatedStockBalance,
+      });
+    });
 
-  const validateInput = (value, stockBalance) => {
-    if (value === "" || value === 0) {
-      return "Enter amount to restock";
-    } else if (value < 0) {
-      return "Amount must be a positive";
-    } else if (value > stockBalance && props.dispensing) {
-      return "Amount cannot be greater than stock balance";
-    }
-    return "";
+  //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
+  const updateTransInApi = () => {
+    const commodities = selectedCommodities.map(commodity => {
+      const { updatedStockBalance, transAmount } =
+        calculateValuesForRequest(commodity);
+      return {
+        commodityId: commodity.commodityId,
+        commodityName: commodity.commodityName,
+        amount: transAmount,
+        balanceAfterTrans: updatedStockBalance,
+      };
+    });
+
+    const { date, time } = getDateAndTime(new Date(dateTimeState.dateTime));
+    let transData = {
+      type: props.title === props.dispensing ? "Dispensing" : "Restock",
+      commodities,
+      dispensedBy: data.me.displayName,
+      dispensedTo: recipient,
+      date,
+      time,
+    };
+    transData = [transData, ...props.existedTransData];
+    updateTrans({ data: transData });
   };
-  //TODO: preselected commodities to
-  return (
-    <Modal large>
-      <ModalTitle>{props.title}</ModalTitle>
-      <ModalContent className={modalStyles.addStockModal}>
-        <div className={modalStyles.test}>
-          <div style={{ display: "flex", width: "100%" }}>
-            <div style={{ flex: 1, marginRight: "8px" }}>
+
+  const calculateValuesForRequest = commodity => {
+    const values = {
+      updatedStockBalance: 0,
+      transAmount: "",
+    };
+    values["updatedStockBalance"] = props.dispensing
+      ? Number(commodity.endBalance) - Number(commodity.amountToRestock)
+      : Number(commodity.endBalance) + Number(commodity.amountToRestock);
+    values["transAmount"] = props.dispensing
+      ? "-" + commodity.amountToRestock
+      : "+" + commodity.amountToRestock;
+    return values;
+  };
+
+  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
+  if (loading) return <CircularLoader large />;
+  if (data) {
+    const allCommodities = mergeCommodityAndValue(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements,
+      props.transactionData
+    );
+
+    //TODO: preselected commodities to
+    return (
+      <Modal large>
+        <ModalTitle>{props.title}</ModalTitle>
+        <ModalContent className={modalStyles.addStockModal}>
+          <div className={modalStyles.dateTimeRecipientContainer}>
+            <div className={modalStyles.dateTimePicker}>
               <DateTimePicker
-                datetime={datetime}
-                setDatetime={setDatetime}
-                dateIsValid={false} //TODO: compare to current date
+                dateTimeState={dateTimeState}
+                setDateTimeState={setDateTimeState}
                 submitAttempted={submitAttempted}
               />
             </div>
@@ -145,41 +190,41 @@ const CommodityTransferModal = props => {
           {/* TODO: should we disable future date and time settings */}
           {/* Main section */}
           <CommoditySelect
-            stockData={props.stockData}
+            stockData={allCommodities}
             addCommodity={addCommodity}
             selectedCommodities={selectedCommodities}
             removeCommodity={removeCommodity}
             setAmountToRestock={setAmountToRestock}
             dispensing={props.dispensing}
-            validateInputs={validateInputs}
             submitAttempted={submitAttempted}
           />
-        </div>
-        {cancelModalPresent && (
-          <CancelConfirmationModal
-            setCancelModalPresent={setCancelModalPresent}
-            onClose={props.onClose}
-          />
-        )}
-      </ModalContent>
-      <ModalActions>
-        <ButtonStrip end>
-          <Button onClick={() => setCancelModalPresent(true)} secondary>
-            Cancel
-          </Button>
-          <Button
-            onClick={onSubmit}
-            {...(datetime != "" && selectedCommodities.length > 0
-              ? { primary: true }
-              : { disabled: true })}
-          >
-            {/* TODO: Has to be disabled if amount to restock is missing */}
-            {/* TODO: Check if amount to restock higher than stock! */}
-            Submit
-          </Button>
-        </ButtonStrip>
-      </ModalActions>
-    </Modal>
-  );
+
+          {cancelModalPresent && (
+            <CancelConfirmationModal
+              setCancelModalPresent={setCancelModalPresent}
+              onClose={props.onClose}
+            />
+          )}
+        </ModalContent>
+        <ModalActions>
+          <ButtonStrip end>
+            <Button onClick={() => setCancelModalPresent(true)} secondary>
+              Cancel
+            </Button>
+            <Button
+              onClick={onSubmit}
+              {...(dateTimeState.dateTime != "" &&
+              selectedCommodities.length > 0 &&
+              !(recipient === "" && props.dispensing)
+                ? { primary: true }
+                : { disabled: true })}
+            >
+              Submit
+            </Button>
+          </ButtonStrip>
+        </ModalActions>
+      </Modal>
+    );
+  }
 };
 export default CommodityTransferModal;

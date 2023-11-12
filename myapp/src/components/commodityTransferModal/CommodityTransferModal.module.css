@@ -51,9 +51,19 @@
 }
 
 .removeButton {
-  margin-left: auto; /* Verschiebt den Button nach rechts */
+  margin-left: auto;
 }
 
-.validationText {
+.amountInput > p { /*Validation Text*/
   width: max-content;
+}
+
+.dateTimeRecipientContainer {
+ display: flex;
+ width: 100%;
+}
+
+.dateTimePicker {
+  flex: 1 !important;
+  margin-right: 8px;
 }

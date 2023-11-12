@@ -21,6 +21,7 @@ import {
 
 import { spacers, spacersNum } from "@dhis2/ui";
 import modalStyles from "./CommodityTransferModal.module.css";
+import { checkDateInFuture } from "../../utilities/datautility";
 
 const CommoditySelect = props => {
   const [selectedCommodity, setSelectedCommodity] = useState("");
@@ -47,14 +48,24 @@ const CommoditySelect = props => {
     if (value === "") {
       return "Enter amount to restock";
     } else if (value < 0) {
-      return "Amount must be a positive number";
+      return "Amount must be a positive";
     } else if (value > stockBalance && props.dispensing) {
       return "Amount cannot be greater than stock balance";
+    } else {
+      return "";
     }
   };
 
+const validationText = (inputError) => {
+  if (props.submitAttempted === true) {
+    return inputError;
+  }
+  return "";
+};
+
+
   const onChangeInput = (commodity, value) => {
-    props.setAmountToRestock(commodity, value);
+    props.setAmountToRestock(commodity, value, validateInput(value, commodity.stockBalance));
   };
 
   return (
@@ -69,18 +80,12 @@ const CommoditySelect = props => {
             }
             placeholder="Select Commodity"
             selected={selectedCommodity}
+            noMatchText="No match found"
           >
             {props.stockData.map(commodity => (
               <SingleSelectOption
-                label={
-                  <div className={modalStyles.verticalAllign}>
-                    {commodity.commodityName}
-                    {showSelectedCheckmark(commodity.commodityName) &&
-                      selectedCommodity != commodity.commodityName && (
-                        <IconCheckmark16 />
-                      )}
-                  </div>
-                }
+                label={commodity.commodityName}
+                key={commodity.commodityName}
                 value={commodity.commodityName}
                 disabled={showSelectedCheckmark(commodity.commodityName)}
               />
@@ -123,7 +128,7 @@ const CommoditySelect = props => {
             </TableHead>
             <TableBody>
               {props.selectedCommodities.map((commodity, i) => (
-                <TableRow className={modalStyles.tableRow}>
+                <TableRow className={modalStyles.tableRow} key={i}>
                   <TableCell className={modalStyles.commodityNameCell}>
                     {commodity.commodityName}
                   </TableCell>
@@ -134,17 +139,23 @@ const CommoditySelect = props => {
                     <InputField
                       className={modalStyles.amountInput}
                       dense
-                      error={commodity.inputError != ""}
+                      error={
+                        commodity.inputError != "" && props.submitAttempted
+                      }
                       type="number"
                       value={commodity.amountToRestock}
                       onChange={e => onChangeInput(commodity, e.value)}
-                      validationText={
-                        // props.submitAttempted ? commodity.inputError : ""
-                        <div className={modalStyles.validationText}>
-                          {" "}
-                          {commodity.inputError}
-                        </div>
-                      }
+                      validationText= {validationText(commodity.inputError)}
+                      /* {
+                        props.submitAttempted ? (
+                          <div className={modalStyles.validationText}>
+                            {" "}
+                            {commodity.inputError}
+                          </div>
+                        ) : (
+                          ""
+                        )
+                      } */
                     />
                     <Button
                       className={modalStyles.removeButton}

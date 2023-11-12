@@ -62,23 +62,22 @@ const Inventory = props => {
         <CommodityTable commodities={filteredStockData} />
 
         {modalPresent && (
+<<<<<<< HEAD
           <CommodityTransferModal
             title={"Add stock"}
             onClose={handleOnModalChange}
             stockData={stockData}
             dispensing={false}
-            refetchData={refetch}
-            allCommodities={data.commodities?.dataSetElements}
-            existedTransData={props.transactionData}
-          />
-        )}
-        {/* <Stepper
+=======
+          <Stepper
             title={"Add stock"}
             onClose={handleOnModalChange}
             refetchData = {refetch}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
-          /> */}
+>>>>>>> main
+          />
+        )}
       </>
     );
   }
