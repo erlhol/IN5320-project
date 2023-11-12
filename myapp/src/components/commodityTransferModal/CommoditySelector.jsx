@@ -14,16 +14,13 @@ import {
   TableRowHead,
   TableCellHead,
   InputField,
-  IconCheckmark16,
   IconCross24,
-  Tooltip,
 } from "@dhis2/ui";
 
 import { spacers, spacersNum } from "@dhis2/ui";
 import modalStyles from "./CommodityTransferModal.module.css";
-import { checkDateInFuture } from "../../utilities/datautility";
 
-const CommoditySelect = props => {
+const CommoditySelector = props => {
   const [selectedCommodity, setSelectedCommodity] = useState("");
   const [addButtonDisabled, setAddButtonDisabled] = useState(true);
 
@@ -50,22 +47,25 @@ const CommoditySelect = props => {
     } else if (value < 0) {
       return "Amount must be a positive";
     } else if (value > stockBalance && props.dispensing) {
-      return "Amount cannot be greater than stock balance";
+      return "Stock balance not sufficient";
     } else {
       return "";
     }
   };
 
-const validationText = (inputError) => {
-  if (props.submitAttempted === true) {
-    return inputError;
-  }
-  return "";
-};
-
+  const getValidationText = inputError => {
+    if (props.submitAttempted === true) {
+      return inputError;
+    }
+    return "";
+  };
 
   const onChangeInput = (commodity, value) => {
-    props.setAmountToRestock(commodity, value, validateInput(value, commodity.stockBalance));
+    props.setAmount(
+      commodity,
+      value,
+      validateInput(value, commodity.endBalance)
+    );
   };
 
   return (
@@ -143,19 +143,9 @@ const validationText = (inputError) => {
                         commodity.inputError != "" && props.submitAttempted
                       }
                       type="number"
-                      value={commodity.amountToRestock}
+                      value={commodity.amount}
                       onChange={e => onChangeInput(commodity, e.value)}
-                      validationText= {validationText(commodity.inputError)}
-                      /* {
-                        props.submitAttempted ? (
-                          <div className={modalStyles.validationText}>
-                            {" "}
-                            {commodity.inputError}
-                          </div>
-                        ) : (
-                          ""
-                        )
-                      } */
+                      validationText={getValidationText(commodity.inputError)}
                     />
                     <Button
                       className={modalStyles.removeButton}
@@ -173,4 +163,4 @@ const validationText = (inputError) => {
     </div>
   );
 };
-export default CommoditySelect;
+export default CommoditySelector;

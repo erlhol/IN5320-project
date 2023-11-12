@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader } from "@dhis2/ui";
+import { Button, CircularLoader, AlertBar } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 
 import classes from "../App.module.css";
@@ -10,13 +10,14 @@ import Search from "../components/common/Search";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import { mergeCommodityAndValue } from "../utilities/datautility";
-import {stockRequest,} from "../utilities/requests";
+import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
+  const [alertBarText, setAlertBarText] = useState("");
 
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
@@ -28,6 +29,13 @@ const Inventory = props => {
 
   const handleOnChangeSearch = value => {
     setCurrentSearch(value.value);
+  };
+
+  const refetchData = dispensing => {
+    refetch();
+    setAlertBarText(
+      dispensing ? "Dispensing Successful" : "Restock Successful"
+    );
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -60,25 +68,18 @@ const Inventory = props => {
 
         {/* The commodity table */}
         <CommodityTable commodities={filteredStockData} />
-
         {modalPresent && (
           <CommodityTransferModal
-            title={"Add stock"}
             onClose={handleOnModalChange}
-            stockData={stockData}
             dispensing={false}
-            refetchData={refetch}
+            refetchData={refetchData}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
           />
         )}
-        {/* <Stepper
-            title={"Add stock"}
-            onClose={handleOnModalChange}
-            refetchData = {refetch}
-            allCommodities={data.commodities?.dataSetElements}
-            existedTransData={props.transactionData}
-          /> */}
+        { alertBarText && <AlertBar type="success" className={classes.alertBar}>
+          {alertBarText}
+        </AlertBar>}
       </>
     );
   }

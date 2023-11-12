@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import {AlertBar} from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
@@ -25,6 +25,7 @@ const Transactions = props => {
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
+   const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
     const filteredByPeriod = getTransByPeriod(
@@ -48,6 +49,13 @@ const Transactions = props => {
 
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
+  };
+
+  const refetchData = async dispensing => {
+    await props.refetchTransData();
+    setAlertBarText(
+      dispensing ? "Dispensing Successful" : "Restock Successful"
+    );
   };
 
   return (
@@ -79,11 +87,16 @@ const Transactions = props => {
 
       {modalPresent && (
         <CommodityTransferModal
-          title={"Add stock"}
           onClose={handleOnModalChange}
           dispensing={true}
           existedTransData={props.transactionData}
+          refetchData={refetchData}
         />
+      )}
+      {alertBarText && (
+        <AlertBar type="success" className={classes.alertBar}>
+          {alertBarText}
+        </AlertBar>
       )}
     </>
   );

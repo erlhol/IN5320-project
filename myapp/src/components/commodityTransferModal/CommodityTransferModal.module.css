@@ -31,9 +31,6 @@
   width: 45%;
 }
 
-.stockBalanceCell {
-
-}
 
 .amountCell {
   display: flex;
@@ -43,9 +40,6 @@
 
 }
 
-.tableRow {
-
-}
 .amountInput{
   width: 100px;
 }

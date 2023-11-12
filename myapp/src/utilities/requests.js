@@ -53,7 +53,7 @@ export const stockUpdateRequest = {
   type: "create",
   data: ({ dataElement, value, categoryOptionCombo }) => ({
     orgUnit: orgUnit,
-    period: getCurrentMonth(),
+    period: getCurrentMonth(), //TODO: use date here because if I add the comodity for last month?
     dataValues: [
       {
         dataElement,

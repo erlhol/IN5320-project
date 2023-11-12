@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import {
   Modal,
   ModalTitle,
@@ -12,7 +12,7 @@ import {
 import DateTimePicker from "./DateTimePicker";
 import RecipientInput from "./RecipientInput";
 import CancelConfirmationModal from "./CancelConfirmationModal";
-import CommoditySelect from "./CommoditySelect";
+import CommoditySelector from "./CommoditySelector";
 import modalStyles from "./CommodityTransferModal.module.css";
 import { getCurrentMonth } from "../../utilities/dates";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
@@ -27,28 +27,30 @@ import {
 } from "../../utilities/datautility";
 
 const CommodityTransferModal = props => {
+  const [updateStock] = useDataMutation(stockUpdateRequest);
+  const [updateTrans] = useDataMutation(transUpdateRequest);
+  const { loading, error, data } = useDataQuery(stockRequest, {
+    variables: { period: getCurrentMonth() },
+  });
   const [selectedCommodities, setSelectedCommodities] = useState([]);
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
-
   const [dateTimeState, setDateTimeState] = useState({
     dateTime: "",
     isValid: false,
   });
-
   const [recipient, setRecipient] = useState("");
-  const [isValid, setIsValid] = useState(false);
   const [submitAttempted, setSubmitAttempted] = useState(false);
-   const [updateStock] = useDataMutation(stockUpdateRequest);
-   const [updateTrans] = useDataMutation(transUpdateRequest);
-
-  const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: getCurrentMonth() },
+  useMemo(() => {
+    if (props.preselectedCommodities) {
+      setSelectedCommodities(props.preselectedCommodities);
+    }
   });
 
+  // Add commodity to array
   const addCommodity = commodity => {
     const commodityWithRestockAmount = {
       ...commodity,
-      amountToRestock: "",
+      amount: "",
       inputError: "Enter amount to restock",
     };
     setSelectedCommodities([
@@ -57,10 +59,10 @@ const CommodityTransferModal = props => {
     ]);
   };
 
-  const setAmountToRestock = (commodity, value, inputError) => {
+  const setAmount = (commodity, value, inputError) => {
     const commodityWithRestockAmount = {
       ...commodity,
-      amountToRestock: value,
+      amount: value,
       inputError: inputError,
     };
     setSelectedCommodities(
@@ -80,12 +82,10 @@ const CommodityTransferModal = props => {
     );
   };
 
-  const validateForm = () => {
+  const formsAreValid = () => {
     const amountInputsValid = selectedCommodities.every(
       commodity => commodity.inputError === ""
     );
-    console.log("amountInputsValid", amountInputsValid);
-    console.log("dateTimeState.isValid", dateTimeState.isValid);
     return (
       amountInputsValid &&
       dateTimeState.isValid &&
@@ -93,30 +93,30 @@ const CommodityTransferModal = props => {
     );
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     setSubmitAttempted(true);
-    if (validateForm()) {
-      updateStockInApi();
-      updateTransInApi();
-      props.refetchData();
-      props.onClose(true);
-
+    if (formsAreValid()) {
+      await updateStockInApi();
+      await updateTransInApi();
+      await props.refetchData(props.dispensing);
+      props.onClose();
       console.log("submitted", selectedCommodities);
     }
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
-  const updateStockInApi = () =>
-    selectedCommodities.forEach(commodity => {
-      updateStock({
+  const updateStockInApi = async () => {
+    selectedCommodities.forEach(async commodity => {
+      await updateStock({
         dataElement: commodity.commodityId,
         categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
         value: calculateValuesForRequest(commodity).updatedStockBalance,
       });
     });
+  };
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
-  const updateTransInApi = () => {
+  const updateTransInApi = async () => {
     const commodities = selectedCommodities.map(commodity => {
       const { updatedStockBalance, transAmount } =
         calculateValuesForRequest(commodity);
@@ -127,10 +127,9 @@ const CommodityTransferModal = props => {
         balanceAfterTrans: updatedStockBalance,
       };
     });
-
     const { date, time } = getDateAndTime(new Date(dateTimeState.dateTime));
     let transData = {
-      type: props.title === props.dispensing ? "Dispensing" : "Restock",
+      type: props.dispensing ? "Dispensing" : "Restock",
       commodities,
       dispensedBy: data.me.displayName,
       dispensedTo: recipient,
@@ -138,20 +137,21 @@ const CommodityTransferModal = props => {
       time,
     };
     transData = [transData, ...props.existedTransData];
-    updateTrans({ data: transData });
+    await updateTrans({ data: transData });
   };
 
+  //Calculate the updated StockBalance and get signed number
   const calculateValuesForRequest = commodity => {
     const values = {
       updatedStockBalance: 0,
       transAmount: "",
     };
     values["updatedStockBalance"] = props.dispensing
-      ? Number(commodity.endBalance) - Number(commodity.amountToRestock)
-      : Number(commodity.endBalance) + Number(commodity.amountToRestock);
+      ? Number(commodity.endBalance) - Number(commodity.amount)
+      : Number(commodity.endBalance) + Number(commodity.amount);
     values["transAmount"] = props.dispensing
-      ? "-" + commodity.amountToRestock
-      : "+" + commodity.amountToRestock;
+      ? "-" + commodity.amount
+      : "+" + commodity.amount;
     return values;
   };
 
@@ -164,10 +164,11 @@ const CommodityTransferModal = props => {
       props.transactionData
     );
 
-    //TODO: preselected commodities to
     return (
       <Modal large>
-        <ModalTitle>{props.title}</ModalTitle>
+        <ModalTitle>
+          {props.dispensing ? "New Dispensing" : "Add Restock"}
+        </ModalTitle>
         <ModalContent className={modalStyles.addStockModal}>
           <div className={modalStyles.dateTimeRecipientContainer}>
             <div className={modalStyles.dateTimePicker}>
@@ -187,14 +188,13 @@ const CommodityTransferModal = props => {
             )}
           </div>
 
-          {/* TODO: should we disable future date and time settings */}
           {/* Main section */}
-          <CommoditySelect
+          <CommoditySelector
             stockData={allCommodities}
             addCommodity={addCommodity}
             selectedCommodities={selectedCommodities}
             removeCommodity={removeCommodity}
-            setAmountToRestock={setAmountToRestock}
+            setAmount={setAmount}
             dispensing={props.dispensing}
             submitAttempted={submitAttempted}
           />
