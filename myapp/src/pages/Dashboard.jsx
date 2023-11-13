@@ -109,7 +109,7 @@ const Dashboard = ({ transactionData }) => {
               stockDataPerMonth={monthlyStockData}
             />
             <DispensingPerCommodity
-              title="Dispensings per commodity over the year"
+              title="Monthly dispensings per commodity over the year"
               stockDataPerMonth={monthlyStockData}
             />
           </Box>

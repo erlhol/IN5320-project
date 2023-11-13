@@ -6,7 +6,8 @@
 }
 
 .sidenav {
-  width: 300px;
+  min-width: 200px;
+  width: 280px;
   min-height: 100vh;
   padding-top: 24px;
 }
@@ -72,6 +73,11 @@
   width: 50%;
 }
 
+.quickAction:hover {
+  cursor: pointer;
+  opacity: 86%;
+}
+
 .quickAction svg {
   width: 48px;
   height: 48px;
@@ -94,15 +100,22 @@
   padding: 16px;
 }
 
-.statisticCard svg {
-  width: 48px;
-  height: 48px;
+.statisticHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .statisticContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.statisticContent svg {
+  width: 48px;
+  height: 48px;
+  margin-right: -4px;
 }
 
 .statisticNumber {
