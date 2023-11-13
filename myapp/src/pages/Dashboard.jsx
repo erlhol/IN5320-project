@@ -12,6 +12,8 @@ import { useDataQuery } from "@dhis2/app-runtime";
 import {
   categorizeTransByDate,
   mergeCommodityAndValue,
+  getNumberCommoditiesLowInStock,
+  mergeDataForDashboard,
 } from "../utilities/datautility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
@@ -24,44 +26,65 @@ import MostDispensed from "../components/dashboard/charts/MostDispensed";
 import DispensingPerCommodity from "../components/dashboard/charts/DispensingPerCommodity";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 
-const Dashboard = props => {
-  const { loading, error, data } = useDataQuery(stockRequest, {
+const Dashboard = ({ transactionData }) => {
+  const [transactions, setTransactions] = useState(() =>
+    categorizeTransByDate(transactionData)
+  );
+
+  const {
+    loading: currentStockLoading,
+    error: currentStockError,
+    data: currentStock,
+  } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
 
-  const [transactions, setTransactions] = useState(() =>
-    categorizeTransByDate(props.transactionData)
-  );
+  const periods = getPeriods().map(period => period[1]);
+  const {
+    loading: monthlyStockLoading,
+    error: monthlyStockError,
+    data: monthlyStock,
+  } = useDataQuery(stockRequest, {
+    variables: { period: periods },
+  });
 
-  const stockDataPerMonth = [];
-  for (let period of getPeriods()) {
-    const { loading, error, data } = useDataQuery(stockRequest, {
-      variables: { period: period[1] },
-    });
+  if (currentStockLoading || monthlyStockLoading)
+    return <CircularLoader large />;
 
-    const periodStockData = mergeCommodityAndValue(
-      data?.dataValues?.dataValues,
-      data?.commodities?.dataSetElements,
-      props.transactionData
+  if (currentStockError)
+    return (
+      <span>
+        ERROR in getting current stock data: {currentStockError.message}
+      </span>
     );
 
-    stockDataPerMonth.push(periodStockData);
-  }
+  if (monthlyStockError)
+    return (
+      <span>
+        ERROR in getting monthly stock data: {monthlyStockError.message}
+      </span>
+    );
 
-  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
-
-  if (loading) return <CircularLoader large />;
-
-  if (stockDataPerMonth && data) {
+  if (currentStock && monthlyStock) {
     const currentStockData = mergeCommodityAndValue(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements,
-      props.transactionData
+      currentStock.dataValues?.dataValues,
+      currentStock.commodities?.dataSetElements,
+      transactionData
+    );
+
+    const monthlyStockData = mergeDataForDashboard(
+      monthlyStock.dataValues?.dataValues,
+      monthlyStock.commodities?.dataSetElements
     );
 
     const numberCommoditiesOutOfStock = currentStockData.filter(
-      commodity => commodity.endBalance == 0
+      commodity => commodity.endBalance === 0
     ).length;
+
+    const numberCommoditiesLowInStock = getNumberCommoditiesLowInStock(
+      monthlyStockData,
+      currentStockData
+    );
 
     return (
       <>
@@ -70,29 +93,30 @@ const Dashboard = props => {
           <Box className={classes.dashboardFirstRow}>
             <QuickActionCard />
             <StatisticCard
-              title="Commodities out of Stock"
+              title="Commodities out of stock"
               amount={numberCommoditiesOutOfStock}
               icon={<IconBlock24 color={colors.red400} />}
             />
             <StatisticCard
-              title="Commodities low in Stock"
-              amount="20"
+              title="Commodities low in stock"
+              amount={numberCommoditiesLowInStock}
               icon={<IconWarningFilled24 color={colors.yellow400} />}
             />
           </Box>
           <Box className={classes.dashboardSecondRow}>
             <MostDispensed
-              title="Most dispensed Commodities"
-              stockDataPerMonth={stockDataPerMonth}
+              title="Most dispensed commodities per month"
+              stockDataPerMonth={monthlyStockData}
             />
             <DispensingPerCommodity
-              title="Dispensing per Commodity"
+              title="Dispensings per commodity over the year"
+              stockDataPerMonth={monthlyStockData}
             />
           </Box>
           <Box>
             <div className={classes.transactionsHeader}>
-              <h2>Recent Transactions</h2>
-              <Button secondary name="secondary" value="add_stock">
+              <h2>Recent transactions</h2>
+              <Button secondary name="secondary">
                 Show all
               </Button>
             </div>

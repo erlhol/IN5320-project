@@ -4,52 +4,72 @@ export const mergeCommodityAndValue = (
   transactionData
 ) => {
   const commodityData = {};
-  // console.log("dataValues", dataValues);
-  // console.log("dataSetElements", dataSetElements);
-  // console.log("transactionData in mergeCommodityAndValue: ",transactionData);
-  // Process dataValues and accumulate values based on categoryOptionCombo
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
-    );
-    const transaction = transactionData?.find(
-      trans => trans.commodityId === dataValue.dataElement
     );
 
     if (dataSetElement) {
       const commodityName = dataSetElement.dataElement.name.split(" - ")[1];
       const categoryOptionCombo = dataValue.categoryOptionCombo;
-      const value = parseInt(dataValue.value, 10);
+      const value = parseInt(dataValue.value);
 
-      if (!commodityData[commodityName]) {
-        commodityData[commodityName] = {
+      const key = `${commodityName}-${dataValue.period}`;
+
+      if (!commodityData[key]) {
+        commodityData[key] = {
           commodityName,
           endBalance: 0,
           consumption: 0,
           period: 0,
-          lastDispensing: "",
+          lastDispensingDate: "",
+          lastDispensingAmount: "",
         };
       }
 
       if (categoryOptionCombo === "J2Qf1jtZuj8") {
-        commodityData[commodityName].endBalance += value;
+        commodityData[key].endBalance += value;
       } else if (categoryOptionCombo === "rQLFnNXXIL0") {
-        commodityData[commodityName].consumption += value;
+        commodityData[key].consumption += value;
       }
 
-      commodityData[commodityName].period = dataValue.period;
-      commodityData[commodityName].commodityId = dataValue.dataElement;
+      commodityData[key].period = dataValue.period;
+      commodityData[key].commodityId = dataValue.dataElement;
 
-      if (transaction)
-        //console.log("W1XtQhP6BGd: ", transaction);
-        commodityData[commodityName].lastDispensing =
-          transaction.date + " " + transaction.time.substring(0, 5);
+      // Get the lastDispencing data from transactionData
+      if (transactionData) {
+        const matchedTrans = transactionData?.find(trans =>
+          trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+        );
+        const matchedTransCommodity = matchedTrans?.commodities?.find(
+          c => c.commodityId === dataValue.dataElement
+        );
+
+        if (matchedTransCommodity) {
+          commodityData[key].lastDispensingDate = matchedTrans.date;
+          commodityData[key].lastDispensingAmount =
+            matchedTransCommodity?.amount;
+        }
+      }
     }
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: " ,commodityList);
   return commodityList;
+};
+
+export const mergeDataForDashboard = (dataValues, dataSetElements) => {
+  const commodities = mergeCommodityAndValue(dataValues, dataSetElements, null);
+  const groupedCommodities = commodities.reduce((result, commodity) => {
+    const periodIndex = result.findIndex(
+      group => group[0]?.period === commodity.period
+    );
+    if (periodIndex !== -1) result[periodIndex].push(commodity);
+    else result.push([commodity]);
+    return result;
+  }, []);
+
+  return groupedCommodities;
 };
 
 export const getTransByPeriod = (transactions, startDate, endDate) => {
@@ -139,4 +159,41 @@ export const getTransByRecipient = (transactions, recipient) => {
   // }
   //   ]
   // };
+};
+
+export const getNumberCommoditiesLowInStock = (
+  stockDataPerMonth,
+  currentStockData
+) => {
+  const summedEndBalances = stockDataPerMonth
+    .flat()
+    .reduce((acc, commodity) => {
+      acc[commodity.commodityId] =
+        (acc[commodity.commodityId] || 0) + commodity.endBalance;
+      return acc;
+    }, {});
+
+  const averageEndBalances = Object.fromEntries(
+    Object.entries(summedEndBalances).map(([commodity, endBalance]) => [
+      commodity,
+      Math.round(endBalance / stockDataPerMonth.length),
+    ])
+  );
+
+  let numberCommoditiesLowInStock = 0;
+
+  currentStockData.forEach(commodity => {
+    const commodityId = commodity.commodityId;
+    const calculatedAverage = averageEndBalances[commodityId];
+    const threshold = 0.2;
+
+    if (
+      commodity.endBalance <
+      calculatedAverage - calculatedAverage * threshold
+    ) {
+      numberCommoditiesLowInStock++;
+    }
+  });
+
+  return numberCommoditiesLowInStock;
 };
