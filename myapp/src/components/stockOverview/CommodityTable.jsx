@@ -109,24 +109,23 @@ const CommodityTable = props => {
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
-              <DataTableCell>
-                <div className={classes.inlineFlex}>
-                  <p>{commodity.commodityName}</p>
-                  <MenuItem
-                    onClick={() => handleSetSelectedStock(commodity)}
-                    icon={<IconInfo24></IconInfo24>}
-                  ></MenuItem>
-                </div>
+              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+                {commodity.commodityName}
               </DataTableCell>
-              <DataTableCell>{commodity.endBalance}</DataTableCell>
-              <DataTableCell>{commodity.consumption}</DataTableCell>
-              <DataTableCell>{commodity.lastDispensing}</DataTableCell>
+              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+                {commodity.endBalance}
+              </DataTableCell>
+              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+                {commodity.consumption}
+              </DataTableCell>
+              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+                {commodity.lastDispensing}
+              </DataTableCell>
               <DataTableCell>
                 <Button
                   name="Small button"
                   onClick={() => console.log("Dispense ID " + i)}
                   small
-                  primary
                   value="default"
                 >
                   Dispense
