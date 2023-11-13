@@ -11,7 +11,8 @@
 }
 
 .sidenav {
-  width: 300px;
+  min-width: 200px;
+  width: 280px;
   min-height: 100vh;
   padding-top: 24px;
 }
@@ -41,6 +42,137 @@
   display: flex;
   gap: 12px;
   margin: 32px 0;
+}
+
+/* dashboard */
+
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboardFirstRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 150px;
+  gap: 16px;
+}
+
+.dashboardCardTitle {
+  font-weight: 700;
+  color: #404b5a;
+}
+
+.quickActionCard {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.quickAction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 50%;
+}
+
+.quickAction:hover {
+  cursor: pointer;
+  opacity: 86%;
+}
+
+.quickAction svg {
+  width: 48px;
+  height: 48px;
+}
+
+.quickActionText {
+  text-align: center;
+}
+
+.divider {
+  border-left: 1px solid #ccc;
+  height: 100px;
+  margin: 0 10px;
+}
+
+.statisticCard {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.statisticHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statisticContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statisticContent svg {
+  width: 48px;
+  height: 48px;
+  margin-right: -4px;
+}
+
+.statisticNumber {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.statisticIcon {
+  width: 100px;
+}
+
+.dashboardSecondRow {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+@media screen and (min-width: 950px) {
+  .dashboardSecondRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .dashboardSecondRow {
+    grid-template-columns: 38% 1fr;
+  }
+}
+
+.chartCard {
+  display: flex !important;
+  flex-direction: column;
+  padding: 16px 16px 16px 0;
+  gap: 12px;
+}
+
+.chartCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.monthSelect {
+  width: 130px;
+}
+
+.transactionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* stock history */

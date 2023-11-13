@@ -16,7 +16,7 @@ const months = [
   "December",
 ];
 
-function getMonth(monthNumber) {
+export function getMonth(monthNumber) {
   return months[monthNumber];
 }
 
@@ -53,4 +53,8 @@ export function getStockHistoryDefaultPeriod() {
     .toString()
     .padStart(2, "0")}/01/${year.toString()}`;
   return { start, end };
+}
+export function getNumberOfCurrentMonth() {
+  const date = new Date();
+  return date.getMonth(); // to be consitant with starting at 1
 }

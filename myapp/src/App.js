@@ -72,7 +72,9 @@ const MyApp = () => {
           />
         </div>
         <section className={classes.content}>
-          {activePage === "Dashboard" && <Dashboard />}
+          {activePage === "Dashboard" && (
+            <Dashboard transactionData={transactionData} />
+          )}
           {activePage === "StockOverview" && (
             <StockInventory transactionData={transactionData} />
           )}
