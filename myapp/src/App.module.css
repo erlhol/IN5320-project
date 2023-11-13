@@ -198,18 +198,6 @@
 
 /* Stock detail information cards */
 
-.modalContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.stockInfo {
-  border-radius: 5px; /* Rounded corners */
-  display: flex;
-  align-items: center;
-  border: 1px solid rgb(232, 237, 242);
-  height: 100%;
-  gap: 10px;
-  padding: 5px;
+.subtitleDetailView {
+  margin-top: 48px;
 }

@@ -9,6 +9,7 @@ import {
 } from "@dhis2/ui";
 import classes from "../../App.module.css";
 import ConsumptionHistoryChart from "./ConsumptionHistoryChart";
+import DetailViewInfoBox from "../common/DetailViewInfoBox";
 const StockInfo = props => {
   return (
     <div className={classes.stockInfo}>
@@ -23,29 +24,28 @@ const StockInfo = props => {
 
 const StockDetail = props => {
   return (
-    <Modal onClose={() => props.onClose(null)}>
+    <Modal large onClose={() => props.onClose(null)}>
       <ModalContent>
         <h2>{props.selectedStock.commodityName}</h2>
-        <div className={classes.modalContainer}>
-          <StockInfo
+        <div className={classes.detailViewInfoBoxesContainer}>
+          <DetailViewInfoBox
             infoString={"Stock balance"}
             infoValue={props.selectedStock.endBalance}
             icon={<IconDimensionData16></IconDimensionData16>}
-          ></StockInfo>
-
-          <StockInfo
+          ></DetailViewInfoBox>
+          <DetailViewInfoBox
             infoString={"Consumption"}
             infoValue={props.selectedStock.consumption}
             icon={<IconArrowDown24></IconArrowDown24>}
-          ></StockInfo>
-
-          <StockInfo
+          ></DetailViewInfoBox>
+          <DetailViewInfoBox
             infoString={"Last dispensing"}
-            infoValue={props.selectedStock.lastDispensing}
-            icon={<IconCalendar24></IconCalendar24>}
-          ></StockInfo>
+            infoValue={props.selectedStock.lastDispensingAmount}
+            infoValueText={props.selectedStock.lastDispensingDate}
+            icon={<IconCalendar24 />}
+          ></DetailViewInfoBox>
         </div>
-        <h3>Consumption History</h3>
+        <h3 className={classes.subtitleDetailView}>Consumption History</h3>
         <ConsumptionHistoryChart
           commodity={props.selectedStock}
         ></ConsumptionHistoryChart>

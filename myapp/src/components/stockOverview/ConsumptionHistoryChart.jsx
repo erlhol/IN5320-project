@@ -26,8 +26,7 @@ const ConsumptionHistoryChart = props => {
       options={chartOptions}
       series={chartSeries}
       type="line"
-      height={"200"}
-      width={"550"} // If possible, prevent this hardcoded value. Want to use parent width. Width 100% did not work
+      height={"250"}
     />
   );
 };
