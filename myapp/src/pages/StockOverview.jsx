@@ -1,15 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader } from "@dhis2/ui";
+import { CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
-
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
-import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities/dataUtility";
+import {
+  mergeCommodityAndValue,
+  mergeDataForDashboard,
+} from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
@@ -37,6 +38,10 @@ const StockInventory = props => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
+    );
+    mergeDataForDashboard(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements
     );
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (

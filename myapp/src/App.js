@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import {
-  transRequest,
-  transUpdateRequest,
-  stockUpdateRequest,
-} from "./utilities/requests";
+import { transRequest } from "./utilities/requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import StockInventory from "./pages/StockOverview";
-import Transactions from "./pages/StockHistory";
+import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
   /* State for handling navigation */
@@ -27,7 +23,6 @@ const MyApp = () => {
   //   const endBalances = {
   //     Boy3QwztgeZ: "0",
   //     hJNC4Bu2Mkv: "0",
-
   //     BXgDHhPdFVU: "16",
   //     Dkapzovo8Ll: "28",
   //     dY4OCwl0Y7Y: "24",
@@ -58,6 +53,7 @@ const MyApp = () => {
   // }, []);
 
   const { loading, error, data, refetch } = useDataQuery(transRequest);
+
   if (error)
     return (
       <span>
@@ -81,9 +77,9 @@ const MyApp = () => {
             <StockInventory transactionData={transactionData} />
           )}
           {activePage === "StockHistory" && (
-            <Transactions
+            <StockHistory
               transactionData={transactionData}
-              refetchTransData={refetch}
+              refetchTransData={() => refetch()}
             />
           )}
         </section>
