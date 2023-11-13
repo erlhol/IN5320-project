@@ -56,6 +56,7 @@ const CommodityTable = props => {
         <StockDetail
           selectedStock={selectedStock}
           onClose={handleSetSelectedStock}
+          transactions={props.transactions}
         ></StockDetail>
       )}
       <DataTable>

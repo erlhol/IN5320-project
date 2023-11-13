@@ -43,7 +43,7 @@ const TransactionsForDay = props => {
     <>
       <div className={classes.transactionsDate}>{props.date}</div>
       <div className={classes.transactionsItems}>
-        {props.transactions.map((transaction, i) => {
+        {props.transactions?.map((transaction, i) => {
           return (
             <div
               key={i}

@@ -10,12 +10,17 @@ import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
   mergeDataForDashboard,
+  categorizeTransByDate,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const StockInventory = props => {
+  const [transactions, setTransactions] = useState(() =>
+    categorizeTransByDate(props.transactionData)
+  );
+
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
@@ -64,7 +69,10 @@ const StockInventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={filteredStockData} />
+        <CommodityTable
+          transactions={transactions}
+          commodities={filteredStockData}
+        />
 
         {modalPresent && (
           <Stepper

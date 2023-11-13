@@ -10,8 +10,29 @@ import {
 import classes from "../../App.module.css";
 import ConsumptionHistoryChart from "./ConsumptionHistoryChart";
 import DetailViewInfoBox from "../common/DetailViewInfoBox";
+import TransactionsForDay from "../stockHistory/TransactionsForDay";
+import {
+  getTransByPeriod,
+  getTransByCommodityName,
+} from "../../utilities/dataUtility";
 
 const StockDetail = props => {
+  const selectedPeriod = {
+    start: new Date("2023-08-01"),
+    end: new Date("2023-11-30"),
+  };
+
+  const filteredByPeriod = getTransByPeriod(
+    props.transactions,
+    selectedPeriod.start,
+    selectedPeriod.end
+  );
+
+  const filteredByName = getTransByCommodityName(
+    filteredByPeriod,
+    props.selectedStock.commodityName
+  );
+
   return (
     <Modal large onClose={() => props.onClose(null)}>
       <ModalContent>
@@ -39,6 +60,13 @@ const StockDetail = props => {
           commodity={props.selectedStock}
         ></ConsumptionHistoryChart>
         <h3>Transaction History</h3>
+        {Object.keys(filteredByName).map((date, i) => (
+          <TransactionsForDay
+            key={i}
+            date={date}
+            transactions={filteredByName[date]}
+          ></TransactionsForDay>
+        ))}
       </ModalContent>
     </Modal>
   );
