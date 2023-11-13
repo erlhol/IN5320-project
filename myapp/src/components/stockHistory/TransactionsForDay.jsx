@@ -23,7 +23,7 @@ const TransactionsForDay = props => {
       const extraCommoditiesCount = commodities.length - 2;
       return (
         <>
-          <div style={{ marginRight: "8px" }}>{firstTwoCommodityNames}, </div>
+          <div style={{ marginRight: "8px" }}>{firstTwoCommodityNames} </div>
           <Tag positive>+ {extraCommoditiesCount}</Tag>
         </>
       );
@@ -46,7 +46,11 @@ const TransactionsForDay = props => {
       <div className={classes.transactionsItems}>
         {props.transactions.map((transaction, i) => {
           return (
-            <div key={i} onClick={() => handleCardClick(transaction)}>
+            <div
+              key={i}
+              onClick={() => handleCardClick(transaction)}
+              className={classes.transactionItemContainer}
+            >
               {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
               <Box height="76px">
                 <Card className={classes.transactionItem}>
@@ -59,18 +63,19 @@ const TransactionsForDay = props => {
                     </span>
                   </div>
                   <div className={classes.transactionItemSecondHalf}>
-                    <div
-                      className={`${classes.stockHistoryData} ${classes.transactionActors}`}
-                    >
-                      <span className={classes.dispensedBy}>
+                    <div className={classes.transactionActors}>
+                      <p>
+                        <span>By: </span>
                         {transaction.dispensedBy}
-                      </span>
-                      <IconArrowRight24></IconArrowRight24>
-                      <span className={classes.dispensedTo}>
-                        {transaction.dispensedTo}
-                      </span>
+                      </p>
+                      {transaction.type === "Dispensing" && (
+                        <p>
+                          <span>To: </span>
+                          {transaction.dispensedTo}
+                        </p>
+                      )}
                     </div>
-                    <div>
+                    <div className={classes.transactionType}>
                       {transaction.type == "Dispensing" ? (
                         <Tag> {transaction.type} </Tag>
                       ) : (
