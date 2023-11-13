@@ -26,7 +26,7 @@ const ConsumptionHistoryChart = props => {
       options={chartOptions}
       series={chartSeries}
       type="line"
-      height={"250"}
+      height={"200"}
       width={"750"}
     />
   );
