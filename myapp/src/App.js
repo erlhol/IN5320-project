@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import {
-  transRequest,
-  transUpdateRequest,
-  stockUpdateRequest,
-} from "./utilities/requests";
+import { transRequest } from "./utilities/requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
@@ -57,11 +53,6 @@ const MyApp = () => {
   // }, []);
 
   const { loading, error, data, refetch } = useDataQuery(transRequest);
-  useEffect(() => {
-    console.log("transData in App: ", data);
-  }, [data]);
-
-  //const refetchData = () => setTimeout(() => refetch(), 2000);
 
   if (error)
     return (

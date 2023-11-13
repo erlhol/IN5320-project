@@ -1,10 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader } from "@dhis2/ui";
+import { CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
-import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
@@ -20,11 +19,8 @@ const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  // const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-  //   variables: { period: getCurrentMonth() },
-  // });
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
-    variables: { period: ["202310", "202311"] },
+    variables: { period: getCurrentMonth() },
   });
 
   const handleOnModalChange = () => {
