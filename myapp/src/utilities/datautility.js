@@ -208,16 +208,8 @@ export const getDateAndTime = dateTime => {
   return { date, time };
 };
 
-<<<<<<< HEAD
 export const checkDateInFuture = dateString => {
   const date = new Date(dateString);
   const now = new Date();
   return date > now;
 };
-=======
-export const  checkDateInFuture = (dateString) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  return date > now;
-}
->>>>>>> 13-SO-implement-add-stock-modal
