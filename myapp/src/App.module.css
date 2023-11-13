@@ -263,3 +263,130 @@
   gap: 8px;
   width: 160px;
 }
+
+.transactionsDate {
+  height: 38px;
+  background-color: #f3f5f7;
+  border: 1px solid #e8edf2;
+  padding: 8px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.transactionItemFirstHalf {
+  display: flex;
+  width: 38%;
+}
+
+.transactionItemSecondHalf {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.transactionCommodities {
+  flex-basis: calc((100% / 12) * 8);
+  display: flex;
+}
+
+.transactionTime {
+  flex-basis: calc((100% / 12) * 4);
+  text-align: center;
+}
+
+.transactionActors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 12%;
+  flex-basis: calc((100% / 12) * 4);
+  gap: 6px;
+}
+
+.transactionActors p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.transactionActors p span {
+  color: gray;
+  margin-right: 3px;
+}
+
+.transactionType {
+  display: flex;
+  align-items: flex-start;
+  flex-basis: calc((100% / 12) * 3);
+}
+
+.transactionAmount {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-basis: calc((100% / 12) * 5);
+}
+
+.transactionAmount :first-child {
+  font-weight: 700;
+  font-size: medium;
+}
+
+.transactionAmount :nth-child(2) {
+  color: gray;
+}
+
+.green-text {
+  color: green;
+}
+
+.transDetailModalWrapper {
+  min-width: 400px;
+}
+
+.transDetailTimeAndRecipientContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transDetailTimeAndRecipientContainer p {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.transDetailTimeContainer,
+.transDetailRecipientContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px rgb(232, 237, 242) solid;
+  height: 60px;
+  width: 48%;
+  padding: 12px;
+}
+
+.transDetailTimeText,
+.transDetailRecipientText {
+  margin-left: 16px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.transDetailTableCaption {
+  font-size: large;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.commodityTableLastDispensing :first-child {
+  color: gray;
+}
+
+.commodityTableLastDispensing :nth-child(2) {
+  margin-left: 10px;
+}
