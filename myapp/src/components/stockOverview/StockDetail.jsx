@@ -10,17 +10,6 @@ import {
 import classes from "../../App.module.css";
 import ConsumptionHistoryChart from "./ConsumptionHistoryChart";
 import DetailViewInfoBox from "../common/DetailViewInfoBox";
-const StockInfo = props => {
-  return (
-    <div className={classes.stockInfo}>
-      {props.icon}
-      <div>
-        <p>{props.infoString}</p>
-        <b>{props.infoValue}</b>
-      </div>
-    </div>
-  );
-};
 
 const StockDetail = props => {
   return (
