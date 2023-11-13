@@ -4,7 +4,6 @@ export const mergeCommodityAndValue = (
   transactionData
 ) => {
   const commodityData = {};
-  console.log("dataValues: ", dataValues);
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
@@ -56,7 +55,6 @@ export const mergeCommodityAndValue = (
   });
 
   const commodityList = Object.values(commodityData);
-  console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
 };
 
@@ -70,8 +68,6 @@ export const mergeDataForDashboard = (dataValues, dataSetElements) => {
     else result.push([commodity]);
     return result;
   }, []);
-
-  console.log("groupedCommodities in dataUtility: ", groupedCommodities);
   return groupedCommodities;
 };
 
@@ -85,10 +81,7 @@ export const getTransByPeriod = (transactions, startDate, endDate) => {
   return filteredTrans;
 };
 
-export const getTransByCommodityNameQuery = (
-  transactions,
-  commodityNameQuery
-) => {
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
   if (!commodityNameQuery) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
@@ -107,7 +100,6 @@ export const getTransByCommodityNameQuery = (
       else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
     }
   }
-  console.log("filteredTrans in dataUtility: ", filteredTrans);
   return filteredTrans;
 };
 
@@ -118,10 +110,6 @@ export const categorizeTransByDate = transactions => {
     if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  // const sortedCategorized = Object.fromEntries(
-  //   Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
-  // );
-
   return categorized;
 };
 
@@ -135,53 +123,6 @@ export const getTransByRecipient = (transactions, recipient) => {
     if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
   }
   return filteredTrans;
-
-  // return {
-  //   "2023-05-23": [
-  //     {
-  //       "amount": -23,
-  //       "balanceAfterTrans": 34,
-  //       "commodityId": "W1XtQhP6BGd",
-  //       "commodityName": "Resuscitation Equipment",
-  //       "date": "2023-05-23",
-  //       "dispensedBy": "John",
-  //       "dispensedTo": "Jenny",
-  //       "time": "14:20:00"
-  //     }
-  //   ],
-  //   "2023-05-21": [
-  // {
-  //   "amount": 44,
-  //   "balanceAfterTrans": 11,
-  //   "commodityId": "o15CyZiTvxa",
-  //   "commodityName": "Magnesium Sulfate",
-  //   "date": "2023-05-21",
-  //   "dispensedBy": "Some one",
-  //   "dispensedTo": "Another one",
-  //   "time": "13:22:00"
-  // }
-  //   ],
-  //   "2023-08-13": [
-  // {
-  //   "amount": 32,
-  //   "balanceAfterTrans": 12,
-  //   "commodityId": "TCfIC3NDgQK",
-  //   "commodityName": "Zinc",
-  //   "date": "2023-08-13",
-  //   "dispensedBy": "Who",
-  //   "dispensedTo": "Whom",
-  //   "time": "18:27:00"
-  // }，
-  //  {
-  //    "clustered": true
-  //    "commodityNames": "Zinc, Female Condom, Magnesium Sulfate";
-  //    "date": "2023-08-13",
-  //    "dispensedBy": "Who",
-  //    "dispensedTo": "Whom",
-  //    "details": []
-  // }
-  //   ]
-  // };
 };
 
 export const getDateAndTime = dateTime => {
