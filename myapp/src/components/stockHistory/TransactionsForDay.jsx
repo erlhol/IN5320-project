@@ -6,7 +6,6 @@ import TransactionDetailModal from "./TransactionDetailModal";
 const TransactionsForDay = props => {
   /* Displays the transactions for a chosen day.
     The data is passed in through props */
-  //console.log("props.transactions:", props.transactions);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const handleCardClick = transaction => {
