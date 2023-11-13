@@ -119,7 +119,10 @@ const CommodityTable = props => {
                 {commodity.consumption}
               </DataTableCell>
               <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
-                {commodity.lastDispensing}
+                <div className={classes.commodityTableLastDispensing}>
+                  <span>{commodity.lastDispensingDate}</span>
+                  <span>{commodity.lastDispensingAmount}</span>
+                </div>
               </DataTableCell>
               <DataTableCell>
                 <Button
