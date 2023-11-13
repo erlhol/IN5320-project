@@ -40,9 +40,7 @@ const TransactionHistory = props => {
       filteredByName,
       selectedReceipient
     );
-    // console.log("visibleTrans: ", visibleTrans);
-    // console.log("filteredByPeriod: ", filteredByPeriod);
-    // console.log("filteredByName: ", filteredByName);
+
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
