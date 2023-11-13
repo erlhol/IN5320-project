@@ -1,9 +1,9 @@
 import ReactApexChart from "react-apexcharts";
 import { getMonthAbbrivation } from "../../utilities/dates";
-const ConsumptionHistoryChart = () => {
+const ConsumptionHistoryChart = props => {
   const chartOptions = {
     chart: {
-      id: "basic-line-with-markers",
+      id: props.commodity.commodityName,
     },
     xaxis: {
       categories: getMonthAbbrivation(),

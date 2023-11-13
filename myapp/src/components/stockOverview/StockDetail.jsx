@@ -46,7 +46,9 @@ const StockDetail = props => {
           ></StockInfo>
         </div>
         <h3>Consumption History</h3>
-        <ConsumptionHistoryChart></ConsumptionHistoryChart>
+        <ConsumptionHistoryChart
+          commodity={props.selectedStock}
+        ></ConsumptionHistoryChart>
         <h3>Transaction History</h3>
       </ModalContent>
     </Modal>
