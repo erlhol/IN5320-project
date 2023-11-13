@@ -1,5 +1,5 @@
 // Search utility
-function search(element, searchWord) {
+export function search(element, searchWord) {
   const words = element.commodityName.split(/(\s+)/);
   for (const word of words) {
     if (word.toLowerCase().includes(searchWord.toLowerCase())) {

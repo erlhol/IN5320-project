@@ -6,60 +6,34 @@ import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-<<<<<<< HEAD
 import { categorizeTransByDate } from "../utilities/dataUtility";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
-=======
-import {
-  getTransByCommodityName,
-  getTransByPeriod,
-  getTransByRecipient,
-  categorizeTransByDate,
-} from "../utilities/dataUtility";
->>>>>>> 5afa7bcd589b72860c38c4f89c460e93a919b6c2
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-08-01"),
-    end: new Date("2023-11-30"),
-  });
-  const [selectedReceipient, setSelectedReceipient] = useState(null);
-  const [selectedCommodity, setSelectedCommodity] = useState(null);
+  const [selectedPeriod, setSelectedPeriod] = useState([
+    getStockHistoryDefaultPeriod().start,
+    getStockHistoryDefaultPeriod().end,
+  ]);
+  const [selectedReceipient, setSelectedReceipient] = useState("");
+  const [selectedCommodity, setSelectedCommodity] = useState("");
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
 
-<<<<<<< HEAD
-  // When the transactionData is refetched, this component need to be rerendered
   useEffect(() => {
-    setVisibleTrans(categorizeTransByDate(props.transactionData));
-    // this is to remember the filtered Commodities
-    const filteredTrans = filterTrans();
-    setVisibleTrans(categorizeTransByDate(filteredTrans));
-  }, [props.transactionData]);
+    const updatedTrans = categorizeTransByDate(filterTrans());
+    setVisibleTrans(updatedTrans);
+  }, [
+    selectedPeriod,
+    selectedCommodity,
+    selectedReceipient,
+    props.transactionData,
+  ]);
 
-=======
->>>>>>> 5afa7bcd589b72860c38c4f89c460e93a919b6c2
-  useEffect(() => {
-    const filteredByPeriod = getTransByPeriod(
-      visibleTrans,
-      selectedPeriod.start,
-      selectedPeriod.end
-    );
-    const filteredByName = getTransByCommodityName(
-      filteredByPeriod,
-      selectedCommodity
-    );
-    const filteredByReceipient = getTransByRecipient(
-      filteredByName,
-      selectedReceipient
-    );
-
-<<<<<<< HEAD
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
@@ -76,26 +50,17 @@ const TransactionHistory = props => {
         transaction?.commodities?.some(commodity =>
           commodity?.commodityName
             .toLowerCase()
-            .startsWith(selectedCommodity.toLowerCase())
+            .includes(selectedCommodity.toLowerCase())
         ) &&
         transaction.dispensedTo
           .toLowerCase()
-          .startsWith(selectedReceipient.toLowerCase()) &&
+          .includes(selectedReceipient.toLowerCase()) &&
         transactionDate >= new Date(selectedPeriod[0]) &&
         transactionDate <= new Date(selectedPeriod[1])
       );
     });
   };
 
-=======
-    setVisibleTrans(filteredByReceipient);
-  }, [selectedPeriod, selectedCommodity, selectedReceipient]);
-
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
-  };
-
->>>>>>> 5afa7bcd589b72860c38c4f89c460e93a919b6c2
   return (
     <>
       {/* Navigation buttons to add stock or new dispensing */}
@@ -106,7 +71,6 @@ const TransactionHistory = props => {
       />
       {/* The different search and filter options */}
       <div className={classes.filterOptions}>
-<<<<<<< HEAD
         <Search
           name="commodity"
           placeholder="Search commodity"
@@ -131,12 +95,6 @@ const TransactionHistory = props => {
             style={{ height: "40px", width: "210px" }}
           />
         </div>
-=======
-        <Search placeholder="Search commodity" width={"320px"} />
-        <Dropdown placeholder="Period" />
-        <Dropdown placeholder="All transactions" />
-        <Dropdown placeholder="Recipient" />
->>>>>>> 5afa7bcd589b72860c38c4f89c460e93a919b6c2
       </div>
 
       {/* Multiple transactions can be listed here: */}

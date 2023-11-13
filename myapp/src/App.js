@@ -13,11 +13,6 @@ const MyApp = () => {
   /* State for handling navigation */
   const [activePage, setActivePage] = useState("Dashboard");
   const { loading, error, data, refetch } = useDataQuery(transRequest);
-  const [transactionData, setTransactionData] = useState(data);
-
-  useEffect(() => {
-    setTransactionData(data?.transactionHistory?.data);
-  }, [data]);
 
   function activePageHandler(page) {
     setActivePage(page);
@@ -66,6 +61,7 @@ const MyApp = () => {
     );
   if (loading) return <CircularLoader large />;
   if (data) {
+    const transactionData = data?.transactionHistory?.data;
     return (
       <div className={classes.container}>
         <div className={classes.sidenav}>
