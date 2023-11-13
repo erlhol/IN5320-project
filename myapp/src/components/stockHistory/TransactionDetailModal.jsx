@@ -19,7 +19,7 @@ import classes from "../../App.module.css";
 
 export default function TransactionDetailModal(props) {
   return (
-    <Modal onClose={() => props.onClose()} position="middle">
+    <Modal onClose={() => props.onClose()} position="middle" large>
       <ModalTitle>Transaction Detail</ModalTitle>
       <ModalContent>
         <Box height="360px">

@@ -68,7 +68,7 @@ const Inventory = props => {
           <Stepper
             title={"Add stock"}
             onClose={handleOnModalChange}
-            refetchData={refetch}
+            refetchData={() => refetch()}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
           />

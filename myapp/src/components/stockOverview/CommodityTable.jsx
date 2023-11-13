@@ -15,6 +15,7 @@ import {
 import classes from "../../App.module.css";
 
 const CommodityTable = props => {
+  useState
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order

@@ -46,7 +46,11 @@ const TransactionsForDay = props => {
       <div className={classes.transactionsItems}>
         {props.transactions.map((transaction, i) => {
           return (
-            <div key={i} onClick={() => handleCardClick(transaction)}>
+            <div
+              key={i}
+              onClick={() => handleCardClick(transaction)}
+              className={classes.transactionItemContainer}
+            >
               {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
               <Box height="76px">
                 <Card className={classes.transactionItem}>

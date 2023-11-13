@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import Dropdown from "../components/common/Dropdown";
 import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import { categorizeTransByDate } from "../utilities/dataUtility";
@@ -24,11 +23,13 @@ const TransactionHistory = props => {
     categorizeTransByDate(props.transactionData)
   );
 
-  // The reason for having this useEffect is because after confirmed adding transactions, the refetch function is invoked before the new added transaction is added to dataStore. Therefor we need to rerender StockHistory to get the updated data once it's added.
-  // useEffect(() => {
-  //   setVisibleTrans(categorizeTransByDate(props.transactionData));
-  //   setSelectedCommodity[selectedCommodity];
-  // }, [props.transactionData]);
+  // When the transactionData is refetched, this component need to be rerendered
+  useEffect(() => {
+    setVisibleTrans(categorizeTransByDate(props.transactionData));
+    // this is to remember the filtered Commodities
+    const filteredTrans = filterTrans();
+    setVisibleTrans(categorizeTransByDate(filteredTrans));
+  }, [props.transactionData]);
 
   useEffect(() => {
     const filteredTrans = filterTrans();

@@ -82,17 +82,17 @@ const Stepper = props => {
     setSelectedCommodities(updatedCommodies);
   };
 
-  const onConfirm = () => {
-    updateStockInApi();
-    updateTransInApi();
+  const onConfirm = async () => {
+    await updateTransInApi();
+    await updateStockInApi();
     props.refetchData();
     alert("Stock/Dispensing successfully added!!");
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
-  const updateStockInApi = () =>
-    selectedCommodities.forEach(commodity => {
-      updateStock({
+  const updateStockInApi = async () =>
+    selectedCommodities.forEach(async commodity => {
+      await updateStock({
         dataElement: commodity.commodityId,
         categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
         value: getValuesBasedOnTitel(commodity).updatedStockBalance,
@@ -100,7 +100,7 @@ const Stepper = props => {
     });
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
-  const updateTransInApi = () => {
+  const updateTransInApi = async () => {
     const commodities = selectedCommodities.map(commodity => {
       const { updatedStockBalance, transAmount } =
         getValuesBasedOnTitel(commodity);
@@ -122,7 +122,7 @@ const Stepper = props => {
       time,
     };
     transData = [transData, ...props.existedTransData];
-    updateTrans({ data: transData });
+    await updateTrans({ data: transData });
   };
 
   const getValuesBasedOnTitel = commodity => {
@@ -187,6 +187,7 @@ const Stepper = props => {
                   style={{
                     display: "flex",
                   }}
+                  key={selectedCommodities.commodityId}
                 >
                   <div>{selectedCommodity.commodityName}</div>
                   <div>{selectedCommodity.endBalance}</div>
