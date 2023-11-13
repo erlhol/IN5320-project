@@ -1,0 +1,63 @@
+.alertBarModal {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.addStockModal {
+  min-height: 450px;
+}
+
+.commoditySingleSelect {
+  flex-grow: 1;
+}
+
+.commoditySelectorContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.verticalAllign {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commodityTable {
+  width: 100%;
+}
+.commodityNameCell {
+  width: 45%;
+}
+
+
+.amountCell {
+  display: flex;
+  align-items: center;
+  height: auto !important;
+  padding: 8px 8px !important ;
+
+}
+
+.amountInput{
+  width: 100px;
+}
+
+.removeButton {
+  margin-left: auto;
+}
+
+.amountInput > p { /*Validation Text*/
+  width: max-content;
+}
+
+.dateTimeRecipientContainer {
+ display: flex;
+ width: 100%;
+}
+
+.dateTimePicker {
+  flex: 1 !important;
+  margin-right: 8px;
+}

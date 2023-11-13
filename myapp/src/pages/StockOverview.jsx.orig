@@ -1,55 +1,33 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader, AlertBar } from "@dhis2/ui";
+import { Button, CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
+
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
+import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import {
-  mergeCommodityAndValue,
-  mergeDataForDashboard,
-  categorizeTransByDate,
-} from "../utilities/dataUtility";
-import {
-  stockRequest,
-  stockUpdateRequest,
-  transRequest,
-  transUpdateRequest,
-} from "../utilities/requests";
+import { mergeCommodityAndValue } from "../utilities/datautility";
+import {stockRequest,} from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
-const StockInventory = props => {
-  const [transactions, setTransactions] = useState(() =>
-    categorizeTransByDate(props.transactionData)
-  );
-
+const Inventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
-  const [alertBarText, setAlertBarText] = useState("");
 
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
 
-  const [currentPage, setCurrentPage] = useState(1);
-
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
 
-  const handleOnChangeSearch = searchobj => {
-    setCurrentSearch(searchobj.value);
-    setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
-  };
-
-  const refetchData = dispensing => {
-    refetch();
-    setAlertBarText(
-      dispensing ? "Dispensing Successful" : "Restock Successful"
-    );
+  const handleOnChangeSearch = value => {
+    setCurrentSearch(value.value);
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -59,10 +37,6 @@ const StockInventory = props => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
-    );
-    mergeDataForDashboard(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements
     );
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
@@ -85,30 +59,28 @@ const StockInventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable
-          transactions={transactions}
-          commodities={filteredStockData}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <CommodityTable commodities={filteredStockData} />
 
         {modalPresent && (
+<<<<<<< HEAD
           <CommodityTransferModal
+            title={"Add stock"}
             onClose={handleOnModalChange}
+            stockData={stockData}
             dispensing={false}
-            refetchData={refetchData}
+=======
+          <Stepper
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            refetchData = {refetch}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
+>>>>>>> main
           />
-        )}
-        {alertBarText && (
-          <AlertBar type="success" className={classes.alertBar}>
-            {alertBarText}
-          </AlertBar>
         )}
       </>
     );
   }
 };
 
-export default StockInventory;
+export default Inventory;

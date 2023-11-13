@@ -175,6 +175,13 @@
   align-items: center;
 }
 
+.alertBar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
 /* stock history */
 .transactionItemContainer :hover {
   background-color: #eaebec;
@@ -254,82 +261,5 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex-basis: calc((100% / 12) * 5);
-}
-
-.transactionAmount :first-child {
-  font-weight: 700;
-  font-size: medium;
-}
-
-.transactionAmount :nth-child(2) {
-  color: gray;
-}
-
-.green-text {
-  color: green;
-}
-
-.transDetailModalWrapper {
-  min-width: 400px;
-}
-
-.transDetailTimeAndRecipientContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.transDetailTimeAndRecipientContainer p {
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-
-.transDetailTimeContainer,
-.transDetailRecipientContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px rgb(232, 237, 242) solid;
-  height: 60px;
-  width: 48%;
-  padding: 12px;
-}
-
-.transDetailTimeText,
-.transDetailRecipientText {
-  margin-left: 16px;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.transDetailTableCaption {
-  font-size: large;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-weight: 500;
-}
-
-.commodityTableLastDispensing :first-child {
-  color: gray;
-}
-
-.commodityTableLastDispensing :nth-child(2) {
-  margin-left: 10px;
-}
-
-.detailViewInfoBoxesContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-/* StockDetail */
-
-/* Stock detail information cards */
-
-.subtitleDetailView {
-  margin-top: 48px;
+  width: 160px;
 }
