@@ -39,6 +39,9 @@
 }
 
 /* stock history */
+.transactionItemContainer :hover {
+  background-color: #eaebec;
+}
 
 .transactionsItems {
   display: flex;
@@ -87,41 +90,45 @@
   width: 160px;
 }
 
-.transDetailModalWrapper{
+/* transactionDetailModal */
+.transDetailModalWrapper {
   min-width: 400px;
 }
 
-.transDetailTimeAndRecipientContainer{
+.transDetailTimeAndRecipientContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.transDetailTimeAndRecipientContainer p{
+.transDetailTimeAndRecipientContainer p {
   margin-bottom: 2px;
   margin-top: 2px;
 }
 
-.transDetailTimeContainer, .transDetailRecipientContainer{
+.transDetailTimeContainer,
+.transDetailRecipientContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border: 1px rgb(232, 237, 242) solid;
   height: 60px;
   width: 48%;
+  padding: 12px;
 }
 
-.transDetailTimeText, .transDetailRecipientText{
+.transDetailTimeText,
+.transDetailRecipientText {
   margin-left: 16px;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
-.transDetailTableCaption{
+.transDetailTableCaption {
   font-size: large;
   margin-top: 30px;
   margin-bottom: 15px;
-  font-weight: 500px;
+  font-weight: 500;
 }

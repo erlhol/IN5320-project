@@ -1,4 +1,4 @@
-import React, {useState,useEffect}from "react";
+import React, { useState, useEffect } from "react";
 import { Card, IconArrowRight24, IconMore24 } from "@dhis2/ui";
 import classes from "../../App.module.css";
 import TransactionDetailModal from "./TransactionDetailModal";
@@ -9,17 +9,9 @@ const TransactionsForDay = props => {
   //console.log("props.transactions:", props.transactions);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
-  const handleCardClick = (transaction) => {
-    console.log("dd");
+  const handleCardClick = transaction => {
     setSelectedTransaction(transaction);
   };
-
-  useEffect(() => {
-    console.log("selectedTransaction: ",selectedTransaction);
-
-
-  }, [])
-
 
   const getCommodityNames = commodities =>
     commodities.map(c => c.commodityName).join(", ");
@@ -39,7 +31,11 @@ const TransactionsForDay = props => {
       <div className={classes.transactionsItems}>
         {props.transactions.map((transaction, i) => {
           return (
-            <div key={i}  onClick={()=>handleCardClick(transaction)}>
+            <div
+              key={i}
+              onClick={() => handleCardClick(transaction)}
+              className={classes.transactionItemContainer}
+            >
               {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
               <Card className={classes.transactionItem}>
                 <div className={classes.transactionItemFirstHalf}>
@@ -84,8 +80,12 @@ const TransactionsForDay = props => {
         <div className={classes.transDetailModalWrapper}>
           <TransactionDetailModal
             transaction={selectedTransaction}
-            onClose={()=>setSelectedTransaction(null)}
-            transType = {selectedTransaction.type === 'Dispensing'?'Dispensed':'Restocked'}
+            onClose={() => setSelectedTransaction(null)}
+            transType={
+              selectedTransaction.type === "Dispensing"
+                ? "Dispensed"
+                : "Restocked"
+            }
           />
         </div>
       )}
