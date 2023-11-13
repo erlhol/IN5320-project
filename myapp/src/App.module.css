@@ -39,6 +39,9 @@
 }
 
 /* stock history */
+.transactionItemContainer :hover {
+  background-color: #eaebec;
+}
 
 .transactionItemContainer :hover {
   background-color: #eaebec;
@@ -69,6 +72,7 @@
 
 .transactionItemFirstHalf {
   display: flex;
+  width: 38%;
 }
 
 .transactionItemSecondHalf {
@@ -76,43 +80,48 @@
   align-items: center;
   justify-content: space-evenly;
   flex-grow: 1;
-  margin-left: -20px;
 }
 
 .transactionCommodities {
-  width: 350px;
+  flex-basis: calc((100% / 12) * 8);
   display: flex;
 }
 
 .transactionTime {
-  width: 80px;
+  flex-basis: calc((100% / 12) * 4);
   text-align: center;
 }
 
 .transactionActors {
   display: flex;
-  align-items: center;
-  text-align: center;
-  width: 240px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 12%;
+  flex-basis: calc((100% / 12) * 4);
+  gap: 6px;
 }
 
-.dispensedBy {
-  text-align: right;
-  margin-right: 8px;
-  width: 110px;
+.transactionActors p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.dispensedTo {
-  text-align: left;
-  margin-left: 8px;
-  width: 110px;
+.transactionActors p span {
+  color: gray;
+  margin-right: 3px;
+}
+
+.transactionType {
+  display: flex;
+  align-items: flex-start;
+  flex-basis: calc((100% / 12) * 3);
 }
 
 .transactionAmount {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 160px;
+  flex-basis: calc((100% / 12) * 5);
 }
 
 .transactionAmount :first-child {

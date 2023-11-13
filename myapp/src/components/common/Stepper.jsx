@@ -44,11 +44,6 @@ const Stepper = props => {
     variables: { period: getCurrentMonth() },
   });
 
-  // useEffect(() => {
-  //   console.log("selectedCommodities: ", selectedCommodities);
-  //   console.log("props.transactionData in Stepper: ", props.transactionData);
-  // }, [selectedCommodities, props.transactionData]);
-
   const addToSelectedCommodities = commodity => {
     const commodityAlreadySelected = selectedCommodities.find(
       c => c.commodityName === commodity.commodityName
@@ -166,11 +161,6 @@ const Stepper = props => {
             {/* Main section */}
             <div>
               <h3>Commodity section</h3>
-              {/* <Search
-                placeholder="Search commodity"
-                width={"320px"}
-                onClick={() => setShoswDropDown(true)}
-              ></Search> */}
               <SingleSelectField
                 onChange={value => addToSelectedCommodities(value.selected)}
               >
