@@ -60,10 +60,7 @@ const StockInventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
-    mergeDataForDashboard(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements
-    );
+
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>

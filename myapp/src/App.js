@@ -12,6 +12,7 @@ import StockHistory from "./pages/StockHistory";
 const MyApp = () => {
   /* State for handling navigation */
   const [activePage, setActivePage] = useState("Dashboard");
+  const { loading, error, data, refetch } = useDataQuery(transRequest);
 
   function activePageHandler(page) {
     setActivePage(page);
@@ -52,8 +53,6 @@ const MyApp = () => {
   //   updateTrans({ data: transData });
   // }, []);
 
-  const { loading, error, data, refetch } = useDataQuery(transRequest);
-
   if (error)
     return (
       <span>
@@ -62,7 +61,7 @@ const MyApp = () => {
     );
   if (loading) return <CircularLoader large />;
   if (data) {
-    let transactionData = data.transactionHistory.data;
+    const transactionData = data?.transactionHistory?.data;
     return (
       <div className={classes.container}>
         <div className={classes.sidenav}>

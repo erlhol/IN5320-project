@@ -58,3 +58,12 @@ export function getNumberOfCurrentMonth() {
   const date = new Date();
   return date.getMonth(); // to be consitant with starting at 1
 }
+
+export const getDateAndTime = dateTime => {
+  const month = (dateTime.getMonth() + 1).toString();
+  const day = dateTime.getDate().toString();
+  const year = dateTime.getFullYear().toString();
+  const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
+  const time = dateTime.toLocaleTimeString();
+  return { date, time };
+};

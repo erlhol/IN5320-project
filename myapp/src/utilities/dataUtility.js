@@ -71,38 +71,6 @@ export const mergeDataForDashboard = (dataValues, dataSetElements) => {
   return groupedCommodities;
 };
 
-export const getTransByPeriod = (transactions, startDate, endDate) => {
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const dateFormatted = new Date(date);
-    if (dateFormatted >= startDate && dateFormatted <= endDate)
-      filteredTrans[date] = transactions[date];
-  }
-  return filteredTrans;
-};
-
-export const getTransByCommodityName = (transactions, commodityNameQuery) => {
-  if (!commodityNameQuery) return transactions;
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const transactionsForDate = transactions[date];
-
-    const matchedTrans = transactionsForDate.filter(transaction =>
-      transaction.commodities.some(commodity =>
-        commodity.commodityName
-          .toLowerCase()
-          .includes(commodityNameQuery.toLowerCase())
-      )
-    );
-
-    if (matchedTrans.length !== 0) {
-      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
-      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
-    }
-  }
-  return filteredTrans;
-};
-
 export const categorizeTransByDate = transactions => {
   const categorized = {};
   transactions.forEach(transaction => {
@@ -111,26 +79,4 @@ export const categorizeTransByDate = transactions => {
     categorized[date].push(transaction);
   });
   return categorized;
-};
-
-export const getTransByRecipient = (transactions, recipient) => {
-  if (!recipient) return transactions;
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const matchedTrans = transactions[date].filter(
-      transaction => transaction.dispensedTo === recipient
-    );
-    if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
-  }
-  return filteredTrans;
-};
-
-export const getDateAndTime = dateTime => {
-  const month = (dateTime.getMonth() + 1).toString();
-  const day = dateTime.getDate().toString();
-  const year = dateTime.getFullYear().toString();
-
-  const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
-  const time = dateTime.toLocaleTimeString();
-  return { date, time };
 };
