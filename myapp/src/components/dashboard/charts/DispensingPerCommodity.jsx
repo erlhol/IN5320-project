@@ -14,7 +14,15 @@ const DispensingPerCommodity = props => {
     chart: {
       type: "line",
     },
-    colors: ["#43A047", "#2196F3", "#FFA902", "#009688", "#F44336", "#6E7A8A"],
+    colors: [
+      "#A9BE3B",
+      "#43A047",
+      "#2196F3",
+      "#FFA902",
+      "#009688",
+      "#F44336",
+      "#6E7A8A",
+    ],
     dataLabels: {
       enabled: true,
     },

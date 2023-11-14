@@ -18,6 +18,7 @@ const MostDispensed = props => {
     chart: {
       type: "bar",
     },
+    colors: ["#A9BE3B"],
     plotOptions: {
       bar: {
         borderRadius: 2,
