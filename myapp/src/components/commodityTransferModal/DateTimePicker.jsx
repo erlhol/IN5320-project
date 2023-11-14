@@ -18,9 +18,10 @@ const DateTimePicker = props => {
   };
   return (
     <div>
-      <label htmlFor="dateTimeInput">Date and Time</label>
       <InputField
+        required
         id="dateTimeInput"
+        label="Date and time"
         type="datetime-local"
         value={props.dateTimeState.dateTime}
         onChange={e => onChange(e.value)}

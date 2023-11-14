@@ -14,11 +14,12 @@ import {
   TableRowHead,
   TableCellHead,
   InputField,
-  IconCross16,
+  IconCross24,
 } from "@dhis2/ui";
 
 import { spacers } from "@dhis2/ui";
 import modalStyles from "./CommodityTransferModal.module.css";
+import classes from "../../App.module.css";
 
 const CommoditySelector = props => {
   const [selectedCommodity, setSelectedCommodity] = useState("");
@@ -69,8 +70,8 @@ const CommoditySelector = props => {
   };
 
   return (
-    <div className={modalStyles.test}>
-      <h3>Commodity Selection</h3>
+    <div>
+      <div className={classes.modalSubHeadline}>Commodity Selection</div>
       <div className={modalStyles.commoditySelectorContainer}>
         <div className={modalStyles.commoditySingleSelect}>
           <SingleSelect
@@ -78,7 +79,7 @@ const CommoditySelector = props => {
             onChange={selectedOption =>
               selectCommodity(selectedOption.selected)
             }
-            placeholder="Select Commodity"
+            placeholder="Select commodity"
             selected={selectedCommodity}
             noMatchText="No match found"
           >
@@ -117,12 +118,12 @@ const CommoditySelector = props => {
           <Table className={modalStyles.commodityTable}>
             <TableHead>
               <TableRowHead>
-                <TableCellHead>Commodity Name</TableCellHead>
-                <TableCellHead>Stock Balance</TableCellHead>
+                <TableCellHead>Commodity name</TableCellHead>
+                <TableCellHead>Stock balance</TableCellHead>
                 <TableCellHead>
                   {props.dispensing
-                    ? "Amount to Dispense"
-                    : "Amount to Restock"}
+                    ? "Amount to dispense"
+                    : "Amount to restock"}
                 </TableCellHead>
               </TableRowHead>
             </TableHead>
@@ -148,12 +149,11 @@ const CommoditySelector = props => {
                       validationText={getValidationText(commodity.inputError)}
                     />
                     <Button
-                      dense
+                      small
+                      icon={<IconCross24 />}
                       className={modalStyles.removeButton}
                       onClick={() => props.removeCommodity(commodity)}
-                    >
-                      <IconCross16 />
-                    </Button>
+                    />
                   </TableCell>
                 </TableRow>
               ))}

@@ -169,7 +169,7 @@ const CommodityTransferModal = props => {
         <ModalTitle>
           {props.dispensing ? "New Dispensing" : "Add Restock"}
         </ModalTitle>
-        <ModalContent className={modalStyles.addStockModal}>
+        <ModalContent className={modalStyles.commodityTransferModalContent}>
           <div className={modalStyles.dateTimeRecipientContainer}>
             <div className={modalStyles.dateTimePicker}>
               <DateTimePicker

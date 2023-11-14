@@ -1,16 +1,17 @@
 import React from "react";
-import { Input } from "@dhis2/ui";
+import { InputField } from "@dhis2/ui";
 
 const RecipientInput = ({ recipient, setRecipient }) => {
   return (
     <div>
-      <label htmlFor="recipientInput">Recipient</label>
-      <Input
+      <InputField
+        required
         id="recipientInput"
+        label="Recipient"
         type="text"
         value={recipient}
         onChange={e => setRecipient(e.value)}
-        placeholder="Enter Name of Recipient"
+        placeholder="Enter name of recipient"
       />
     </div>
   );

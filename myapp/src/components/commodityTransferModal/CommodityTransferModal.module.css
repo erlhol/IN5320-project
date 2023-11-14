@@ -1,20 +1,20 @@
-.addStockModal {
+.commodityTransferModalContent {
   min-height: 400px;
+  margin-top: 24px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commoditySelectorContainer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .commoditySingleSelect {
   flex-grow: 1;
-}
-
-.commoditySelectorContainer {
-  display: flex;
-  gap: 12px;
-}
-
-.verticalAllign {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .commodityTable {
