@@ -175,6 +175,10 @@
   font-weight: 500;
 }
 
+.transDetailModalContent {
+  min-height: 400px;
+}
+
 .commodityTableLastDispensing :first-child {
   color: gray;
 }

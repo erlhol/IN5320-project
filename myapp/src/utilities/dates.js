@@ -50,3 +50,10 @@ export function getStockHistoryDefaultPeriod() {
     .padStart(2, "0")}/01/${year.toString()}`;
   return { start, end };
 }
+
+export function formatTime(timeString) {
+  const date = new Date(`1970-01-01T${timeString}Z`); // Konvertiert den String in ein Date Objekt
+  const hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0"); // Fügt eine führende Null hinzu, falls nötig
+  return `${hours}:${minutes}`;
+}
