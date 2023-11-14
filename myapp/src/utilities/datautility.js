@@ -161,39 +161,29 @@ export const getTransByRecipient = (transactions, recipient) => {
   // };
 };
 
-export const getNumberCommoditiesLowInStock = (
+export const getCommoditiesLowInStock = (
   stockDataPerMonth,
   currentStockData
 ) => {
-  const summedEndBalances = stockDataPerMonth
-    .flat()
-    .reduce((acc, commodity) => {
-      acc[commodity.commodityId] =
-        (acc[commodity.commodityId] || 0) + commodity.endBalance;
-      return acc;
-    }, {});
+  const sumEndBalances = {};
 
-  const averageEndBalances = Object.fromEntries(
-    Object.entries(summedEndBalances).map(([commodity, endBalance]) => [
-      commodity,
-      Math.round(endBalance / stockDataPerMonth.length),
-    ])
-  );
-
-  let numberCommoditiesLowInStock = 0;
-
-  currentStockData.forEach(commodity => {
-    const commodityId = commodity.commodityId;
-    const calculatedAverage = averageEndBalances[commodityId];
-    const threshold = 0.2;
-
-    if (
-      commodity.endBalance <
-      calculatedAverage - calculatedAverage * threshold
-    ) {
-      numberCommoditiesLowInStock++;
-    }
+  stockDataPerMonth.forEach(periodData => {
+    periodData.forEach(commodity => {
+      const { commodityId, endBalance } = commodity;
+      sumEndBalances[commodityId] = sumEndBalances[commodityId] || 0;
+      sumEndBalances[commodityId] += endBalance;
+    });
   });
 
-  return numberCommoditiesLowInStock;
+  const lowInStockCommodities = currentStockData.filter(commodity => {
+    const average = Math.round(
+      sumEndBalances[commodity.commodityId] / stockDataPerMonth.length
+    );
+    const threshold = 0.2 * average;
+    return commodity.endBalance < threshold;
+  });
+
+  return lowInStockCommodities.sort((a, b) =>
+    a.commodityName.localeCompare(b.commodityName)
+  );
 };
