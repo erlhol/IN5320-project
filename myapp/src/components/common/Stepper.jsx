@@ -87,11 +87,18 @@ const Stepper = props => {
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
   const updateStockInApi = async () =>
     selectedCommodities.forEach(async commodity => {
+      const dataElement = commodity.commodityId;
       await updateStock({
-        dataElement: commodity.commodityId,
+        dataElement,
         categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
         value: getValuesBasedOnTitel(commodity).updatedStockBalance,
       });
+      props.title === "New dispensing" &&
+        updateStock({
+          dataElement,
+          categoryOptionCombo: "rQLFnNXXIL0", //comsumption
+          value: Number(commodity.consumption) + Number(commodity.inputValue),
+        });
     });
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
