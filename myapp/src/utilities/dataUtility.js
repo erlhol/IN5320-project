@@ -38,8 +38,10 @@ export const mergeCommodityAndValue = (
 
       // Get the lastDispencing data from transactionData
       if (transactionData) {
-        const matchedTrans = transactionData?.find(trans =>
-          trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+        const matchedTrans = transactionData?.find(
+          trans =>
+            trans.type === "Dispensing" &&
+            trans.commodities.some(c => c.commodityId === dataValue.dataElement)
         );
         const matchedTransCommodity = matchedTrans?.commodities?.find(
           c => c.commodityId === dataValue.dataElement
