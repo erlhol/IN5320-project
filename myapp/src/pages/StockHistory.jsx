@@ -6,7 +6,6 @@ import CommodityTransferModal from "../components/commodityTransferModal/Commodi
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import { categorizeTransByDate } from "../utilities/dataUtility";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
