@@ -5,7 +5,10 @@ import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import { categorizeTransByDate } from "../utilities/dataUtility";
+import {
+  categorizeTransByDate,
+  getMostRecentTransactionsObject,
+} from "../utilities/dataUtility";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
@@ -26,6 +29,12 @@ const TransactionHistory = props => {
   useEffect(() => {
     const updatedTrans = categorizeTransByDate(filterTrans());
     setVisibleTrans(updatedTrans);
+
+    const result = getMostRecentTransactionsObject(
+      categorizeTransByDate(props.transactionData),
+      4
+    );
+    console.log("result", result);
   }, [
     selectedPeriod,
     selectedCommodity,

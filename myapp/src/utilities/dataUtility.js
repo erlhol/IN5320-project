@@ -78,5 +78,36 @@ export const categorizeTransByDate = transactions => {
     if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  return categorized;
+
+  const dataArray = Object.entries(categorized);
+  dataArray.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+  const sortedData = Object.fromEntries(dataArray);
+  return sortedData;
+};
+
+export const getMostRecentTransactionsObject = (
+  categorizedTrans,
+  nrTranNeeded
+) => {
+  const mostRecentTransactionsObject = {};
+  let nrTransactionsAdded = 0;
+
+  for (const date in categorizedTrans) {
+    const transactions = categorizedTrans[date];
+    const sortedTransactions = transactions.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
+    sortedTransactions.forEach(trans => {
+      if (!mostRecentTransactionsObject[date])
+        mostRecentTransactionsObject[date] = [];
+      if (nrTransactionsAdded < nrTranNeeded) {
+        mostRecentTransactionsObject[date].push(trans);
+        nrTransactionsAdded++;
+      }
+    });
+    if (nrTransactionsAdded === nrTranNeeded) break;
+  }
+
+  return mostRecentTransactionsObject;
 };
