@@ -23,7 +23,7 @@ const TransactionsForDay = props => {
       return (
         <>
           <div style={{ marginRight: "8px" }}>{firstTwoCommodityNames} </div>
-          <Tag positive>+ {extraCommoditiesCount}</Tag>
+          <Tag positive>{`+ ${extraCommoditiesCount}`}</Tag>
         </>
       );
     }
@@ -76,9 +76,9 @@ const TransactionsForDay = props => {
                     </div>
                     <div className={classes.transactionType}>
                       {transaction.type == "Dispensing" ? (
-                        <Tag> {transaction.type} </Tag>
+                        <Tag>{`${transaction.type}`}</Tag>
                       ) : (
-                        <Tag positive> {transaction.type} </Tag>
+                        <Tag positive>{`${transaction.type}`}</Tag>
                       )}
                     </div>
                     <div className={classes.transactionAmount}>
