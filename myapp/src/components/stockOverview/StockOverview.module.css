@@ -1,0 +1,30 @@
+.preselectionHeader {
+  display: flex;
+  align-items: center;
+  background: #1E6194;
+  width: 100%;
+  height: 47px;
+  color: white;
+}
+
+.preselectionNumber {
+  margin-left: 14px;
+  width: 16px;
+  height: 16px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preselectionText{
+  font-size: 14px;
+  margin-left: 24px;
+}
+
+.preselectionButton {
+  margin-left: auto;
+  margin-right: 14px;
+}

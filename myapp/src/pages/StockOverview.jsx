@@ -18,6 +18,7 @@ import { filterBySearch } from "../utilities/search";
 const StockInventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
+  const [preselectedCommodities, setPreselectedCommodities] = useState([]);
 
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
@@ -64,7 +65,11 @@ const StockInventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={filteredStockData} />
+        <CommodityTable
+          commodities={filteredStockData}
+          preselectedCommodities={preselectedCommodities}
+          setPreselectedCommodities={setPreselectedCommodities}
+        />
 
         {modalPresent && (
           <Stepper

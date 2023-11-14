@@ -15,6 +15,7 @@ import {
   MenuItem,
 } from "@dhis2/ui";
 import StockDetail from "./StockDetail";
+import PreselectionHeader from "./PreselectionHeader";
 import classes from "../../App.module.css";
 
 const CommodityTable = props => {
@@ -50,6 +51,45 @@ const CommodityTable = props => {
     }
   });
 
+  const preselectCommodity = commodity => {
+    if (
+      !props.preselectedCommodities.some(
+        item => item.commodityName === commodity.commodityName
+      )
+    ) {
+      props.setPreselectedCommodities([
+        ...props.preselectedCommodities,
+        commodity,
+      ]);
+    } else {
+      props.setPreselectedCommodities(
+        props.preselectedCommodities.filter(
+          item => item.commodityName !== commodity.commodityName
+        )
+      );
+      console.log("Unpreselecting " + commodity.commodityName);
+    }
+  };
+
+  const checked = commodity =>
+    props.preselectedCommodities.some(
+      item => item.commodityName === commodity.commodityName
+    );
+
+  const preselectAllCommodities = () => {
+    if (props.preselectedCommodities.length !== props.commodities.length) {
+      props.setPreselectedCommodities([...props.commodities]); //TODO: just select visible Stock
+    } else {
+      props.setPreselectedCommodities([]);
+    }
+  };
+
+  const dispenseSingleCommodity = commodity => {
+    props.setPreselectedCommodities(commodity);
+    // show modal
+    props.
+  };
+
   return (
     <>
       {selectedStock && (
@@ -58,11 +98,20 @@ const CommodityTable = props => {
           onClose={handleSetSelectedStock}
         ></StockDetail>
       )}
+      {props.preselectedCommodities.length > 0 && (
+        <PreselectionHeader number={props.preselectedCommodities.length} />
+      )}
       <DataTable>
         <TableHead>
           <DataTableRow>
             <DataTableColumnHeader width="48px">
-              <Checkbox onChange={() => console.log("Toggle All")} />
+              <Checkbox
+                onChange={() => preselectAllCommodities()}
+                checked={
+                  props.preselectedCommodities.length ===
+                  props.commodities.length
+                }
+              />
             </DataTableColumnHeader>
             <DataTableColumnHeader
               onSortIconClick={() => handleSort("commodityName")}
@@ -104,8 +153,8 @@ const CommodityTable = props => {
               {/* if the row should be selected, add the property: selected */}
               <DataTableCell width="48px">
                 <Checkbox
-                  onChange={() => console.log("Toggle selected ID " + i)}
-                  value={"" + i}
+                  onChange={() => preselectCommodity(commodity)}
+                  checked={checked(commodity)}
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
