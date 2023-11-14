@@ -163,7 +163,7 @@ const CommodityTable = props => {
               <DataTableCell>
                 <Button
                   name="Small button"
-                  onClick={() => console.log("Dispense ID " + i)}
+                  onClick={() => props.handleOnModalChange("dispense")}
                   small
                   value="default"
                 >

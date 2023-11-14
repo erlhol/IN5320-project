@@ -26,7 +26,7 @@ const StockInventory = props => {
     categorizeTransByDate(props.transactionData)
   );
 
-  const [modalPresent, setModalPresent] = useState(false);
+  const [currentModal, setCurrentModal] = useState("");
   const [currentSearch, setCurrentSearch] = useState("");
   const [alertBarText, setAlertBarText] = useState("");
 
@@ -36,8 +36,8 @@ const StockInventory = props => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
+  const handleOnModalChange = value => {
+    setCurrentModal(value);
   };
 
   const handleOnChangeSearch = searchobj => {
@@ -87,12 +87,23 @@ const StockInventory = props => {
           commodities={filteredStockData}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          handleOnModalChange={handleOnModalChange}
         />
 
-        {modalPresent && (
+        {currentModal === "add_stock" && (
           <CommodityTransferModal
             onClose={handleOnModalChange}
             dispensing={false}
+            refetchData={refetchData}
+            allCommodities={data.commodities?.dataSetElements}
+            existedTransData={props.transactionData}
+          />
+        )}
+        {/* TODO: set some default values here */}
+        {currentModal === "dispense" && (
+          <CommodityTransferModal
+            onClose={handleOnModalChange}
+            dispensing={true}
             refetchData={refetchData}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}

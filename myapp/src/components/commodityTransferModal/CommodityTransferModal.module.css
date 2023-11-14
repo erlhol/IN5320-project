@@ -6,7 +6,7 @@
 }
 
 .addStockModal {
-  min-height: 450px;
+  min-height: 400px;
 }
 
 .commoditySingleSelect {
@@ -31,16 +31,14 @@
   width: 45%;
 }
 
-
 .amountCell {
   display: flex;
   align-items: center;
   height: auto !important;
   padding: 8px 8px !important ;
-
 }
 
-.amountInput{
+.amountInput {
   width: 100px;
 }
 
@@ -48,13 +46,14 @@
   margin-left: auto;
 }
 
-.amountInput > p { /*Validation Text*/
+.amountInput > p {
+  /*Validation Text*/
   width: max-content;
 }
 
 .dateTimeRecipientContainer {
- display: flex;
- width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .dateTimePicker {
