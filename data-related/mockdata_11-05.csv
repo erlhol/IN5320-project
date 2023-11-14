@@ -1,0 +1,247 @@
+commodityId;commodityName;amount;balanceAfterTrans;dispensedBy;dispensedTo;date;time;type
+Boy3QwztgeZ;Amoxicillin;-6;0;Liam;Ella;10/30/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;-8;6;Sarah;Emily;10/18/2023;11:30:00;dispence
+Boy3QwztgeZ;Amoxicillin;-29;14;Oliver;Lucas;10/15/2023;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;43;Central;OZ1olxsTyNa;10/14/2023;16:25:00;restock
+Boy3QwztgeZ;Amoxicillin;-13;13;Ella;Henry;10/3/2023;16:25:00;dispence
+Boy3QwztgeZ;Amoxicillin;-18;26;Olivia;Ethan;9/20/2023;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;44;Central;OZ1olxsTyNa;9/14/2023;9:10:00;restock
+Boy3QwztgeZ;Amoxicillin;-14;14;Lucas;Chloe;9/9/2023;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-15;28;Liam;Ella;8/18/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;42;Central;OZ1olxsTyNa;8/14/2023;19:30:00;restock
+Boy3QwztgeZ;Amoxicillin;-11;12;Liam;Ella;8/10/2023;11:30:00;dispence
+Boy3QwztgeZ;Amoxicillin;-8;23;Lucas;Chloe;7/19/2023;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;31;Central;OZ1olxsTyNa;7/14/2023;17:30:00;restock
+Boy3QwztgeZ;Amoxicillin;-13;1;Liam;Ella;7/8/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;-7;14;Liam;Ella;7/1/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;-32;21;Oliver;Lucas;6/18/2023;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;53;Central;OZ1olxsTyNa;6/14/2023;21:45:00;restock
+Boy3QwztgeZ;Amoxicillin;-8;23;Ella;Henry;6/8/2023;16:25:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;31;Central;OZ1olxsTyNa;5/14/2023;9:55:00;restock
+Boy3QwztgeZ;Amoxicillin;-12;1;Olivia;Ethan;5/10/2023;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;10;13;Lucas;Chloe;5/9/2023;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-25;3;Lucas;Chloe;5/1/2023;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-13;28;Liam;Ella;4/18/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;41;Central;OZ1olxsTyNa;4/14/2023;15:45:00;restock
+Boy3QwztgeZ;Amoxicillin;-23;11;Liam;Ella;4/12/2023;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;-21;32;Liam;Ella;3/16/2023;11:30:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;53;Central;OZ1olxsTyNa;3/14/2023;10:15:00;restock
+Boy3QwztgeZ;Amoxicillin;-19;23;Mason;William;3/7/2023;14:15:00;dispence
+Boy3QwztgeZ;Amoxicillin;-6;42;Ella;Henry;2/28/2023;16:25:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;48;Central;OZ1olxsTyNa;2/14/2023;9:55:00;restock
+Boy3QwztgeZ;Amoxicillin;-14;18;Olivia;Ethan;2/3/2023;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;32;Central;OZ1olxsTyNa;1/14/2023;9:10:00;restock
+Boy3QwztgeZ;Amoxicillin;-6;2;Lucas;Chloe;1/12/2023;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-3;8;Sara;Mia;1/11/2023;9:45:00;dispence
+Boy3QwztgeZ;Amoxicillin;-11;11;Liam;Ella;1/10/2023;11:30:00;dispence
+Boy3QwztgeZ;Amoxicillin;-9;22;Oliver;Lucas;12/29/2022;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;31;Central;OZ1olxsTyNa;12/14/2022;9:55:00;restock
+Boy3QwztgeZ;Amoxicillin;-2;1;Ella;Henry;12/12/2022;16:25:00;dispence
+Boy3QwztgeZ;Amoxicillin;-4;3;Olivia;Ethan;12/5/2022;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;-2;7;Lucas;Chloe;12/1/2022;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-18;9;Lucas;Chloe;11/28/2022;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-3;27;Liam;Ella;11/18/2022;12:04:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;30;Central;OZ1olxsTyNa;11/14/2022;11:30:00;restock
+Boy3QwztgeZ;Amoxicillin;-9;0;Liam;Ella;11/13/2022;11:30:00;dispence
+Boy3QwztgeZ;Amoxicillin;-9;9;Oliver;Lucas;11/11/2022;9:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;-8;18;Ella;Henry;11/6/2022;16:25:00;dispence
+Boy3QwztgeZ;Amoxicillin;-15;26;Evelyn;Henry;10/20/2022;15:55:00;dispence
+Boy3QwztgeZ;Amoxicillin;30;41;Central;OZ1olxsTyNa;10/14/2022;9:10:00;restock
+Boy3QwztgeZ;Amoxicillin;-12;11;Lucas;Chloe;10/9/2022;9:10:00;dispence
+Boy3QwztgeZ;Amoxicillin;-7;23;Lucas;Chloe;10/1/2022;9:10:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-3;40;Benjamin;Lucy;8/20/2023;8:15:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-17;41;Noah;Lily;6/20/2023;10:45:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-22;37;Logan;Ava;6/10/2023;11:30:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-13;26;Aiden;Zoe;5/24/2023;15:15:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-38;49;Aiden;Oliver;5/5/2023;7:15:00;dispence
+d9vZ3HOlzAd;Antenatal Corticosteroids;-38;49;Aiden;Oliver;4/18/2023;7:15:00;dispence
+WjDoIR27f31;Chlorhexidine;-12;97;James;Sophia;8/21/2023;13:40:00;dispence
+WjDoIR27f31;Chlorhexidine;-9;70;Ava;William;8/11/2023;13:55:00;dispence
+WjDoIR27f31;Chlorhexidine;-5;40;Benjamin;Mia;8/1/2023;14:28:00;dispence
+WjDoIR27f31;Chlorhexidine;-15;63;Aiden;Sophia;6/27/2023;11:10:00;dispence
+WjDoIR27f31;Chlorhexidine;-25;33;Megan;David;6/14/2023;11:55:00;dispence
+WjDoIR27f31;Chlorhexidine;-23;29;Lily;William;5/28/2023;15:45:00;dispence
+WjDoIR27f31;Chlorhexidine;-28;34;Zoe;Aiden;5/16/2023;17:30:00;dispence
+WjDoIR27f31;Chlorhexidine;-22;37;Sophia;Ethan;5/5/2023;8:30:00;dispence
+WjDoIR27f31;Chlorhexidine;-22;37;Sophia;Ethan;4/20/2023;8:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-5;16;Mia;Ethan;10/25/2023;17:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-19;21;Sarah;Emily;10/18/2023;11:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;40;Central;OZ1olxsTyNa;10/14/2023;16:25:00;restock
+BXgDHhPdFVU;Emergency Contraception;-5;0;David;Olivia;10/13/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-1;5;Evelyn;Henry;10/1/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-12;12;David;Olivia;9/22/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-22;24;Evelyn;Henry;9/15/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;46;Central;OZ1olxsTyNa;9/14/2023;9:10:00;restock
+BXgDHhPdFVU;Emergency Contraception;-17;6;Ella;Liam;9/12/2023;16:18:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-4;23;Mason;Aria;9/4/2023;19:27:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-32;27;Ella;Liam;8/17/2023;15:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;59;Central;OZ1olxsTyNa;8/14/2023;19:30:00;restock
+BXgDHhPdFVU;Emergency Contraception;-28;19;James;Olivia;7/31/2023;10:10:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-12;47;Sarah;Mike;7/21/2023;9:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;59;Central;OZ1olxsTyNa;7/14/2023;17:30:00;restock
+BXgDHhPdFVU;Emergency Contraception;-3;19;Mia;Ethan;7/8/2023;17:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-5;22;Liam;Mia;6/25/2023;15:50:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-21;27;David;Olivia;6/18/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;48;Central;OZ1olxsTyNa;6/14/2023;21:45:00;restock
+BXgDHhPdFVU;Emergency Contraception;-10;8;Evelyn;Henry;6/8/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-7;18;David;Olivia;6/6/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-25;25;Evelyn;Henry;5/15/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;50;Central;OZ1olxsTyNa;5/14/2023;16:18:00;restock
+BXgDHhPdFVU;Emergency Contraception;-14;10;Ella;Liam;5/2/2023;16:18:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-39;24;Mason;Aria;4/18/2023;19:27:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;63;Central;OZ1olxsTyNa;4/14/2023;15:45:00;restock
+BXgDHhPdFVU;Emergency Contraception;-18;23;Ella;Liam;3/18/2023;15:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-2;41;James;Olivia;3/16/2023;10:10:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;43;Central;OZ1olxsTyNa;3/14/2023;9:30:00;restock
+BXgDHhPdFVU;Emergency Contraception;-5;3;Sarah;Mike;3/8/2023;9:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-36;8;Mia;Ethan;2/27/2023;17:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;44;Central;OZ1olxsTyNa;2/14/2023;15:50:00;restock
+BXgDHhPdFVU;Emergency Contraception;-19;4;Liam;Mia;2/4/2023;15:50:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-8;23;David;Olivia;1/26/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-20;31;Evelyn;Henry;1/18/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;51;Central;OZ1olxsTyNa;1/14/2023;21:45:00;restock
+BXgDHhPdFVU;Emergency Contraception;-7;11;David;Olivia;1/10/2023;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-8;18;Evelyn;Henry;1/6/2023;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-14;26;Ella;Liam;1/1/2023;16:18:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;40;Central;OZ1olxsTyNa;12/14/2022;9:55:00;restock
+BXgDHhPdFVU;Emergency Contraception;-5;0;Mason;Aria;12/8/2022;19:27:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-6;5;Ella;Liam;12/2/2022;15:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-7;11;James;Olivia;11/25/2022;10:10:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-22;18;Sarah;Mike;11/18/2022;9:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;40;Central;OZ1olxsTyNa;11/14/2022;17:30:00;restock
+BXgDHhPdFVU;Emergency Contraception;-7;0;Mia;Ethan;11/10/2022;17:30:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-3;7;Liam;Mia;10/29/2022;15:50:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-12;10;David;Olivia;10/26/2022;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-21;22;Evelyn;Henry;10/20/2022;15:55:00;dispence
+BXgDHhPdFVU;Emergency Contraception;40;43;Central;OZ1olxsTyNa;10/14/2022;9:10:00;restock
+BXgDHhPdFVU;Emergency Contraception;-27;3;David;Olivia;10/11/2022;21:45:00;dispence
+BXgDHhPdFVU;Emergency Contraception;-10;30;Evelyn;Henry;10/7/2022;15:55:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-18;24;Noah;Mia;10/1/2023;14:56:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-21;2;David;Olivia;9/22/2023;21:45:00;dispence
+dY4OCwl0Y7Y;Female Condoms;20;23;Mia;Noah;9/15/2023;17:20:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-33;3;Laura;Kevin;9/12/2023;14:10:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-10;36;Noah;Avery;9/4/2023;9:55:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-4;6;Ella;Noah;8/17/2023;9:15:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-30;10;Jackson;Ava;7/31/2023;11:05:00;dispence
+dY4OCwl0Y7Y;Female Condoms;-16;0;Jackson;Ava;7/21/2023;11:05:00;dispence
+Dkapzovo8Ll;Implants;-5;28;Harper;William;10/13/2023;19:20:00;dispence
+Dkapzovo8Ll;Implants;-25;45;Lucas;James;8/23/2023;17:12:00;dispence
+Dkapzovo8Ll;Implants;-17;51;Smith;Andy;8/5/2023;17:02:00;dispence
+Dkapzovo8Ll;Implants;5;15;Lucas;Olivia;6/29/2023;9:30:00;dispence
+Dkapzovo8Ll;Implants;6;23;John;Linda;6/16/2023;16:45:00;dispence
+Dkapzovo8Ll;Implants;14;22;Charlotte;Aiden;6/16/2023;8:40:00;dispence
+Dkapzovo8Ll;Implants;7;14;Oliver;Evelyn;6/3/2023;12:15:00;dispence
+Dkapzovo8Ll;Implants;9;22;Evelyn;Elijah;5/18/2023;13:25:00;dispence
+Dkapzovo8Ll;Implants;-5;28;Harper;William;5/6/2023;19:20:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-6;32;Henry;Harper;8/20/2023;15:59:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-7;56;Harper;Mia;8/11/2023;18:14:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-22;47;William;Ella;6/20/2023;13:05:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-13;41;Aiden;Sophie;6/9/2023;9:10:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;10;19;Ella;Liam;5/20/2023;17:40:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-19;42;Sarah;Liam;5/10/2023;15:30:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-21;23;Camila;Sebastian;5/4/2023;10:40:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-27;42;Sarah;Liam;5/1/2023;15:30:00;dispence
+JIazHXNSnFJ;Injectable Antibiotics;-10;23;Camila;Sebastian;4/15/2023;10:40:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-36;98;Tim;Bob;8/28/2023;18:27:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-19;97;Aiden;Avery;8/15/2023;16:48:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-8;92;Aiden;Eva;8/7/2023;14:20:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-20;33;Liam;Oliver;6/25/2023;14:40:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-7;45;Ethan;Olivia;6/12/2023;12:40:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-8;33;Zoe;Jackson;5/27/2023;16:10:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-14;11;Smith;Andy;5/14/2023;13:22:00;dispence
+o15CyZiTvxa;Magnesium Sulfate;-5;11;Smith;Andy;5/3/2023;13:22:00;dispence
+f27B1G7B3m3;Misoprostol;-29;54;Tim;Bob;8/28/2023;18:27:00;dispence
+f27B1G7B3m3;Misoprostol;-21;33;Harper;Jackson;8/17/2023;14:12:00;dispence
+f27B1G7B3m3;Misoprostol;-10;34;Jackson;Sophie;8/9/2023;9:45:00;dispence
+f27B1G7B3m3;Misoprostol;-7;75;Oliver;Aria;7/31/2023;16:42:00;dispence
+f27B1G7B3m3;Misoprostol;-25;23;Ethan;Ava;6/27/2023;12:55:00;dispence
+f27B1G7B3m3;Misoprostol;-14;22;Paul;Lisa;6/12/2023;17:20:00;dispence
+f27B1G7B3m3;Misoprostol;-39;43;Mason;Victoria;5/28/2023;14:20:00;dispence
+f27B1G7B3m3;Misoprostol;-18;26;Ethan;Olivia;5/16/2023;16:20:00;dispence
+f27B1G7B3m3;Misoprostol;-2;21;Ella;Mason;5/9/2023;16:40:00;dispence
+f27B1G7B3m3;Misoprostol;-5;21;Ella;Mason;4/29/2023;16:40:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-12;42;William;James;8/21/2023;10:03:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-22;49;Emma;Sebastian;8/15/2023;10:57:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-17;29;Nora;Daniel;8/2/2023;10:10:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-4;25;Ava;Charlotte;6/20/2023;8:30:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-32;26;Nathan;Emily;6/10/2023;14:55:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-28;32;Elijah;Harper;5/25/2023;10:05:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-12;38;Mia;Noah;5/9/2023;12:55:00;dispence
+Lz8MM2Y9DNh;Oral Rehydration Salts;-19;38;Mia;Noah;4/29/2023;12:55:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;0;Liam;Ella;10/30/2023;12:04:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;1;Eva;Benjamin;10/27/2023;9:12:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;4;Lucy;James;10/25/2023;13:55:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;5;Sarah;Emily;10/21/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-4;6;Sarah;Emily;10/18/2023;11:30:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;10;Central;OZ1olxsTyNa;10/14/2023;16:25:00;restock
+hJNC4Bu2Mkv;Oxytocin;-2;0;Alice;Eve;10/3/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;2;Liam;Charlotte;10/1/2023;10:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-4;3;James;Lily;9/28/2023;11:05:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;7;Alice;Eve;9/25/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;10;Aria;Elijah;9/21/2023;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;12;Central;OZ1olxsTyNa;9/14/2023;17:15:00;restock
+hJNC4Bu2Mkv;Oxytocin;-6;2;Alice;Eve;9/14/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;8;Aria;Elijah;9/3/2023;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-9;9;Sara;Mia;8/24/2023;9:45:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;18;Central;OZ1olxsTyNa;8/14/2023;19:30:00;restock
+hJNC4Bu2Mkv;Oxytocin;-3;8;Eva;Benjamin;8/12/2023;9:12:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;11;Lucy;James;7/30/2023;13:55:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;12;Central;OZ1olxsTyNa;7/14/2023;17:30:00;restock
+hJNC4Bu2Mkv;Oxytocin;-5;2;Sarah;Emily;7/14/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;7;Mason;William;7/1/2023;14:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;9;Alice;Eve;6/18/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;11;Central;OZ1olxsTyNa;6/14/2023;21:45:00;restock
+hJNC4Bu2Mkv;Oxytocin;-3;1;Liam;Charlotte;6/1/2023;10:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;4;James;Lily;5/22/2023;11:05:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;5;Alice;Eve;5/19/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;7;Aria;Elijah;5/17/2023;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;10;Central;OZ1olxsTyNa;5/14/2023;16:18:00;restock
+hJNC4Bu2Mkv;Oxytocin;-2;0;Alice;Eve;5/5/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-7;2;Aria;Elijah;4/28/2023;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;9;Sara;Mia;4/16/2023;9:45:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;12;Central;OZ1olxsTyNa;4/14/2023;9:12:00;restock
+hJNC4Bu2Mkv;Oxytocin;-5;2;Eva;Benjamin;4/11/2023;9:12:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-4;7;Lucy;James;3/25/2023;13:55:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;11;Central;OZ1olxsTyNa;3/14/2023;10:15:00;restock
+hJNC4Bu2Mkv;Oxytocin;-1;1;Sarah;Emily;3/12/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;2;Mason;William;3/7/2023;14:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;6;Alice;Eve;3/5/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;8;Liam;Charlotte;2/19/2023;10:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;9;James;Lily;2/17/2023;11:05:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;11;Central;OZ1olxsTyNa;2/14/2023;10:15:00;restock
+hJNC4Bu2Mkv;Oxytocin;-3;1;Alice;Eve;2/9/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;4;David;Olivia;1/26/2023;21:45:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;7;Alice;Eve;1/24/2023;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;9;Aria;Elijah;1/19/2023;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;10;Central;OZ1olxsTyNa;1/14/2023;9:45:00;restock
+hJNC4Bu2Mkv;Oxytocin;-3;0;Sara;Mia;1/11/2023;9:45:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;3;Eva;Benjamin;12/23/2022;9:12:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-7;6;Lucy;James;12/14/2022;13:55:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;13;Central;OZ1olxsTyNa;12/14/2022;9:55:00;restock
+hJNC4Bu2Mkv;Oxytocin;-5;3;Sarah;Emily;12/8/2022;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;8;Mason;William;11/25/2022;14:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;11;Central;OZ1olxsTyNa;11/14/2022;11:30:00;restock
+hJNC4Bu2Mkv;Oxytocin;-1;1;Alice;Eve;11/12/2022;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;2;Liam;Charlotte;11/8/2022;10:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-2;3;James;Lily;11/3/2022;11:05:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;7;Alice;Eve;10/27/2022;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-1;10;Aria;Elijah;10/21/2022;11:50:00;dispence
+hJNC4Bu2Mkv;Oxytocin;-3;11;Alice;Eve;10/15/2022;10:15:00;dispence
+hJNC4Bu2Mkv;Oxytocin;10;14;Central;OZ1olxsTyNa;10/14/2022;11:50:00;restock
+hJNC4Bu2Mkv;Oxytocin;-6;4;Aria;Elijah;10/3/2022;11:50:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;-3;197;John;Jenny;8/29/2023;14:20:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;-5;192;Luna;Ethan;8/18/2023;8:35:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;50;192;Luna;Ethan;8/17/2023;8:35:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;30;58;Emma;James;6/23/2023;16:25:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;5;15;Sophia;James;6/12/2023;8:05:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;11;23;Samuel;Lillian;5/25/2023;12:35:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;-23;34;John;Jenny;5/15/2023;14:20:00;dispence
+W1XtQhP6BGd;Resuscitation Equipment;-23;34;John;Jenny;5/3/2023;14:20:00;dispence
+TCfIC3NDgQK;Zinc;-8;392;Tim;Bob;8/28/2023;18:27:00;dispence
+TCfIC3NDgQK;Zinc;-4;388;Nora;James;8/12/2023;15:03:00;dispence
+TCfIC3NDgQK;Zinc;-6;45;Tim;Sophia;8/2/2023;15:30:00;dispence
+TCfIC3NDgQK;Zinc;13;31;Emily;Sophia;6/18/2023;11:30:00;dispence
+TCfIC3NDgQK;Zinc;16;22;Grace;Michael;6/7/2023;13:40:00;dispence
+TCfIC3NDgQK;Zinc;8;18;Charlotte;Mason;5/19/2023;14:30:00;dispence
+TCfIC3NDgQK;Zinc;32;12;Tim;Bob;5/12/2023;18:27:00;dispence
+TCfIC3NDgQK;Zinc;32;12;Tim;Bob;5/3/2023;18:27:00;dispence

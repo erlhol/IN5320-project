@@ -1,0 +1,3656 @@
+[
+  {
+    "date": "11/10/2023",
+    "time": "22:35:53",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-10",
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 120
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "11/10/2023",
+    "time": "22:31:41",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-3",
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 141
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ling hui"
+  },
+  {
+    "date": "11/10/2023",
+    "time": "21:57:57",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-6",
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 113
+      },
+      {
+        "amount": "-7",
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 120
+      },
+      {
+        "amount": "-2",
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 112
+      },
+      {
+        "amount": "-34",
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 95
+      },
+      {
+        "amount": "-32",
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 130
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "16:45:44",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+12",
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 162
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "15:50:22",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+13",
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 150
+      },
+      {
+        "amount": "+12",
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 155
+      },
+      {
+        "amount": "+12",
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 143
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:38:57",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+3",
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 43
+      },
+      {
+        "amount": "+7",
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 35
+      }
+    ],
+    "dispensedBy": "John abel",
+    "dispensedTo": "Olav Moan"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:38:17",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-5",
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 192
+      },
+      {
+        "amount": "-8",
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 16
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Fei fei"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:24:48",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-2",
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 30
+      },
+      {
+        "amount": "-4",
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 93
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Henry Lin"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:12:13",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-1",
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 380
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Marco Johansson"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:06:49",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+1",
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 381
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "11/8/2023",
+    "time": "11:03:20",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+1",
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 57
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Aiden Vale"
+  },
+  {
+    "date": "11/7/2023",
+    "time": "20:41:54",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+6",
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 48
+      },
+      {
+        "amount": "+2",
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 100
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "11/6/2023",
+    "time": "21:21:50",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": "+10",
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      },
+      {
+        "amount": "+30",
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 30
+      },
+      {
+        "amount": "+13",
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 42
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "11/6/2023",
+    "time": "20:11:37",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": "-12",
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 380
+      },
+      {
+        "amount": "-15",
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Kai Srivastava"
+  },
+  {
+    "date": "10/30/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 0
+      },
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "10/27/2023",
+    "time": "9:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Eva Sandnabba",
+    "dispensedTo": "Benjamin*"
+  },
+  {
+    "date": "10/25/2023",
+    "time": "17:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 16
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "10/25/2023",
+    "time": "13:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 4
+      }
+    ],
+    "dispensedBy": "Mei mei",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "10/21/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "10/18/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 6
+      },
+      {
+        "amount": -19,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 21
+      },
+      {
+        "amount": -4,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 6
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "10/15/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -29,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 14
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "10/14/2023",
+    "time": "16:25:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 43
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 40
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "10/13/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "10/13/2023",
+    "time": "19:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 28
+      }
+    ],
+    "dispensedBy": "Kai Srivastava",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "10/3/2023",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -13,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 13
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "10/3/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "10/1/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "10/1/2023",
+    "time": "14:56:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -18,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 24
+      }
+    ],
+    "dispensedBy": "Ling Hui",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "10/1/2023",
+    "time": "10:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Charlotte Moe"
+  },
+  {
+    "date": "9/28/2023",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Lily"
+  },
+  {
+    "date": "9/25/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "9/22/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 12
+      },
+      {
+        "amount": -21,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "9/21/2023",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "9/20/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -18,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Marius Moan",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "9/15/2023",
+    "time": "17:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 20,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ling Hui"
+  },
+  {
+    "date": "9/15/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 24
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "9/14/2023",
+    "time": "17:15:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 12
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 44
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 46
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "9/14/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "9/12/2023",
+    "time": "16:18:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -17,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 6
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "9/12/2023",
+    "time": "14:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -33,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Laura",
+    "dispensedTo": "Kevin"
+  },
+  {
+    "date": "9/9/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 14
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "9/4/2023",
+    "time": "19:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "Aria Ali"
+  },
+  {
+    "date": "9/4/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -10,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 36
+      }
+    ],
+    "dispensedBy": "Ling Hui",
+    "dispensedTo": "Marco Johansson"
+  },
+  {
+    "date": "9/3/2023",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "8/29/2023",
+    "time": "14:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 197
+      }
+    ],
+    "dispensedBy": "John",
+    "dispensedTo": "Jenny"
+  },
+  {
+    "date": "8/28/2023",
+    "time": "18:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 392
+      },
+      {
+        "amount": -36,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 98
+      },
+      {
+        "amount": -29,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 54
+      }
+    ],
+    "dispensedBy": "Tim Smith ",
+    "dispensedTo": "Bob WilLiam Smiths"
+  },
+  {
+    "date": "8/24/2023",
+    "time": "9:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -9,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "8/23/2023",
+    "time": "17:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -25,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 45
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "8/21/2023",
+    "time": "13:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 97
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Sophia Malik"
+  },
+  {
+    "date": "8/21/2023",
+    "time": "10:03:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 42
+      }
+    ],
+    "dispensedBy": "WilLiam Smith",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "8/20/2023",
+    "time": "15:59:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 32
+      }
+    ],
+    "dispensedBy": "Henry",
+    "dispensedTo": "Kai Srivastava"
+  },
+  {
+    "date": "8/20/2023",
+    "time": "8:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 40
+      }
+    ],
+    "dispensedBy": "Benjamin*",
+    "dispensedTo": "Mei mei"
+  },
+  {
+    "date": "8/18/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -15,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 28
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "8/18/2023",
+    "time": "8:35:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 192
+      }
+    ],
+    "dispensedBy": "Aiswarya Sriva",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "8/17/2023",
+    "time": "15:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -32,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 27
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "8/17/2023",
+    "time": "14:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -21,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 33
+      }
+    ],
+    "dispensedBy": "Kai Srivastava",
+    "dispensedTo": "Martin Jackson"
+  },
+  {
+    "date": "8/17/2023",
+    "time": "9:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 6
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Ling Hui"
+  },
+  {
+    "date": "8/17/2023",
+    "time": "8:35:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 50,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 192
+      }
+    ],
+    "dispensedBy": "Aiswarya Sriva",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "8/15/2023",
+    "time": "16:48:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -19,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 97
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Marco Johansson"
+  },
+  {
+    "date": "8/15/2023",
+    "time": "10:57:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 49
+      }
+    ],
+    "dispensedBy": "Emma",
+    "dispensedTo": "Sebastian"
+  },
+  {
+    "date": "8/14/2023",
+    "time": "19:30:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 42
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 59
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "8/12/2023",
+    "time": "15:03:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 388
+      }
+    ],
+    "dispensedBy": "Nora",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "8/12/2023",
+    "time": "9:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Eva Sandnabba",
+    "dispensedTo": "Benjamin*"
+  },
+  {
+    "date": "8/11/2023",
+    "time": "18:14:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 56
+      }
+    ],
+    "dispensedBy": "Kai Srivastava",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "8/11/2023",
+    "time": "13:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -9,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 70
+      }
+    ],
+    "dispensedBy": "Ava Moore",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "8/10/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -11,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 12
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "8/9/2023",
+    "time": "9:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -10,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 34
+      }
+    ],
+    "dispensedBy": "Martin Jackson",
+    "dispensedTo": "Sophie"
+  },
+  {
+    "date": "8/7/2023",
+    "time": "14:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 92
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Eva Sandnabba"
+  },
+  {
+    "date": "8/5/2023",
+    "time": "17:02:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -17,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 51
+      }
+    ],
+    "dispensedBy": "Per Chrisstian",
+    "dispensedTo": "Andy Wang"
+  },
+  {
+    "date": "8/2/2023",
+    "time": "15:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 45
+      }
+    ],
+    "dispensedBy": "Tim Smith",
+    "dispensedTo": "Sophia Malik"
+  },
+  {
+    "date": "8/2/2023",
+    "time": "10:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -17,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 29
+      }
+    ],
+    "dispensedBy": "Nora",
+    "dispensedTo": "Daniel"
+  },
+  {
+    "date": "8/1/2023",
+    "time": "14:28:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 40
+      }
+    ],
+    "dispensedBy": "Benjamin*",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "7/31/2023",
+    "time": "16:42:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 75
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Aria Ali"
+  },
+  {
+    "date": "7/31/2023",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -30,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "Martin Jackson",
+    "dispensedTo": "Ava Moore"
+  },
+  {
+    "date": "7/31/2023",
+    "time": "10:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -28,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 19
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "7/30/2023",
+    "time": "13:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Mei mei",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "7/21/2023",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -16,
+        "commodityId": "dY4OCwl0Y7Y",
+        "commodityName": "Female Condoms",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Martin Jackson",
+    "dispensedTo": "Ava Moore"
+  },
+  {
+    "date": "7/21/2023",
+    "time": "9:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 47
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mike"
+  },
+  {
+    "date": "7/19/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "7/14/2023",
+    "time": "17:30:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 59
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 12
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 31
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "7/14/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "7/8/2023",
+    "time": "17:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 19
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "7/8/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -13,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "7/1/2023",
+    "time": "14:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "7/1/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 14
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "6/29/2023",
+    "time": "9:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 5,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 15
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "6/27/2023",
+    "time": "12:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -25,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Ethan Robinson",
+    "dispensedTo": "Ava Moore"
+  },
+  {
+    "date": "6/27/2023",
+    "time": "11:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -15,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 63
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Sophia Malik"
+  },
+  {
+    "date": "6/25/2023",
+    "time": "15:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "6/25/2023",
+    "time": "14:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -20,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 33
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Oliver"
+  },
+  {
+    "date": "6/23/2023",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 30,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 58
+      }
+    ],
+    "dispensedBy": "Emma",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "6/20/2023",
+    "time": "13:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 47
+      }
+    ],
+    "dispensedBy": "WilLiam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "6/20/2023",
+    "time": "10:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -17,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 41
+      }
+    ],
+    "dispensedBy": "Ling Hui",
+    "dispensedTo": "Lily"
+  },
+  {
+    "date": "6/20/2023",
+    "time": "8:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 25
+      }
+    ],
+    "dispensedBy": "Ava Moore",
+    "dispensedTo": "Charlotte Moe"
+  },
+  {
+    "date": "6/18/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -21,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 27
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "6/18/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 13,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 31
+      }
+    ],
+    "dispensedBy": "Emily",
+    "dispensedTo": "Sophia Malik"
+  },
+  {
+    "date": "6/18/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "6/18/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -32,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 21
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "6/16/2023",
+    "time": "16:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 6,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "John",
+    "dispensedTo": "Linda"
+  },
+  {
+    "date": "6/16/2023",
+    "time": "8:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 14,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Charlotte Moe",
+    "dispensedTo": "Aiden Vale"
+  },
+  {
+    "date": "6/14/2023",
+    "time": "21:45:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 48
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 53
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "6/14/2023",
+    "time": "11:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -25,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 33
+      }
+    ],
+    "dispensedBy": "Megan",
+    "dispensedTo": "David"
+  },
+  {
+    "date": "6/12/2023",
+    "time": "17:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Paul",
+    "dispensedTo": "Lisa"
+  },
+  {
+    "date": "6/12/2023",
+    "time": "12:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 45
+      }
+    ],
+    "dispensedBy": "Ethan Robinson",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "6/12/2023",
+    "time": "8:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 5,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 15
+      }
+    ],
+    "dispensedBy": "Sophia Malik",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "6/10/2023",
+    "time": "14:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -32,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Nathan",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "6/10/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 37
+      }
+    ],
+    "dispensedBy": "Logan",
+    "dispensedTo": "Ava Moore"
+  },
+  {
+    "date": "6/9/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -13,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 41
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Sophie"
+  },
+  {
+    "date": "6/8/2023",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "6/8/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -10,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "6/7/2023",
+    "time": "13:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 16,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Grace",
+    "dispensedTo": "Michael"
+  },
+  {
+    "date": "6/6/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "6/3/2023",
+    "time": "12:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 7,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 14
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Evelyn"
+  },
+  {
+    "date": "6/1/2023",
+    "time": "10:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Charlotte Moe"
+  },
+  {
+    "date": "5/28/2023",
+    "time": "15:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -23,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 29
+      }
+    ],
+    "dispensedBy": "Lily",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "5/28/2023",
+    "time": "14:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -39,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 43
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "Victoria"
+  },
+  {
+    "date": "5/27/2023",
+    "time": "16:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 33
+      }
+    ],
+    "dispensedBy": "Zoe",
+    "dispensedTo": "Martin Jackson"
+  },
+  {
+    "date": "5/25/2023",
+    "time": "12:35:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 11,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Samuel",
+    "dispensedTo": "Lillian"
+  },
+  {
+    "date": "5/25/2023",
+    "time": "10:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -28,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 32
+      }
+    ],
+    "dispensedBy": "Elijah Svensen",
+    "dispensedTo": "Kai Srivastava"
+  },
+  {
+    "date": "5/24/2023",
+    "time": "15:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -13,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Zoe"
+  },
+  {
+    "date": "5/22/2023",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 4
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Lily"
+  },
+  {
+    "date": "5/20/2023",
+    "time": "17:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 10,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 19
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "5/19/2023",
+    "time": "14:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 8,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Charlotte Moe",
+    "dispensedTo": "Mason Liu"
+  },
+  {
+    "date": "5/19/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "5/18/2023",
+    "time": "13:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 9,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "5/17/2023",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "5/16/2023",
+    "time": "17:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -28,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 34
+      }
+    ],
+    "dispensedBy": "Zoe",
+    "dispensedTo": "Aiden Vale"
+  },
+  {
+    "date": "5/16/2023",
+    "time": "16:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -18,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Ethan Robinson",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "5/15/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -25,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 25
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "5/15/2023",
+    "time": "14:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -23,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 34
+      }
+    ],
+    "dispensedBy": "John",
+    "dispensedTo": "Jenny"
+  },
+  {
+    "date": "5/14/2023",
+    "time": "16:18:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 50
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 31
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "5/14/2023",
+    "time": "13:22:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Per Chrisstian",
+    "dispensedTo": "Andy Wang"
+  },
+  {
+    "date": "5/12/2023",
+    "time": "18:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 32,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 12
+      }
+    ],
+    "dispensedBy": "Tim Smith",
+    "dispensedTo": "Bob WilLiam Smiths"
+  },
+  {
+    "date": "5/10/2023",
+    "time": "15:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -19,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 42
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "5/10/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Marius Moan",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "5/9/2023",
+    "time": "16:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 21
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Mason Liu"
+  },
+  {
+    "date": "5/9/2023",
+    "time": "12:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 38
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ling Hui"
+  },
+  {
+    "date": "5/9/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 10,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 13
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "5/6/2023",
+    "time": "19:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "Dkapzovo8Ll",
+        "commodityName": "Implants",
+        "balanceAfterTrans": 28
+      }
+    ],
+    "dispensedBy": "Kai Srivastava",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "5/5/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "5/5/2023",
+    "time": "8:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 37
+      }
+    ],
+    "dispensedBy": "Sophia Malik",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "5/5/2023",
+    "time": "7:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -38,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 49
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Oliver"
+  },
+  {
+    "date": "5/4/2023",
+    "time": "10:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -21,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Camila",
+    "dispensedTo": "Sebastian"
+  },
+  {
+    "date": "5/3/2023",
+    "time": "18:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": 32,
+        "commodityId": "TCfIC3NDgQK",
+        "commodityName": "Zinc",
+        "balanceAfterTrans": 12
+      }
+    ],
+    "dispensedBy": "Tim Smith",
+    "dispensedTo": "Bob WilLiam Smiths"
+  },
+  {
+    "date": "5/3/2023",
+    "time": "14:20:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -23,
+        "commodityId": "W1XtQhP6BGd",
+        "commodityName": "Resuscitation Equipment",
+        "balanceAfterTrans": 34
+      }
+    ],
+    "dispensedBy": "John",
+    "dispensedTo": "Jenny"
+  },
+  {
+    "date": "5/3/2023",
+    "time": "13:22:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "o15CyZiTvxa",
+        "commodityName": "Magnesium Sulfate",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Per Chrisstian",
+    "dispensedTo": "Andy Wang"
+  },
+  {
+    "date": "5/2/2023",
+    "time": "16:18:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "5/1/2023",
+    "time": "15:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -27,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 42
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "5/1/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -25,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "4/29/2023",
+    "time": "16:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "f27B1G7B3m3",
+        "commodityName": "Misoprostol",
+        "balanceAfterTrans": 21
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Mason Liu"
+  },
+  {
+    "date": "4/29/2023",
+    "time": "12:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -19,
+        "commodityId": "Lz8MM2Y9DNh",
+        "commodityName": "Oral Rehydration Salts",
+        "balanceAfterTrans": 38
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ling Hui"
+  },
+  {
+    "date": "4/28/2023",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "4/20/2023",
+    "time": "8:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "WjDoIR27f31",
+        "commodityName": "Chlorhexidine",
+        "balanceAfterTrans": 37
+      }
+    ],
+    "dispensedBy": "Sophia Malik",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "4/18/2023",
+    "time": "19:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -39,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 24
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "Aria Ali"
+  },
+  {
+    "date": "4/18/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -13,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 28
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "4/18/2023",
+    "time": "7:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -38,
+        "commodityId": "d9vZ3HOlzAd",
+        "commodityName": "Antenatal Corticosteroids",
+        "balanceAfterTrans": 49
+      }
+    ],
+    "dispensedBy": "Aiden Vale",
+    "dispensedTo": "Oliver"
+  },
+  {
+    "date": "4/16/2023",
+    "time": "9:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "4/15/2023",
+    "time": "10:40:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -10,
+        "commodityId": "JIazHXNSnFJ",
+        "commodityName": "Injectable Antibiotics",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Camila",
+    "dispensedTo": "Sebastian"
+  },
+  {
+    "date": "4/14/2023",
+    "time": "15:45:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 63
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 41
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 12
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "4/12/2023",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -23,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "4/11/2023",
+    "time": "9:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Eva Sandnabba",
+    "dispensedTo": "Benjamin*"
+  },
+  {
+    "date": "3/25/2023",
+    "time": "13:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Mei mei",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "3/18/2023",
+    "time": "15:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -18,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "3/16/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -21,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 32
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "3/16/2023",
+    "time": "10:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 41
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "3/14/2023",
+    "time": "10:15:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 53
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 43
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "3/12/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "3/8/2023",
+    "time": "9:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mike"
+  },
+  {
+    "date": "3/7/2023",
+    "time": "14:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      },
+      {
+        "amount": -19,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "3/5/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 6
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "2/28/2023",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 42
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "2/27/2023",
+    "time": "17:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -36,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "2/19/2023",
+    "time": "10:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Charlotte Moe"
+  },
+  {
+    "date": "2/17/2023",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Lily"
+  },
+  {
+    "date": "2/14/2023",
+    "time": "15:50:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 44
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 48
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "2/9/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "2/4/2023",
+    "time": "15:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -19,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 4
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "2/3/2023",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Marius Moan",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "1/26/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 23
+      },
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 4
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "1/24/2023",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "1/19/2023",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "1/18/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -20,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 31
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "1/14/2023",
+    "time": "21:45:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 51
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 32
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "1/12/2023",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "1/11/2023",
+    "time": "9:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 0
+      },
+      {
+        "amount": -3,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "1/10/2023",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "1/10/2023",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -11,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "1/6/2023",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "1/1/2023",
+    "time": "16:18:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -14,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "12/29/2022",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -9,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 22
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "12/23/2022",
+    "time": "9:12:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Eva Sandnabba",
+    "dispensedTo": "Benjamin*"
+  },
+  {
+    "date": "12/14/2022",
+    "time": "13:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 6
+      }
+    ],
+    "dispensedBy": "Mei mei",
+    "dispensedTo": "Fei peng"
+  },
+  {
+    "date": "12/14/2022",
+    "time": "9:55:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 31
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 40
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 13
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "12/12/2022",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "12/8/2022",
+    "time": "19:27:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "Aria Ali"
+  },
+  {
+    "date": "12/8/2022",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -5,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Emily"
+  },
+  {
+    "date": "12/5/2022",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -4,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Marius Moan",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "12/2/2022",
+    "time": "15:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Liam Smith"
+  },
+  {
+    "date": "12/1/2022",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "11/28/2022",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -18,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "11/25/2022",
+    "time": "14:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 8
+      }
+    ],
+    "dispensedBy": "Mason Liu",
+    "dispensedTo": "WilLiam Smith"
+  },
+  {
+    "date": "11/25/2022",
+    "time": "10:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "11/18/2022",
+    "time": "12:04:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 27
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "11/18/2022",
+    "time": "9:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -22,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Sara Brown",
+    "dispensedTo": "Mike"
+  },
+  {
+    "date": "11/14/2022",
+    "time": "17:30:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 40
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 30
+      },
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "11/13/2022",
+    "time": "11:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -9,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Ella Garcia"
+  },
+  {
+    "date": "11/12/2022",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 1
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "11/11/2022",
+    "time": "9:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -9,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 9
+      }
+    ],
+    "dispensedBy": "Oliver",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "11/10/2022",
+    "time": "17:30:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 0
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Ethan Robinson"
+  },
+  {
+    "date": "11/8/2022",
+    "time": "10:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 2
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Charlotte Moe"
+  },
+  {
+    "date": "11/6/2022",
+    "time": "16:25:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -8,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 18
+      }
+    ],
+    "dispensedBy": "Ella Garcia",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "11/3/2022",
+    "time": "11:05:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -2,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "Fei peng",
+    "dispensedTo": "Lily"
+  },
+  {
+    "date": "10/29/2022",
+    "time": "15:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Liam Smith",
+    "dispensedTo": "Mia Miller"
+  },
+  {
+    "date": "10/27/2022",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 7
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "10/26/2022",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "10/21/2022",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -1,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 10
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "10/20/2022",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -21,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 22
+      },
+      {
+        "amount": -15,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 26
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "10/15/2022",
+    "time": "10:15:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -3,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Alice",
+    "dispensedTo": "Eve"
+  },
+  {
+    "date": "10/14/2022",
+    "time": "11:50:00",
+    "type": "Restock",
+    "commodities": [
+      {
+        "amount": 10,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 14
+      },
+      {
+        "amount": 30,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 41
+      },
+      {
+        "amount": 40,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 43
+      }
+    ],
+    "dispensedBy": "Central",
+    "dispensedTo": "Bandajuma*"
+  },
+  {
+    "date": "10/11/2022",
+    "time": "21:45:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -27,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 3
+      }
+    ],
+    "dispensedBy": "David",
+    "dispensedTo": "Marius Moan"
+  },
+  {
+    "date": "10/9/2022",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -12,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 11
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  },
+  {
+    "date": "10/7/2022",
+    "time": "15:55:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -10,
+        "commodityId": "BXgDHhPdFVU",
+        "commodityName": "Emergency Contraception",
+        "balanceAfterTrans": 30
+      }
+    ],
+    "dispensedBy": "Evelyn",
+    "dispensedTo": "Henry"
+  },
+  {
+    "date": "10/3/2022",
+    "time": "11:50:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -6,
+        "commodityId": "hJNC4Bu2Mkv",
+        "commodityName": "Oxytocin",
+        "balanceAfterTrans": 4
+      }
+    ],
+    "dispensedBy": "Aria Ali",
+    "dispensedTo": "Elijah Svensen"
+  },
+  {
+    "date": "10/1/2022",
+    "time": "9:10:00",
+    "type": "Dispensing",
+    "commodities": [
+      {
+        "amount": -7,
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "balanceAfterTrans": 23
+      }
+    ],
+    "dispensedBy": "Mia Miller",
+    "dispensedTo": "Chloe Solheim"
+  }
+]

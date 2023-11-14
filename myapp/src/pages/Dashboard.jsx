@@ -14,7 +14,7 @@ import {
   mergeCommodityAndValue,
   getCommoditiesLowInStock,
   mergeDataForDashboard,
-} from "../utilities/datautility";
+} from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
 import classes from "../App.module.css";

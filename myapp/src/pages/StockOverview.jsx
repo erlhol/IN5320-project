@@ -1,34 +1,25 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader } from "@dhis2/ui";
+import { CircularLoader } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
-
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
-import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities/datautility";
 import {
-  stockRequest,
-  stockUpdateRequest,
-  transRequest,
-  transUpdateRequest,
-} from "../utilities/requests";
+  mergeCommodityAndValue,
+  mergeDataForDashboard,
+} from "../utilities/dataUtility";
+import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const Inventory = props => {
-  // TODO: Replace these mock values
-  // let commodity = {name:"Commodity name", stockBalance:20, consumption:-50, lastdispensing:"08/15/2015"}
-  // let commodity2 = {name:"Commodity name2", stockBalance:10, consumption:-40, lastdispensing:"08/12/2010"}
-  // const list = [commodity,commodity2]
-
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  const { loading, error, data } = useDataQuery(stockRequest, {
+  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
 
@@ -47,6 +38,10 @@ const Inventory = props => {
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
       props.transactionData
+    );
+    mergeDataForDashboard(
+      data.dataValues?.dataValues,
+      data.commodities?.dataSetElements
     );
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
@@ -72,7 +67,13 @@ const Inventory = props => {
         <CommodityTable commodities={filteredStockData} />
 
         {modalPresent && (
-          <Stepper title={"Add stock"} onClose={handleOnModalChange} />
+          <Stepper
+            title={"Add stock"}
+            onClose={handleOnModalChange}
+            refetchData={refetch}
+            allCommodities={data.commodities?.dataSetElements}
+            existedTransData={props.transactionData}
+          />
         )}
       </>
     );

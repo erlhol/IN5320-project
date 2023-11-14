@@ -12,7 +12,7 @@ export const mergeCommodityAndValue = (
     if (dataSetElement) {
       const commodityName = dataSetElement.dataElement.name.split(" - ")[1];
       const categoryOptionCombo = dataValue.categoryOptionCombo;
-      const value = parseInt(dataValue.value);
+      const value = parseInt(dataValue.value, 10);
 
       const key = `${commodityName}-${dataValue.period}`;
 
@@ -68,7 +68,6 @@ export const mergeDataForDashboard = (dataValues, dataSetElements) => {
     else result.push([commodity]);
     return result;
   }, []);
-
   return groupedCommodities;
 };
 
@@ -82,14 +81,24 @@ export const getTransByPeriod = (transactions, startDate, endDate) => {
   return filteredTrans;
 };
 
-export const getTransByCommodityName = (transactions, commodityName) => {
-  if (!commodityName) return transactions;
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
+  if (!commodityNameQuery) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
-    const matchedTrans = transactions[date].filter(
-      transaction => transaction.commodityName === commodityName
+    const transactionsForDate = transactions[date];
+
+    const matchedTrans = transactionsForDate.filter(transaction =>
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
+      )
     );
-    if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
+
+    if (matchedTrans.length !== 0) {
+      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
+      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
+    }
   }
   return filteredTrans;
 };
@@ -98,16 +107,10 @@ export const categorizeTransByDate = transactions => {
   const categorized = {};
   transactions.forEach(transaction => {
     const date = transaction.date;
-    if (!categorized[date]) {
-      categorized[date] = [];
-    }
+    if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  const sortedCategorized = Object.fromEntries(
-    Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
-  );
-
-  return sortedCategorized;
+  return categorized;
 };
 
 export const getTransByRecipient = (transactions, recipient) => {
@@ -120,45 +123,16 @@ export const getTransByRecipient = (transactions, recipient) => {
     if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
   }
   return filteredTrans;
+};
 
-  // return {
-  //   "2023-05-23": [
-  //     {
-  //       "amount": -23,
-  //       "balanceAfterTrans": 34,
-  //       "commodityId": "W1XtQhP6BGd",
-  //       "commodityName": "Resuscitation Equipment",
-  //       "date": "2023-05-23",
-  //       "dispensedBy": "John",
-  //       "dispensedTo": "Jenny",
-  //       "time": "14:20:00"
-  //     }
-  //   ],
-  //   "2023-05-21": [
-  // {
-  //   "amount": 44,
-  //   "balanceAfterTrans": 11,
-  //   "commodityId": "o15CyZiTvxa",
-  //   "commodityName": "Magnesium Sulfate",
-  //   "date": "2023-05-21",
-  //   "dispensedBy": "Some one",
-  //   "dispensedTo": "Another one",
-  //   "time": "13:22:00"
-  // }
-  //   ],
-  //   "2023-08-13": [
-  // {
-  //   "amount": 32,
-  //   "balanceAfterTrans": 12,
-  //   "commodityId": "TCfIC3NDgQK",
-  //   "commodityName": "Zinc",
-  //   "date": "2023-08-13",
-  //   "dispensedBy": "Who",
-  //   "dispensedTo": "Whom",
-  //   "time": "18:27:00"
-  // }
-  //   ]
-  // };
+export const getDateAndTime = dateTime => {
+  const month = (dateTime.getMonth() + 1).toString();
+  const day = dateTime.getDate().toString();
+  const year = dateTime.getFullYear().toString();
+
+  const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
+  const time = dateTime.toLocaleTimeString();
+  return { date, time };
 };
 
 export const getCommoditiesLowInStock = (

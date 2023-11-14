@@ -45,3 +45,13 @@ export function getNumberOfCurrentMonth() {
   const date = new Date();
   return date.getMonth(); // to be consitant with starting at 1
 }
+
+export function getStockHistoryDefaultPeriod() {
+  const currentMonth = month.toString().padStart(2, "0");
+  const nextMonthNr = month === 12 ? 1 : month + 1;
+  const start = `${currentMonth}/01/${year.toString()}`;
+  const end = `${nextMonthNr
+    .toString()
+    .padStart(2, "0")}/01/${year.toString()}`;
+  return { start, end };
+}

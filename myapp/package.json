@@ -19,9 +19,13 @@
     "prettier": "3.0.3"
   },
   "dependencies": {
+    "@dhis2-ui/calendar": "^8.14.8",
     "@dhis2/app-runtime": "^3.9.4",
     "apexcharts": "^3.44.0",
     "concurrently": "^8.2.1",
-    "react-apexcharts": "^1.4.1"
+    "react-apexcharts": "^1.4.1",
+    "@dhis2/ui": "^8.14.10",
+    "react-day-picker": "^8.9.1",
+    "react-multi-date-picker": "^3.1.2"
   }
 }

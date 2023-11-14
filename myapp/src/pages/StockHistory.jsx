@@ -12,13 +12,13 @@ import {
   getTransByPeriod,
   getTransByRecipient,
   categorizeTransByDate,
-} from "../utilities/datautility";
+} from "../utilities/dataUtility";
 
-const Transactions = props => {
+const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-05-23"),
-    end: new Date("2023-08-23"),
+    start: new Date("2023-08-01"),
+    end: new Date("2023-11-30"),
   });
   const [selectedReceipient, setSelectedReceipient] = useState(null);
   const [selectedCommodity, setSelectedCommodity] = useState(null);
@@ -40,9 +40,7 @@ const Transactions = props => {
       filteredByName,
       selectedReceipient
     );
-    // console.log("visibleTrans: ", visibleTrans);
-    // console.log("filteredByPeriod: ", filteredByPeriod);
-    // console.log("filteredByName: ", filteredByName);
+
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
@@ -78,10 +76,15 @@ const Transactions = props => {
       ))}
 
       {modalPresent && (
-        <Stepper title={"New Dispensing"} onClose={handleOnModalChange} />
+        <Stepper
+          title={"New dispensing"}
+          onClose={handleOnModalChange}
+          refetchData={props.refetchTransData}
+          existedTransData={props.transactionData}
+        />
       )}
     </>
   );
 };
 
-export default Transactions;
+export default TransactionHistory;
