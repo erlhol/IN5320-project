@@ -15,7 +15,7 @@ import CancelConfirmationModal from "./CancelConfirmationModal";
 import CommoditySelector from "./CommoditySelector";
 import modalStyles from "./CommodityTransferModal.module.css";
 import { getCurrentMonth } from "../../utilities/dates";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import {
   stockRequest,
   stockUpdateRequest,

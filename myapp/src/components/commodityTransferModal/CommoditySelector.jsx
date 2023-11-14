@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
   SingleSelect,
@@ -14,10 +14,10 @@ import {
   TableRowHead,
   TableCellHead,
   InputField,
-  IconCross24,
+  IconCross16,
 } from "@dhis2/ui";
 
-import { spacers, spacersNum } from "@dhis2/ui";
+import { spacers } from "@dhis2/ui";
 import modalStyles from "./CommodityTransferModal.module.css";
 
 const CommoditySelector = props => {
@@ -101,7 +101,7 @@ const CommoditySelector = props => {
             )
           }
           disabled={addButtonDisabled}
-          primary={!addButtonDisabled}
+          primary
         >
           Add
         </Button>
@@ -148,10 +148,11 @@ const CommoditySelector = props => {
                       validationText={getValidationText(commodity.inputError)}
                     />
                     <Button
+                      dense
                       className={modalStyles.removeButton}
                       onClick={() => props.removeCommodity(commodity)}
                     >
-                      <IconCross24 />
+                      <IconCross16 />
                     </Button>
                   </TableCell>
                 </TableRow>

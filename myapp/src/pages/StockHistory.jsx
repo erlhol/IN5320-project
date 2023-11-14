@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {AlertBar} from "@dhis2/ui";
+import { AlertBar } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
@@ -25,7 +25,7 @@ const Transactions = props => {
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
-   const [alertBarText, setAlertBarText] = useState("");
+  const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
     const filteredByPeriod = getTransByPeriod(
@@ -88,7 +88,7 @@ const Transactions = props => {
       {modalPresent && (
         <CommodityTransferModal
           onClose={handleOnModalChange}
-          dispensing={true}
+          dispensing
           existedTransData={props.transactionData}
           refetchData={refetchData}
         />

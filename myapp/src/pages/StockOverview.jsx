@@ -5,7 +5,6 @@ import { useDataQuery } from "@dhis2/app-runtime";
 
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
-import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
@@ -53,7 +52,7 @@ const Inventory = props => {
         <Header
           title="Stock Overview"
           primaryButtonLabel="Add Stock"
-          primaryButtonClick={() => handleOnModalChange("add_stock")}
+          primaryButtonClick={() => handleOnModalChange()}
         />
 
         {/* The input fields */}
@@ -77,9 +76,11 @@ const Inventory = props => {
             existedTransData={props.transactionData}
           />
         )}
-        { alertBarText && <AlertBar type="success" className={classes.alertBar}>
-          {alertBarText}
-        </AlertBar>}
+        {alertBarText && (
+          <AlertBar type="success" className={classes.alertBar}>
+            {alertBarText}
+          </AlertBar>
+        )}
       </>
     );
   }
