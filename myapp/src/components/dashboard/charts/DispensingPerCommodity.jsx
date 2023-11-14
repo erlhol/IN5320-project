@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Card, MultiSelect, MultiSelectOption } from "@dhis2/ui";
+import {
+  Card,
+  MultiSelect,
+  MultiSelectOption,
+  IconInfo24,
+  colors,
+} from "@dhis2/ui";
 import ReactApexChart from "react-apexcharts";
 import classes from "../../../App.module.css";
 
@@ -107,7 +113,7 @@ const DispensingPerCommodity = props => {
         <MultiSelect
           dense
           clearable
-          placeholder="Select one or more commodities"
+          placeholder="Select commodities"
           clearText="Clear"
           selected={selectedCommodities}
           onChange={handleSelectChange}
@@ -121,12 +127,22 @@ const DispensingPerCommodity = props => {
           ))}
         </MultiSelect>
       </div>
-      <ReactApexChart
-        options={options}
-        series={seriesData}
-        type="line"
-        height={300}
-      />
+      {selectedCommodities.length ? (
+        <ReactApexChart
+          options={options}
+          series={seriesData}
+          type="line"
+          height={300}
+        />
+      ) : (
+        <div className={classes.dispensingsEmptyState}>
+          <IconInfo24 color={colors.grey500} />
+          <div className={classes.dispensingsEmptyStateText}>
+            Select at least one commodity to see the monthly consumption over
+            the year.
+          </div>
+        </div>
+      )}
     </Card>
   );
 };
