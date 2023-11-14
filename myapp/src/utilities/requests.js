@@ -50,9 +50,9 @@ export const stockUpdateRequest = {
   resource: "dataValueSets",
   dataSet: lifeSavingComDataSet,
   type: "create",
-  data: ({ dataElement, value, categoryOptionCombo }) => ({
+  data: ({ dataElement, value, categoryOptionCombo, period }) => ({
     orgUnit: orgUnit,
-    period: getCurrentMonth(),
+    period,
     dataValues: [
       {
         dataElement,
