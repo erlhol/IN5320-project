@@ -100,6 +100,7 @@ const CommodityTable = props => {
                 sortOrder.column === "endBalance" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Stock Balance"
+              width={spacers.dp192}
             >
               Stock Balance
             </DataTableColumnHeader>
@@ -109,11 +110,14 @@ const CommodityTable = props => {
                 sortOrder.column === "consumption" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Consumption"
+              width={spacers.dp192}
             >
               Monthly Consumption
             </DataTableColumnHeader>
-            <DataTableColumnHeader>Last Dispensing</DataTableColumnHeader>
-            <DataTableColumnHeader></DataTableColumnHeader>
+            <DataTableColumnHeader width={spacers.dp256}>
+              Last Dispensing
+            </DataTableColumnHeader>
+            <DataTableColumnHeader width={spacers.dp128} />
           </DataTableRow>
         </TableHead>
 
