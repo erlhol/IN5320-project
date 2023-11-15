@@ -13,6 +13,7 @@ import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
+import { search } from "../utilities/search";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
@@ -50,13 +51,9 @@ const TransactionHistory = props => {
       const transactionDate = new Date(transaction.date);
       return (
         transaction?.commodities?.some(commodity =>
-          commodity?.commodityName
-            .toLowerCase()
-            .includes(selectedCommodity.toLowerCase())
+          search(commodity, selectedCommodity, "commodityName")
         ) &&
-        transaction.dispensedTo
-          .toLowerCase()
-          .includes(selectedReceipient.toLowerCase()) &&
+        search(transaction, selectedReceipient, "dispensedTo") &&
         transactionDate >= new Date(selectedPeriod[0]) &&
         transactionDate <= new Date(selectedPeriod[1])
       );
