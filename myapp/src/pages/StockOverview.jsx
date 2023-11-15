@@ -9,7 +9,6 @@ import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
-  mergeDataForDashboard,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
@@ -28,12 +27,15 @@ const StockInventory = props => {
     variables: { period: getCurrentMonth() },
   });
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
 
-  const handleOnChangeSearch = value => {
-    setCurrentSearch(value.value);
+  const handleOnChangeSearch = searchobj => {
+    setCurrentSearch(searchobj.value);
+    setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -44,10 +46,7 @@ const StockInventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
-    mergeDataForDashboard(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements
-    );
+
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>
@@ -72,6 +71,8 @@ const StockInventory = props => {
         <CommodityTable
           transactions={transactions}
           commodities={filteredStockData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
 
         {modalPresent && (
