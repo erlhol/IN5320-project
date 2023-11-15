@@ -10,7 +10,7 @@ import { categorizeTransByDate } from "../utilities/datautility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 
-const Transactions = props => {
+const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState([
     new Date("2023-08-01"),
@@ -59,7 +59,7 @@ const Transactions = props => {
   const refetchData = async dispensing => {
     await props.refetchTransData();
     setAlertBarText(
-      dispensing ? "Dispensing Successful" : "Restock Successful"
+      dispensing ? "Dispensing successful" : "Restock successful"
     );
   };
 
@@ -89,11 +89,10 @@ const Transactions = props => {
           transactions={visibleTrans[date]}
         />
       ))}
-
       {modalPresent && (
         <CommodityTransferModal
           onClose={handleOnModalChange}
-          dispensing={true}
+          dispensing
           existedTransData={props.transactionData}
           refetchData={refetchData}
         />
@@ -107,4 +106,4 @@ const Transactions = props => {
   );
 };
 
-export default Transactions;
+export default TransactionHistory;

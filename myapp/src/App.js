@@ -1,33 +1,35 @@
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import {
-  transRequest,
-  transUpdateRequest,
-  stockUpdateRequest,
-} from "./utilities/requests";
+import { transRequest } from "./utilities/requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/StockOverview";
-import Transactions from "./pages/StockHistory";
+import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
-  /* State for handling navigation */
-  const [activePage, setActivePage] = useState("Dashboard");
+  return (
+    <Router>
+      <MyAppContent />
+    </Router>
+  );
+};
 
-  function activePageHandler(page) {
-    setActivePage(page);
-  }
-
+const MyAppContent = () => {
   // 3. For Stock Update:
   // const [updateStock] = useDataMutation(stockUpdateRequest);
   // useEffect(() => {
   //   const endBalances = {
   //     Boy3QwztgeZ: "0",
   //     hJNC4Bu2Mkv: "0",
-
   //     BXgDHhPdFVU: "16",
   //     Dkapzovo8Ll: "28",
   //     dY4OCwl0Y7Y: "24",
@@ -58,6 +60,7 @@ const MyApp = () => {
   // }, []);
 
   const { loading, error, data, refetch } = useDataQuery(transRequest);
+
   if (error)
     return (
       <span>
@@ -70,22 +73,26 @@ const MyApp = () => {
     return (
       <div className={classes.container}>
         <div className={classes.sidenav}>
-          <Sidenav
-            activePage={activePage}
-            activePageHandler={activePageHandler}
-          />
+          <Sidenav />
         </div>
         <section className={classes.content}>
-          {activePage === "Dashboard" && <Dashboard />}
-          {activePage === "StockOverview" && (
-            <Inventory transactionData={transactionData} />
-          )}
-          {activePage === "StockHistory" && (
-            <Transactions
-              transactionData={transactionData}
-              refetchTransData={refetch}
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/stock-overview"
+              element={<Inventory transactionData={transactionData} />}
             />
-          )}
+            <Route
+              path="/stock-history"
+              element={
+                <StockHistory
+                  transactionData={transactionData}
+                  refetchTransData={() => refetch()}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
         </section>
       </div>
     );

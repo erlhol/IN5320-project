@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { Button, CircularLoader, AlertBar } from "@dhis2/ui";
+import { CircularLoader, AlertBar } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
-
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
-import Dropdown from "../components/common/Dropdown";
 import Search from "../components/common/Search";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import { mergeCommodityAndValue } from "../utilities/datautility";
+import { mergeCommodityAndValue } from "../utilities/dataUtility.js";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
@@ -23,18 +21,21 @@ const Inventory = props => {
     variables: { period: getCurrentMonth() },
   });
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
 
-  const handleOnChangeSearch = value => {
-    setCurrentSearch(value.value);
+  const handleOnChangeSearch = searchobj => {
+    setCurrentSearch(searchobj.value);
+    setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
   };
 
   const refetchData = dispensing => {
     refetch();
     setAlertBarText(
-      dispensing ? "Dispensing Successful" : "Restock Successful"
+      dispensing ? "Dispensing successful" : "Restock successful"
     );
   };
 
@@ -46,6 +47,7 @@ const Inventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
+
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>
@@ -53,7 +55,7 @@ const Inventory = props => {
         <Header
           title="Stock Overview"
           primaryButtonLabel="Add Stock"
-          primaryButtonClick={() => handleOnModalChange("add_stock")}
+          primaryButtonClick={() => handleOnModalChange()}
         />
 
         {/* The input fields */}
@@ -67,7 +69,12 @@ const Inventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={filteredStockData} />
+        <CommodityTable
+          commodities={filteredStockData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+
         {modalPresent && (
           <CommodityTransferModal
             onClose={handleOnModalChange}
@@ -77,9 +84,11 @@ const Inventory = props => {
             existedTransData={props.transactionData}
           />
         )}
-        { alertBarText && <AlertBar type="success" className={classes.alertBar}>
-          {alertBarText}
-        </AlertBar>}
+        {alertBarText && (
+          <AlertBar type="success" className={classes.alertBar}>
+            {alertBarText}
+          </AlertBar>
+        )}
       </>
     );
   }

@@ -6,12 +6,11 @@ const Search = props => {
     <InputField
       inputWidth={props.width}
       value={props.currentSearch}
-      name="defaultName"
+      name= {props.name}
       type="search"
       onChange={props.onSearchChange}
       placeholder={props.placeholder}
     />
-
   );
 };
 export default Search;

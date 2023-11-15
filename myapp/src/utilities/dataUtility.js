@@ -4,9 +4,6 @@ export const mergeCommodityAndValue = (
   transactionData
 ) => {
   const commodityData = {};
-  // console.log("dataValues", dataValues);
-  // console.log("dataSetElements", dataSetElements);
-  // console.log("transactionData in mergeCommodityAndValue: ",transactionData);
   dataValues?.forEach(dataValue => {
     const dataSetElement = dataSetElements?.find(
       element => element.dataElement?.id === dataValue.dataElement
@@ -17,46 +14,61 @@ export const mergeCommodityAndValue = (
       const categoryOptionCombo = dataValue.categoryOptionCombo;
       const value = parseInt(dataValue.value, 10);
 
-      if (!commodityData[commodityName]) {
-        commodityData[commodityName] = {
+      const key = `${commodityName}-${dataValue.period}`;
+
+      if (!commodityData[key]) {
+        commodityData[key] = {
           commodityName,
           endBalance: 0,
           consumption: 0,
           period: 0,
-          lastDispensing: "",
+          lastDispensingDate: "",
+          lastDispensingAmount: "",
         };
       }
 
       if (categoryOptionCombo === "J2Qf1jtZuj8") {
-        commodityData[commodityName].endBalance += value;
+        commodityData[key].endBalance += value;
       } else if (categoryOptionCombo === "rQLFnNXXIL0") {
-        commodityData[commodityName].consumption += value;
+        commodityData[key].consumption += value;
       }
 
-      commodityData[commodityName].period = dataValue.period;
-      commodityData[commodityName].commodityId = dataValue.dataElement;
+      commodityData[key].period = dataValue.period;
+      commodityData[key].commodityId = dataValue.dataElement;
 
       // Get the lastDispencing data from transactionData
-      const matchedTrans = transactionData?.find(trans =>
-        trans.commodities.some(c => c.commodityId === dataValue.dataElement)
-      );
-      const matchedTransCommodity = matchedTrans?.commodities?.find(
-        c => c.commodityId === dataValue.dataElement
-      );
+      if (transactionData) {
+        const matchedTrans = transactionData?.find(trans =>
+          trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+        );
+        const matchedTransCommodity = matchedTrans?.commodities?.find(
+          c => c.commodityId === dataValue.dataElement
+        );
 
-      if (matchedTransCommodity)
-        commodityData[commodityName].lastDispensing =
-          matchedTrans.date +
-          " " +
-          matchedTrans.time.substring(0, 5) +
-          "    " +
-          matchedTransCommodity.amount;
+        if (matchedTransCommodity) {
+          commodityData[key].lastDispensingDate = matchedTrans.date;
+          commodityData[key].lastDispensingAmount =
+            matchedTransCommodity?.amount;
+        }
+      }
     }
   });
 
   const commodityList = Object.values(commodityData);
-  //console.log("commodityList in line33 in utilities.js: ", commodityList);
   return commodityList;
+};
+
+export const mergeDataForDashboard = (dataValues, dataSetElements) => {
+  const commodities = mergeCommodityAndValue(dataValues, dataSetElements, null);
+  const groupedCommodities = commodities.reduce((result, commodity) => {
+    const periodIndex = result.findIndex(
+      group => group[0]?.period === commodity.period
+    );
+    if (periodIndex !== -1) result[periodIndex].push(commodity);
+    else result.push([commodity]);
+    return result;
+  }, []);
+  return groupedCommodities;
 };
 
 export const getTransByPeriod = (transactions, startDate, endDate) => {
@@ -69,15 +81,17 @@ export const getTransByPeriod = (transactions, startDate, endDate) => {
   return filteredTrans;
 };
 
-export const getTransByCommodityName = (transactions, commodityName) => {
-  if (!commodityName) return transactions;
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
+  if (!commodityNameQuery) return transactions;
   const filteredTrans = {};
   for (const date in transactions) {
     const transactionsForDate = transactions[date];
 
     const matchedTrans = transactionsForDate.filter(transaction =>
-      transaction.commodities.some(
-        commodity => commodity.commodityName === commodityName
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
       )
     );
 
@@ -86,7 +100,6 @@ export const getTransByCommodityName = (transactions, commodityName) => {
       else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
     }
   }
-
   return filteredTrans;
 };
 
@@ -97,10 +110,6 @@ export const categorizeTransByDate = transactions => {
     if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  // const sortedCategorized = Object.fromEntries(
-  //   Object.entries(categorized).sort(([a], [b]) => b.localeCompare(a))
-  // );
-
   return categorized;
 };
 
@@ -114,53 +123,6 @@ export const getTransByRecipient = (transactions, recipient) => {
     if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
   }
   return filteredTrans;
-
-  // return {
-  //   "2023-05-23": [
-  //     {
-  //       "amount": -23,
-  //       "balanceAfterTrans": 34,
-  //       "commodityId": "W1XtQhP6BGd",
-  //       "commodityName": "Resuscitation Equipment",
-  //       "date": "2023-05-23",
-  //       "dispensedBy": "John",
-  //       "dispensedTo": "Jenny",
-  //       "time": "14:20:00"
-  //     }
-  //   ],
-  //   "2023-05-21": [
-  // {
-  //   "amount": 44,
-  //   "balanceAfterTrans": 11,
-  //   "commodityId": "o15CyZiTvxa",
-  //   "commodityName": "Magnesium Sulfate",
-  //   "date": "2023-05-21",
-  //   "dispensedBy": "Some one",
-  //   "dispensedTo": "Another one",
-  //   "time": "13:22:00"
-  // }
-  //   ],
-  //   "2023-08-13": [
-  // {
-  //   "amount": 32,
-  //   "balanceAfterTrans": 12,
-  //   "commodityId": "TCfIC3NDgQK",
-  //   "commodityName": "Zinc",
-  //   "date": "2023-08-13",
-  //   "dispensedBy": "Who",
-  //   "dispensedTo": "Whom",
-  //   "time": "18:27:00"
-  // }，
-  //  {
-  //    "clustered": true
-  //    "commodityNames": "Zinc, Female Condom, Magnesium Sulfate";
-  //    "date": "2023-08-13",
-  //    "dispensedBy": "Who",
-  //    "dispensedTo": "Whom",
-  //    "details": []
-  // }
-  //   ]
-  // };
 };
 
 export const getDateAndTime = dateTime => {

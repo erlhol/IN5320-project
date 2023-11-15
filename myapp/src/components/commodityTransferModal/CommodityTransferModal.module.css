@@ -1,46 +1,38 @@
-.alertBarModal {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+.commodityTransferModalContent {
+  min-height: 400px;
+  margin-top: 24px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
-.addStockModal {
-  min-height: 450px;
+.commoditySelectorContainer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .commoditySingleSelect {
   flex-grow: 1;
 }
 
-.commoditySelectorContainer {
-  display: flex;
-  gap: 12px;
-}
-
-.verticalAllign {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .commodityTable {
   width: 100%;
 }
+
 .commodityNameCell {
   width: 45%;
 }
-
 
 .amountCell {
   display: flex;
   align-items: center;
   height: auto !important;
   padding: 8px 8px !important ;
-
 }
 
-.amountInput{
+.amountInput {
   width: 100px;
 }
 
@@ -48,16 +40,21 @@
   margin-left: auto;
 }
 
-.amountInput > p { /*Validation Text*/
+.amountInput > p {
+  /*Validation Text*/
   width: max-content;
 }
 
 .dateTimeRecipientContainer {
- display: flex;
- width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .dateTimePicker {
   flex: 1 !important;
   margin-right: 8px;
+}
+
+.recipientInputContainer{
+  flex: 1;
 }
