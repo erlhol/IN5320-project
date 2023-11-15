@@ -1,3 +1,9 @@
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
@@ -10,13 +16,14 @@ import Inventory from "./pages/StockOverview";
 import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
-  /* State for handling navigation */
-  const [activePage, setActivePage] = useState("Dashboard");
+  return (
+    <Router>
+      <MyAppContent />
+    </Router>
+  );
+};
 
-  function activePageHandler(page) {
-    setActivePage(page);
-  }
-
+const MyAppContent = () => {
   // 3. For Stock Update:
   // const [updateStock] = useDataMutation(stockUpdateRequest);
   // useEffect(() => {
@@ -66,22 +73,26 @@ const MyApp = () => {
     return (
       <div className={classes.container}>
         <div className={classes.sidenav}>
-          <Sidenav
-            activePage={activePage}
-            activePageHandler={activePageHandler}
-          />
+          <Sidenav />
         </div>
         <section className={classes.content}>
-          {activePage === "Dashboard" && <Dashboard />}
-          {activePage === "StockOverview" && (
-            <Inventory transactionData={transactionData} />
-          )}
-          {activePage === "StockHistory" && (
-            <StockHistory
-              transactionData={transactionData}
-              refetchTransData={() => refetch()}
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/stock-overview"
+              element={<Inventory transactionData={transactionData} />}
             />
-          )}
+            <Route
+              path="/stock-history"
+              element={
+                <StockHistory
+                  transactionData={transactionData}
+                  refetchTransData={() => refetch()}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
         </section>
       </div>
     );
