@@ -173,8 +173,8 @@ export const getDateAndTime = dateTime => {
   return { date, time };
 };
 
-export const  checkDateInFuture = (dateString) => {
+export const checkDateInFuture = dateString => {
   const date = new Date(dateString);
   const now = new Date();
   return date > now;
-}
+};
