@@ -6,7 +6,7 @@ import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import { categorizeTransByDate } from "../utilities/datautility";
+import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 
