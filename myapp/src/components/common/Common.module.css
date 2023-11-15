@@ -1,0 +1,48 @@
+/* DetailViewInfoBox*/
+
+.infoBox {
+  border-radius: 3px; /* Rounded corners */
+  display: flex;
+  align-items: center;
+  border: 1px solid #e8edf2;
+  height: 76px;
+  gap: 12px;
+  padding: 16px;
+}
+
+.infoBoxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.infoBox svg {
+  width: 32px;
+  height: 32px;
+  color: #4a5768;
+}
+
+.infoBoxTitle {
+  color: #4a5768;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.infoBoxValueContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.infoBoxValue {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.infoBoxValueText {
+  color: #4a5768;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 8px;
+}

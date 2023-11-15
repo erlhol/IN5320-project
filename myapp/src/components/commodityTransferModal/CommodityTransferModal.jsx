@@ -26,7 +26,7 @@ import {
   mergeCommodityAndValue,
   getDateAndTime,
   checkDateInFuture
-} from "../../utilities/datautility";
+} from "../../utilities/dataUtility";
 
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);

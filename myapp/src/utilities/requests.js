@@ -28,16 +28,15 @@ export const stockRequest = {
     }),
   },
   me: {
-        resource: 'me',
-    },
+    resource: "me",
+  },
 };
 
-export const getCurrentAccount =
-{
-    me: {
-        resource: 'me',
-    },
-}
+export const getCurrentAccount = {
+  me: {
+    resource: "me",
+  },
+};
 
 // 2. For Transaction Display
 export const transRequest = {

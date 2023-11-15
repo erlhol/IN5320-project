@@ -19,7 +19,10 @@ import {
   transUpdateRequest,
 } from "../../utilities/requests";
 import { getCurrentMonth } from "../../utilities/dates";
-import { mergeCommodityAndValue,getDateAndTime } from "../../utilities/datautility";
+import {
+  mergeCommodityAndValue,
+  getDateAndTime,
+} from "../../utilities/dataUtility";
 import { DataQuery, useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 
 const Step = props => {
@@ -43,10 +46,6 @@ const Stepper = props => {
   const { loading, error, data } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
-
-  useEffect(() => {
-    console.log("selectedCommodities: ", selectedCommodities);
-  }, [selectedCommodities]);
 
   const addToSelectedCommodities = commodity => {
     const commodityAlreadySelected = selectedCommodities.find(
@@ -85,7 +84,7 @@ const Stepper = props => {
     updateStockInApi();
     updateTransInApi();
     props.refetchData();
-    alert("Stock/Dispencing successfully added!!");
+    alert("Stock/Dispensing successfully added!!");
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
@@ -143,7 +142,6 @@ const Stepper = props => {
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
-    console.log("me: ", data.me.displayName);
     const allCommodities = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
@@ -166,11 +164,6 @@ const Stepper = props => {
             {/* Main section */}
             <div>
               <h3>Commodity section</h3>
-              {/* <Search
-                placeholder="Search commodity"
-                width={"320px"}
-                onClick={() => setShoswDropDown(true)}
-              ></Search> */}
               <SingleSelectField
                 onChange={value => addToSelectedCommodities(value.selected)}
               >
