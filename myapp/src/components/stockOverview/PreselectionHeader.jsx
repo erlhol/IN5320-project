@@ -8,7 +8,7 @@ const PreselectionHeader = props => {
     <div className={classes.preselectionHeader}>
       <div className={classes.preselectionNumber}>{props.number}</div>
       <div className={classes.preselectionText}>selected</div>
-      <Button className={classes.preselectionButton} primary>
+      <Button className={classes.preselectionButton} >
         Dispense Selected
       </Button>
     </div>

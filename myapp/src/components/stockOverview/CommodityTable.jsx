@@ -87,7 +87,6 @@ const CommodityTable = props => {
   const dispenseSingleCommodity = commodity => {
     props.setPreselectedCommodities(commodity);
     // show modal
-    props.
   };
 
   return (
