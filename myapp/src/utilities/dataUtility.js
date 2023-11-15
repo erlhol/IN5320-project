@@ -50,7 +50,7 @@ export const mergeCommodityAndValue = (
         if (matchedTransCommodity) {
           commodityData[key].lastDispensingDate = matchedTrans.date;
           commodityData[key].lastDispensingAmount =
-            matchedTransCommodity?.amount;
+            matchedTransCommodity?.amount.toString().slice(1);
         }
       }
     }
