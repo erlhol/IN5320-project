@@ -13,6 +13,7 @@ import {
   Pagination,
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
+import classes from "../../App.module.css";
 
 const CommodityTable = props => {
   // State for the current pageSize selected
@@ -135,7 +136,12 @@ const CommodityTable = props => {
               <DataTableCell>{commodity.commodityName}</DataTableCell>
               <DataTableCell>{commodity.endBalance}</DataTableCell>
               <DataTableCell>{commodity.consumption}</DataTableCell>
-              <DataTableCell>{commodity.lastDispensing}</DataTableCell>
+              <DataTableCell>
+                <div className={classes.commodityTableLastDispensing}>
+                  <span>{commodity.lastDispensingDate}</span>
+                  <span>{commodity.lastDispensingAmount}</span>
+                </div>
+              </DataTableCell>
               <DataTableCell>
                 <Button
                   name="Small button"

@@ -47,10 +47,6 @@ const Stepper = props => {
     variables: { period: getCurrentMonth() },
   });
 
-  useEffect(() => {
-    console.log("selectedCommodities: ", selectedCommodities);
-  }, [selectedCommodities]);
-
   const addToSelectedCommodities = commodity => {
     const commodityAlreadySelected = selectedCommodities.find(
       c => c.commodityName === commodity.commodityName
@@ -88,7 +84,7 @@ const Stepper = props => {
     updateStockInApi();
     updateTransInApi();
     props.refetchData();
-    alert("Stock/Dispencing successfully added!!");
+    alert("Stock/Dispensing successfully added!!");
   };
 
   //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
@@ -146,7 +142,6 @@ const Stepper = props => {
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
-    console.log("me: ", data.me.displayName);
     const allCommodities = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
@@ -169,11 +164,6 @@ const Stepper = props => {
             {/* Main section */}
             <div>
               <h3>Commodity section</h3>
-              {/* <Search
-                placeholder="Search commodity"
-                width={"320px"}
-                onClick={() => setShoswDropDown(true)}
-              ></Search> */}
               <SingleSelectField
                 onChange={value => addToSelectedCommodities(value.selected)}
               >

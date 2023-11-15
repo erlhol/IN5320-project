@@ -14,7 +14,7 @@ import {
   categorizeTransByDate,
 } from "../utilities/dataUtility";
 
-const Transactions = props => {
+const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState({
     start: new Date("2023-08-01"),
@@ -40,9 +40,7 @@ const Transactions = props => {
       filteredByName,
       selectedReceipient
     );
-    // console.log("visibleTrans: ", visibleTrans);
-    // console.log("filteredByPeriod: ", filteredByPeriod);
-    // console.log("filteredByName: ", filteredByName);
+
     setVisibleTrans(filteredByReceipient);
   }, [selectedPeriod, selectedCommodity, selectedReceipient]);
 
@@ -89,4 +87,4 @@ const Transactions = props => {
   );
 };
 
-export default Transactions;
+export default TransactionHistory;
