@@ -54,7 +54,7 @@ const Transactions = props => {
   const refetchData = async dispensing => {
     await props.refetchTransData();
     setAlertBarText(
-      dispensing ? "Dispensing Successful" : "Restock Successful"
+      dispensing ? "Dispensing successful" : "Restock successful"
     );
   };
 
@@ -84,7 +84,6 @@ const Transactions = props => {
           transactions={visibleTrans[date]}
         />
       ))}
-
       {modalPresent && (
         <CommodityTransferModal
           onClose={handleOnModalChange}

@@ -13,8 +13,9 @@ import {
   TableRow,
   TableRowHead,
   TableCellHead,
-  InputField,
+  InputFieldFF,
   IconCross24,
+  ReactFinalForm,
 } from "@dhis2/ui";
 
 import { spacers } from "@dhis2/ui";
@@ -36,14 +37,14 @@ const CommoditySelector = props => {
     setAddButtonDisabled(true);
   };
 
-  const showSelectedCheckmark = selectedCommodityName => {
+  const commodityAlreadySelected = selectedCommodityName => {
     return props.selectedCommodities.some(
       commodity => commodity.commodityName === selectedCommodityName
     );
   };
 
   const validateInput = (value, stockBalance) => {
-    if (value === "") {
+    if (value == "" || value == null || value == undefined || value == 0) {
       return "Enter amount to restock";
     } else if (value < 0) {
       return "Amount must be a positive";
@@ -52,21 +53,6 @@ const CommoditySelector = props => {
     } else {
       return "";
     }
-  };
-
-  const getValidationText = inputError => {
-    if (props.submitAttempted === true) {
-      return inputError;
-    }
-    return "";
-  };
-
-  const onChangeInput = (commodity, value) => {
-    props.setAmount(
-      commodity,
-      value,
-      validateInput(value, commodity.endBalance)
-    );
   };
 
   return (
@@ -88,7 +74,7 @@ const CommoditySelector = props => {
                 label={commodity.commodityName}
                 key={commodity.commodityName}
                 value={commodity.commodityName}
-                disabled={showSelectedCheckmark(commodity.commodityName)}
+                disabled={commodityAlreadySelected(commodity.commodityName)}
               />
             ))}
           </SingleSelect>
@@ -102,7 +88,6 @@ const CommoditySelector = props => {
             )
           }
           disabled={addButtonDisabled}
-          primary
         >
           Add
         </Button>
@@ -137,22 +122,22 @@ const CommoditySelector = props => {
                     {commodity.endBalance}
                   </TableCell>
                   <TableCell className={modalStyles.amountCell}>
-                    <InputField
+                    <ReactFinalForm.Field
                       className={modalStyles.amountInput}
                       dense
-                      error={
-                        commodity.inputError != "" && props.submitAttempted
-                      }
+                      required
                       type="number"
-                      value={commodity.amount}
-                      onChange={e => onChangeInput(commodity, e.value)}
-                      validationText={getValidationText(commodity.inputError)}
+                      name={commodity.commodityId}
+                      component={InputFieldFF}
+                      validate={e => validateInput(e, commodity.endBalance)}
                     />
                     <Button
                       small
                       icon={<IconCross24 />}
                       className={modalStyles.removeButton}
-                      onClick={() => props.removeCommodity(commodity)}
+                      onClick={() =>
+                        props.removeCommodity(commodity, props.form)
+                      }
                     />
                   </TableCell>
                 </TableRow>

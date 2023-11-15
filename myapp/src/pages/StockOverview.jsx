@@ -33,7 +33,7 @@ const Inventory = props => {
   const refetchData = dispensing => {
     refetch();
     setAlertBarText(
-      dispensing ? "Dispensing Successful" : "Restock Successful"
+      dispensing ? "Dispensing successful" : "Restock successful"
     );
   };
 
