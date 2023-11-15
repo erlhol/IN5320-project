@@ -1,3 +1,9 @@
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
@@ -10,14 +16,14 @@ import Inventory from "./pages/StockOverview";
 import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
-  /* State for handling navigation */
-  const [activePage, setActivePage] = useState("Dashboard");
-  const { loading, error, data, refetch } = useDataQuery(transRequest);
+  return (
+    <Router>
+      <MyAppContent />
+    </Router>
+  );
+};
 
-  function activePageHandler(page) {
-    setActivePage(page);
-  }
-
+const MyAppContent = () => {
   // 3. For Stock Update:
   // const [updateStock] = useDataMutation(stockUpdateRequest);
   // useEffect(() => {
@@ -53,6 +59,8 @@ const MyApp = () => {
   //   updateTrans({ data: transData });
   // }, []);
 
+  const { loading, error, data, refetch } = useDataQuery(transRequest);
+
   if (error)
     return (
       <span>
@@ -61,26 +69,30 @@ const MyApp = () => {
     );
   if (loading) return <CircularLoader large />;
   if (data) {
-    const transactionData = data?.transactionHistory?.data;
+    let transactionData = data.transactionHistory.data;
     return (
       <div className={classes.container}>
         <div className={classes.sidenav}>
-          <Sidenav
-            activePage={activePage}
-            activePageHandler={activePageHandler}
-          />
+          <Sidenav />
         </div>
         <section className={classes.content}>
-          {activePage === "Dashboard" && <Dashboard />}
-          {activePage === "StockOverview" && (
-            <Inventory transactionData={transactionData} />
-          )}
-          {activePage === "StockHistory" && (
-            <StockHistory
-              transactionData={transactionData}
-              refetchTransData={() => refetch()}
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/stock-overview"
+              element={<Inventory transactionData={transactionData} />}
             />
-          )}
+            <Route
+              path="/stock-history"
+              element={
+                <StockHistory
+                  transactionData={transactionData}
+                  refetchTransData={() => refetch()}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
         </section>
       </div>
     );

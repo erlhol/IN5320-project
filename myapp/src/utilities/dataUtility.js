@@ -113,3 +113,9 @@ export const getMostRecentTransactionsObject = (
 
   return mostRecentTransactionsObject;
 };
+
+export const checkDateInFuture = dateString => {
+  const date = new Date(dateString);
+  const now = new Date();
+  return date > now;
+};

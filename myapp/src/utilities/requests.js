@@ -20,7 +20,7 @@ export const stockRequest = {
   },
 
   // Read values of a period for all commodities in live saving commodities dataset
-  // https://data.research.dhis2.org/in5320/api/dataValueSets.json?dataSet=ULowA8V3ucd&period=202310&orgUnit=ZpE2POxvl9P
+  // https://data.research.dhis2.org/in5320/api/dataValueSets.json?dataSet=ULowA8V3ucd&period=202311&orgUnit=OZ1olxsTyNa
   dataValues: {
     resource: "/dataValueSets",
     params: ({ period }) => ({
@@ -46,21 +46,10 @@ export const stockUpdateRequest = {
   resource: "dataValueSets",
   dataSet: lifeSavingComDataSet,
   type: "create",
-  data: ({ dataElement, consumptionValue, endBalanceValue, period }) => ({
+  data: ({ dataValues, period }) => ({
     orgUnit: orgUnit,
     period,
-    dataValues: [
-      {
-        dataElement,
-        categoryOptionCombo: consumption,
-        value: consumptionValue,
-      },
-      {
-        dataElement,
-        categoryOptionCombo: endBalance,
-        value: endBalanceValue,
-      },
-    ],
+    dataValues,
   }),
 };
 
