@@ -37,7 +37,7 @@ const Inventory = props => {
     const stockData = mergeCommodityAndValue(
       data.dataValues?.dataValues,
       data.commodities?.dataSetElements,
-      props.transactionData
+      props.transactionData.filter(trans => trans.type === "Dispensing")
     );
 
     const filteredStockData = filterBySearch(stockData, currentSearch);

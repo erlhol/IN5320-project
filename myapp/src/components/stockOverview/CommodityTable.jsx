@@ -153,7 +153,11 @@ const CommodityTable = props => {
               <DataTableCell>
                 <div className={classes.commodityTableLastDispensing}>
                   <span>{commodity.lastDispensingDate}</span>
-                  <span>{commodity.lastDispensingAmount}</span>
+                  <span>
+                    {commodity.lastDispensingAmount
+                      .toString()
+                      .replace(/-/g, "")}
+                  </span>
                 </div>
               </DataTableCell>
               <DataTableCell>
