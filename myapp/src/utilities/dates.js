@@ -50,3 +50,13 @@ export function getStockHistoryDefaultPeriod() {
     .padStart(2, "0")}/01/${year.toString()}`;
   return { start, end };
 }
+
+export function convertDateFormat(inputDate) {
+  // Converts from MM/DD/YYYY to YYYY/MM/DD
+  var dateArray = inputDate.split("/");
+  var paddedMonth = ("0" + dateArray[0]).slice(-2);
+  var paddedDay = ("0" + dateArray[1]).slice(-2);
+  var rearrangedDateArray = [dateArray[2], paddedMonth, paddedDay];
+  var convertedDate = rearrangedDateArray.join("/");
+  return convertedDate;
+}

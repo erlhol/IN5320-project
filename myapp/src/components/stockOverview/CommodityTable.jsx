@@ -14,6 +14,7 @@ import {
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
 import classes from "../../App.module.css";
+import { convertDateFormat } from "../../utilities/dates";
 
 const CommodityTable = props => {
   // State for the current pageSize selected
@@ -43,8 +44,12 @@ const CommodityTable = props => {
   useEffect(() => {
     // Update displayedCommodities whenever commodities, sortOrder, currentPage, or pageSize changes
     const sortedData = [...props.commodities].sort((a, b) => {
-      const columnA = a[sortOrder.column];
-      const columnB = b[sortOrder.column];
+      var columnA = a[sortOrder.column];
+      var columnB = b[sortOrder.column];
+      if (sortOrder.column == "lastDispensingDate") {
+        columnA = convertDateFormat(a[sortOrder.column]);
+        columnB = convertDateFormat(b[sortOrder.column]);
+      }
       if (sortOrder.order === "asc") {
         return columnA > columnB ? 1 : -1;
       } else {
@@ -115,7 +120,16 @@ const CommodityTable = props => {
             >
               Monthly Consumption
             </DataTableColumnHeader>
-            <DataTableColumnHeader width={spacers.dp256}>
+            <DataTableColumnHeader
+              onSortIconClick={() => handleSort("lastDispensingDate")}
+              sortDirection={
+                sortOrder.column === "lastDispensingDate"
+                  ? sortOrder.order
+                  : "default"
+              }
+              sortIconTitle="Sort by dispensed date"
+              width={spacers.dp256}
+            >
               Last Dispensing
             </DataTableColumnHeader>
             <DataTableColumnHeader width={spacers.dp128} />
