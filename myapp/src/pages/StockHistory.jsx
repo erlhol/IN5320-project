@@ -1,6 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { AlertBar } from "@dhis2/ui";
+import React, { useState, useEffect } from "react";
+import { AlertBar, IconCalendar24 } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
@@ -9,10 +8,8 @@ import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
-import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
-import { search } from "../utilities/search";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
