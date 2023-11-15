@@ -13,6 +13,9 @@ import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
+import { consumptionRequest } from "../utilities/requests";
+import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { getCurrentMonth } from "../utilities/dates";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
@@ -25,6 +28,13 @@ const TransactionHistory = props => {
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
+
+  const { loading, error, data, refetch } = useDataQuery(consumptionRequest, {
+    variables: { period: getCurrentMonth(), dataElement: "Boy3QwztgeZ" },
+  });
+  useEffect(() => {
+    console.log("data: ", data);
+  }, [data]);
 
   useEffect(() => {
     const updatedTrans = categorizeTransByDate(filterTrans());

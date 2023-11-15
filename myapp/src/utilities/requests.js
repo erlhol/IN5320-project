@@ -1,7 +1,5 @@
-// Global variables:
-
 import { getCurrentMonth } from "./dates";
-
+// Global variables:
 const orgUnit = "OZ1olxsTyNa"; // id for our organization
 const lifeSavingComDataSet = "ULowA8V3ucd"; // id for life saving commodities
 const consumption = "rQLFnNXXIL0";
@@ -29,6 +27,7 @@ export const stockRequest = {
       dataSet: lifeSavingComDataSet,
     }),
   },
+
   me: {
     resource: "me",
   },
@@ -46,21 +45,10 @@ export const stockUpdateRequest = {
   resource: "dataValueSets",
   dataSet: lifeSavingComDataSet,
   type: "create",
-  data: ({ dataElement, consumptionValue, endBalanceValue, period }) => ({
+  data: ({ dataValues, period }) => ({
     orgUnit: orgUnit,
     period,
-    dataValues: [
-      {
-        dataElement,
-        categoryOptionCombo: consumption,
-        value: consumptionValue,
-      },
-      {
-        dataElement,
-        categoryOptionCombo: endBalance,
-        value: endBalanceValue,
-      },
-    ],
+    dataValues,
   }),
 };
 
@@ -69,4 +57,17 @@ export const transUpdateRequest = {
   resource: "dataStore/IN5320-G21/transactions",
   type: "update",
   data: transactions => transactions,
+};
+
+// 5. Get consumption data for a specific commodity in a specific period
+export const consumptionRequest = {
+  consumptionData: {
+    resource: "/dataValue",
+    params: ({ period, dataElement }) => ({
+      orgUnit: orgUnit,
+      period,
+      dataElement,
+      categoryOptionCombo: consumption,
+    }),
+  },
 };
