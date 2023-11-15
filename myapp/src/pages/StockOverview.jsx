@@ -7,10 +7,7 @@ import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
-import {
-  mergeCommodityAndValue,
-  mergeDataForDashboard,
-} from "../utilities/dataUtility";
+import { mergeCommodityAndValue } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
@@ -23,12 +20,15 @@ const Inventory = props => {
     variables: { period: getCurrentMonth() },
   });
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
   };
 
-  const handleOnChangeSearch = value => {
-    setCurrentSearch(value.value);
+  const handleOnChangeSearch = searchobj => {
+    setCurrentSearch(searchobj.value);
+    setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
   };
 
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
@@ -39,10 +39,7 @@ const Inventory = props => {
       data.commodities?.dataSetElements,
       props.transactionData
     );
-    mergeDataForDashboard(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements
-    );
+
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
       <>
@@ -64,7 +61,11 @@ const Inventory = props => {
         </div>
 
         {/* The commodity table */}
-        <CommodityTable commodities={filteredStockData} />
+        <CommodityTable
+          commodities={filteredStockData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
         {modalPresent && (
           <Stepper
