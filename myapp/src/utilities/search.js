@@ -1,6 +1,6 @@
 // Search utility
-export function search(element, searchWord) {
-  const words = element.commodityName.split(/(\s+)/);
+export function search(element, searchWord, attribute) {
+  const words = element[attribute].split(/(\s+)/);
   for (const word of words) {
     if (word.toLowerCase().includes(searchWord.toLowerCase())) {
       return true; // Return true if any word matches the search term
@@ -9,6 +9,7 @@ export function search(element, searchWord) {
   return false; // Return false if no word matches the search term
 }
 
-export function filterBySearch(list, searchWord) {
-  return list.filter(x => search(x, searchWord));
+// Filters by the given
+export function filterBySearch(list, searchWord, attribute) {
+  return list.filter(x => search(x, searchWord, attribute));
 }
