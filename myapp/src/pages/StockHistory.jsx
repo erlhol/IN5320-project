@@ -16,6 +16,7 @@ import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import { IconCalendar24 } from "@dhis2/ui";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
+import { search } from "../utilities/search";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
