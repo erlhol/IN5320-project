@@ -1,12 +1,11 @@
 /* DetailViewInfoBox*/
 
 .infoBox {
-  border-radius: 3px; /* Rounded corners */
   display: flex;
   align-items: center;
   border: 1px solid #e8edf2;
   height: 76px;
-  gap: 12px;
+  gap: 16px;
   padding: 16px;
 }
 
@@ -35,8 +34,6 @@
 }
 
 .infoBoxValue {
-  color: #000;
-  font-size: 18px;
   font-weight: 500;
 }
 

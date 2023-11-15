@@ -168,15 +168,21 @@
   font-weight: bold;
 }
 
+.transDetailModalContent {
+  min-height: 400px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 .transDetailTableCaption {
-  font-size: large;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  font-size: 18px;
   font-weight: 500;
 }
 
-.transDetailModalContent {
-  min-height: 400px;
+.transDetailTable {
+  margin-top: 16px;
 }
 
 .commodityTableLastDispensing :first-child {
