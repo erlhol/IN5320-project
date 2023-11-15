@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   DataTable,
@@ -16,11 +16,20 @@ import {
 } from "@dhis2/ui";
 import StockDetail from "./StockDetail";
 import PreselectionHeader from "./PreselectionHeader";
+import { spacers } from "@dhis2/ui";
 import classes from "../../App.module.css";
 
 const CommodityTable = props => {
   const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
 
+  // State for the current pageSize selected
+  const [pageSize, setPageSize] = useState(10);
+
+  // State for displayed commodities
+  const [displayedCommodities, setDisplayedCommodities] = useState([]);
+
+  /* The sorting logic */
+  // State for sorting order
   const [sortOrder, setSortOrder] = useState({
     column: "commodityName", // Default sorting column
     order: "asc", // Default sorting order
@@ -30,6 +39,7 @@ const CommodityTable = props => {
     setSelectedStock(value);
   };
 
+  // Handles the event when you want to change the sort order. If it is the same column, then we change the order, if it is not, we set the new order to asc
   const handleSort = column => {
     setSortOrder(prevSortOrder => ({
       column,
@@ -40,16 +50,41 @@ const CommodityTable = props => {
     }));
   };
 
-  // A sorting function that compares two and two elements a and b
-  const sortedData = [...props.commodities].sort((a, b) => {
-    const columnA = a[sortOrder.column];
-    const columnB = b[sortOrder.column];
-    if (sortOrder.order === "asc") {
-      return columnA > columnB ? 1 : -1;
-    } else {
-      return columnA < columnB ? 1 : -1;
-    }
-  });
+  useEffect(() => {
+    // Update displayedCommodities whenever commodities, sortOrder, currentPage, or pageSize changes
+    const sortedData = [...props.commodities].sort((a, b) => {
+      const columnA = a[sortOrder.column];
+      const columnB = b[sortOrder.column];
+      if (sortOrder.order === "asc") {
+        return columnA > columnB ? 1 : -1;
+      } else {
+        return columnA < columnB ? 1 : -1;
+      }
+    });
+
+    const startIndex = (props.currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginatedData = sortedData.slice(startIndex, endIndex);
+
+    setDisplayedCommodities(paginatedData);
+  }, [props.commodities, sortOrder, props.currentPage, pageSize]);
+
+  // Handles a update of pagesize. This will reset current page (set current page to 1)
+  const handlePageSize = size => {
+    setPageSize(size);
+    props.setCurrentPage(1);
+  };
+
+  const handleCurrentPage = page => {
+    props.setCurrentPage(page);
+  };
+
+  // Return the pageCount. This is based on the number of commodities. If the number is not round, for instance 2.4, then we will need to 2 pages + 1 page with the remaining amount of commodities
+  const pageCount = () => {
+    return (props.commodities.length / pageSize) % 1 != 0
+      ? Math.floor(props.commodities.length / pageSize) + 1
+      : props.commodities.length / pageSize;
+  };
 
   const preselectCommodity = commodity => {
     if (
@@ -103,7 +138,7 @@ const CommodityTable = props => {
       <DataTable>
         <TableHead>
           <DataTableRow>
-            <DataTableColumnHeader width="48px">
+            <DataTableColumnHeader width={spacers.dp48}>
               <Checkbox
                 onChange={() => preselectAllCommodities()}
                 checked={
@@ -129,6 +164,7 @@ const CommodityTable = props => {
                 sortOrder.column === "endBalance" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Stock Balance"
+              width={spacers.dp192}
             >
               Stock Balance
             </DataTableColumnHeader>
@@ -138,19 +174,22 @@ const CommodityTable = props => {
                 sortOrder.column === "consumption" ? sortOrder.order : "default"
               }
               sortIconTitle="Sort by Consumption"
+              width={spacers.dp192}
             >
               Monthly Consumption
             </DataTableColumnHeader>
-            <DataTableColumnHeader>Last Dispensing</DataTableColumnHeader>
-            <DataTableColumnHeader></DataTableColumnHeader>
+            <DataTableColumnHeader width={spacers.dp256}>
+              Last Dispensing
+            </DataTableColumnHeader>
+            <DataTableColumnHeader width={spacers.dp128} />
           </DataTableRow>
         </TableHead>
 
         <TableBody>
-          {sortedData.map((commodity, i) => (
+          {displayedCommodities.map((commodity, i) => (
             <DataTableRow key={i}>
               {/* if the row should be selected, add the property: selected */}
-              <DataTableCell width="48px">
+              <DataTableCell width={spacers.dp48}>
                 <Checkbox
                   onChange={() => preselectCommodity(commodity)}
                   checked={checked(commodity)}
@@ -188,13 +227,12 @@ const CommodityTable = props => {
         <TableFoot>
           <DataTableRow>
             <DataTableCell colSpan="6">
-              {/* TODO: add pagination logic */}
               <Pagination
-                onPageChange={() => console.log("Page Changed")}
-                onPageSizeChange={() => console.log("Page Size Changed")}
-                page={1}
-                pageCount={2}
-                pageSize={10}
+                onPageChange={handleCurrentPage}
+                onPageSizeChange={handlePageSize}
+                page={props.currentPage}
+                pageCount={pageCount()}
+                pageSize={pageSize}
                 total={props.commodities.length}
               />
             </DataTableCell>

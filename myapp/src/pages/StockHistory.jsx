@@ -1,11 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { AlertBar } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
-import Stepper from "../components/common/Stepper";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import {
   getTransByCommodityName,
@@ -13,6 +12,7 @@ import {
   getTransByRecipient,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
@@ -25,6 +25,7 @@ const TransactionHistory = props => {
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
+  const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
     const filteredByPeriod = getTransByPeriod(
@@ -46,6 +47,13 @@ const TransactionHistory = props => {
 
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
+  };
+
+  const refetchData = async dispensing => {
+    await props.refetchTransData();
+    setAlertBarText(
+      dispensing ? "Dispensing successful" : "Restock successful"
+    );
   };
 
   return (
@@ -74,14 +82,18 @@ const TransactionHistory = props => {
           transactions={visibleTrans[date]}
         />
       ))}
-
       {modalPresent && (
-        <Stepper
-          title={"New dispensing"}
+        <CommodityTransferModal
           onClose={handleOnModalChange}
-          refetchData={props.refetchTransData}
+          dispensing
           existedTransData={props.transactionData}
+          refetchData={refetchData}
         />
+      )}
+      {alertBarText && (
+        <AlertBar type="success" className={classes.alertBar}>
+          {alertBarText}
+        </AlertBar>
       )}
     </>
   );

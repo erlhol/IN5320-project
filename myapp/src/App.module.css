@@ -43,6 +43,19 @@
   margin: 32px 0;
 }
 
+.alertBar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.modalSubHeadline {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 /* stock history */
 .transactionItemContainer :hover {
   background-color: #eaebec;
