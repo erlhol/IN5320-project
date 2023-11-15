@@ -14,6 +14,7 @@ import {
   mergeCommodityAndValue,
   getCommoditiesLowInStock,
   mergeDataForDashboard,
+  getRecentTransactions,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
@@ -28,6 +29,8 @@ import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import StockAmountModal from "../components/dashboard/StockAmountModal";
 
 const Dashboard = ({ transactionData }) => {
+  const recentTransactionsObject = getRecentTransactions(transactionData);
+
   const {
     loading: currentStockLoading,
     error: currentStockError,
@@ -45,9 +48,6 @@ const Dashboard = ({ transactionData }) => {
     variables: { period: periods },
   });
 
-  const [transactions, setTransactions] = useState(() =>
-    categorizeTransByDate(transactionData)
-  );
   const [monthlyStockData, setMonthlyStockData] = useState(undefined);
   const [lowInStockCommodities, setLowInStockCommodities] = useState(undefined);
 
@@ -160,15 +160,15 @@ const Dashboard = ({ transactionData }) => {
               Show all
             </Button>
           </div>
-          {Object.keys(transactions)
-            .slice(0, 2)
-            .map((date, i) => (
+          <div className={classes.transactionsContainer}>
+            {Object.keys(recentTransactionsObject).map((date, i) => (
               <TransactionsForDay
                 key={i}
                 date={date}
-                transactions={transactions[date]}
+                transactions={recentTransactionsObject[date]}
               />
             ))}
+          </div>
         </Box>
       </Box>
       {stockAmountModalPresent && (

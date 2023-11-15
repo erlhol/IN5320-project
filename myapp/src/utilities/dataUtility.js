@@ -110,7 +110,12 @@ export const categorizeTransByDate = transactions => {
     if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  return categorized;
+
+  const dataArray = Object.entries(categorized);
+  dataArray.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+  const sortedData = Object.fromEntries(dataArray);
+
+  return sortedData;
 };
 
 export const getTransByRecipient = (transactions, recipient) => {
@@ -160,4 +165,25 @@ export const getCommoditiesLowInStock = (
   return lowInStockCommodities.sort((a, b) =>
     a.commodityName.localeCompare(b.commodityName)
   );
+};
+
+export const getRecentTransactions = transactions => {
+  const categorizedTransactions = categorizeTransByDate(transactions);
+  const recentTransactionsObject = {};
+  let nrTransactionsAdded = 0;
+
+  for (const date in categorizedTransactions) {
+    const transactionForDate = categorizedTransactions[date];
+
+    transactionForDate.forEach(trans => {
+      if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
+      if (nrTransactionsAdded < 5) {
+        recentTransactionsObject[date].push(trans);
+        nrTransactionsAdded++;
+      }
+    });
+    if (nrTransactionsAdded === 5) break;
+  }
+
+  return recentTransactionsObject;
 };
