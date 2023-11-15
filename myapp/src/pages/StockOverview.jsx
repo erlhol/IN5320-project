@@ -9,10 +9,11 @@ import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
+  mergeDataForDashboard,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
-import { getCurrentMonth } from "../utilities/dates";
+import { getCurrentMonth, getPeriods } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const StockInventory = props => {
@@ -26,6 +27,19 @@ const StockInventory = props => {
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
+
+  console.log(data);
+
+  const periods = getPeriods().map(period => period[1]);
+  const {
+    loading: monthlyStockLoading,
+    error: monthlyStockError,
+    montly_data: monthlyStock,
+  } = useDataQuery(stockRequest, {
+    variables: { period: periods },
+  });
+
+  console.log(monthlyStock);
 
   const [currentPage, setCurrentPage] = useState(1);
 
