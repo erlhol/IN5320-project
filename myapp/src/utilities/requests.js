@@ -4,6 +4,8 @@ import { getCurrentMonth } from "./dates";
 
 const orgUnit = "OZ1olxsTyNa"; // id for our organization
 const lifeSavingComDataSet = "ULowA8V3ucd"; // id for life saving commodities
+const consumption = "rQLFnNXXIL0";
+const endBalance = "J2Qf1jtZuj8";
 
 // 1. For Stock Display
 export const stockRequest = {
@@ -18,7 +20,7 @@ export const stockRequest = {
   },
 
   // Read values of a period for all commodities in live saving commodities dataset
-  // https://data.research.dhis2.org/in5320/api/dataValueSets.json?dataSet=ULowA8V3ucd&period=202310&orgUnit=ZpE2POxvl9P
+  // https://data.research.dhis2.org/in5320/api/dataValueSets.json?dataSet=ULowA8V3ucd&period=202311&orgUnit=OZ1olxsTyNa
   dataValues: {
     resource: "/dataValueSets",
     params: ({ period }) => ({
@@ -27,12 +29,6 @@ export const stockRequest = {
       dataSet: lifeSavingComDataSet,
     }),
   },
-  me: {
-    resource: "me",
-  },
-};
-
-export const getCurrentAccount = {
   me: {
     resource: "me",
   },
@@ -50,16 +46,10 @@ export const stockUpdateRequest = {
   resource: "dataValueSets",
   dataSet: lifeSavingComDataSet,
   type: "create",
-  data: ({ dataElement, value, categoryOptionCombo }) => ({
+  data: ({ dataValues, period }) => ({
     orgUnit: orgUnit,
-    period: getCurrentMonth(), //TODO: use date here because if I add the comodity for last month?
-    dataValues: [
-      {
-        dataElement,
-        categoryOptionCombo,
-        value,
-      },
-    ],
+    period,
+    dataValues,
   }),
 };
 
@@ -69,83 +59,3 @@ export const transUpdateRequest = {
   type: "update",
   data: transactions => transactions,
 };
-
-// export function fetchHospitalData() {
-//     return {
-//         dataValueSets: {
-//             resource: "/dataValueSets",
-//             params: ({ orgUnit, period }) => ({
-//                 orgUnit: orgUnit,
-//                 period: period,
-//                 dataSet: "ULowA8V3ucd"
-//             })
-//         },
-
-//         dataSets: {
-//             resource: "/dataSets",
-//             params: {
-//                 dataSetId: "ULowA8V3ucd",
-//                 fields: "name,id,dataSetElements[dataElement[name,id,created,categoryCombo[name,id]]]",
-//                 filter: "name:eq:Life-Saving Commodities"
-//             }
-//         },
-//         restockHistory: {
-//             resource: "/dataStore/IN5320-G19/restockHistory"
-//         },
-//         dispensingHistory: {
-//             resource:"/dataStore/IN5320-G19/transactions"
-//         }
-//      }
-// }
-
-// // The data query to find the health facilities nearby
-// export function fetchNeighbors() {
-//     return {
-//         orgUnits: {
-//             resource: "/organisationUnits/aWQTfvgPA5v",
-//             params: {
-//               fields: "children[displayName,id]"
-//             }
-//           }
-//     }
-// }
-
-// // The data query to deposit a transaction
-// export function deposit() {
-//     return {
-//         resource:"dataValueSets",
-//         dataSet: "ULowA8V3ucd",
-//         type: "create",
-//         data: ({dataElement, value, categoryOptionCombo}) => ( {
-//             orgUnit: "OZ1olxsTyNa",
-//             period: "202110",
-//             dataValues: [
-//                 {
-//                 dataElement: dataElement,
-//                 categoryOptionCombo: categoryOptionCombo,
-//                 value: value,
-//                 },
-//             ],
-//         }),
-//     }
-//  }
-
-// // The data query to update the transaction log stored in dataStore
-//  export function storeDeposit() {
-//     return {
-
-//         resource:"dataStore/IN5320-G19/transactions",
-//         type: "update",
-//         data: (transactions) => transactions
-//     }
-
-// }
-
-// // The data query to update the restock history stored in dataStore
-//  export function storeRestock() {
-//     return {
-//         resource:"dataStore/IN5320-G19/restockHistory",
-//         type: "update",
-//         data: (transactions) => transactions
-//     }
-//  }

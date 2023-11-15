@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useMemo } from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalTitle,
@@ -24,10 +23,10 @@ import {
 } from "../../utilities/requests";
 import {
   mergeCommodityAndValue,
-  getDateAndTime,
   checkDateInFuture,
 } from "../../utilities/dataUtility";
 
+import {getDateAndTime} from "../../utilities/dates";
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);

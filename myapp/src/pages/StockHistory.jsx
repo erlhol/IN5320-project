@@ -1,20 +1,21 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { AlertBar } from "@dhis2/ui";
+import React, { useState, useEffect } from "react";
+import { AlertBar, IconCalendar24 } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import Dropdown from "../components/common/Dropdown";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
+import { getStockHistoryDefaultPeriod } from "../utilities/dates";
+// NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
+import DatePicker from "react-multi-date-picker";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState([
-    new Date("2023-08-01"),
-    new Date("2023-11-30"),
+    getStockHistoryDefaultPeriod().start,
+    getStockHistoryDefaultPeriod().end,
   ]);
   const [selectedReceipient, setSelectedReceipient] = useState("");
   const [selectedCommodity, setSelectedCommodity] = useState("");
@@ -33,27 +34,27 @@ const TransactionHistory = props => {
     props.transactionData,
   ]);
 
+  const handleOnModalChange = () => {
+    setModalPresent(previousValue => !previousValue);
+  };
+
+  const onSearch = event => {
+    if (event.name === "commodity") return setSelectedCommodity(event.value);
+    if (event.name === "recipient") return setSelectedReceipient(event.value);
+  };
 
   const filterTrans = () => {
     return props?.transactionData?.filter(transaction => {
       const transactionDate = new Date(transaction.date);
       return (
         transaction?.commodities?.some(commodity =>
-          commodity?.commodityName
-            .toLowerCase()
-            .includes(selectedCommodity.toLowerCase())
+          search(commodity, selectedCommodity, "commodityName")
         ) &&
-        transaction.dispensedTo
-          .toLowerCase()
-          .includes(selectedReceipient.toLowerCase()) &&
+        search(transaction, selectedReceipient, "dispensedTo") &&
         transactionDate >= new Date(selectedPeriod[0]) &&
         transactionDate <= new Date(selectedPeriod[1])
       );
     });
-  };
-
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
   };
 
   const refetchData = async dispensing => {
@@ -73,10 +74,30 @@ const TransactionHistory = props => {
       />
       {/* The different search and filter options */}
       <div className={classes.filterOptions}>
-        <Search placeholder="Search commodity" width={"320px"} />
-        <Dropdown placeholder="Period" />
-        <Dropdown placeholder="All transactions" />
-        <Dropdown placeholder="Recipient" />
+        <Search
+          name="commodity"
+          placeholder="Search commodity"
+          width={"320px"}
+          onSearchChange={onSearch}
+          currentSearch={selectedCommodity}
+        />
+        <Search
+          name="recipient"
+          placeholder="Recipient"
+          width={"320px"}
+          onSearchChange={onSearch}
+          currentSearch={selectedReceipient}
+        />
+        <div className={classes.datePicker}>
+          <IconCalendar24 />
+          <DatePicker
+            value={selectedPeriod}
+            onChange={values => setSelectedPeriod(values)}
+            format="MM/DD/YYYY"
+            range
+            style={{ height: "40px", width: "210px" }}
+          />
+        </div>
       </div>
 
       {/* Multiple transactions can be listed here: */}

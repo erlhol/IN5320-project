@@ -63,6 +63,10 @@
   background-color: #eaebec;
 }
 
+.transactionItemContainer :hover {
+  background-color: #eaebec;
+}
+
 .transactionsItems {
   display: flex;
   flex-direction: column;
@@ -149,9 +153,14 @@
   color: gray;
 }
 
-.green-text {
-  color: green;
+.datePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
+
+/* transactionDetailModal */
 
 .transDetailModalWrapper {
   min-width: 400px;
