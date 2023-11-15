@@ -40,7 +40,7 @@ const TransactionsForDay = props => {
   };
 
   return (
-    <>
+    <div>
       <div className={classes.transactionsDate}>{props.date}</div>
       <div className={classes.transactionsItems}>
         {props.transactions.map((transaction, i) => {
@@ -117,7 +117,7 @@ const TransactionsForDay = props => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

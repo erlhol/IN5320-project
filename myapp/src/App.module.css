@@ -45,6 +45,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-bottom: 24px;
 }
 
 .dashboardFirstRow {
@@ -197,6 +198,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .stockInfoModalContent {
@@ -226,6 +228,12 @@
 }
 
 /* stock history */
+.transactionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
 .transactionItemContainer :hover {
   background-color: #eaebec;
 }
@@ -249,7 +257,6 @@
   border: 1px solid #e8edf2;
   padding: 8px;
   font-weight: 600;
-  margin-top: 40px;
   margin-bottom: 10px;
 }
 
