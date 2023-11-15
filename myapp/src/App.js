@@ -80,7 +80,7 @@ const MyAppContent = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/stock-overview"
-              element={<Inventory transactionData={transactionData} />}
+              element={<StockInventory transactionData={transactionData} />}
             />
             <Route
               path="/stock-history"
