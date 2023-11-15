@@ -40,7 +40,11 @@ const Inventory = props => {
       props.transactionData
     );
 
-    const filteredStockData = filterBySearch(stockData, currentSearch);
+    const filteredStockData = filterBySearch(
+      stockData,
+      currentSearch,
+      "commodityName"
+    );
     return (
       <>
         {/* The header and the add stock button */}
