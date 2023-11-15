@@ -102,7 +102,6 @@ const CommodityTable = props => {
           item => item.commodityName !== commodity.commodityName
         )
       );
-      console.log("Unpreselecting " + commodity.commodityName);
     }
   };
 
@@ -111,17 +110,52 @@ const CommodityTable = props => {
       item => item.commodityName === commodity.commodityName
     );
 
-  const preselectAllCommodities = () => {
-    if (props.preselectedCommodities.length !== props.commodities.length) {
-      props.setPreselectedCommodities([...props.commodities]); //TODO: just select visible Stock
-    } else {
-      props.setPreselectedCommodities([]);
-    }
+  const checkSelectAllCheckmark = () => {
+    return displayedCommodities.every(commodity =>
+      props.preselectedCommodities.some(
+        selected => selected.commodityName === commodity.commodityName
+      )
+    );
   };
 
+ const preselectAllCommodities = () => {
+   // Check if all displayed commodities are already selected
+   const areAllDisplayedSelected = displayedCommodities.every(commodity =>
+     props.preselectedCommodities.some(
+       selected => selected.commodityName === commodity.commodityName
+     )
+   );
+
+   if (!areAllDisplayedSelected) {
+     //  Select all displayed commodities that are not selected ye
+     const newSelections = displayedCommodities.filter(
+       displayed =>
+         !props.preselectedCommodities.some(
+           selected => selected.commodityName === displayed.commodityName
+         )
+     );
+
+     props.setPreselectedCommodities([
+       ...props.preselectedCommodities,
+       ...newSelections,
+     ]);
+   } else {
+     // Deselect all displayed commodities
+     props.setPreselectedCommodities(
+       props.preselectedCommodities.filter(
+         selected =>
+           !displayedCommodities.some(
+             displayed => displayed.commodityName === selected.commodityName
+           )
+       )
+     );
+   }
+ };
+
+
   const dispenseSingleCommodity = commodity => {
-    props.setPreselectedCommodities(commodity);
-    // show modal
+    props.setPreselectedCommodities([commodity]);
+    props.handleOnModalChange("dispensing");
   };
 
   return (
@@ -133,7 +167,10 @@ const CommodityTable = props => {
         ></StockDetail>
       )}
       {props.preselectedCommodities.length > 0 && (
-        <PreselectionHeader number={props.preselectedCommodities.length} />
+        <PreselectionHeader
+          number={props.preselectedCommodities.length}
+          handleOnModalChange={props.handleOnModalChange}
+        />
       )}
       <DataTable>
         <TableHead>
@@ -141,10 +178,7 @@ const CommodityTable = props => {
             <DataTableColumnHeader width={spacers.dp48}>
               <Checkbox
                 onChange={() => preselectAllCommodities()}
-                checked={
-                  props.preselectedCommodities.length ===
-                  props.commodities.length
-                }
+                checked={checkSelectAllCheckmark()}
               />
             </DataTableColumnHeader>
             <DataTableColumnHeader
@@ -214,7 +248,7 @@ const CommodityTable = props => {
               <DataTableCell>
                 <Button
                   name="Small button"
-                  onClick={() => console.log("Dispense ID " + i)}
+                  onClick={() => dispenseSingleCommodity(commodity)}
                   small
                   value="default"
                 >

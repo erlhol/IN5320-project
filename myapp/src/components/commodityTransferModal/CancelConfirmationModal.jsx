@@ -22,7 +22,7 @@ const CancelConfirmationModal = ({ setCancelModalPresent, onClose }) => {
             destructive
             onClick={() => {
               setCancelModalPresent(false);
-              onClose(true);
+              onClose(null);
             }}
           >
             Yes

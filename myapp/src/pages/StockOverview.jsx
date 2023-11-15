@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CircularLoader, AlertBar } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
@@ -13,7 +13,7 @@ import { getCurrentMonth } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const StockInventory = props => {
-  const [modalPresent, setModalPresent] = useState(false);
+  const [modalPresent, setModalPresent] = useState(null);
   const [currentSearch, setCurrentSearch] = useState("");
   const [preselectedCommodities, setPreselectedCommodities] = useState([]);
   const [alertBarText, setAlertBarText] = useState("");
@@ -24,9 +24,16 @@ const StockInventory = props => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
+  const handleOnModalChange = value => {
+    setModalPresent(value);
+
   };
+
+  useEffect(() => {
+    if (modalPresent != null ) {
+      setPreselectedCommodities([]);
+    }
+  }, [modalPresent])
 
   const handleOnChangeSearch = searchobj => {
     setCurrentSearch(searchobj.value);
@@ -56,7 +63,7 @@ const StockInventory = props => {
         <Header
           title="Stock Overview"
           primaryButtonLabel="Add Stock"
-          primaryButtonClick={() => handleOnModalChange()}
+          primaryButtonClick={() => handleOnModalChange("restock")}
         />
 
         {/* The input fields */}
@@ -74,18 +81,19 @@ const StockInventory = props => {
           commodities={filteredStockData}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-
           preselectedCommodities={preselectedCommodities}
           setPreselectedCommodities={setPreselectedCommodities}
+          handleOnModalChange={handleOnModalChange}
         />
 
-        {modalPresent && (
+        {modalPresent != null && (
           <CommodityTransferModal
             onClose={handleOnModalChange}
-            dispensing={false}
+            dispensing={modalPresent === "dispensing"}
             refetchData={refetchData}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
+            preselectedCommodities={preselectedCommodities}
           />
         )}
         {alertBarText && (

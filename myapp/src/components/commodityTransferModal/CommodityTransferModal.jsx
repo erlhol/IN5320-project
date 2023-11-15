@@ -25,7 +25,7 @@ import {
 import {
   mergeCommodityAndValue,
   getDateAndTime,
-  checkDateInFuture
+  checkDateInFuture,
 } from "../../utilities/dataUtility";
 
 const CommodityTransferModal = props => {
@@ -34,7 +34,9 @@ const CommodityTransferModal = props => {
   const { loading, error, data } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
-  const [selectedCommodities, setSelectedCommodities] = useState([]);
+  const [selectedCommodities, setSelectedCommodities] = useState(
+    props.preselectedCommodities
+  );
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
 
   // Add commodity to array
@@ -42,7 +44,6 @@ const CommodityTransferModal = props => {
     const commodityWithRestockAmount = {
       ...commodity,
       amount: "",
-      inputError: "Enter amount to restock",
     };
     setSelectedCommodities([
       ...selectedCommodities,
@@ -67,6 +68,7 @@ const CommodityTransferModal = props => {
       values.datetime,
       values.recipient
     );
+    console.log(values);
     await props.refetchData(props.dispensing);
     props.onClose();
   };
@@ -133,7 +135,12 @@ const CommodityTransferModal = props => {
   const dateTimeValidation = value => {
     if (checkDateInFuture(value)) {
       return "Date and time must not be in the future";
-    } else if (value == "" || value == undefined || value == null) {
+    } else if (
+      value == "" ||
+      value == undefined ||
+      value == null ||
+      value == "none"
+    ) {
       return "Date and time is required";
     } else {
       return "";

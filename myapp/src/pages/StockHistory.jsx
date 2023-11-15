@@ -88,6 +88,7 @@ const TransactionHistory = props => {
           dispensing
           existedTransData={props.transactionData}
           refetchData={refetchData}
+          preselectedCommodities={[]}
         />
       )}
       {alertBarText && (
