@@ -148,16 +148,28 @@ const CommodityTable = props => {
                 />
                 {/* if it should be checked, add the property: checked */}
               </DataTableCell>
-              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+              <DataTableCell
+                className={classes.clickable}
+                onClick={() => handleSetSelectedStock(commodity)}
+              >
                 {commodity.commodityName}
               </DataTableCell>
-              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+              <DataTableCell
+                className={classes.clickable}
+                onClick={() => handleSetSelectedStock(commodity)}
+              >
                 {commodity.endBalance}
               </DataTableCell>
-              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+              <DataTableCell
+                className={classes.clickable}
+                onClick={() => handleSetSelectedStock(commodity)}
+              >
                 {commodity.consumption}
               </DataTableCell>
-              <DataTableCell onClick={() => handleSetSelectedStock(commodity)}>
+              <DataTableCell
+                className={classes.clickable}
+                onClick={() => handleSetSelectedStock(commodity)}
+              >
                 <div className={classes.commodityTableLastDispensing}>
                   <span>{commodity.lastDispensingDate}</span>
                   <span>{commodity.lastDispensingAmount}</span>

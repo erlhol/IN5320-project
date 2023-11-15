@@ -5,6 +5,10 @@
   min-height: 100vh;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .inlineFlex {
   display: flex;
   align-items: center;
