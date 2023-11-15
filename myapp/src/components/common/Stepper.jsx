@@ -88,19 +88,19 @@ const Stepper = props => {
   const updateStockInApi = async () =>
     selectedCommodities.forEach(async commodity => {
       const dataElement = commodity.commodityId;
-      await updateStock({
+      const updateStockParameter = {
         dataElement,
         period: getCurrentMonth(),
-        categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
-        value: getValuesBasedOnTitel(commodity).updatedStockBalance,
-      });
-      props.title === "New dispensing" &&
-        updateStock({
-          dataElement,
-          period: getCurrentMonth(),
-          categoryOptionCombo: "rQLFnNXXIL0", //comsumption
-          value: Number(commodity.consumption) + Number(commodity.inputValue),
-        });
+        endBalanceValue: getValuesBasedOnTitel(commodity).updatedStockBalance,
+      };
+
+      // update consumption if it is a dispensing
+      if (props.title === "New dispensing")
+        updateStockParameter["consumptionValue"] =
+          Number(commodity.consumption) + Number(commodity.inputValue);
+
+      //console.log("updateStockParameter", updateStockParameter);
+      await updateStock(updateStockParameter);
     });
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest

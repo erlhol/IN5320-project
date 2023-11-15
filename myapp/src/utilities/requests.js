@@ -4,6 +4,8 @@ import { getCurrentMonth } from "./dates";
 
 const orgUnit = "OZ1olxsTyNa"; // id for our organization
 const lifeSavingComDataSet = "ULowA8V3ucd"; // id for life saving commodities
+const consumption = "rQLFnNXXIL0";
+const endBalance = "J2Qf1jtZuj8";
 
 // 1. For Stock Display
 export const stockRequest = {
@@ -32,12 +34,6 @@ export const stockRequest = {
   },
 };
 
-export const getCurrentAccount = {
-  me: {
-    resource: "me",
-  },
-};
-
 // 2. For Transaction Display
 export const transRequest = {
   transactionHistory: {
@@ -50,14 +46,19 @@ export const stockUpdateRequest = {
   resource: "dataValueSets",
   dataSet: lifeSavingComDataSet,
   type: "create",
-  data: ({ dataElement, value, categoryOptionCombo, period }) => ({
+  data: ({ dataElement, consumptionValue, endBalanceValue, period }) => ({
     orgUnit: orgUnit,
     period,
     dataValues: [
       {
         dataElement,
-        categoryOptionCombo,
-        value,
+        categoryOptionCombo: consumption,
+        value: consumptionValue,
+      },
+      {
+        dataElement,
+        categoryOptionCombo: endBalance,
+        value: endBalanceValue,
       },
     ],
   }),

@@ -29,12 +29,6 @@ const TransactionHistory = props => {
   useEffect(() => {
     const updatedTrans = categorizeTransByDate(filterTrans());
     setVisibleTrans(updatedTrans);
-
-    const result = getMostRecentTransactionsObject(
-      categorizeTransByDate(props.transactionData),
-      4
-    );
-    console.log("result", result);
   }, [
     selectedPeriod,
     selectedCommodity,
