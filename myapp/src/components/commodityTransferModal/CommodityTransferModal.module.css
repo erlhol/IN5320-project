@@ -1,5 +1,5 @@
 .commodityTransferModalContent {
-  min-height: 400px;
+  height: 50vh;
   margin-top: 24px;
   gap: 32px;
   display: flex;
@@ -55,6 +55,6 @@
   margin-right: 8px;
 }
 
-.recipientInputContainer{
+.recipientInputContainer {
   flex: 1;
 }

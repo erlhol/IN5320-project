@@ -26,14 +26,13 @@ const StockInventory = props => {
 
   const handleOnModalChange = value => {
     setModalPresent(value);
-
   };
 
   useEffect(() => {
-    if (modalPresent != null ) {
+    if (modalPresent != null) {
       setPreselectedCommodities([]);
     }
-  }, [modalPresent])
+  }, [modalPresent]);
 
   const handleOnChangeSearch = searchobj => {
     setCurrentSearch(searchobj.value);
@@ -93,7 +92,9 @@ const StockInventory = props => {
             refetchData={refetchData}
             allCommodities={data.commodities?.dataSetElements}
             existedTransData={props.transactionData}
-            preselectedCommodities={preselectedCommodities}
+            preselectedCommodities={
+              modalPresent === "dispensing" ? preselectedCommodities : []
+            }
           />
         )}
         {alertBarText && (

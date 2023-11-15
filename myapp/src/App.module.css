@@ -40,7 +40,8 @@
 .filterOptions {
   display: flex;
   gap: 12px;
-  margin: 32px 0;
+  margin-top: 32px;
+  margin-bottom: 48px;
 }
 
 .alertBar {
@@ -192,14 +193,6 @@
   margin-top: 30px;
   margin-bottom: 15px;
   font-weight: 500;
-}
-
-.commodityTableLastDispensing :first-child {
-  color: gray;
-}
-
-.commodityTableLastDispensing :nth-child(2) {
-  margin-left: 10px;
 }
 
 .detailViewInfoBoxesContainer {
