@@ -8,13 +8,13 @@ const QuickActionCard = () => {
   return (
     <Card className={classes.quickActionCard}>
       <div className={classes.quickAction}>
-        <IconExportItems24 color={colors.grey600} />
-        <div className={classes.quickActionText}>New Dispensing</div>
+        <IconImportItems24 color={colors.grey600} />
+        <div className={classes.quickActionText}>Add Stock</div>
       </div>
       <div className={classes.divider} />
       <div className={classes.quickAction}>
-        <IconImportItems24 color={colors.grey600} />
-        <div className={classes.quickActionText}>Add Stock</div>
+        <IconExportItems24 color={colors.grey600} />
+        <div className={classes.quickActionText}>New Dispensing</div>
       </div>
     </Card>
   );

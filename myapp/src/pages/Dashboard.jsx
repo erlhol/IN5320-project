@@ -155,7 +155,7 @@ const Dashboard = ({ transactionData }) => {
         </Box>
         <Box>
           <div className={classes.transactionsHeader}>
-            <h2>Recent transactions</h2>
+            <h2>Recent Transactions</h2>
             <Button secondary name="secondary">
               Show all
             </Button>

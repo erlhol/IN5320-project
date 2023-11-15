@@ -6,17 +6,26 @@
 }
 
 .sidenav {
-  min-width: 200px;
-  width: 280px;
-  min-height: 100vh;
+  width: 220px;
+  height: 100%;
   padding-top: 24px;
+  position: fixed;
 }
 
 .content {
   flex-grow: 1;
-  min-height: 100vh;
+  margin-left: 220px;
   padding: 26px 16px 0;
   background: #f8f9fa;
+}
+
+@media (min-width: 1280px) {
+  .sidenav {
+    width: 280px;
+  }
+  .content {
+    margin-left: 280px;
+  }
 }
 
 .header {
