@@ -5,8 +5,8 @@ import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import CommodityTable from "../components/stockOverview/CommodityTable";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { mergeCommodityAndValue } from "../utilities/dataUtility.js";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth } from "../utilities/dates";
@@ -48,7 +48,11 @@ const Inventory = props => {
       props.transactionData
     );
 
-    const filteredStockData = filterBySearch(stockData, currentSearch);
+    const filteredStockData = filterBySearch(
+      stockData,
+      currentSearch,
+      "commodityName"
+    );
     return (
       <>
         {/* The header and the add stock button */}

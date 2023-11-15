@@ -24,9 +24,9 @@ import {
 } from "../../utilities/requests";
 import {
   mergeCommodityAndValue,
-  getDateAndTime,
-  checkDateInFuture
+  checkDateInFuture,
 } from "../../utilities/dataUtility";
+import { getDateAndTime } from "../../utilities/dates";
 
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
@@ -71,20 +71,38 @@ const CommodityTransferModal = props => {
     props.onClose();
   };
 
-  //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
-  const updateStockInApi = async commoditiesToSubmit => {
-    commoditiesToSubmit.forEach(async commodity => {
-      await updateStock({
-        dataElement: commodity.commodityId,
-        categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
+  const updateStockInApi = async () => {
+    const dataValues = [];
+    selectedCommodities.forEach(async commodity => {
+      const dataElement = commodity.commodityId;
+      const period = getCurrentMonth();
+      const endBalanceInfo = {
+        dataElement,
+        period,
         value: calculateValuesForRequest(commodity).updatedStockBalance,
-      });
+        categoryOptionCombo: "J2Qf1jtZuj8",
+      };
+      dataValues.push(endBalanceInfo);
+
+      // update consumption if it is a dispensing
+      if (props.dispensing) {
+        const consumptionInfo = {
+          dataElement,
+          period,
+          value: Number(commodity.consumption) + Number(commodity.amount),
+          categoryOptionCombo: "rQLFnNXXIL0",
+        };
+        dataValues.push(consumptionInfo);
+      }
+
+      //console.log("updateStockParameter", updateStockParameter);
+      await updateStock({ dataValues, period });
     });
   };
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
-  const updateTransInApi = async (commoditiesToSubmit, datetime, recipient) => {
-    const commodities = commoditiesToSubmit.map(commodity => {
+  const updateTransInApi = async () => {
+    const commodities = selectedCommodities.map(commodity => {
       const { updatedStockBalance, transAmount } =
         calculateValuesForRequest(commodity);
       return {
@@ -94,12 +112,13 @@ const CommodityTransferModal = props => {
         balanceAfterTrans: updatedStockBalance,
       };
     });
-    const { date, time } = getDateAndTime(new Date(datetime));
+
+    const { date, time } = getDateAndTime(new Date());
     let transData = {
       type: props.dispensing ? "Dispensing" : "Restock",
       commodities,
-      dispensedBy: props.dispensing ? data.me.displayName : "",
-      dispensedTo: props.dispensing ? recipient : data.me.displayName,
+      dispensedBy: data.me.displayName,
+      dispensedTo: "test",
       date,
       time,
     };
