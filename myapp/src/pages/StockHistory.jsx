@@ -6,44 +6,51 @@ import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import Dropdown from "../components/common/Dropdown";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import {
-  getTransByCommodityName,
-  getTransByPeriod,
-  getTransByRecipient,
-  categorizeTransByDate,
-} from "../utilities/dataUtility";
+import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
+import { search } from "../utilities/search";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState({
-    start: new Date("2023-08-01"),
-    end: new Date("2023-11-30"),
-  });
-  const [selectedReceipient, setSelectedReceipient] = useState(null);
-  const [selectedCommodity, setSelectedCommodity] = useState(null);
+  const [selectedPeriod, setSelectedPeriod] = useState([
+    new Date("2023-08-01"),
+    new Date("2023-11-30"),
+  ]);
+  const [selectedReceipient, setSelectedReceipient] = useState("");
+  const [selectedCommodity, setSelectedCommodity] = useState("");
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
   const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
-    const filteredByPeriod = getTransByPeriod(
-      visibleTrans,
-      selectedPeriod.start,
-      selectedPeriod.end
-    );
-    const filteredByName = getTransByCommodityName(
-      filteredByPeriod,
-      selectedCommodity
-    );
-    const filteredByReceipient = getTransByRecipient(
-      filteredByName,
-      selectedReceipient
-    );
+    const updatedTrans = categorizeTransByDate(filterTrans());
+    setVisibleTrans(updatedTrans);
+  }, [
+    selectedPeriod,
+    selectedCommodity,
+    selectedReceipient,
+    props.transactionData,
+  ]);
 
-    setVisibleTrans(filteredByReceipient);
-  }, [selectedPeriod, selectedCommodity, selectedReceipient]);
+
+  const filterTrans = () => {
+    return props?.transactionData?.filter(transaction => {
+      const transactionDate = new Date(transaction.date);
+      return (
+        transaction?.commodities?.some(commodity =>
+          commodity?.commodityName
+            .toLowerCase()
+            .includes(selectedCommodity.toLowerCase())
+        ) &&
+        transaction.dispensedTo
+          .toLowerCase()
+          .includes(selectedReceipient.toLowerCase()) &&
+        transactionDate >= new Date(selectedPeriod[0]) &&
+        transactionDate <= new Date(selectedPeriod[1])
+      );
+    });
+  };
 
   const handleOnModalChange = () => {
     setModalPresent(previousValue => !previousValue);
