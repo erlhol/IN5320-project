@@ -20,8 +20,8 @@ const Sidenav = () => {
       <MenuItem
         icon={<IconHome16></IconHome16>}
         label="Dashboard"
-        active={location.pathname === "/"}
-        onClick={() => handleClick("/")}
+        active={location.pathname === "/dashboard"}
+        onClick={() => handleClick("/dashboard")}
       />
       <MenuItem
         label="Stock Overview"

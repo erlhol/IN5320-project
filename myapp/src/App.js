@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
@@ -13,7 +18,7 @@ import StockHistory from "./pages/StockHistory";
 const MyApp = () => {
   return (
     <Router>
-      <MyAppContent></MyAppContent>
+      <MyAppContent />
     </Router>
   );
 };
@@ -72,7 +77,7 @@ const MyAppContent = () => {
         </div>
         <section className={classes.content}>
           <Routes>
-            <Route exact path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/stock-overview"
               element={<Inventory transactionData={transactionData} />}
@@ -86,6 +91,7 @@ const MyAppContent = () => {
                 />
               }
             />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </section>
       </div>
