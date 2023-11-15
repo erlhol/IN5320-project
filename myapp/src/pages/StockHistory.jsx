@@ -4,12 +4,8 @@ import { AlertBar } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import Dropdown from "../components/common/Dropdown";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
-import {
-  categorizeTransByDate,
-  getMostRecentTransactionsObject,
-} from "../utilities/dataUtility";
+import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";

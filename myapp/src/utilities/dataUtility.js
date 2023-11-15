@@ -86,33 +86,29 @@ export const categorizeTransByDate = transactions => {
   const sortedData = Object.fromEntries(dataArray);
   return sortedData;
 };
+// For dashBoard:
+// export const getMostRecentTransactionsObject = (
+//   categorizedTrans,
+//   nrTranNeeded
+// ) => {
+//   const mostRecentTransactionsObject = {};
+//   let nrTransactionsAdded = 0;
 
-export const getMostRecentTransactionsObject = (
-  categorizedTrans,
-  nrTranNeeded
-) => {
-  const mostRecentTransactionsObject = {};
-  let nrTransactionsAdded = 0;
+//   for (const date in categorizedTrans) {
+//     const transactions = categorizedTrans[date];
+//     transactions.forEach(trans => {
+//       if (!mostRecentTransactionsObject[date])
+//         mostRecentTransactionsObject[date] = [];
+//       if (nrTransactionsAdded < nrTranNeeded) {
+//         mostRecentTransactionsObject[date].push(trans);
+//         nrTransactionsAdded++;
+//       }
+//     });
+//     if (nrTransactionsAdded === nrTranNeeded) break;
+//   }
 
-  for (const date in categorizedTrans) {
-    const transactions = categorizedTrans[date];
-    const sortedTransactions = transactions.sort(
-      (a, b) => new Date(b.date) - new Date(a.date)
-    );
-
-    sortedTransactions.forEach(trans => {
-      if (!mostRecentTransactionsObject[date])
-        mostRecentTransactionsObject[date] = [];
-      if (nrTransactionsAdded < nrTranNeeded) {
-        mostRecentTransactionsObject[date].push(trans);
-        nrTransactionsAdded++;
-      }
-    });
-    if (nrTransactionsAdded === nrTranNeeded) break;
-  }
-
-  return mostRecentTransactionsObject;
-};
+//   return mostRecentTransactionsObject;
+// };
 
 export const checkDateInFuture = dateString => {
   const date = new Date(dateString);
