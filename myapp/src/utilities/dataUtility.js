@@ -86,29 +86,30 @@ export const categorizeTransByDate = transactions => {
   const sortedData = Object.fromEntries(dataArray);
   return sortedData;
 };
-// For dashBoard:
-// export const getMostRecentTransactionsObject = (
-//   categorizedTrans,
-//   nrTranNeeded
-// ) => {
-//   const mostRecentTransactionsObject = {};
-//   let nrTransactionsAdded = 0;
 
-//   for (const date in categorizedTrans) {
-//     const transactions = categorizedTrans[date];
-//     transactions.forEach(trans => {
-//       if (!mostRecentTransactionsObject[date])
-//         mostRecentTransactionsObject[date] = [];
-//       if (nrTransactionsAdded < nrTranNeeded) {
-//         mostRecentTransactionsObject[date].push(trans);
-//         nrTransactionsAdded++;
-//       }
-//     });
-//     if (nrTransactionsAdded === nrTranNeeded) break;
-//   }
+// To show a specific number recent transactions :
+export const getMostRecentTransactionsObject = (
+  categorizedTrans,
+  nrTranNeeded
+) => {
+  const mostRecentTransactionsObject = {};
+  let nrTransactionsAdded = 0;
 
-//   return mostRecentTransactionsObject;
-// };
+  for (const date in categorizedTrans) {
+    const transactions = categorizedTrans[date];
+    transactions.forEach(trans => {
+      if (!mostRecentTransactionsObject[date])
+        mostRecentTransactionsObject[date] = [];
+      if (nrTransactionsAdded < nrTranNeeded) {
+        mostRecentTransactionsObject[date].push(trans);
+        nrTransactionsAdded++;
+      }
+    });
+    if (nrTransactionsAdded === nrTranNeeded) break;
+  }
+
+  return mostRecentTransactionsObject;
+};
 
 export const checkDateInFuture = dateString => {
   const date = new Date(dateString);

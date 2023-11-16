@@ -14,23 +14,18 @@ import TransactionsForDay from "../stockHistory/TransactionsForDay";
 import {
   getTransByPeriod,
   getTransByCommodityName,
+  getMostRecentTransactionsObject,
 } from "../../utilities/dataUtility";
 
 const StockDetail = props => {
-  const selectedPeriod = {
-    start: new Date("2023-08-01"),
-    end: new Date("2023-11-30"),
-  };
-
-  const filteredByPeriod = getTransByPeriod(
+  const filteredByName = getTransByCommodityName(
     props.transactions,
-    selectedPeriod.start,
-    selectedPeriod.end
+    props.selectedStock.commodityName
   );
 
-  const filteredByName = getTransByCommodityName(
-    filteredByPeriod,
-    props.selectedStock.commodityName
+  const firstFiveTransactions = getMostRecentTransactionsObject(
+    filteredByName,
+    5
   );
 
   return (
@@ -60,12 +55,12 @@ const StockDetail = props => {
           commodity={props.selectedStock}
           monthlyStockData={props.monthlyStockData}
         ></ConsumptionHistoryChart>
-        <h3>Transaction History</h3>
-        {Object.keys(filteredByName).map((date, i) => (
+        <h3>Recent Transactions</h3>
+        {Object.keys(firstFiveTransactions).map((date, i) => (
           <TransactionsForDay
             key={i}
             date={date}
-            transactions={filteredByName[date]}
+            transactions={firstFiveTransactions[date]}
           ></TransactionsForDay>
         ))}
       </ModalContent>
