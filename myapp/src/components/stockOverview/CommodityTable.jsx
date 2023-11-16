@@ -16,7 +16,9 @@ import {
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
 import StockDetail from "./StockDetail";
-import classes from "../../App.module.css";
+import PreselectionHeader from "./PreselectionHeader";
+import classes from "./StockOverview.module.css";
+import commonclasses from "../../App.module.css";
 
 const CommodityTable = props => {
   const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
@@ -84,6 +86,77 @@ const CommodityTable = props => {
       : props.commodities.length / pageSize;
   };
 
+  const preselectCommodity = commodity => {
+    if (
+      !props.preselectedCommodities.some(
+        item => item.commodityName === commodity.commodityName
+      )
+    ) {
+      props.setPreselectedCommodities([
+        ...props.preselectedCommodities,
+        commodity,
+      ]);
+    } else {
+      props.setPreselectedCommodities(
+        props.preselectedCommodities.filter(
+          item => item.commodityName !== commodity.commodityName
+        )
+      );
+    }
+  };
+
+  const checked = commodity =>
+    props.preselectedCommodities.some(
+      item => item.commodityName === commodity.commodityName
+    );
+
+  const checkSelectAllCheckmark = () => {
+    return displayedCommodities.every(commodity =>
+      props.preselectedCommodities.some(
+        selected => selected.commodityName === commodity.commodityName
+      )
+    );
+  };
+
+  const preselectAllCommodities = () => {
+    // Check if all displayed commodities are already selected
+    const areAllDisplayedSelected = displayedCommodities.every(commodity =>
+      props.preselectedCommodities.some(
+        selected => selected.commodityName === commodity.commodityName
+      )
+    );
+
+    if (!areAllDisplayedSelected) {
+      //  Select all displayed commodities that are not selected ye
+      const newSelections = displayedCommodities.filter(
+        displayed =>
+          !props.preselectedCommodities.some(
+            selected => selected.commodityName === displayed.commodityName
+          )
+      );
+
+      props.setPreselectedCommodities([
+        ...props.preselectedCommodities,
+        ...newSelections,
+      ]);
+    } else {
+      // Deselect all displayed commodities
+      props.setPreselectedCommodities(
+        props.preselectedCommodities.filter(
+          selected =>
+            !displayedCommodities.some(
+              displayed => displayed.commodityName === selected.commodityName
+            )
+        )
+      );
+    }
+  };
+
+  const dispenseSingleCommodity = commodity => {
+    props.setPreselectedCommodities([commodity]);
+    props.handleOnModalChange("dispensing");
+  };
+
   return (
     <>
       {selectedStock && (
@@ -92,118 +165,135 @@ const CommodityTable = props => {
           onClose={handleSetSelectedStock}
           transactions={props.transactions}
           monthlyStockData={props.monthlyStockData}
-        ></StockDetail>
+        />
       )}
-      <DataTable>
-        <TableHead>
-          <DataTableRow>
-            <DataTableColumnHeader width={spacers.dp48}>
-              <Checkbox onChange={() => console.log("Toggle All")} />
-            </DataTableColumnHeader>
-            <DataTableColumnHeader
-              onSortIconClick={() => handleSort("commodityName")}
-              sortDirection={
-                sortOrder.column === "commodityName"
-                  ? sortOrder.order
-                  : "default"
-              }
-              sortIconTitle="Sort by Commodity Name"
-            >
-              Commodity Name
-            </DataTableColumnHeader>
-            <DataTableColumnHeader
-              onSortIconClick={() => handleSort("endBalance")}
-              sortDirection={
-                sortOrder.column === "endBalance" ? sortOrder.order : "default"
-              }
-              sortIconTitle="Sort by Stock Balance"
-              width={spacers.dp192}
-            >
-              Stock Balance
-            </DataTableColumnHeader>
-            <DataTableColumnHeader
-              onSortIconClick={() => handleSort("consumption")}
-              sortDirection={
-                sortOrder.column === "consumption" ? sortOrder.order : "default"
-              }
-              sortIconTitle="Sort by Consumption"
-              width={spacers.dp192}
-            >
-              Monthly Consumption
-            </DataTableColumnHeader>
-            <DataTableColumnHeader width={spacers.dp256}>
-              Last Dispensing
-            </DataTableColumnHeader>
-            <DataTableColumnHeader width={spacers.dp128} />
-          </DataTableRow>
-        </TableHead>
-
-        <TableBody>
-          {displayedCommodities.map((commodity, i) => (
-            <DataTableRow key={i}>
-              {/* if the row should be selected, add the property: selected */}
-              <DataTableCell width={spacers.dp48}>
+      <div className={classes.commodityTable}>
+        {props.preselectedCommodities.length > 0 && (
+          <PreselectionHeader
+            number={props.preselectedCommodities.length}
+            handleOnModalChange={props.handleOnModalChange}
+          />
+        )}
+        <DataTable>
+          <TableHead>
+            <DataTableRow>
+              <DataTableColumnHeader width={spacers.dp48}>
                 <Checkbox
-                  onChange={() => console.log("Toggle selected ID " + i)}
-                  value={"" + i}
+                  onChange={() => preselectAllCommodities()}
+                  checked={checkSelectAllCheckmark()}
                 />
-                {/* if it should be checked, add the property: checked */}
-              </DataTableCell>
-              <DataTableCell
-                className={classes.clickable}
-                onClick={() => handleSetSelectedStock(commodity)}
+              </DataTableColumnHeader>
+              <DataTableColumnHeader
+                onSortIconClick={() => handleSort("commodityName")}
+                sortDirection={
+                  sortOrder.column === "commodityName"
+                    ? sortOrder.order
+                    : "default"
+                }
+                sortIconTitle="Sort by Commodity Name"
               >
-                {commodity.commodityName}
-              </DataTableCell>
-              <DataTableCell
-                className={classes.clickable}
-                onClick={() => handleSetSelectedStock(commodity)}
+                Commodity Name
+              </DataTableColumnHeader>
+              <DataTableColumnHeader
+                onSortIconClick={() => handleSort("endBalance")}
+                sortDirection={
+                  sortOrder.column === "endBalance"
+                    ? sortOrder.order
+                    : "default"
+                }
+                sortIconTitle="Sort by Stock Balance"
+                width={spacers.dp192}
               >
-                {commodity.endBalance}
-              </DataTableCell>
-              <DataTableCell
-                className={classes.clickable}
-                onClick={() => handleSetSelectedStock(commodity)}
+                Stock Balance
+              </DataTableColumnHeader>
+              <DataTableColumnHeader
+                onSortIconClick={() => handleSort("consumption")}
+                sortDirection={
+                  sortOrder.column === "consumption"
+                    ? sortOrder.order
+                    : "default"
+                }
+                sortIconTitle="Sort by Consumption"
+                width={spacers.dp192}
               >
-                {commodity.consumption}
-              </DataTableCell>
-              <DataTableCell
-                className={classes.clickable}
-                onClick={() => handleSetSelectedStock(commodity)}
-              >
-                <div className={classes.commodityTableLastDispensing}>
-                  <span>{commodity.lastDispensingDate}</span>
-                  <span>{commodity.lastDispensingAmount}</span>
-                </div>
-              </DataTableCell>
-              <DataTableCell>
-                <Button
-                  name="Small button"
-                  onClick={() => console.log("Dispense ID " + i)}
-                  small
-                  value="default"
+                Monthly Consumption
+              </DataTableColumnHeader>
+              <DataTableColumnHeader width={spacers.dp256}>
+                Last Dispensing
+              </DataTableColumnHeader>
+              <DataTableColumnHeader width={spacers.dp128} />
+            </DataTableRow>
+          </TableHead>
+          <TableBody>
+            {displayedCommodities.map((commodity, i) => (
+              <DataTableRow key={i}>
+                {/* if the row should be selected, add the property: selected */}
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  width={spacers.dp48}
                 >
-                  Dispense
-                </Button>
+                  <Checkbox
+                    onChange={() => preselectCommodity(commodity)}
+                    checked={checked(commodity)}
+                  />
+                  {/* if it should be checked, add the property: checked */}
+                </DataTableCell>
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  onClick={() => handleSetSelectedStock(commodity)}
+                >
+                  {commodity.commodityName}
+                </DataTableCell>
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  onClick={() => handleSetSelectedStock(commodity)}
+                >
+                  {commodity.endBalance}
+                </DataTableCell>
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  onClick={() => handleSetSelectedStock(commodity)}
+                >
+                  {commodity.consumption}
+                </DataTableCell>
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  onClick={() => handleSetSelectedStock(commodity)}
+                >
+                  <div className={classes.commodityTableLastDispensing}>
+                    <span>{commodity.lastDispensingDate}</span>
+                    <span>{commodity.lastDispensingAmount}</span>
+                  </div>
+                </DataTableCell>
+                <DataTableCell className={classes.dispenseColumn}>
+                  <Button
+                    name="Small button"
+                    onClick={() => dispenseSingleCommodity(commodity)}
+                    small
+                    value="default"
+                  >
+                    Dispense
+                  </Button>
+                </DataTableCell>
+              </DataTableRow>
+            ))}
+          </TableBody>
+          <TableFoot>
+            <DataTableRow>
+              <DataTableCell colSpan="6">
+                <Pagination
+                  onPageChange={handleCurrentPage}
+                  onPageSizeChange={handlePageSize}
+                  page={props.currentPage}
+                  pageCount={pageCount()}
+                  pageSize={pageSize}
+                  total={props.commodities.length}
+                />
               </DataTableCell>
             </DataTableRow>
-          ))}
-        </TableBody>
-        <TableFoot>
-          <DataTableRow>
-            <DataTableCell colSpan="6">
-              <Pagination
-                onPageChange={handleCurrentPage}
-                onPageSizeChange={handlePageSize}
-                page={props.currentPage}
-                pageCount={pageCount()}
-                pageSize={pageSize}
-                total={props.commodities.length}
-              />
-            </DataTableCell>
-          </DataTableRow>
-        </TableFoot>
-      </DataTable>
+          </TableFoot>
+        </DataTable>
+      </div>
     </>
   );
 };

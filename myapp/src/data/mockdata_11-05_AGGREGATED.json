@@ -1,5 +1,20 @@
 [
   {
+    "type": "Restock",
+    "commodities": [
+      {
+        "commodityId": "Boy3QwztgeZ",
+        "commodityName": "Amoxicillin",
+        "amount": "+0",
+        "balanceAfterTrans": 5
+      }
+    ],
+    "dispensedBy": "",
+    "dispensedTo": "John abel",
+    "date": "11/8/2023",
+    "time": "18:14:00"
+  },
+  {
     "date": "11/10/2023",
     "time": "22:35:53",
     "type": "Dispensing",

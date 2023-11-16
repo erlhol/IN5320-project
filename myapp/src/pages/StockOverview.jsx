@@ -1,17 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { CircularLoader } from "@dhis2/ui";
+import { CircularLoader, AlertBar } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import Stepper from "../components/common/Stepper";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
   mergeDataForDashboard,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
@@ -25,6 +25,8 @@ const StockInventory = props => {
   const [currentSearch, setCurrentSearch] = useState("");
   const [monthlyStockData, setMonthlyStockData] = useState(null);
   const [filteredStockData, setFilteredStockData] = useState(null);
+  const [preselectedCommodities, setPreselectedCommodities] = useState([]);
+  const [alertBarText, setAlertBarText] = useState("");
 
   const {
     loading: allMonthsLoading,
@@ -46,9 +48,15 @@ const StockInventory = props => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
+  const handleOnModalChange = value => {
+    setModalPresent(value);
   };
+
+  useEffect(() => {
+    if (modalPresent != null) {
+      setPreselectedCommodities([]);
+    }
+  }, [modalPresent]);
 
   const handleOnChangeSearch = searchobj => {
     setCurrentSearch(searchobj.value);
@@ -70,13 +78,30 @@ const StockInventory = props => {
       );
       setMonthlyStockData(mStockData);
 
-      const filteredStock = filterBySearch(stockData, currentSearch);
+      const filteredStock = filterBySearch(
+        stockData,
+        currentSearch,
+        "commodityName"
+      );
       setFilteredStockData(filteredStock);
     }
-  }, [allMonthsLoading, monthlyStockLoading, allMonthsData, monthlyStock]);
+  }, [
+    allMonthsLoading,
+    monthlyStockLoading,
+    allMonthsData,
+    monthlyStock,
+    currentSearch,
+  ]);
+
+  const refetchData = dispensing => {
+    refetch();
+    setAlertBarText(
+      dispensing ? "Dispensing successful" : "Restock successful"
+    );
+  };
 
   if (allMonthsError)
-    return <span>ERROR in getting stock data: {error.message}</span>;
+    return <span>ERROR in getting stock data: {allMonthsError.message}</span>;
 
   return (
     <>
@@ -110,17 +135,28 @@ const StockInventory = props => {
               monthlyStockData={monthlyStockData}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
+              preselectedCommodities={preselectedCommodities}
+              setPreselectedCommodities={setPreselectedCommodities}
+              handleOnModalChange={handleOnModalChange}
             />
           )}
 
           {modalPresent && (
-            <Stepper
-              title={"Add stock"}
+            <CommodityTransferModal
               onClose={handleOnModalChange}
-              refetchData={refetch}
-              allCommodities={data.commodities?.dataSetElements}
+              dispensing={modalPresent === "dispensing"}
+              refetchData={refetchData}
+              allCommodities={allMonthsData.commodities?.dataSetElements}
               existedTransData={props.transactionData}
+              preselectedCommodities={
+                modalPresent === "dispensing" ? preselectedCommodities : []
+              }
             />
+          )}
+          {alertBarText && (
+            <AlertBar type="success" className={classes.alertBar}>
+              {alertBarText}
+            </AlertBar>
           )}
         </>
       )}

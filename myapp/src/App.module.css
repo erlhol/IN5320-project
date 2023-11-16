@@ -44,10 +44,29 @@
 .filterOptions {
   display: flex;
   gap: 12px;
-  margin: 32px 0;
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+
+.alertBar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.modalSubHeadline {
+  font-size: 18px;
+  font-weight: 500;
+  color: #212934;
 }
 
 /* stock history */
+.transactionItemContainer :hover {
+  background-color: #eaebec;
+}
+
 .transactionItemContainer :hover {
   background-color: #eaebec;
 }
@@ -138,9 +157,14 @@
   color: gray;
 }
 
-.green-text {
-  color: green;
+.datePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
+
+/* transactionDetailModal */
 
 .transDetailModalWrapper {
   min-width: 400px;
@@ -182,14 +206,6 @@
   margin-top: 30px;
   margin-bottom: 15px;
   font-weight: 500;
-}
-
-.commodityTableLastDispensing :first-child {
-  color: gray;
-}
-
-.commodityTableLastDispensing :nth-child(2) {
-  margin-left: 10px;
 }
 
 .detailViewInfoBoxesContainer {

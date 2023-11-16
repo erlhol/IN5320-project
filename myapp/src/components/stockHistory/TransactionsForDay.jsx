@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, IconArrowRight24, IconMore24, Tag, Box } from "@dhis2/ui";
+import { Card, IconMore24, Tag, Box } from "@dhis2/ui";
 import classes from "../../App.module.css";
 import TransactionDetailModal from "./TransactionDetailModal";
 
@@ -97,7 +97,7 @@ const TransactionsForDay = props => {
                       ) : null}
                     </div>
                   </div>
-                  <IconMore24></IconMore24>
+                  <IconMore24 />
                 </Card>
               </Box>
             </div>

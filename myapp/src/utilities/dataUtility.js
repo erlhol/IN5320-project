@@ -38,8 +38,10 @@ export const mergeCommodityAndValue = (
 
       // Get the lastDispencing data from transactionData
       if (transactionData) {
-        const matchedTrans = transactionData?.find(trans =>
-          trans.commodities.some(c => c.commodityId === dataValue.dataElement)
+        const matchedTrans = transactionData?.find(
+          trans =>
+            trans.type === "Dispensing" &&
+            trans.commodities.some(c => c.commodityId === dataValue.dataElement)
         );
         const matchedTransCommodity = matchedTrans?.commodities?.find(
           c => c.commodityId === dataValue.dataElement
@@ -48,7 +50,7 @@ export const mergeCommodityAndValue = (
         if (matchedTransCommodity) {
           commodityData[key].lastDispensingDate = matchedTrans.date;
           commodityData[key].lastDispensingAmount =
-            matchedTransCommodity?.amount;
+            matchedTransCommodity?.amount.toString().slice(1);
         }
       }
     }
@@ -71,38 +73,6 @@ export const mergeDataForDashboard = (dataValues, dataSetElements) => {
   return groupedCommodities;
 };
 
-export const getTransByPeriod = (transactions, startDate, endDate) => {
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const dateFormatted = new Date(date);
-    if (dateFormatted >= startDate && dateFormatted <= endDate)
-      filteredTrans[date] = transactions[date];
-  }
-  return filteredTrans;
-};
-
-export const getTransByCommodityName = (transactions, commodityNameQuery) => {
-  if (!commodityNameQuery) return transactions;
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const transactionsForDate = transactions[date];
-
-    const matchedTrans = transactionsForDate.filter(transaction =>
-      transaction.commodities.some(commodity =>
-        commodity.commodityName
-          .toLowerCase()
-          .includes(commodityNameQuery.toLowerCase())
-      )
-    );
-
-    if (matchedTrans.length !== 0) {
-      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
-      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
-    }
-  }
-  return filteredTrans;
-};
-
 export const categorizeTransByDate = transactions => {
   const categorized = {};
   transactions.forEach(transaction => {
@@ -110,27 +80,38 @@ export const categorizeTransByDate = transactions => {
     if (!categorized[date]) categorized[date] = [];
     categorized[date].push(transaction);
   });
-  return categorized;
+
+  const dataArray = Object.entries(categorized);
+  dataArray.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+  const sortedData = Object.fromEntries(dataArray);
+  return sortedData;
 };
+// For dashBoard:
+// export const getMostRecentTransactionsObject = (
+//   categorizedTrans,
+//   nrTranNeeded
+// ) => {
+//   const mostRecentTransactionsObject = {};
+//   let nrTransactionsAdded = 0;
 
-export const getTransByRecipient = (transactions, recipient) => {
-  if (!recipient) return transactions;
-  const filteredTrans = {};
-  for (const date in transactions) {
-    const matchedTrans = transactions[date].filter(
-      transaction => transaction.dispensedTo === recipient
-    );
-    if (matchedTrans.length !== 0) filteredTrans[date] = matchedTrans;
-  }
-  return filteredTrans;
-};
+//   for (const date in categorizedTrans) {
+//     const transactions = categorizedTrans[date];
+//     transactions.forEach(trans => {
+//       if (!mostRecentTransactionsObject[date])
+//         mostRecentTransactionsObject[date] = [];
+//       if (nrTransactionsAdded < nrTranNeeded) {
+//         mostRecentTransactionsObject[date].push(trans);
+//         nrTransactionsAdded++;
+//       }
+//     });
+//     if (nrTransactionsAdded === nrTranNeeded) break;
+//   }
 
-export const getDateAndTime = dateTime => {
-  const month = (dateTime.getMonth() + 1).toString();
-  const day = dateTime.getDate().toString();
-  const year = dateTime.getFullYear().toString();
+//   return mostRecentTransactionsObject;
+// };
 
-  const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
-  const time = dateTime.toLocaleTimeString();
-  return { date, time };
+export const checkDateInFuture = dateString => {
+  const date = new Date(dateString);
+  const now = new Date();
+  return date > now;
 };
