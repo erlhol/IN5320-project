@@ -6,11 +6,11 @@ import {
   IconWarningFilled24,
   IconCalendar24,
   CircularLoader,
+  AlertBar,
 } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
 
 import {
-  categorizeTransByDate,
   mergeCommodityAndValue,
   getCommoditiesLowInStock,
   mergeDataForDashboard,
@@ -27,14 +27,16 @@ import MostDispensed from "../components/dashboard/charts/MostDispensed";
 import DispensingPerCommodity from "../components/dashboard/charts/DispensingPerCommodity";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import StockAmountModal from "../components/dashboard/StockAmountModal";
+import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 
-const Dashboard = ({ transactionData }) => {
+const Dashboard = ({ transactionData, refetchTransData }) => {
   const recentTransactionsObject = getRecentTransactions(transactionData);
 
   const {
     loading: currentStockLoading,
     error: currentStockError,
     data: currentStock,
+    refetch: refetchCurrentStock,
   } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
@@ -44,6 +46,7 @@ const Dashboard = ({ transactionData }) => {
     loading: monthlyStockLoading,
     error: monthlyStockError,
     data: monthlyStock,
+    refetch: refetchMonthlyStock,
   } = useDataQuery(stockRequest, {
     variables: { period: periods },
   });
@@ -54,6 +57,9 @@ const Dashboard = ({ transactionData }) => {
   const [stockAmountModalPresent, setStockAmountModalPresent] = useState(false);
   const [stockAmountModalTitle, setStockAmountModalTitle] = useState("");
   const [stockAmountModalData, setStockAmountModalData] = useState([]);
+
+  const [transferModalPresent, setTransferModalPresent] = useState(null);
+  const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
     if (currentStock && monthlyStock) {
@@ -83,6 +89,10 @@ const Dashboard = ({ transactionData }) => {
     setStockAmountModalData(data);
   };
 
+  const handleOnTransferModalChange = value => {
+    setTransferModalPresent(value);
+  };
+
   const daysUntilNext14th = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
@@ -101,6 +111,19 @@ const Dashboard = ({ transactionData }) => {
     }
 
     return daysUntilNext14th;
+  };
+
+  const refetchData = async dispensing => {
+    refetchCurrentStock();
+    refetchMonthlyStock();
+    await refetchTransData();
+    setAlertBarText(
+      dispensing ? "Dispensing successful" : "Restock successful"
+    );
+  };
+
+  const onAlertHidden = () => {
+    setAlertBarText("");
   };
 
   if (!monthlyStockData && !lowInStockCommodities)
@@ -125,7 +148,9 @@ const Dashboard = ({ transactionData }) => {
       <Header title="Dashboard" />
       <Box className={classes.dashboardContent}>
         <Box className={classes.dashboardFirstRow}>
-          <QuickActionCard />
+          <QuickActionCard
+            onTransferModalChange={handleOnTransferModalChange}
+          />
           <StatisticCard
             title="Commodities low in stock"
             number={lowInStockCommodities.length}
@@ -177,6 +202,25 @@ const Dashboard = ({ transactionData }) => {
           commodities={stockAmountModalData}
           closeStockInfoModal={() => setStockAmountModalPresent(false)}
         />
+      )}
+      {transferModalPresent != null && (
+        <CommodityTransferModal
+          onClose={handleOnTransferModalChange}
+          dispensing={transferModalPresent === "dispensing"}
+          refetchData={refetchData}
+          allCommodities={currentStock.commodities?.dataSetElements}
+          existedTransData={transactionData}
+          preselectedCommodities={[]}
+        />
+      )}
+      {alertBarText && (
+        <AlertBar
+          type="success"
+          className={classes.alertBar}
+          onHidden={onAlertHidden}
+        >
+          {alertBarText}
+        </AlertBar>
       )}
     </>
   );

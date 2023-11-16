@@ -46,6 +46,10 @@ const StockInventory = props => {
     );
   };
 
+  const onAlertHidden = () => {
+    setAlertBarText("");
+  };
+
   if (error) return <span>ERROR in getting stock data: {error.message}</span>;
   if (loading) return <CircularLoader large />;
   if (data) {
@@ -102,7 +106,11 @@ const StockInventory = props => {
           />
         )}
         {alertBarText && (
-          <AlertBar type="success" className={classes.alertBar}>
+          <AlertBar
+            type="success"
+            className={classes.alertBar}
+            onHidden={onAlertHidden}
+          >
             {alertBarText}
           </AlertBar>
         )}

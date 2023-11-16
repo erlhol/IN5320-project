@@ -79,7 +79,12 @@ const MyAppContent = () => {
           <Routes>
             <Route
               path="/dashboard"
-              element={<Dashboard transactionData={transactionData} />}
+              element={
+                <Dashboard
+                  transactionData={transactionData}
+                  refetchTransData={() => refetch()}
+                />
+              }
             />
             <Route
               path="/stock-overview"

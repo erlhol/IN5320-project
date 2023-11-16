@@ -64,6 +64,10 @@ const TransactionHistory = props => {
     );
   };
 
+  const onAlertHidden = () => {
+    setAlertBarText("");
+  };
+
   return (
     <>
       {/* Navigation buttons to add stock or new dispensing */}
@@ -123,7 +127,11 @@ const TransactionHistory = props => {
         />
       )}
       {alertBarText && (
-        <AlertBar type="success" className={classes.alertBar}>
+        <AlertBar
+          type="success"
+          className={classes.alertBar}
+          onHidden={onAlertHidden}
+        >
           {alertBarText}
         </AlertBar>
       )}
