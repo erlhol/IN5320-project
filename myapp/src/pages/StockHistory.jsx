@@ -9,7 +9,7 @@ import CommodityTransferModal from "../components/commodityTransferModal/Commodi
 import { search } from "../utilities/search";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 // NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
-import DatePicker from "react-multi-date-picker";
+import CustomDatePicker from "../components/common/CustomDatePicker";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
@@ -52,7 +52,7 @@ const TransactionHistory = props => {
         ) &&
         search(transaction, selectedReceipient, "dispensedTo") &&
         transactionDate >= new Date(selectedPeriod[0]) &&
-        transactionDate <= new Date(selectedPeriod[1])
+        transactionDate <= new Date(selectedPeriod[1] ? selectedPeriod[1] : selectedPeriod[0])
       );
     });
   };
@@ -88,16 +88,7 @@ const TransactionHistory = props => {
           onSearchChange={onSearch}
           currentSearch={selectedReceipient}
         />
-        <div className={classes.datePicker}>
-          <IconCalendar24 />
-          <DatePicker
-            value={selectedPeriod}
-            onChange={values => setSelectedPeriod(values)}
-            format="MM/DD/YYYY"
-            range
-            style={{ height: "40px", width: "210px" }}
-          />
-        </div>
+        <CustomDatePicker selectedPeriod={selectedPeriod} setSelectedPeriod={setSelectedPeriod} />
       </div>
 
       {/* Multiple transactions can be listed here: */}
