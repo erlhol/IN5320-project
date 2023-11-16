@@ -41,6 +41,10 @@ export function getCurrentMonth() {
   return year.toString() + month.toString().padStart(2, "0");
 }
 
+export function getMonthAbbrivation() {
+  return months.slice(1, month.length).map(month => month.slice(0, 3));
+}
+
 export function getStockHistoryDefaultPeriod() {
   const currentMonth = month.toString().padStart(2, "0");
   const nextMonthNr = month === 12 ? 1 : month + 1;

@@ -12,7 +12,7 @@ import { transRequest, transUpdateRequest } from "./utilities/requests";
 import mockData from "./data/mockdata_11-05_AGGREGATED.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
-import Inventory from "./pages/StockOverview";
+import StockInventory from "./pages/StockOverview";
 import StockHistory from "./pages/StockHistory";
 
 const MyApp = () => {
@@ -80,7 +80,7 @@ const MyAppContent = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/stock-overview"
-              element={<Inventory transactionData={transactionData} />}
+              element={<StockInventory transactionData={transactionData} />}
             />
             <Route
               path="/stock-history"

@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.inlineFlex {
+  display: flex;
+  align-items: center;
+}
+
 .sidenav {
   width: 300px;
   min-height: 100vh;
@@ -35,7 +40,8 @@
 .filterOptions {
   display: flex;
   gap: 12px;
-  margin: 32px 0;
+  margin-top: 32px;
+  margin-bottom: 48px;
 }
 
 .alertBar {
@@ -198,18 +204,16 @@
   font-weight: 500;
 }
 
-/* commodityTable */
-
-.commodityTableLastDispensing :first-child {
-  color: gray;
-}
-
-.commodityTableLastDispensing :nth-child(2) {
-  margin-left: 10px;
-}
-
 .detailViewInfoBoxesContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+}
+
+/* StockDetail */
+
+/* Stock detail information cards */
+
+.subtitleDetailView {
+  margin-top: 48px;
 }

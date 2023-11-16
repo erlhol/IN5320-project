@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useMemo } from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalTitle,
@@ -26,15 +25,17 @@ import {
   mergeCommodityAndValue,
   checkDateInFuture,
 } from "../../utilities/dataUtility";
-import { getDateAndTime } from "../../utilities/dates";
 
+import { getDateAndTime } from "../../utilities/dates";
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
   const { loading, error, data } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
-  const [selectedCommodities, setSelectedCommodities] = useState([]);
+  const [selectedCommodities, setSelectedCommodities] = useState(
+    props.preselectedCommodities
+  );
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
 
   // Add commodity to array
@@ -42,7 +43,6 @@ const CommodityTransferModal = props => {
     const commodityWithRestockAmount = {
       ...commodity,
       amount: "",
-      inputError: "Enter amount to restock",
     };
     setSelectedCommodities([
       ...selectedCommodities,
@@ -71,9 +71,9 @@ const CommodityTransferModal = props => {
     props.onClose();
   };
 
-  const updateStockInApi = async () => {
+  const updateStockInApi = async commoditiesToSubmit => {
     const dataValues = [];
-    selectedCommodities.forEach(async commodity => {
+    commoditiesToSubmit.forEach(async commodity => {
       const dataElement = commodity.commodityId;
       const period = getCurrentMonth();
       const endBalanceInfo = {
@@ -101,8 +101,8 @@ const CommodityTransferModal = props => {
   };
 
   //For each commodity in selectedCommodities, add a transaction to the existedTransData array, then update the transaction with transUpdateRequest
-  const updateTransInApi = async () => {
-    const commodities = selectedCommodities.map(commodity => {
+  const updateTransInApi = async (commoditiesToSubmit, datetime, recipient) => {
+    const commodities = commoditiesToSubmit.map(commodity => {
       const { updatedStockBalance, transAmount } =
         calculateValuesForRequest(commodity);
       return {
@@ -113,12 +113,12 @@ const CommodityTransferModal = props => {
       };
     });
 
-    const { date, time } = getDateAndTime(new Date());
+    const { date, time } = getDateAndTime(new Date(datetime));
     let transData = {
       type: props.dispensing ? "Dispensing" : "Restock",
       commodities,
-      dispensedBy: data.me.displayName,
-      dispensedTo: "test",
+      dispensedBy: props.dispensing ? data.me.displayName : "",
+      dispensedTo: props.dispensing ? recipient : data.me.displayName,
       date,
       time,
     };
@@ -152,7 +152,12 @@ const CommodityTransferModal = props => {
   const dateTimeValidation = value => {
     if (checkDateInFuture(value)) {
       return "Date and time must not be in the future";
-    } else if (value == "" || value == undefined || value == null) {
+    } else if (
+      value == "" ||
+      value == undefined ||
+      value == null ||
+      value == "none"
+    ) {
       return "Date and time is required";
     } else {
       return "";
