@@ -12,7 +12,6 @@ import ConsumptionHistoryChart from "./ConsumptionHistoryChart";
 import DetailViewInfoBox from "../common/DetailViewInfoBox";
 import TransactionsForDay from "../stockHistory/TransactionsForDay";
 import {
-  getTransByPeriod,
   getTransByCommodityName,
   getMostRecentTransactionsObject,
 } from "../../utilities/dataUtility";
@@ -23,6 +22,7 @@ const StockDetail = props => {
     props.selectedStock.commodityName
   );
 
+  // TODO: merge with dashboard function
   const firstFiveTransactions = getMostRecentTransactionsObject(
     filteredByName,
     5
@@ -37,31 +37,27 @@ const StockDetail = props => {
             infoString={"Stock balance"}
             infoValue={props.selectedStock.endBalance}
             icon={<IconDimensionData16></IconDimensionData16>}
-          ></DetailViewInfoBox>
+          />
           <DetailViewInfoBox
             infoString={"Consumption"}
             infoValue={props.selectedStock.consumption}
             icon={<IconArrowDown24></IconArrowDown24>}
-          ></DetailViewInfoBox>
+          />
           <DetailViewInfoBox
             infoString={"Last dispensing"}
             infoValue={props.selectedStock.lastDispensingAmount}
             infoValueText={props.selectedStock.lastDispensingDate}
             icon={<IconCalendar24 />}
-          ></DetailViewInfoBox>
+          />
         </div>
         <h3 className={classes.subtitleDetailView}>Consumption History</h3>
         <ConsumptionHistoryChart
           commodity={props.selectedStock}
           monthlyStockData={props.monthlyStockData}
-        ></ConsumptionHistoryChart>
+        />
         <h3>Recent Transactions</h3>
         {Object.keys(firstFiveTransactions).map((date, i) => (
-          <TransactionsForDay
-            key={i}
-            date={date}
-            transactions={firstFiveTransactions[date]}
-          ></TransactionsForDay>
+          <TransactionsForDay key={i} date={date} />
         ))}
       </ModalContent>
     </Modal>
