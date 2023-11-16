@@ -26,7 +26,7 @@ import {
   checkDateInFuture,
 } from "../../utilities/dataUtility";
 
-import {getDateAndTime} from "../../utilities/dates";
+import { getDateAndTime } from "../../utilities/dates";
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
@@ -67,19 +67,36 @@ const CommodityTransferModal = props => {
       values.datetime,
       values.recipient
     );
-    console.log(values);
     await props.refetchData(props.dispensing);
     props.onClose();
   };
 
-  //For each commodity in selectedCommodities, update  the endBalance to endBalance+inputValue(add stock) or endBalance-inputValue(despencing)
   const updateStockInApi = async commoditiesToSubmit => {
+    const dataValues = [];
     commoditiesToSubmit.forEach(async commodity => {
-      await updateStock({
-        dataElement: commodity.commodityId,
-        categoryOptionCombo: "J2Qf1jtZuj8", //endBalance
+      const dataElement = commodity.commodityId;
+      const period = getCurrentMonth();
+      const endBalanceInfo = {
+        dataElement,
+        period,
         value: calculateValuesForRequest(commodity).updatedStockBalance,
-      });
+        categoryOptionCombo: "J2Qf1jtZuj8",
+      };
+      dataValues.push(endBalanceInfo);
+
+      // update consumption if it is a dispensing
+      if (props.dispensing) {
+        const consumptionInfo = {
+          dataElement,
+          period,
+          value: Number(commodity.consumption) + Number(commodity.amount),
+          categoryOptionCombo: "rQLFnNXXIL0",
+        };
+        dataValues.push(consumptionInfo);
+      }
+
+      //console.log("updateStockParameter", updateStockParameter);
+      await updateStock({ dataValues, period });
     });
   };
 
@@ -95,6 +112,7 @@ const CommodityTransferModal = props => {
         balanceAfterTrans: updatedStockBalance,
       };
     });
+
     const { date, time } = getDateAndTime(new Date(datetime));
     let transData = {
       type: props.dispensing ? "Dispensing" : "Restock",
