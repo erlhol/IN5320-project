@@ -1,43 +1,59 @@
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import { getMonthAbbrivation } from "../../utilities/dates";
+import { CircularLoader } from "@dhis2/ui";
+
 const ConsumptionHistoryChart = props => {
-  console.log(props);
-  const chosenCommodityId = props.commodity.commodityId;
-  const chosenCommodityData = props.monthlyStockData
-    .map(innerArray =>
-      innerArray.filter(
-        commodity => chosenCommodityId === commodity.commodityId
+  const [chartData, setChartData] = useState(null);
+
+  useEffect(() => {
+    const chosenCommodityId = props.commodity.commodityId;
+    const chosenCommodityData = props.monthlyStockData
+      .map(innerArray =>
+        innerArray.filter(
+          commodity => chosenCommodityId === commodity.commodityId
+        )
       )
-    )
-    .map(arr => arr[0].consumption);
+      .map(arr => arr[0].consumption);
 
-  const chartOptions = {
-    chart: {
-      id: props.commodity.commodityName,
-    },
-    xaxis: {
-      categories: getMonthAbbrivation(),
-    },
-    markers: {
-      size: 4,
-    },
-  };
+    setChartData({
+      chartOptions: {
+        chart: {
+          id: props.commodity.commodityName,
+        },
+        dataLabels: {
+          enabled: true,
+        },
+        xaxis: {
+          categories: getMonthAbbrivation(),
+        },
+        stroke: {
+          curve: "straight",
+          width: 3,
+        },
+        markers: {
+          size: 1,
+        },
+      },
+      chartSeries: [
+        {
+          name: "Consumption",
+          data: chosenCommodityData,
+        },
+      ],
+    });
+  }, [props]);
 
-  const chartSeries = [
-    {
-      name: "Consumption",
-      data: chosenCommodityData,
-    },
-  ];
-
-  return (
-    <ReactApexChart
-      options={chartOptions}
-      series={chartSeries}
-      type="line"
-      height={"200"}
-      width={"750"}
-    />
-  );
+  if (chartData) {
+    return (
+      <ReactApexChart
+        options={chartData.chartOptions}
+        series={chartData.chartSeries}
+        type="line"
+        height={200}
+      />
+    );
+  }
+  return <CircularLoader />;
 };
 export default ConsumptionHistoryChart;
