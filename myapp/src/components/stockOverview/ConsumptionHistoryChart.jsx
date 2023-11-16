@@ -1,6 +1,16 @@
 import ReactApexChart from "react-apexcharts";
 import { getMonthAbbrivation } from "../../utilities/dates";
 const ConsumptionHistoryChart = props => {
+  console.log(props);
+  const chosenCommodityId = props.commodity.commodityId;
+  const chosenCommodityData = props.monthlyStockData
+    .map(innerArray =>
+      innerArray.filter(
+        commodity => chosenCommodityId === commodity.commodityId
+      )
+    )
+    .map(arr => arr[0].consumption);
+
   const chartOptions = {
     chart: {
       id: props.commodity.commodityName,
@@ -17,7 +27,7 @@ const ConsumptionHistoryChart = props => {
   const chartSeries = [
     {
       name: "Monthly Consumption",
-      data: [100, 250, 100, 10, 290, 225, 225, 75, 90, 280, 260, 250],
+      data: chosenCommodityData,
     },
   ];
 

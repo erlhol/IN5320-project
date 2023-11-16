@@ -58,6 +58,7 @@ const StockDetail = props => {
         <h3 className={classes.subtitleDetailView}>Consumption History</h3>
         <ConsumptionHistoryChart
           commodity={props.selectedStock}
+          monthlyStockData={props.monthlyStockData}
         ></ConsumptionHistoryChart>
         <h3>Transaction History</h3>
         {Object.keys(filteredByName).map((date, i) => (

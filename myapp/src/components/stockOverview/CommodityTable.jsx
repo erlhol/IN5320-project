@@ -91,6 +91,7 @@ const CommodityTable = props => {
           selectedStock={selectedStock}
           onClose={handleSetSelectedStock}
           transactions={props.transactions}
+          monthlyStockData={props.monthlyStockData}
         ></StockDetail>
       )}
       <DataTable>
