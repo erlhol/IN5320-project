@@ -61,14 +61,14 @@ const CommodityTransferModal = props => {
 
   const onSubmit = async values => {
     const commoditiesToSubmit = mergeFormWithCommodities(values);
-    //await updateStockInApi(commoditiesToSubmit);
-    // await updateTransInApi(
-    //   commoditiesToSubmit,
-    //   values.datetime,
-    //   values.recipient
-    // );
-    //await props.refetchData(props.dispensing);
-    //props.onClose();
+    await updateStockInApi(commoditiesToSubmit);
+    await updateTransInApi(
+      commoditiesToSubmit,
+      values.datetime,
+      values.recipient
+    );
+    await props.refetchData(props.dispensing);
+    props.onClose();
     getDateAndTime(new Date(values.datetime));
   };
 
@@ -199,7 +199,7 @@ const CommodityTransferModal = props => {
                       name="datetime"
                       label="Date and time"
                       component={InputFieldFF}
-                      initialValue={parseDateTime(new Date())}
+                      initialValue="none"
                       type="datetime-local"
                       required
                       validate={dateTimeValidation}
