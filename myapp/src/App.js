@@ -3,6 +3,7 @@ import {
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
@@ -15,9 +16,20 @@ import Dashboard from "./pages/Dashboard";
 import StockInventory from "./pages/StockOverview";
 import StockHistory from "./pages/StockHistory";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.getElementById("appContainer")?.scrollIntoView();
+  }, [pathname]);
+
+  return null;
+};
+
 const MyApp = () => {
   return (
     <Router>
+      <ScrollToTop />
       <MyAppContent />
     </Router>
   );
@@ -71,7 +83,7 @@ const MyAppContent = () => {
   if (data) {
     let transactionData = data.transactionHistory.data;
     return (
-      <div className={classes.container}>
+      <div className={classes.container} id="appContainer">
         <div className={classes.sidenav}>
           <Sidenav />
         </div>
