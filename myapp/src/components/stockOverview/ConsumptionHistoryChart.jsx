@@ -23,7 +23,6 @@ const ConsumptionHistoryChart = props => {
     },
   };
 
-  // TODO: replace the mock data with real values
   const chartSeries = [
     {
       name: "Monthly Consumption",
