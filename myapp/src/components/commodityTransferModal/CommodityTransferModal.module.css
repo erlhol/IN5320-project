@@ -1,0 +1,60 @@
+.commodityTransferModalContent {
+  height: 50vh;
+  margin-top: 24px;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commoditySelectorContainer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.commoditySingleSelect {
+  flex-grow: 1;
+}
+
+.commodityTable {
+  width: 100%;
+}
+
+.commodityNameCell {
+  width: 45%;
+}
+
+.amountCell {
+  display: flex;
+  align-items: center;
+  height: auto !important;
+  padding: 8px 8px !important ;
+}
+
+.amountInput {
+  width: 100px;
+}
+
+.removeButton {
+  margin-left: auto;
+}
+
+.amountInput > p {
+  /*Validation Text*/
+  width: max-content;
+}
+
+.dateTimeRecipientContainer {
+  display: flex;
+  width: 100%;
+}
+
+.dateTimePicker {
+  flex: 1 !important;
+  margin-right: 8px;
+}
+
+.recipientInputContainer {
+  flex: 1;
+}
