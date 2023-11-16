@@ -25,7 +25,7 @@ const ConsumptionHistoryChart = props => {
 
   const chartSeries = [
     {
-      name: "Monthly Consumption",
+      name: "Consumption",
       data: chosenCommodityData,
     },
   ];
