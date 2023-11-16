@@ -92,15 +92,18 @@ const CommodityTable = props => {
         item => item.commodityName === commodity.commodityName
       )
     ) {
-      const new_array = [...props.preselectedCommodities, commodity];
-      props.setPreselectedCommodities(new_array);
-      props.setNumberMultiselected(new_array.length);
+      const updatedPreselectCommodities = [
+        ...props.preselectedCommodities,
+        commodity,
+      ];
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     } else {
-      const new_array = props.preselectedCommodities.filter(
+      const updatedPreselectCommodities = props.preselectedCommodities.filter(
         item => item.commodityName !== commodity.commodityName
       );
-      props.setPreselectedCommodities(new_array);
-      props.setNumberMultiselected(new_array.length);
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     }
   };
 
@@ -134,9 +137,12 @@ const CommodityTable = props => {
           )
       );
 
-      const new_list = [...props.preselectedCommodities, ...newSelections];
-      props.setPreselectedCommodities(new_list);
-      props.setNumberMultiselected(new_list.length);
+      const updatedPreselectCommodities = [
+        ...props.preselectedCommodities,
+        ...newSelections,
+      ];
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     } else {
       // Deselect all displayed commodities
       props.setPreselectedCommodities(
