@@ -8,8 +8,12 @@ import React, { useState, useEffect } from "react";
 import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import { transRequest, transUpdateRequest } from "./utilities/requests";
-import mockData from "./data/mockdata_11-05_AGGREGATED.json";
+import {
+  transRequest,
+  transUpdateRequest,
+  stockUpdateRequest,
+} from "./utilities/requests";
+import mockData from "./data/mockdata_11_16.json";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import StockInventory from "./pages/StockOverview";
@@ -28,19 +32,19 @@ const MyAppContent = () => {
   // const [updateStock] = useDataMutation(stockUpdateRequest);
   // useEffect(() => {
   //   const endBalances = {
-  //     Boy3QwztgeZ: "0",
-  //     hJNC4Bu2Mkv: "0",
-  //     BXgDHhPdFVU: "16",
-  //     Dkapzovo8Ll: "28",
-  //     dY4OCwl0Y7Y: "24",
-  //     W1XtQhP6BGd: "197",
-  //     o15CyZiTvxa: "98",
-  //     f27B1G7B3m3: "54",
-  //     TCfIC3NDgQK: "392",
-  //     WjDoIR27f31: "97",
+  //     Boy3QwztgeZ: "5",
+  //     hJNC4Bu2Mkv: "120",
+  //     BXgDHhPdFVU: "143",
+  //     Dkapzovo8Ll: "35",
+  //     dY4OCwl0Y7Y: "130",
+  //     W1XtQhP6BGd: "162",
+  //     o15CyZiTvxa: "100",
+  //     f27B1G7B3m3: "120",
+  //     TCfIC3NDgQK: "113",
+  //     WjDoIR27f31: "155",
   //     Lz8MM2Y9DNh: "42",
-  //     d9vZ3HOlzAd: "40",
-  //     JIazHXNSnFJ: "32",
+  //     d9vZ3HOlzAd: "141",
+  //     JIazHXNSnFJ: "112",
   //   };
 
   //   for (const commodity in endBalances) {
