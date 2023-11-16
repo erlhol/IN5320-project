@@ -11,12 +11,12 @@ const CustomDatePicker = ({ selectedPeriod, setSelectedPeriod }) => {
     setSelectedPeriod([newDates[0], newDates[1]]);
   };
 
-  const datePickerRef = useRef(); // Ref für den DatePicker
+  const datePickerRef = useRef();
 
   return (
     <div>
       <DatePicker
-        ref={datePickerRef} // Ref zuweisen
+        ref={datePickerRef} 
         value={[selectedPeriod[0], selectedPeriod[1]]}
         onChange={e => handleChange(e)}
         range
