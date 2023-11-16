@@ -24,22 +24,23 @@ const StockInventory = props => {
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
 
-  const { loading, error, data, refetch } = useDataQuery(stockRequest, {
+  const {
+    loading: allMonthsLoading,
+    error: allMonthsError,
+    data: allMonthsData,
+    refetch,
+  } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
-
-  console.log(data);
 
   const periods = getPeriods().map(period => period[1]);
   const {
     loading: monthlyStockLoading,
     error: monthlyStockError,
-    montly_data: monthlyStock,
+    data: monthlyStock,
   } = useDataQuery(stockRequest, {
     variables: { period: periods },
   });
-
-  console.log(monthlyStock);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -52,14 +53,23 @@ const StockInventory = props => {
     setCurrentPage(1); // Need to reset the current page to avoid searching out of bounds error
   };
 
-  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
-  if (loading) return <CircularLoader large />;
-  if (data) {
+  if (allMonthsError)
+    return <span>ERROR in getting stock data: {error.message}</span>;
+  if (allMonthsLoading) return <CircularLoader large />;
+  if (allMonthsData) {
     const stockData = mergeCommodityAndValue(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements,
+      allMonthsData.dataValues?.dataValues,
+      allMonthsData.commodities?.dataSetElements,
       props.transactionData
     );
+
+    /*
+    const monthlyStockData = mergeDataForDashboard(
+      monthlyStock.dataValues?.dataValues,
+      monthlyStock.commodities?.dataSetElements
+    );
+    console.log;
+    */
 
     const filteredStockData = filterBySearch(stockData, currentSearch);
     return (
