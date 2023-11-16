@@ -26,7 +26,7 @@ import {
   checkDateInFuture,
 } from "../../utilities/dataUtility";
 
-import { getDateAndTime, parseDateTime } from "../../utilities/dates";
+import { getDateAndTime } from "../../utilities/dates";
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
@@ -69,7 +69,6 @@ const CommodityTransferModal = props => {
     );
     await props.refetchData(props.dispensing);
     props.onClose();
-    getDateAndTime(new Date(values.datetime));
   };
 
   const updateStockInApi = async commoditiesToSubmit => {
