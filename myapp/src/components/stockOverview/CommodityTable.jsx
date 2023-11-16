@@ -92,16 +92,15 @@ const CommodityTable = props => {
         item => item.commodityName === commodity.commodityName
       )
     ) {
-      props.setPreselectedCommodities([
-        ...props.preselectedCommodities,
-        commodity,
-      ]);
+      const new_array = [...props.preselectedCommodities, commodity];
+      props.setPreselectedCommodities(new_array);
+      props.setNumberMultiselected(new_array.length);
     } else {
-      props.setPreselectedCommodities(
-        props.preselectedCommodities.filter(
-          item => item.commodityName !== commodity.commodityName
-        )
+      const new_array = props.preselectedCommodities.filter(
+        item => item.commodityName !== commodity.commodityName
       );
+      props.setPreselectedCommodities(new_array);
+      props.setNumberMultiselected(new_array.length);
     }
   };
 
@@ -135,10 +134,9 @@ const CommodityTable = props => {
           )
       );
 
-      props.setPreselectedCommodities([
-        ...props.preselectedCommodities,
-        ...newSelections,
-      ]);
+      const new_list = [...props.preselectedCommodities, ...newSelections];
+      props.setPreselectedCommodities(new_list);
+      props.setNumberMultiselected(new_list.length);
     } else {
       // Deselect all displayed commodities
       props.setPreselectedCommodities(
@@ -149,6 +147,7 @@ const CommodityTable = props => {
             )
         )
       );
+      props.setNumberMultiselected(0);
     }
   };
 
@@ -166,9 +165,10 @@ const CommodityTable = props => {
         />
       )}
       <div className={classes.commodityTable}>
-        {props.preselectedCommodities.length > 0 && (
+        {/* Change the test*/}
+        {props.numberMultiSelected > 0 && (
           <PreselectionHeader
-            number={props.preselectedCommodities.length}
+            number={props.numberMultiSelected}
             handleOnModalChange={props.handleOnModalChange}
           />
         )}
