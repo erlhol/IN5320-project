@@ -115,3 +115,35 @@ export const checkDateInFuture = dateString => {
   const now = new Date();
   return date > now;
 };
+
+export const getTransByPeriod = (transactions, startDate, endDate) => {
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const dateFormatted = new Date(date);
+    if (dateFormatted >= startDate && dateFormatted <= endDate)
+      filteredTrans[date] = transactions[date];
+  }
+  return filteredTrans;
+};
+
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
+  if (!commodityNameQuery) return transactions;
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const transactionsForDate = transactions[date];
+
+    const matchedTrans = transactionsForDate.filter(transaction =>
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
+      )
+    );
+
+    if (matchedTrans.length !== 0) {
+      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
+      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
+    }
+  }
+  return filteredTrans;
+};
