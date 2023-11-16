@@ -9,6 +9,7 @@ import {
   AlertBar,
 } from "@dhis2/ui";
 import { useDataQuery } from "@dhis2/app-runtime";
+import { useNavigate } from "react-router-dom";
 
 import {
   mergeCommodityAndValue,
@@ -30,6 +31,8 @@ import StockAmountModal from "../components/dashboard/StockAmountModal";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 
 const Dashboard = ({ transactionData, refetchTransData }) => {
+  const navigate = useNavigate();
+
   const recentTransactionsObject = getRecentTransactions(transactionData);
 
   const {
@@ -126,6 +129,10 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
     setAlertBarText("");
   };
 
+  const navigateToStockHistory = () => {
+    navigate("/stock-history");
+  };
+
   if (!monthlyStockData && !lowInStockCommodities)
     return <CircularLoader large />;
 
@@ -181,7 +188,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
         <Box>
           <div className={classes.transactionsHeader}>
             <h2>Recent Transactions</h2>
-            <Button secondary name="secondary">
+            <Button secondary name="secondary" onClick={navigateToStockHistory}>
               Show all
             </Button>
           </div>

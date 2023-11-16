@@ -58,7 +58,7 @@ const TransactionsForDay = props => {
                       {getCommodityNames(transaction.commodities)}
                     </div>
                     <span className={classes.transactionTime}>
-                      {transaction.time.match(/(\d+:\d+):/)[1]}
+                      {transaction.time}
                     </span>
                   </div>
                   <div className={classes.transactionItemSecondHalf}>
