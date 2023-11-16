@@ -60,6 +60,20 @@ export const getDateAndTime = dateTime => {
   const day = dateTime.getDate().toString();
   const year = dateTime.getFullYear().toString();
   const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
-  const time = dateTime.toLocaleTimeString();
+  const time = dateTime.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+  });
+  console.log("date:", date);
+  console.log("time:", time);
   return { date, time };
+};
+
+export const parseDateTime = dateTime => {
+  const year = dateTime.getFullYear().toString();
+  const month = (dateTime.getMonth() + 1).toString().padStart(2, "0");
+  const day = dateTime.getDate().toString().padStart(2, "0");
+  const hours = dateTime.getHours().toString().padStart(2, "0");
+  const minutes = dateTime.getMinutes().toString().padStart(2, "0");
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
 };
