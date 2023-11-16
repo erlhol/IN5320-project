@@ -92,16 +92,18 @@ const CommodityTable = props => {
         item => item.commodityName === commodity.commodityName
       )
     ) {
-      props.setPreselectedCommodities([
+      const updatedPreselectCommodities = [
         ...props.preselectedCommodities,
         commodity,
-      ]);
+      ];
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     } else {
-      props.setPreselectedCommodities(
-        props.preselectedCommodities.filter(
-          item => item.commodityName !== commodity.commodityName
-        )
+      const updatedPreselectCommodities = props.preselectedCommodities.filter(
+        item => item.commodityName !== commodity.commodityName
       );
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     }
   };
 
@@ -135,10 +137,12 @@ const CommodityTable = props => {
           )
       );
 
-      props.setPreselectedCommodities([
+      const updatedPreselectCommodities = [
         ...props.preselectedCommodities,
         ...newSelections,
-      ]);
+      ];
+      props.setPreselectedCommodities(updatedPreselectCommodities);
+      props.setNumberMultiselected(updatedPreselectCommodities.length);
     } else {
       // Deselect all displayed commodities
       props.setPreselectedCommodities(
@@ -149,6 +153,7 @@ const CommodityTable = props => {
             )
         )
       );
+      props.setNumberMultiselected(0);
     }
   };
 
@@ -166,9 +171,10 @@ const CommodityTable = props => {
         />
       )}
       <div className={classes.commodityTable}>
-        {props.preselectedCommodities.length > 0 && (
+        {/* Change the test*/}
+        {props.numberMultiSelected > 0 && (
           <PreselectionHeader
-            number={props.preselectedCommodities.length}
+            number={props.numberMultiSelected}
             handleOnModalChange={props.handleOnModalChange}
           />
         )}
