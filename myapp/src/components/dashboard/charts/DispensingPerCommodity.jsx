@@ -8,6 +8,7 @@ import {
 } from "@dhis2/ui";
 import ReactApexChart from "react-apexcharts";
 import classes from "../../../App.module.css";
+import { getMonthAbbrivation } from "../../../utilities/dates";
 
 const DispensingPerCommodity = props => {
   const [seriesData, setSeriesData] = useState([
@@ -40,20 +41,7 @@ const DispensingPerCommodity = props => {
       size: 1,
     },
     xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: getMonthAbbrivation(),
     },
   };
 
