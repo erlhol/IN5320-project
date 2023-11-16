@@ -18,6 +18,8 @@ const StockInventory = props => {
   const [preselectedCommodities, setPreselectedCommodities] = useState([]);
   const [alertBarText, setAlertBarText] = useState("");
 
+  const [numberMultiSelected, setNumberMultiselected] = useState(0);
+
   const { loading, error, data, refetch } = useDataQuery(stockRequest, {
     variables: { period: getCurrentMonth() },
   });
@@ -31,6 +33,7 @@ const StockInventory = props => {
   useEffect(() => {
     if (modalPresent != null) {
       setPreselectedCommodities([]);
+      setNumberMultiselected(0);
     }
   }, [modalPresent]);
 
@@ -86,6 +89,8 @@ const StockInventory = props => {
           setCurrentPage={setCurrentPage}
           preselectedCommodities={preselectedCommodities}
           setPreselectedCommodities={setPreselectedCommodities}
+          numberMultiSelected={numberMultiSelected}
+          setNumberMultiselected={setNumberMultiselected}
           handleOnModalChange={handleOnModalChange}
         />
 
