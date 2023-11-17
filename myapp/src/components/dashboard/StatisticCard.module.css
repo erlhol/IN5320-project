@@ -1,0 +1,39 @@
+/* statistic card */
+
+.statisticCard {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.statisticHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statisticContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statisticContent svg {
+  width: 48px;
+  height: 48px;
+  margin-right: -4px;
+}
+
+.dayUntilDeliveryTitle {
+  margin-top: 6px;
+}
+
+.statisticNumber {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.statisticIcon {
+  width: 100px;
+}

@@ -14,13 +14,14 @@ import { useNavigate } from "react-router-dom";
 import {
   mergeCommodityAndValue,
   getCommoditiesLowInStock,
-  mergeDataForDashboard,
+  getMonthlyStockData,
   getMostRecentTransactionsObject,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
-import classes from "../App.module.css";
+import classes from "./Dashboard.module.css";
+import globalClasses from "../App.module.css";
 
 import Header from "../components/common/Header";
 import QuickActionCard from "../components/dashboard/QuickActionCard";
@@ -76,7 +77,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
         transactionData
       );
 
-      const monthlyStockData = mergeDataForDashboard(
+      const monthlyStockData = getMonthlyStockData(
         monthlyStock.dataValues?.dataValues,
         monthlyStock.commodities?.dataSetElements
       );
@@ -196,7 +197,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
               Show all
             </Button>
           </div>
-          <div className={classes.transactionsContainer}>
+          <div className={globalClasses.transactionsContainer}>
             {Object.keys(recentTransactionsObject).map((date, i) => (
               <TransactionsForDay
                 key={i}
@@ -227,7 +228,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
       {alertBarText && (
         <AlertBar
           type="success"
-          className={classes.alertBar}
+          className={globalClasses.alertBar}
           onHidden={onAlertHidden}
         >
           {alertBarText}

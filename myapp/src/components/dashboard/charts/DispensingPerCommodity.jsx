@@ -7,7 +7,9 @@ import {
   colors,
 } from "@dhis2/ui";
 import ReactApexChart from "react-apexcharts";
-import classes from "../../../App.module.css";
+import globalClasses from "../../../App.module.css";
+import classes from "./DispensingsPerCommodity.module.css";
+
 import { getMonthAbbrivation } from "../../../utilities/dates";
 
 const DispensingPerCommodity = props => {
@@ -95,9 +97,9 @@ const DispensingPerCommodity = props => {
   };
 
   return (
-    <Card className={classes.chartCard}>
-      <div className={classes.chartCardHeader}>
-        <div className={classes.dashboardCardTitle}>{props.title}</div>
+    <Card className={globalClasses.chartCard}>
+      <div className={globalClasses.chartCardHeader}>
+        <div className={globalClasses.dashboardCardTitle}>{props.title}</div>
         <MultiSelect
           dense
           clearable

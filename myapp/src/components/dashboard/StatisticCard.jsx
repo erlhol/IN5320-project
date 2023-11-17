@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button, IconInfo24 } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import classes from "./StatisticCard.module.css";
 
 const StatisticCard = props => {
   return (

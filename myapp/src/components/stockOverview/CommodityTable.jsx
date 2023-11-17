@@ -15,7 +15,7 @@ import {
   MenuItem,
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
-import StockDetail from "./StockDetail";
+import StockDetail from "./StockDetailModal";
 import PreselectionHeader from "./PreselectionHeader";
 import classes from "./StockOverview.module.css";
 import commonclasses from "../../App.module.css";

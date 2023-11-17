@@ -3,7 +3,8 @@ import { Card, SingleSelect, SingleSelectOption } from "@dhis2/ui";
 
 import ReactApexChart from "react-apexcharts";
 import { getNumberOfCurrentMonth, getMonth } from "../../../utilities/dates";
-import classes from "../../../App.module.css";
+import globalClasses from "../../../App.module.css";
+import classes from "./MostDispensed.module.css";
 
 const MostDispensed = props => {
   const [selectedMonth, setSelectedMonth] = useState(
@@ -62,9 +63,9 @@ const MostDispensed = props => {
   };
 
   return (
-    <Card className={classes.chartCard}>
-      <div className={classes.chartCardHeader}>
-        <div className={classes.dashboardCardTitle}>{props.title}</div>
+    <Card className={globalClasses.chartCard}>
+      <div className={globalClasses.chartCardHeader}>
+        <div className={globalClasses.dashboardCardTitle}>{props.title}</div>
         <SingleSelect
           dense
           className={classes.monthSelect}
