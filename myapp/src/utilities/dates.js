@@ -41,6 +41,10 @@ export function getCurrentMonth() {
   return year.toString() + month.toString().padStart(2, "0");
 }
 
+export function getYearMonth(date) {
+  const date = new Date(date);
+ return year.toString() + month.toString().padStart(2, "0");
+}
 export function getNumberOfCurrentMonth() {
   const date = new Date();
   return date.getMonth(); // to be consitant with starting at 1
@@ -71,12 +75,6 @@ export const getDateAndTime = dateTime => {
   return { date, time };
 };
 
-// For future use if we need to show default dateTime
-// export const parseDateTime = dateTime => {
-//   const year = dateTime.getFullYear().toString();
-//   const month = (dateTime.getMonth() + 1).toString().padStart(2, "0");
-//   const day = dateTime.getDate().toString().padStart(2, "0");
-//   const hours = dateTime.getHours().toString().padStart(2, "0");
-//   const minutes = dateTime.getMinutes().toString().padStart(2, "0");
-//   return `${year}-${month}-${day}T${hours}:${minutes}`;
-// };
+export function getCurrentMonthName() {
+  return months[getNumberOfCurrentMonth() + 1];
+}

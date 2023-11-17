@@ -48,9 +48,17 @@ export const mergeCommodityAndValue = (
         );
 
         if (matchedTransCommodity) {
-          commodityData[key].lastDispensingDate = matchedTrans.date;
-          commodityData[key].lastDispensingAmount =
-            matchedTransCommodity?.amount.toString().slice(1);
+          const moreRecent =
+            commodityData[key].lastDispensingDate === "" ||
+            new Date(matchedTrans.date) >
+              new Date(commodityData[key].lastDispensingDate);
+          commodityData[key].lastDispensingDate = moreRecent
+            ? matchedTrans.date
+            : commodityData[key].lastDispensingDate;
+
+          commodityData[key].lastDispensingAmount = moreRecent
+            ? matchedTransCommodity?.amount.toString().slice(1)
+            : commodityData[key].lastDispensingAmount;
         }
       }
     }
@@ -142,27 +150,6 @@ export const getCommoditiesLowInStock = (
     a.commodityName.localeCompare(b.commodityName)
   );
 };
-
-// export const getRecentTransactions = transactions => {
-//   const categorizedTransactions = categorizeTransByDate(transactions);
-//   const recentTransactionsObject = {};
-//   let nrTransactionsAdded = 0;
-
-//   for (const date in categorizedTransactions) {
-//     const transactionForDate = categorizedTransactions[date];
-
-//     transactionForDate.forEach(trans => {
-//       if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
-//       if (nrTransactionsAdded < 5) {
-//         recentTransactionsObject[date].push(trans);
-//         nrTransactionsAdded++;
-//       }
-//     });
-//     if (nrTransactionsAdded === 5) break;
-//   }
-
-//   return recentTransactionsObject;
-// };
 
 export const getTransByPeriod = (transactions, startDate, endDate) => {
   const filteredTrans = {};

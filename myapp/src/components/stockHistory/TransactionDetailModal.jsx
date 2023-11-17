@@ -12,7 +12,6 @@ import {
   TableRowHead,
   TableRow,
   TableCell,
-  Box,
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
 import globalClasses from "../../App.module.css";
@@ -51,7 +50,7 @@ export default function TransactionDetailModal(props) {
                   {props.transType} amount
                 </TableCellHead>
                 <TableCellHead className={classes.bold}>
-                  Updated stock
+                  New stock balance
                 </TableCellHead>
               </TableRowHead>
             </TableHead>

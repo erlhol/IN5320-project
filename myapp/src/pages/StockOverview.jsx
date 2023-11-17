@@ -17,13 +17,10 @@ import { getCurrentMonth, getPeriods } from "../utilities/dates";
 import { filterBySearch } from "../utilities/search";
 
 const StockInventory = props => {
-  const [transactions, setTransactions] = useState(() =>
-    categorizeTransByDate(props.transactionData)
-  );
-
   const [modalPresent, setModalPresent] = useState(false);
   const [currentSearch, setCurrentSearch] = useState("");
   const [monthlyStockData, setMonthlyStockData] = useState(null);
+  const [allCommodities, setAllCommodities] = useState(null);
   const [filteredStockData, setFilteredStockData] = useState(null);
   const [preselectedCommodities, setPreselectedCommodities] = useState([]);
   const [alertBarText, setAlertBarText] = useState("");
@@ -73,6 +70,7 @@ const StockInventory = props => {
         allMonthsData?.commodities?.dataSetElements,
         props.transactionData
       );
+      setAllCommodities(stockData);
 
       const mStockData = getMonthlyStockData(
         monthlyStock?.dataValues?.dataValues,
@@ -128,6 +126,8 @@ const StockInventory = props => {
             title="Stock Overview"
             primaryButtonLabel="Add Stock"
             primaryButtonClick={() => handleOnModalChange("add_stock")}
+            secondaryButtonLabel="New Dispensing"
+            secondaryButtonClick={() => handleOnModalChange("new_dispensing")}
           />
 
           {/* The input fields */}
@@ -142,7 +142,7 @@ const StockInventory = props => {
 
           {/* The commodity table */}
           <CommodityTable
-            transactions={transactions}
+            transactions={categorizeTransByDate(props.transactionData)}
             commodities={filteredStockData}
             monthlyStockData={monthlyStockData}
             currentPage={currentPage}
@@ -157,9 +157,13 @@ const StockInventory = props => {
           {modalPresent && (
             <CommodityTransferModal
               onClose={handleOnModalChange}
-              dispensing={modalPresent === "dispensing"}
+              dispensing={
+                modalPresent === "dispensing" ||
+                modalPresent === "new_dispensing"
+              }
               refetchData={refetchData}
-              allCommodities={allMonthsData.commodities?.dataSetElements}
+              allCommodities={allCommodities}
+              displayName={monthlyStock.me.displayName}
               existedTransData={props.transactionData}
               preselectedCommodities={
                 modalPresent === "dispensing" ? preselectedCommodities : []

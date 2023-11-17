@@ -6,7 +6,6 @@ import {
   ModalActions,
   Button,
   ButtonStrip,
-  CircularLoader,
   ReactFinalForm,
   InputFieldFF,
 } from "@dhis2/ui";
@@ -15,29 +14,21 @@ import CancelConfirmationModal from "./CancelConfirmationModal";
 import CommoditySelector from "./CommoditySelector";
 import modalStyles from "./CommodityTransferModal.module.css";
 import { getCurrentMonth } from "../../utilities/dates";
-import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
+import { useDataMutation } from "@dhis2/app-runtime";
 import {
-  stockRequest,
   stockUpdateRequest,
   transUpdateRequest,
 } from "../../utilities/requests";
-import {
-  mergeCommodityAndValue,
-  checkDateInFuture,
-} from "../../utilities/dataUtility";
+import { checkDateInFuture } from "../../utilities/dataUtility";
 
-import { getDateAndTime } from "../../utilities/dates";
+import { getDateAndTime, getYearMonth } from "../../utilities/dates";
 const CommodityTransferModal = props => {
   const [updateStock] = useDataMutation(stockUpdateRequest);
   const [updateTrans] = useDataMutation(transUpdateRequest);
-  const { loading, error, data } = useDataQuery(stockRequest, {
-    variables: { period: getCurrentMonth() },
-  });
   const [selectedCommodities, setSelectedCommodities] = useState(
     props.preselectedCommodities
   );
   const [cancelModalPresent, setCancelModalPresent] = useState(false);
-
   // Add commodity to array
   const addCommodity = commodity => {
     const commodityWithRestockAmount = {
@@ -61,7 +52,7 @@ const CommodityTransferModal = props => {
 
   const onSubmit = async values => {
     const commoditiesToSubmit = mergeFormWithCommodities(values);
-    await updateStockInApi(commoditiesToSubmit);
+    await updateStockInApi(commoditiesToSubmit, values.datetime);
     await updateTransInApi(
       commoditiesToSubmit,
       values.datetime,
@@ -71,11 +62,11 @@ const CommodityTransferModal = props => {
     props.onClose();
   };
 
-  const updateStockInApi = async commoditiesToSubmit => {
+  const updateStockInApi = async (commoditiesToSubmit, datetime) => {
     const dataValues = [];
     commoditiesToSubmit.forEach(async commodity => {
       const dataElement = commodity.commodityId;
-      const period = getCurrentMonth();
+      const period = getYearMonth(getDateAndTime(new Date(datetime))[0]);
       const endBalanceInfo = {
         dataElement,
         period,
@@ -89,7 +80,10 @@ const CommodityTransferModal = props => {
         const consumptionInfo = {
           dataElement,
           period,
-          value: Number(commodity.consumption) + Number(commodity.amount),
+          value:
+            period === getCurrentMonth()
+              ? Number(commodity.consumption) + Number(commodity.amount)
+              : Number(commodity.consumption),
           categoryOptionCombo: "rQLFnNXXIL0",
         };
         dataValues.push(consumptionInfo);
@@ -112,11 +106,12 @@ const CommodityTransferModal = props => {
     });
 
     const { date, time } = getDateAndTime(new Date(datetime));
+
     let transData = {
       type: props.dispensing ? "Dispensing" : "Restock",
       commodities,
-      dispensedBy: props.dispensing ? data.me.displayName : "",
-      dispensedTo: props.dispensing ? recipient : data.me.displayName,
+      dispensedBy: props.dispensing ? props.displayName : "",
+      dispensedTo: props.dispensing ? recipient : props.displayName,
       date,
       time,
     };
@@ -170,89 +165,80 @@ const CommodityTransferModal = props => {
     }
   };
 
-  if (error) return <span>ERROR in getting stock data: {error.message}</span>;
-  if (loading) return <CircularLoader large />;
-  if (data) {
-    const allCommodities = mergeCommodityAndValue(
-      data.dataValues?.dataValues,
-      data.commodities?.dataSetElements,
-      props.transactionData
-    ).sort((a, b) => a.commodityName.localeCompare(b.commodityName));
-
-    return (
-      <Modal large>
-        <ReactFinalForm.Form onSubmit={onSubmit}>
-          {({ handleSubmit, form, pristine, valid }) => (
-            <form onSubmit={handleSubmit}>
-              <ModalTitle>
-                {props.dispensing ? "New Dispensing" : "Add Restock"}
-              </ModalTitle>
-              <ModalContent
-                className={modalStyles.commodityTransferModalContent}
-              >
-                <div className={modalStyles.dateTimeRecipientContainer}>
-                  <div className={modalStyles.dateTimePicker}>
-                    <ReactFinalForm.Field
-                      name="datetime"
-                      label="Date and time"
-                      component={InputFieldFF}
-                      initialValue="none"
-                      type="datetime-local"
-                      required
-                      validate={dateTimeValidation}
-                    />
-                  </div>
-                  {props.dispensing && (
-                    <div className={modalStyles.recipientInputContainer}>
-                      <ReactFinalForm.Field
-                        required
-                        name="recipient"
-                        label="Recipient"
-                        component={InputFieldFF}
-                        validate={recipientValidation}
-                      />
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <CommoditySelector
-                    stockData={allCommodities}
-                    addCommodity={addCommodity}
-                    selectedCommodities={selectedCommodities}
-                    removeCommodity={removeCommodity}
-                    dispensing={props.dispensing}
-                    form={form}
+  if (!props.allCommodities) return <span>ERROR in getting stock data</span>;
+  return (
+    <Modal large>
+      <ReactFinalForm.Form onSubmit={onSubmit}>
+        {({ handleSubmit, form, pristine, valid }) => (
+          <form onSubmit={handleSubmit}>
+            <ModalTitle>
+              {props.dispensing ? "New Dispensing" : "Add Restock"}
+            </ModalTitle>
+            <ModalContent className={modalStyles.commodityTransferModalContent}>
+              <div className={modalStyles.dateTimeRecipientContainer}>
+                <div className={modalStyles.dateTimePicker}>
+                  <ReactFinalForm.Field
+                    name="datetime"
+                    label="Date and time"
+                    component={InputFieldFF}
+                    initialValue="none"
+                    type="datetime-local"
+                    required
+                    validate={dateTimeValidation}
                   />
                 </div>
-              </ModalContent>
-              <ModalActions>
-                <ButtonStrip end>
-                  <Button onClick={() => setCancelModalPresent(true)} secondary>
-                    Cancel
-                  </Button>
-                  <Button
-                    type="submit"
-                    primary
-                    disabled={
-                      pristine || !valid || selectedCommodities.length < 1
-                    }
-                  >
-                    Submit
-                  </Button>
-                </ButtonStrip>
-              </ModalActions>
-            </form>
-          )}
-        </ReactFinalForm.Form>
-        {cancelModalPresent && (
-          <CancelConfirmationModal
-            setCancelModalPresent={setCancelModalPresent}
-            onClose={props.onClose}
-          />
+                {props.dispensing && (
+                  <div className={modalStyles.recipientInputContainer}>
+                    <ReactFinalForm.Field
+                      required
+                      name="recipient"
+                      label="Recipient"
+                      component={InputFieldFF}
+                      validate={recipientValidation}
+                    />
+                  </div>
+                )}
+              </div>
+              <div>
+                <CommoditySelector
+                  stockData={props.allCommodities.sort((a, b) =>
+                    a.commodityName.localeCompare(b.commodityName)
+                  )}
+                  addCommodity={addCommodity}
+                  selectedCommodities={selectedCommodities}
+                  removeCommodity={removeCommodity}
+                  dispensing={props.dispensing}
+                  form={form}
+                />
+              </div>
+            </ModalContent>
+            <ModalActions>
+              <ButtonStrip end>
+                <Button onClick={() => setCancelModalPresent(true)} secondary>
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  primary
+                  disabled={
+                    pristine || !valid || selectedCommodities.length < 1
+                  }
+                >
+                  Submit
+                </Button>
+              </ButtonStrip>
+            </ModalActions>
+          </form>
         )}
-      </Modal>
-    );
-  }
+      </ReactFinalForm.Form>
+      {cancelModalPresent && (
+        <CancelConfirmationModal
+          setCancelModalPresent={setCancelModalPresent}
+          onClose={props.onClose}
+        />
+      )}
+    </Modal>
+  );
 };
 
 export default CommodityTransferModal;

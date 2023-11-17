@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Card, IconMore24, Tag, Box } from "@dhis2/ui";
+import React, { useState } from "react";
+import { Card, Tag, Box } from "@dhis2/ui";
 import classes from "./TransactionsForDay.module.css";
 
 import TransactionDetailModal from "./TransactionDetailModal";
@@ -93,7 +93,7 @@ const TransactionsForDay = props => {
                       </div>
                       {transaction.commodities.length === 1 ? (
                         <div className={classes.updatedStockInfo}>
-                          Updated stock:{" "}
+                          New stock balance:{" "}
                           {transaction.commodities[0].balanceAfterTrans}
                         </div>
                       ) : null}
