@@ -87,29 +87,28 @@ export const categorizeTransByDate = transactions => {
   return sortedData;
 };
 
-// For dashBoard:
-// export const getMostRecentTransactionsObject = (
-//   categorizedTrans,
-//   nrTranNeeded
-// ) => {
-//   const mostRecentTransactionsObject = {};
-//   let nrTransactionsAdded = 0;
+export const getMostRecentTransactionsObject = (
+  categorizedTrans,
+  nrTranNeeded
+) => {
+  const mostRecentTransactionsObject = {};
+  let nrTransactionsAdded = 0;
 
-//   for (const date in categorizedTrans) {
-//     const transactions = categorizedTrans[date];
-//     transactions.forEach(trans => {
-//       if (!mostRecentTransactionsObject[date])
-//         mostRecentTransactionsObject[date] = [];
-//       if (nrTransactionsAdded < nrTranNeeded) {
-//         mostRecentTransactionsObject[date].push(trans);
-//         nrTransactionsAdded++;
-//       }
-//     });
-//     if (nrTransactionsAdded === nrTranNeeded) break;
-//   }
+  for (const date in categorizedTrans) {
+    const transactions = categorizedTrans[date];
+    transactions.forEach(trans => {
+      if (!mostRecentTransactionsObject[date])
+        mostRecentTransactionsObject[date] = [];
+      if (nrTransactionsAdded < nrTranNeeded) {
+        mostRecentTransactionsObject[date].push(trans);
+        nrTransactionsAdded++;
+      }
+    });
+    if (nrTransactionsAdded === nrTranNeeded) break;
+  }
 
-//   return mostRecentTransactionsObject;
-// };
+  return mostRecentTransactionsObject;
+};
 
 export const checkDateInFuture = dateString => {
   const date = new Date(dateString);
@@ -144,23 +143,55 @@ export const getCommoditiesLowInStock = (
   );
 };
 
-export const getRecentTransactions = transactions => {
-  const categorizedTransactions = categorizeTransByDate(transactions);
-  const recentTransactionsObject = {};
-  let nrTransactionsAdded = 0;
+// export const getRecentTransactions = transactions => {
+//   const categorizedTransactions = categorizeTransByDate(transactions);
+//   const recentTransactionsObject = {};
+//   let nrTransactionsAdded = 0;
 
-  for (const date in categorizedTransactions) {
-    const transactionForDate = categorizedTransactions[date];
+//   for (const date in categorizedTransactions) {
+//     const transactionForDate = categorizedTransactions[date];
 
-    transactionForDate.forEach(trans => {
-      if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
-      if (nrTransactionsAdded < 5) {
-        recentTransactionsObject[date].push(trans);
-        nrTransactionsAdded++;
-      }
-    });
-    if (nrTransactionsAdded === 5) break;
+//     transactionForDate.forEach(trans => {
+//       if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
+//       if (nrTransactionsAdded < 5) {
+//         recentTransactionsObject[date].push(trans);
+//         nrTransactionsAdded++;
+//       }
+//     });
+//     if (nrTransactionsAdded === 5) break;
+//   }
+
+//   return recentTransactionsObject;
+// };
+
+export const getTransByPeriod = (transactions, startDate, endDate) => {
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const dateFormatted = new Date(date);
+    if (dateFormatted >= startDate && dateFormatted <= endDate)
+      filteredTrans[date] = transactions[date];
   }
+  return filteredTrans;
+};
 
-  return recentTransactionsObject;
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
+  if (!commodityNameQuery) return transactions;
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const transactionsForDate = transactions[date];
+
+    const matchedTrans = transactionsForDate.filter(transaction =>
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
+      )
+    );
+
+    if (matchedTrans.length !== 0) {
+      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
+      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
+    }
+  }
+  return filteredTrans;
 };

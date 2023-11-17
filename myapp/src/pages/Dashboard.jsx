@@ -15,7 +15,8 @@ import {
   mergeCommodityAndValue,
   getCommoditiesLowInStock,
   mergeDataForDashboard,
-  getRecentTransactions,
+  getMostRecentTransactionsObject,
+  categorizeTransByDate,
 } from "../utilities/dataUtility";
 import { stockRequest } from "../utilities/requests";
 import { getCurrentMonth, getPeriods } from "../utilities/dates";
@@ -33,7 +34,10 @@ import CommodityTransferModal from "../components/commodityTransferModal/Commodi
 const Dashboard = ({ transactionData, refetchTransData }) => {
   const navigate = useNavigate();
 
-  const recentTransactionsObject = getRecentTransactions(transactionData);
+  const recentTransactionsObject = getMostRecentTransactionsObject(
+    categorizeTransByDate(transactionData),
+    5
+  );
 
   const {
     loading: currentStockLoading,
