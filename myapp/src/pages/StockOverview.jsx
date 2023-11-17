@@ -5,7 +5,7 @@ import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import CommodityTable from "../components/stockOverview/CommodityTable";
+import CommodityTable from "../components/stockOverview/CosmmodityTable";
 import {
   mergeCommodityAndValue,
   mergeDataForDashboard,
@@ -27,6 +27,7 @@ const StockInventory = props => {
   const [filteredStockData, setFilteredStockData] = useState(null);
   const [preselectedCommodities, setPreselectedCommodities] = useState([]);
   const [alertBarText, setAlertBarText] = useState("");
+  const [numberMultiSelected, setNumberMultiselected] = useState(0);
 
   const {
     loading: allMonthsLoading,
@@ -55,6 +56,7 @@ const StockInventory = props => {
   useEffect(() => {
     if (modalPresent != null) {
       setPreselectedCommodities([]);
+      setNumberMultiselected(0);
     }
   }, [modalPresent]);
 
@@ -141,6 +143,8 @@ const StockInventory = props => {
             setCurrentPage={setCurrentPage}
             preselectedCommodities={preselectedCommodities}
             setPreselectedCommodities={setPreselectedCommodities}
+            numberMultiSelected={numberMultiSelected}
+            setNumberMultiselected={setNumberMultiselected}
             handleOnModalChange={handleOnModalChange}
           />
 
