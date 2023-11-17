@@ -94,8 +94,6 @@ const CommodityTransferModal = props => {
         };
         dataValues.push(consumptionInfo);
       }
-
-      //console.log("updateStockParameter", updateStockParameter);
       await updateStock({ dataValues, period });
     });
   };

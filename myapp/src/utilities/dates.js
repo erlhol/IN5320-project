@@ -50,19 +50,18 @@ export function getMonthAbbrivation() {
   return months.slice(1, month.length).map(month => month.slice(0, 3));
 }
 
-export function getStockHistoryDefaultPeriod() {
-  const currentMonth = month.toString().padStart(2, "0");
-  const nextMonthNr = month === 12 ? 1 : month + 1;
-  const start = `${currentMonth}/01/${year.toString()}`;
-  const end = `${nextMonthNr
+export function getStockHistoryDefaultPeriod(transactions) {
+  const oldestDate = new Date(transactions[transactions.length - 1].date);
+  const start = `${(oldestDate.getMonth() + 1)
     .toString()
-    .padStart(2, "0")}/01/${year.toString()}`;
-  return { start, end };
+    .padStart(2, "0")}/${oldestDate.getDay()}/${oldestDate.getFullYear()}`;
+  const end = `${month.toString().padStart(2, "0")}/${date.getDate()}/${year}`;
+  return [start, end];
 }
 
 export const getDateAndTime = dateTime => {
-  const month = (dateTime.getMonth() + 1).toString();
-  const day = dateTime.getDate().toString();
+  const month = (dateTime.getMonth() + 1).toString().padStart(2, "0");
+  const day = dateTime.getDate().toString().padStart(2, "0");
   const year = dateTime.getFullYear().toString();
   const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
   const time = dateTime.toLocaleTimeString("en-US", {
