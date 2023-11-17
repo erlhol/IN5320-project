@@ -5,7 +5,7 @@ import { useDataQuery } from "@dhis2/app-runtime";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
-import CommodityTable from "../components/stockOverview/CosmmodityTable";
+import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
   mergeDataForDashboard,
