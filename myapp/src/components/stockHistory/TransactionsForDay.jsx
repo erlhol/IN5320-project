@@ -66,7 +66,9 @@ const TransactionsForDay = props => {
                     <div className={classes.transactionActors}>
                       <p>
                         <span>By: </span>
-                        {transaction.dispensedBy}
+                        {transaction.type == "Dispensing"
+                          ? transaction.dispensedBy
+                          : transaction.dispensedTo}
                       </p>
                       {transaction.type === "Dispensing" && (
                         <p>
