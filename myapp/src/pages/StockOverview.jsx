@@ -103,10 +103,15 @@ const StockInventory = props => {
   if (allMonthsError)
     return <span>ERROR in getting stock data: {allMonthsError.message}</span>;
 
+  if (monthlyStockError)
+    return (
+      <span>ERROR in getting stock data: {monthlyStockError.message}</span>
+    );
+
   return (
     <>
       {/* Loading indicator while waiting for data */}
-      {allMonthsLoading || monthlyStockLoading ? (
+      {!filteredStockData && !monthlyStockData ? (
         <CircularLoader large />
       ) : (
         <>
@@ -128,18 +133,16 @@ const StockInventory = props => {
           </div>
 
           {/* The commodity table */}
-          {filteredStockData && monthlyStockData && (
-            <CommodityTable
-              transactions={transactions}
-              commodities={filteredStockData}
-              monthlyStockData={monthlyStockData}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              preselectedCommodities={preselectedCommodities}
-              setPreselectedCommodities={setPreselectedCommodities}
-              handleOnModalChange={handleOnModalChange}
-            />
-          )}
+          <CommodityTable
+            transactions={transactions}
+            commodities={filteredStockData}
+            monthlyStockData={monthlyStockData}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            preselectedCommodities={preselectedCommodities}
+            setPreselectedCommodities={setPreselectedCommodities}
+            handleOnModalChange={handleOnModalChange}
+          />
 
           {modalPresent && (
             <CommodityTransferModal
