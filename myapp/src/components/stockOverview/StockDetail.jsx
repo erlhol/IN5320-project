@@ -57,7 +57,11 @@ const StockDetail = props => {
         />
         <h3>Recent Transactions</h3>
         {Object.keys(firstFiveTransactions).map((date, i) => (
-          <TransactionsForDay key={i} date={date} />
+          <TransactionsForDay
+            key={i}
+            date={date}
+            transactions={firstFiveTransactions[date]}
+          />
         ))}
       </ModalContent>
     </Modal>
