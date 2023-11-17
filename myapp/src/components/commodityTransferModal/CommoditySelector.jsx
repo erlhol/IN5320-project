@@ -49,6 +49,8 @@ const CommoditySelector = props => {
         return "Enter amount to dispense";
       }
       return "Enter amount to restock";
+    } else if (!Number.isInteger(Number(value))) {
+      return "Only whole amounts allowed";
     } else if (value < 0) {
       return "Amount must be a positive";
     } else if (value > stockBalance && props.dispensing) {
