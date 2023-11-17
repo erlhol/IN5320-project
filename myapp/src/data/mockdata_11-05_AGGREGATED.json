@@ -11,12 +11,12 @@
     ],
     "dispensedBy": "",
     "dispensedTo": "John abel",
-    "date": "11/8/2023",
-    "time": "18:14:00"
+    "date": "11/08/2023",
+    "time": "06:14 PM"
   },
   {
     "date": "11/10/2023",
-    "time": "22:35:53",
+    "time": "10:35 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -27,11 +27,11 @@
       }
     ],
     "dispensedBy": "John abel",
-    "dispensedTo": "Mia Miller"
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "11/10/2023",
-    "time": "22:31:41",
+    "time": "10:31 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -42,11 +42,11 @@
       }
     ],
     "dispensedBy": "John abel",
-    "dispensedTo": "Ling hui"
+    "dispensedTo": "Mia Miller"
   },
   {
     "date": "11/10/2023",
-    "time": "21:57:57",
+    "time": "09:57 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -81,11 +81,11 @@
       }
     ],
     "dispensedBy": "John abel",
-    "dispensedTo": "Mia Miller"
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "11/8/2023",
-    "time": "16:45:44",
+    "date": "11/08/2023",
+    "time": "04:45 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -95,12 +95,12 @@
         "balanceAfterTrans": 162
       }
     ],
-    "dispensedBy": "John abel",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/8/2023",
-    "time": "15:50:22",
+    "date": "11/08/2023",
+    "time": "03:50 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -122,12 +122,12 @@
         "balanceAfterTrans": 143
       }
     ],
-    "dispensedBy": "John abel",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:38:57",
+    "date": "11/08/2023",
+    "time": "11:38 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -143,12 +143,12 @@
         "balanceAfterTrans": 35
       }
     ],
-    "dispensedBy": "John abel",
-    "dispensedTo": "Olav Moan"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:38:17",
+    "date": "11/08/2023",
+    "time": "11:38 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -164,12 +164,12 @@
         "balanceAfterTrans": 16
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Fei fei"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:24:48",
+    "date": "11/08/2023",
+    "time": "11:24 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -185,12 +185,12 @@
         "balanceAfterTrans": 93
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Henry Lin"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:12:13",
+    "date": "11/08/2023",
+    "time": "11:12 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -200,12 +200,12 @@
         "balanceAfterTrans": 380
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Marco Johansson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:06:49",
+    "date": "11/08/2023",
+    "time": "11:06 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -215,12 +215,12 @@
         "balanceAfterTrans": 381
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/8/2023",
-    "time": "11:03:20",
+    "date": "11/08/2023",
+    "time": "11:03 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -230,12 +230,12 @@
         "balanceAfterTrans": 57
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Aiden Vale"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/7/2023",
-    "time": "20:41:54",
+    "date": "11/07/2023",
+    "time": "08:41 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -251,12 +251,12 @@
         "balanceAfterTrans": 100
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/6/2023",
-    "time": "21:21:50",
+    "date": "11/06/2023",
+    "time": "09:21 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -278,12 +278,12 @@
         "balanceAfterTrans": 42
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "11/6/2023",
-    "time": "20:11:37",
+    "date": "11/06/2023",
+    "time": "08:11 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -299,12 +299,12 @@
         "balanceAfterTrans": 5
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Kai Srivastava"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "10/30/2023",
-    "time": "12:04:00",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -320,12 +320,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
     "date": "10/27/2023",
-    "time": "9:12:00",
+    "time": "09:12 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -335,12 +335,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Eva Sandnabba",
-    "dispensedTo": "Benjamin*"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
     "date": "10/25/2023",
-    "time": "17:30:00",
+    "time": "05:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -350,12 +350,12 @@
         "balanceAfterTrans": 16
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
     "date": "10/25/2023",
-    "time": "13:55:00",
+    "time": "01:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -365,12 +365,12 @@
         "balanceAfterTrans": 4
       }
     ],
-    "dispensedBy": "Mei mei",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "10/21/2023",
-    "time": "10:15:00",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -380,12 +380,12 @@
         "balanceAfterTrans": 5
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "10/18/2023",
-    "time": "11:30:00",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -407,12 +407,12 @@
         "balanceAfterTrans": 6
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "10/15/2023",
-    "time": "9:55:00",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -422,12 +422,12 @@
         "balanceAfterTrans": 14
       }
     ],
-    "dispensedBy": "Oliver",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "10/14/2023",
-    "time": "16:25:00",
+    "time": "04:25 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -449,12 +449,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
     "date": "10/13/2023",
-    "time": "21:45:00",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -464,12 +464,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "10/13/2023",
-    "time": "19:20:00",
+    "time": "07:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -479,12 +479,12 @@
         "balanceAfterTrans": 28
       }
     ],
-    "dispensedBy": "Kai Srivastava",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "10/3/2023",
-    "time": "16:25:00",
+    "date": "10/03/2023",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -494,12 +494,12 @@
         "balanceAfterTrans": 13
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "10/3/2023",
-    "time": "10:15:00",
+    "date": "10/03/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -509,12 +509,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "10/1/2023",
-    "time": "15:55:00",
+    "date": "10/01/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -524,12 +524,12 @@
         "balanceAfterTrans": 5
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "10/1/2023",
-    "time": "14:56:00",
+    "date": "10/01/2023",
+    "time": "02:56 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -539,12 +539,12 @@
         "balanceAfterTrans": 24
       }
     ],
-    "dispensedBy": "Ling Hui",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "10/1/2023",
-    "time": "10:50:00",
+    "date": "10/01/2023",
+    "time": "10:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -554,12 +554,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Charlotte Moe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/28/2023",
-    "time": "11:05:00",
+    "date": "09/28/2023",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -569,12 +569,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Lily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/25/2023",
-    "time": "10:15:00",
+    "date": "09/25/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -584,12 +584,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "9/22/2023",
-    "time": "21:45:00",
+    "date": "09/22/2023",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -605,12 +605,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "9/21/2023",
-    "time": "11:50:00",
+    "date": "09/21/2023",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -620,12 +620,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "9/20/2023",
-    "time": "9:55:00",
+    "date": "09/20/2023",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -635,12 +635,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Marius Moan",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "9/15/2023",
-    "time": "17:20:00",
+    "date": "09/15/2023",
+    "time": "05:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -650,12 +650,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ling Hui"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "9/15/2023",
-    "time": "15:55:00",
+    "date": "09/15/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -665,12 +665,12 @@
         "balanceAfterTrans": 24
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "9/14/2023",
-    "time": "17:15:00",
+    "date": "09/14/2023",
+    "time": "05:15 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -692,12 +692,12 @@
         "balanceAfterTrans": 46
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "9/14/2023",
-    "time": "10:15:00",
+    "date": "09/14/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -707,12 +707,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/12/2023",
-    "time": "16:18:00",
+    "date": "09/12/2023",
+    "time": "04:18 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -722,12 +722,12 @@
         "balanceAfterTrans": 6
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/12/2023",
-    "time": "14:10:00",
+    "date": "09/12/2023",
+    "time": "02:10 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -737,12 +737,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Laura",
-    "dispensedTo": "Kevin"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "9/9/2023",
-    "time": "9:10:00",
+    "date": "09/09/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -752,12 +752,12 @@
         "balanceAfterTrans": 14
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/4/2023",
-    "time": "19:27:00",
+    "date": "09/04/2023",
+    "time": "07:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -767,12 +767,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "Aria Ali"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "9/4/2023",
-    "time": "9:55:00",
+    "date": "09/04/2023",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -782,12 +782,12 @@
         "balanceAfterTrans": 36
       }
     ],
-    "dispensedBy": "Ling Hui",
-    "dispensedTo": "Marco Johansson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "9/3/2023",
-    "time": "11:50:00",
+    "date": "09/03/2023",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -797,12 +797,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "8/29/2023",
-    "time": "14:20:00",
+    "date": "08/29/2023",
+    "time": "02:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -812,12 +812,12 @@
         "balanceAfterTrans": 197
       }
     ],
-    "dispensedBy": "John",
-    "dispensedTo": "Jenny"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/28/2023",
-    "time": "18:27:00",
+    "date": "08/28/2023",
+    "time": "06:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -839,12 +839,12 @@
         "balanceAfterTrans": 54
       }
     ],
-    "dispensedBy": "Tim Smith ",
-    "dispensedTo": "Bob WilLiam Smiths"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "8/24/2023",
-    "time": "9:45:00",
+    "date": "08/24/2023",
+    "time": "09:45 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -854,12 +854,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/23/2023",
-    "time": "17:12:00",
+    "date": "08/23/2023",
+    "time": "05:12 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -869,12 +869,12 @@
         "balanceAfterTrans": 45
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/21/2023",
-    "time": "13:40:00",
+    "date": "08/21/2023",
+    "time": "01:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -884,12 +884,12 @@
         "balanceAfterTrans": 97
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Sophia Malik"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "8/21/2023",
-    "time": "10:03:00",
+    "date": "08/21/2023",
+    "time": "10:03 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -899,12 +899,12 @@
         "balanceAfterTrans": 42
       }
     ],
-    "dispensedBy": "WilLiam Smith",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/20/2023",
-    "time": "15:59:00",
+    "date": "08/20/2023",
+    "time": "03:59 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -914,12 +914,12 @@
         "balanceAfterTrans": 32
       }
     ],
-    "dispensedBy": "Henry",
-    "dispensedTo": "Kai Srivastava"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/20/2023",
-    "time": "8:15:00",
+    "date": "08/20/2023",
+    "time": "08:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -929,12 +929,12 @@
         "balanceAfterTrans": 40
       }
     ],
-    "dispensedBy": "Benjamin*",
-    "dispensedTo": "Mei mei"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/18/2023",
-    "time": "12:04:00",
+    "date": "08/18/2023",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -944,12 +944,12 @@
         "balanceAfterTrans": 28
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/18/2023",
-    "time": "8:35:00",
+    "date": "08/18/2023",
+    "time": "08:35 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -959,12 +959,12 @@
         "balanceAfterTrans": 192
       }
     ],
-    "dispensedBy": "Aiswarya Sriva",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "8/17/2023",
-    "time": "15:45:00",
+    "date": "08/17/2023",
+    "time": "03:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -974,12 +974,12 @@
         "balanceAfterTrans": 27
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/17/2023",
-    "time": "14:12:00",
+    "date": "08/17/2023",
+    "time": "02:12 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -989,12 +989,12 @@
         "balanceAfterTrans": 33
       }
     ],
-    "dispensedBy": "Kai Srivastava",
-    "dispensedTo": "Martin Jackson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "8/17/2023",
-    "time": "9:15:00",
+    "date": "08/17/2023",
+    "time": "09:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1004,12 +1004,12 @@
         "balanceAfterTrans": 6
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Ling Hui"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/17/2023",
-    "time": "8:35:00",
+    "date": "08/17/2023",
+    "time": "08:35 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1019,12 +1019,12 @@
         "balanceAfterTrans": 192
       }
     ],
-    "dispensedBy": "Aiswarya Sriva",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "8/15/2023",
-    "time": "16:48:00",
+    "date": "08/15/2023",
+    "time": "04:48 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1034,12 +1034,12 @@
         "balanceAfterTrans": 97
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Marco Johansson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/15/2023",
-    "time": "10:57:00",
+    "date": "08/15/2023",
+    "time": "10:57 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1049,12 +1049,12 @@
         "balanceAfterTrans": 49
       }
     ],
-    "dispensedBy": "Emma",
-    "dispensedTo": "Sebastian"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "8/14/2023",
-    "time": "19:30:00",
+    "date": "08/14/2023",
+    "time": "07:30 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -1076,12 +1076,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "8/12/2023",
-    "time": "15:03:00",
+    "date": "08/12/2023",
+    "time": "03:03 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1091,12 +1091,12 @@
         "balanceAfterTrans": 388
       }
     ],
-    "dispensedBy": "Nora",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/12/2023",
-    "time": "9:12:00",
+    "date": "08/12/2023",
+    "time": "09:12 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1106,12 +1106,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Eva Sandnabba",
-    "dispensedTo": "Benjamin*"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/11/2023",
-    "time": "18:14:00",
+    "date": "08/11/2023",
+    "time": "06:14 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1121,12 +1121,12 @@
         "balanceAfterTrans": 56
       }
     ],
-    "dispensedBy": "Kai Srivastava",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "8/11/2023",
-    "time": "13:55:00",
+    "date": "08/11/2023",
+    "time": "01:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1136,12 +1136,12 @@
         "balanceAfterTrans": 70
       }
     ],
-    "dispensedBy": "Ava Moore",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/10/2023",
-    "time": "11:30:00",
+    "date": "08/10/2023",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1151,12 +1151,12 @@
         "balanceAfterTrans": 12
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/9/2023",
-    "time": "9:45:00",
+    "date": "08/09/2023",
+    "time": "09:45 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1166,12 +1166,12 @@
         "balanceAfterTrans": 34
       }
     ],
-    "dispensedBy": "Martin Jackson",
-    "dispensedTo": "Sophie"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "8/7/2023",
-    "time": "14:20:00",
+    "date": "08/07/2023",
+    "time": "02:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1181,12 +1181,12 @@
         "balanceAfterTrans": 92
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Eva Sandnabba"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "8/5/2023",
-    "time": "17:02:00",
+    "date": "08/05/2023",
+    "time": "05:02 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1196,12 +1196,12 @@
         "balanceAfterTrans": 51
       }
     ],
-    "dispensedBy": "Per Chrisstian",
-    "dispensedTo": "Andy Wang"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/2/2023",
-    "time": "15:30:00",
+    "date": "08/02/2023",
+    "time": "03:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1211,12 +1211,12 @@
         "balanceAfterTrans": 45
       }
     ],
-    "dispensedBy": "Tim Smith",
-    "dispensedTo": "Sophia Malik"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "8/2/2023",
-    "time": "10:10:00",
+    "date": "08/02/2023",
+    "time": "10:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1226,12 +1226,12 @@
         "balanceAfterTrans": 29
       }
     ],
-    "dispensedBy": "Nora",
-    "dispensedTo": "Daniel"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "8/1/2023",
-    "time": "14:28:00",
+    "date": "08/01/2023",
+    "time": "02:28 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1241,12 +1241,12 @@
         "balanceAfterTrans": 40
       }
     ],
-    "dispensedBy": "Benjamin*",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "7/31/2023",
-    "time": "16:42:00",
+    "date": "07/31/2023",
+    "time": "04:42 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1256,12 +1256,12 @@
         "balanceAfterTrans": 75
       }
     ],
-    "dispensedBy": "Oliver",
+    "dispensedBy": "John abel",
     "dispensedTo": "Aria Ali"
   },
   {
-    "date": "7/31/2023",
-    "time": "11:05:00",
+    "date": "07/31/2023",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1271,12 +1271,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "Martin Jackson",
-    "dispensedTo": "Ava Moore"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "7/31/2023",
-    "time": "10:10:00",
+    "date": "07/31/2023",
+    "time": "10:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1286,12 +1286,12 @@
         "balanceAfterTrans": 19
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "7/30/2023",
-    "time": "13:55:00",
+    "date": "07/30/2023",
+    "time": "01:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1301,12 +1301,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Mei mei",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "7/21/2023",
-    "time": "11:05:00",
+    "date": "07/21/2023",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1316,12 +1316,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Martin Jackson",
-    "dispensedTo": "Ava Moore"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "7/21/2023",
-    "time": "9:30:00",
+    "date": "07/21/2023",
+    "time": "09:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1331,12 +1331,12 @@
         "balanceAfterTrans": 47
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mike"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "7/19/2023",
-    "time": "9:10:00",
+    "date": "07/19/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1346,12 +1346,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "7/14/2023",
-    "time": "17:30:00",
+    "date": "07/14/2023",
+    "time": "05:30 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -1373,12 +1373,12 @@
         "balanceAfterTrans": 31
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "7/14/2023",
-    "time": "10:15:00",
+    "date": "07/14/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1388,12 +1388,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "7/8/2023",
-    "time": "17:30:00",
+    "date": "07/08/2023",
+    "time": "05:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1403,12 +1403,12 @@
         "balanceAfterTrans": 19
       }
     ],
-    "dispensedBy": "Mia Miller",
+    "dispensedBy": "John abel",
     "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "7/8/2023",
-    "time": "12:04:00",
+    "date": "07/08/2023",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1418,12 +1418,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "7/1/2023",
-    "time": "14:15:00",
+    "date": "07/01/2023",
+    "time": "02:15 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1433,12 +1433,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "7/1/2023",
-    "time": "12:04:00",
+    "date": "07/01/2023",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1448,12 +1448,12 @@
         "balanceAfterTrans": 14
       }
     ],
-    "dispensedBy": "Liam Smith",
+    "dispensedBy": "John abel",
     "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/29/2023",
-    "time": "9:30:00",
+    "date": "06/29/2023",
+    "time": "09:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1463,12 +1463,12 @@
         "balanceAfterTrans": 15
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/27/2023",
-    "time": "12:55:00",
+    "date": "06/27/2023",
+    "time": "12:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1478,12 +1478,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Ethan Robinson",
-    "dispensedTo": "Ava Moore"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/27/2023",
-    "time": "11:10:00",
+    "date": "06/27/2023",
+    "time": "11:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1493,12 +1493,12 @@
         "balanceAfterTrans": 63
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Sophia Malik"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/25/2023",
-    "time": "15:50:00",
+    "date": "06/25/2023",
+    "time": "03:50 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1508,12 +1508,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/25/2023",
-    "time": "14:40:00",
+    "date": "06/25/2023",
+    "time": "02:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1523,12 +1523,12 @@
         "balanceAfterTrans": 33
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Oliver"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/23/2023",
-    "time": "16:25:00",
+    "date": "06/23/2023",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1538,12 +1538,12 @@
         "balanceAfterTrans": 58
       }
     ],
-    "dispensedBy": "Emma",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/20/2023",
-    "time": "13:05:00",
+    "date": "06/20/2023",
+    "time": "01:05 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1553,12 +1553,12 @@
         "balanceAfterTrans": 47
       }
     ],
-    "dispensedBy": "WilLiam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/20/2023",
-    "time": "10:45:00",
+    "date": "06/20/2023",
+    "time": "10:45 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1568,12 +1568,12 @@
         "balanceAfterTrans": 41
       }
     ],
-    "dispensedBy": "Ling Hui",
-    "dispensedTo": "Lily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/20/2023",
-    "time": "8:30:00",
+    "date": "06/20/2023",
+    "time": "08:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1583,12 +1583,12 @@
         "balanceAfterTrans": 25
       }
     ],
-    "dispensedBy": "Ava Moore",
-    "dispensedTo": "Charlotte Moe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/18/2023",
-    "time": "21:45:00",
+    "date": "06/18/2023",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1598,12 +1598,12 @@
         "balanceAfterTrans": 27
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "6/18/2023",
-    "time": "11:30:00",
+    "date": "06/18/2023",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1613,12 +1613,12 @@
         "balanceAfterTrans": 31
       }
     ],
-    "dispensedBy": "Emily",
-    "dispensedTo": "Sophia Malik"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "6/18/2023",
-    "time": "10:15:00",
+    "date": "06/18/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1628,12 +1628,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/18/2023",
-    "time": "9:55:00",
+    "date": "06/18/2023",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1643,12 +1643,12 @@
         "balanceAfterTrans": 21
       }
     ],
-    "dispensedBy": "Oliver",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/16/2023",
-    "time": "16:45:00",
+    "date": "06/16/2023",
+    "time": "04:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1658,12 +1658,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "John",
-    "dispensedTo": "Linda"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/16/2023",
-    "time": "8:40:00",
+    "date": "06/16/2023",
+    "time": "08:40 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1673,12 +1673,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Charlotte Moe",
-    "dispensedTo": "Aiden Vale"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/14/2023",
-    "time": "21:45:00",
+    "date": "06/14/2023",
+    "time": "09:45 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -1700,12 +1700,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "6/14/2023",
-    "time": "11:55:00",
+    "date": "06/14/2023",
+    "time": "11:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1715,12 +1715,12 @@
         "balanceAfterTrans": 33
       }
     ],
-    "dispensedBy": "Megan",
-    "dispensedTo": "David"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "6/12/2023",
-    "time": "17:20:00",
+    "date": "06/12/2023",
+    "time": "05:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1730,12 +1730,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Paul",
-    "dispensedTo": "Lisa"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/12/2023",
-    "time": "12:40:00",
+    "date": "06/12/2023",
+    "time": "12:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1745,12 +1745,12 @@
         "balanceAfterTrans": 45
       }
     ],
-    "dispensedBy": "Ethan Robinson",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/12/2023",
-    "time": "8:05:00",
+    "date": "06/12/2023",
+    "time": "08:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1760,12 +1760,12 @@
         "balanceAfterTrans": 15
       }
     ],
-    "dispensedBy": "Sophia Malik",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/10/2023",
-    "time": "14:55:00",
+    "date": "06/10/2023",
+    "time": "02:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1775,12 +1775,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Nathan",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/10/2023",
-    "time": "11:30:00",
+    "date": "06/10/2023",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1790,12 +1790,12 @@
         "balanceAfterTrans": 37
       }
     ],
-    "dispensedBy": "Logan",
-    "dispensedTo": "Ava Moore"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/9/2023",
-    "time": "9:10:00",
+    "date": "06/09/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1805,12 +1805,12 @@
         "balanceAfterTrans": 41
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Sophie"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "6/8/2023",
-    "time": "16:25:00",
+    "date": "06/08/2023",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1820,12 +1820,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/8/2023",
-    "time": "15:55:00",
+    "date": "06/08/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1835,12 +1835,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "6/7/2023",
-    "time": "13:40:00",
+    "date": "06/07/2023",
+    "time": "01:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1850,12 +1850,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Grace",
-    "dispensedTo": "Michael"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "6/6/2023",
-    "time": "21:45:00",
+    "date": "06/06/2023",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1865,12 +1865,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "6/3/2023",
-    "time": "12:15:00",
+    "date": "06/03/2023",
+    "time": "12:15 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1880,12 +1880,12 @@
         "balanceAfterTrans": 14
       }
     ],
-    "dispensedBy": "Oliver",
-    "dispensedTo": "Evelyn"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "6/1/2023",
-    "time": "10:50:00",
+    "date": "06/01/2023",
+    "time": "10:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1895,12 +1895,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Charlotte Moe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/28/2023",
-    "time": "15:45:00",
+    "date": "05/28/2023",
+    "time": "03:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1910,12 +1910,12 @@
         "balanceAfterTrans": 29
       }
     ],
-    "dispensedBy": "Lily",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/28/2023",
-    "time": "14:20:00",
+    "date": "05/28/2023",
+    "time": "02:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1925,12 +1925,12 @@
         "balanceAfterTrans": 43
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "Victoria"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/27/2023",
-    "time": "16:10:00",
+    "date": "05/27/2023",
+    "time": "04:10 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1940,12 +1940,12 @@
         "balanceAfterTrans": 33
       }
     ],
-    "dispensedBy": "Zoe",
-    "dispensedTo": "Martin Jackson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/25/2023",
-    "time": "12:35:00",
+    "date": "05/25/2023",
+    "time": "12:35 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1955,12 +1955,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Samuel",
-    "dispensedTo": "Lillian"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "5/25/2023",
-    "time": "10:05:00",
+    "date": "05/25/2023",
+    "time": "10:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1970,12 +1970,12 @@
         "balanceAfterTrans": 32
       }
     ],
-    "dispensedBy": "Elijah Svensen",
-    "dispensedTo": "Kai Srivastava"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "5/24/2023",
-    "time": "15:15:00",
+    "date": "05/24/2023",
+    "time": "03:15 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -1985,12 +1985,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Zoe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/22/2023",
-    "time": "11:05:00",
+    "date": "05/22/2023",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2000,12 +2000,12 @@
         "balanceAfterTrans": 4
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Lily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/20/2023",
-    "time": "17:40:00",
+    "date": "05/20/2023",
+    "time": "05:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2015,12 +2015,12 @@
         "balanceAfterTrans": 19
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "5/19/2023",
-    "time": "14:30:00",
+    "date": "05/19/2023",
+    "time": "02:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2030,12 +2030,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Charlotte Moe",
-    "dispensedTo": "Mason Liu"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/19/2023",
-    "time": "10:15:00",
+    "date": "05/19/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2045,12 +2045,12 @@
         "balanceAfterTrans": 5
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/18/2023",
-    "time": "13:25:00",
+    "date": "05/18/2023",
+    "time": "01:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2060,12 +2060,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "5/17/2023",
-    "time": "11:50:00",
+    "date": "05/17/2023",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2075,12 +2075,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/16/2023",
-    "time": "17:30:00",
+    "date": "05/16/2023",
+    "time": "05:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2090,12 +2090,12 @@
         "balanceAfterTrans": 34
       }
     ],
-    "dispensedBy": "Zoe",
-    "dispensedTo": "Aiden Vale"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/16/2023",
-    "time": "16:20:00",
+    "date": "05/16/2023",
+    "time": "04:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2105,12 +2105,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Ethan Robinson",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/15/2023",
-    "time": "15:55:00",
+    "date": "05/15/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2120,12 +2120,12 @@
         "balanceAfterTrans": 25
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/15/2023",
-    "time": "14:20:00",
+    "date": "05/15/2023",
+    "time": "02:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2135,12 +2135,12 @@
         "balanceAfterTrans": 34
       }
     ],
-    "dispensedBy": "John",
-    "dispensedTo": "Jenny"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "5/14/2023",
-    "time": "16:18:00",
+    "date": "05/14/2023",
+    "time": "04:18 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -2162,12 +2162,12 @@
         "balanceAfterTrans": 31
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "5/14/2023",
-    "time": "13:22:00",
+    "date": "05/14/2023",
+    "time": "01:22 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2177,12 +2177,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Per Chrisstian",
-    "dispensedTo": "Andy Wang"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "5/12/2023",
-    "time": "18:27:00",
+    "date": "05/12/2023",
+    "time": "06:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2192,12 +2192,12 @@
         "balanceAfterTrans": 12
       }
     ],
-    "dispensedBy": "Tim Smith",
-    "dispensedTo": "Bob WilLiam Smiths"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "5/10/2023",
-    "time": "15:30:00",
+    "date": "05/10/2023",
+    "time": "03:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2207,12 +2207,12 @@
         "balanceAfterTrans": 42
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/10/2023",
-    "time": "9:55:00",
+    "date": "05/10/2023",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2222,12 +2222,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Marius Moan",
+    "dispensedBy": "John abel",
     "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "5/9/2023",
-    "time": "16:40:00",
+    "date": "05/09/2023",
+    "time": "04:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2237,12 +2237,12 @@
         "balanceAfterTrans": 21
       }
     ],
-    "dispensedBy": "Ella Garcia",
+    "dispensedBy": "John abel",
     "dispensedTo": "Mason Liu"
   },
   {
-    "date": "5/9/2023",
-    "time": "12:55:00",
+    "date": "05/09/2023",
+    "time": "12:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2252,12 +2252,12 @@
         "balanceAfterTrans": 38
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ling Hui"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "5/9/2023",
-    "time": "9:10:00",
+    "date": "05/09/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2267,12 +2267,12 @@
         "balanceAfterTrans": 13
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/6/2023",
-    "time": "19:20:00",
+    "date": "05/06/2023",
+    "time": "07:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2282,12 +2282,12 @@
         "balanceAfterTrans": 28
       }
     ],
-    "dispensedBy": "Kai Srivastava",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/5/2023",
-    "time": "10:15:00",
+    "date": "05/05/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2297,12 +2297,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/5/2023",
-    "time": "8:30:00",
+    "date": "05/05/2023",
+    "time": "08:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2312,12 +2312,12 @@
         "balanceAfterTrans": 37
       }
     ],
-    "dispensedBy": "Sophia Malik",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/5/2023",
-    "time": "7:15:00",
+    "date": "05/05/2023",
+    "time": "07:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2327,12 +2327,12 @@
         "balanceAfterTrans": 49
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Oliver"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "5/4/2023",
-    "time": "10:40:00",
+    "date": "05/04/2023",
+    "time": "10:40 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2342,12 +2342,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Camila",
-    "dispensedTo": "Sebastian"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "5/3/2023",
-    "time": "18:27:00",
+    "date": "05/03/2023",
+    "time": "06:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2357,12 +2357,12 @@
         "balanceAfterTrans": 12
       }
     ],
-    "dispensedBy": "Tim Smith",
-    "dispensedTo": "Bob WilLiam Smiths"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "5/3/2023",
-    "time": "14:20:00",
+    "date": "05/03/2023",
+    "time": "02:20 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2372,12 +2372,12 @@
         "balanceAfterTrans": 34
       }
     ],
-    "dispensedBy": "John",
-    "dispensedTo": "Jenny"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "5/3/2023",
-    "time": "13:22:00",
+    "date": "05/03/2023",
+    "time": "01:22 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2387,12 +2387,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Per Chrisstian",
-    "dispensedTo": "Andy Wang"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "5/2/2023",
-    "time": "16:18:00",
+    "date": "05/02/2023",
+    "time": "04:18 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2402,12 +2402,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/1/2023",
-    "time": "15:30:00",
+    "date": "05/01/2023",
+    "time": "03:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2417,12 +2417,12 @@
         "balanceAfterTrans": 42
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "5/1/2023",
-    "time": "9:10:00",
+    "date": "05/01/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2432,12 +2432,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "4/29/2023",
-    "time": "16:40:00",
+    "date": "04/29/2023",
+    "time": "04:40 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2447,12 +2447,12 @@
         "balanceAfterTrans": 21
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Mason Liu"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "4/29/2023",
-    "time": "12:55:00",
+    "date": "04/29/2023",
+    "time": "12:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2462,12 +2462,12 @@
         "balanceAfterTrans": 38
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ling Hui"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "4/28/2023",
-    "time": "11:50:00",
+    "date": "04/28/2023",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2477,12 +2477,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "4/20/2023",
-    "time": "8:30:00",
+    "date": "04/20/2023",
+    "time": "08:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2492,12 +2492,12 @@
         "balanceAfterTrans": 37
       }
     ],
-    "dispensedBy": "Sophia Malik",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "4/18/2023",
-    "time": "19:27:00",
+    "date": "04/18/2023",
+    "time": "07:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2507,12 +2507,12 @@
         "balanceAfterTrans": 24
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "Aria Ali"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "4/18/2023",
-    "time": "12:04:00",
+    "date": "04/18/2023",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2522,12 +2522,12 @@
         "balanceAfterTrans": 28
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "4/18/2023",
-    "time": "7:15:00",
+    "date": "04/18/2023",
+    "time": "07:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2537,12 +2537,12 @@
         "balanceAfterTrans": 49
       }
     ],
-    "dispensedBy": "Aiden Vale",
-    "dispensedTo": "Oliver"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "4/16/2023",
-    "time": "9:45:00",
+    "date": "04/16/2023",
+    "time": "09:45 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2552,12 +2552,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "4/15/2023",
-    "time": "10:40:00",
+    "date": "04/15/2023",
+    "time": "10:40 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2567,12 +2567,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Camila",
-    "dispensedTo": "Sebastian"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "4/14/2023",
-    "time": "15:45:00",
+    "date": "04/14/2023",
+    "time": "03:45 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -2594,12 +2594,12 @@
         "balanceAfterTrans": 12
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "4/12/2023",
-    "time": "12:04:00",
+    "date": "04/12/2023",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2609,12 +2609,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "4/11/2023",
-    "time": "9:12:00",
+    "date": "04/11/2023",
+    "time": "09:12 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2624,12 +2624,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Eva Sandnabba",
-    "dispensedTo": "Benjamin*"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "3/25/2023",
-    "time": "13:55:00",
+    "date": "03/25/2023",
+    "time": "01:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2639,12 +2639,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Mei mei",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "3/18/2023",
-    "time": "15:45:00",
+    "date": "03/18/2023",
+    "time": "03:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2654,12 +2654,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "3/16/2023",
-    "time": "11:30:00",
+    "date": "03/16/2023",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2669,12 +2669,12 @@
         "balanceAfterTrans": 32
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "3/16/2023",
-    "time": "10:10:00",
+    "date": "03/16/2023",
+    "time": "10:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2684,12 +2684,12 @@
         "balanceAfterTrans": 41
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "3/14/2023",
-    "time": "10:15:00",
+    "date": "03/14/2023",
+    "time": "10:15 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -2711,12 +2711,12 @@
         "balanceAfterTrans": 43
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "3/12/2023",
-    "time": "10:15:00",
+    "date": "03/12/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2726,12 +2726,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "3/8/2023",
-    "time": "9:30:00",
+    "date": "03/08/2023",
+    "time": "09:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2741,12 +2741,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mike"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "3/7/2023",
-    "time": "14:15:00",
+    "date": "03/07/2023",
+    "time": "02:15 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2762,12 +2762,12 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "3/5/2023",
-    "time": "10:15:00",
+    "date": "03/05/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2777,12 +2777,12 @@
         "balanceAfterTrans": 6
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "2/28/2023",
-    "time": "16:25:00",
+    "date": "02/28/2023",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2792,12 +2792,12 @@
         "balanceAfterTrans": 42
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "2/27/2023",
-    "time": "17:30:00",
+    "date": "02/27/2023",
+    "time": "05:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2807,12 +2807,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "2/19/2023",
-    "time": "10:50:00",
+    "date": "02/19/2023",
+    "time": "10:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2822,12 +2822,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Charlotte Moe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "2/17/2023",
-    "time": "11:05:00",
+    "date": "02/17/2023",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2837,12 +2837,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Lily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "2/14/2023",
-    "time": "15:50:00",
+    "date": "02/14/2023",
+    "time": "03:50 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -2864,12 +2864,12 @@
         "balanceAfterTrans": 48
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "2/9/2023",
-    "time": "10:15:00",
+    "date": "02/09/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2879,12 +2879,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "2/4/2023",
-    "time": "15:50:00",
+    "date": "02/04/2023",
+    "time": "03:50 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2894,12 +2894,12 @@
         "balanceAfterTrans": 4
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "2/3/2023",
-    "time": "9:55:00",
+    "date": "02/03/2023",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2909,12 +2909,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Marius Moan",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "1/26/2023",
-    "time": "21:45:00",
+    "date": "01/26/2023",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2930,12 +2930,12 @@
         "balanceAfterTrans": 4
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "1/24/2023",
-    "time": "10:15:00",
+    "date": "01/24/2023",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2945,12 +2945,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "1/19/2023",
-    "time": "11:50:00",
+    "date": "01/19/2023",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2960,12 +2960,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "1/18/2023",
-    "time": "15:55:00",
+    "date": "01/18/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -2975,12 +2975,12 @@
         "balanceAfterTrans": 31
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "1/14/2023",
-    "time": "21:45:00",
+    "date": "01/14/2023",
+    "time": "09:45 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -3002,12 +3002,12 @@
         "balanceAfterTrans": 32
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
-    "date": "1/12/2023",
-    "time": "9:10:00",
+    "date": "01/12/2023",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3017,12 +3017,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "1/11/2023",
-    "time": "9:45:00",
+    "date": "01/11/2023",
+    "time": "09:45 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3038,12 +3038,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "1/10/2023",
-    "time": "21:45:00",
+    "date": "01/10/2023",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3053,12 +3053,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "1/10/2023",
-    "time": "11:30:00",
+    "date": "01/10/2023",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3068,12 +3068,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Liam Smith",
+    "dispensedBy": "John abel",
     "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "1/6/2023",
-    "time": "15:55:00",
+    "date": "01/06/2023",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3083,12 +3083,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
-    "date": "1/1/2023",
-    "time": "16:18:00",
+    "date": "01/01/2023",
+    "time": "04:18 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3098,12 +3098,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
     "date": "12/29/2022",
-    "time": "9:55:00",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3113,12 +3113,12 @@
         "balanceAfterTrans": 22
       }
     ],
-    "dispensedBy": "Oliver",
-    "dispensedTo": "Mia Miller"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
     "date": "12/23/2022",
-    "time": "9:12:00",
+    "time": "09:12 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3128,12 +3128,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Eva Sandnabba",
-    "dispensedTo": "Benjamin*"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
     "date": "12/14/2022",
-    "time": "13:55:00",
+    "time": "01:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3143,12 +3143,12 @@
         "balanceAfterTrans": 6
       }
     ],
-    "dispensedBy": "Mei mei",
-    "dispensedTo": "Fei peng"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
     "date": "12/14/2022",
-    "time": "9:55:00",
+    "time": "09:55 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -3170,12 +3170,12 @@
         "balanceAfterTrans": 13
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
     "date": "12/12/2022",
-    "time": "16:25:00",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3185,12 +3185,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "12/8/2022",
-    "time": "19:27:00",
+    "date": "12/08/2022",
+    "time": "07:27 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3200,12 +3200,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "Aria Ali"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "12/8/2022",
-    "time": "10:15:00",
+    "date": "12/08/2022",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3215,12 +3215,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Emily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "12/5/2022",
-    "time": "9:55:00",
+    "date": "12/05/2022",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3230,12 +3230,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Marius Moan",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "12/2/2022",
-    "time": "15:45:00",
+    "date": "12/02/2022",
+    "time": "03:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3245,12 +3245,12 @@
         "balanceAfterTrans": 5
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Liam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "12/1/2022",
-    "time": "9:10:00",
+    "date": "12/01/2022",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3260,12 +3260,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
     "date": "11/28/2022",
-    "time": "9:10:00",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3275,12 +3275,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
     "date": "11/25/2022",
-    "time": "14:15:00",
+    "time": "02:15 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3290,12 +3290,12 @@
         "balanceAfterTrans": 8
       }
     ],
-    "dispensedBy": "Mason Liu",
-    "dispensedTo": "WilLiam Smith"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
     "date": "11/25/2022",
-    "time": "10:10:00",
+    "time": "10:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3305,12 +3305,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
     "date": "11/18/2022",
-    "time": "12:04:00",
+    "time": "12:04 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3320,12 +3320,12 @@
         "balanceAfterTrans": 27
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "11/18/2022",
-    "time": "9:30:00",
+    "time": "09:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3335,12 +3335,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Sara Brown",
-    "dispensedTo": "Mike"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
     "date": "11/14/2022",
-    "time": "17:30:00",
+    "time": "05:30 PM",
     "type": "Restock",
     "commodities": [
       {
@@ -3362,12 +3362,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
     "date": "11/13/2022",
-    "time": "11:30:00",
+    "time": "11:30 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3377,12 +3377,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Ella Garcia"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "11/12/2022",
-    "time": "10:15:00",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3392,12 +3392,12 @@
         "balanceAfterTrans": 1
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "11/11/2022",
-    "time": "9:55:00",
+    "time": "09:55 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3407,12 +3407,12 @@
         "balanceAfterTrans": 9
       }
     ],
-    "dispensedBy": "Oliver",
+    "dispensedBy": "John abel",
     "dispensedTo": "Mia Miller"
   },
   {
     "date": "11/10/2022",
-    "time": "17:30:00",
+    "time": "05:30 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3422,12 +3422,12 @@
         "balanceAfterTrans": 0
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Ethan Robinson"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
-    "date": "11/8/2022",
-    "time": "10:50:00",
+    "date": "11/08/2022",
+    "time": "10:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3437,12 +3437,12 @@
         "balanceAfterTrans": 2
       }
     ],
-    "dispensedBy": "Liam Smith",
-    "dispensedTo": "Charlotte Moe"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "11/6/2022",
-    "time": "16:25:00",
+    "date": "11/06/2022",
+    "time": "04:25 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3452,12 +3452,12 @@
         "balanceAfterTrans": 18
       }
     ],
-    "dispensedBy": "Ella Garcia",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "11/3/2022",
-    "time": "11:05:00",
+    "date": "11/03/2022",
+    "time": "11:05 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3467,12 +3467,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "Fei peng",
-    "dispensedTo": "Lily"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
     "date": "10/29/2022",
-    "time": "15:50:00",
+    "time": "03:50 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3482,12 +3482,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Liam Smith",
+    "dispensedBy": "John abel",
     "dispensedTo": "Mia Miller"
   },
   {
     "date": "10/27/2022",
-    "time": "10:15:00",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3497,12 +3497,12 @@
         "balanceAfterTrans": 7
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
     "date": "10/26/2022",
-    "time": "21:45:00",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3512,12 +3512,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
     "date": "10/21/2022",
-    "time": "11:50:00",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3527,12 +3527,12 @@
         "balanceAfterTrans": 10
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
     "date": "10/20/2022",
-    "time": "15:55:00",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3548,12 +3548,12 @@
         "balanceAfterTrans": 26
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ella Garcia"
   },
   {
     "date": "10/15/2022",
-    "time": "10:15:00",
+    "time": "10:15 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3563,12 +3563,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Alice",
-    "dispensedTo": "Eve"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mia Miller"
   },
   {
     "date": "10/14/2022",
-    "time": "11:50:00",
+    "time": "11:50 AM",
     "type": "Restock",
     "commodities": [
       {
@@ -3590,12 +3590,12 @@
         "balanceAfterTrans": 43
       }
     ],
-    "dispensedBy": "Central",
-    "dispensedTo": "Bandajuma*"
+    "dispensedBy": "",
+    "dispensedTo": "John abel"
   },
   {
     "date": "10/11/2022",
-    "time": "21:45:00",
+    "time": "09:45 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3605,12 +3605,12 @@
         "balanceAfterTrans": 3
       }
     ],
-    "dispensedBy": "David",
-    "dispensedTo": "Marius Moan"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Sara Brown"
   },
   {
-    "date": "10/9/2022",
-    "time": "9:10:00",
+    "date": "10/09/2022",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3620,12 +3620,12 @@
         "balanceAfterTrans": 11
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Mason Liu"
   },
   {
-    "date": "10/7/2022",
-    "time": "15:55:00",
+    "date": "10/07/2022",
+    "time": "03:55 PM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3635,12 +3635,12 @@
         "balanceAfterTrans": 30
       }
     ],
-    "dispensedBy": "Evelyn",
-    "dispensedTo": "Henry"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Aria Ali"
   },
   {
-    "date": "10/3/2022",
-    "time": "11:50:00",
+    "date": "10/03/2022",
+    "time": "11:50 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3650,12 +3650,12 @@
         "balanceAfterTrans": 4
       }
     ],
-    "dispensedBy": "Aria Ali",
-    "dispensedTo": "Elijah Svensen"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   },
   {
-    "date": "10/1/2022",
-    "time": "9:10:00",
+    "date": "10/01/2022",
+    "time": "09:10 AM",
     "type": "Dispensing",
     "commodities": [
       {
@@ -3665,7 +3665,7 @@
         "balanceAfterTrans": 23
       }
     ],
-    "dispensedBy": "Mia Miller",
-    "dispensedTo": "Chloe Solheim"
+    "dispensedBy": "John abel",
+    "dispensedTo": "Ethan Robinson"
   }
 ]
