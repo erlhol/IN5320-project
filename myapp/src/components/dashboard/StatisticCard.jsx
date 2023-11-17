@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Button, IconInfo24 } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import classes from "./StatisticCard.module.css";
+import globalClasses from "../../App.module.css";
 
 const StatisticCard = props => {
   return (
     <Card className={classes.statisticCard}>
       <div className={classes.statisticHeader}>
         <div
-          className={`${classes.dashboardCardTitle} ${classes.dayUntilDeliveryTitle}`}
+          className={`${globalClasses.dashboardCardTitle} ${classes.dayUntilDeliveryTitle}`}
         >
           {props.title}
         </div>
