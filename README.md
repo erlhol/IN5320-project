@@ -61,6 +61,10 @@ In addition to the DHIS2 UI package, we use a couple of additional packages.
 - `Apexcharts`: We use apexcharts to provide the statistics, as DHIS2 didnt have a package for this.
 - `React day picker`: We use this to be able to set a date range, as this was not possible in DHIS2
 
+## Development process
+
+We have worked together on the app by using a kanban board to visualize tasks. All features have been added in sepereate branches that are merged to main when completed. We have used pull requests to ensure code quality and that every team member and encourage a shared understanding of the project.
+
 ## Contributors
 
 - yingqiaz
