@@ -1,12 +1,8 @@
 // Search utility
 export function search(element, searchWord, attribute) {
-  const words = element[attribute].split(/(\s+)/);
-  for (const word of words) {
-    if (word.toLowerCase().includes(searchWord.toLowerCase())) {
-      return true; // Return true if any word matches the search term
-    }
-  }
-  return false; // Return false if no word matches the search term
+  const text = element[attribute].toLowerCase();
+  const lowerCaseSearchWord = searchWord.toLowerCase();
+  return text.includes(lowerCaseSearchWord);
 }
 
 // Filters by the given
