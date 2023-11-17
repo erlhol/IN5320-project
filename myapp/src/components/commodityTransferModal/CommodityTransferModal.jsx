@@ -66,7 +66,8 @@ const CommodityTransferModal = props => {
     const dataValues = [];
     commoditiesToSubmit.forEach(async commodity => {
       const dataElement = commodity.commodityId;
-      const period = getYearMonth(getDateAndTime(new Date(datetime))[0]);
+      const dateTimeValues = getDateAndTime(new Date(datetime));
+      const period = getYearMonth(dateTimeValues.date);
       const endBalanceInfo = {
         dataElement,
         period,
@@ -87,8 +88,9 @@ const CommodityTransferModal = props => {
           categoryOptionCombo: "rQLFnNXXIL0",
         };
         dataValues.push(consumptionInfo);
+        console.log(consumptionInfo);
       }
-      await updateStock({ dataValues, period });
+     await updateStock({ dataValues, period });
     });
   };
 

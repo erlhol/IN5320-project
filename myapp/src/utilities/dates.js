@@ -42,8 +42,11 @@ export function getCurrentMonth() {
 }
 
 export function getYearMonth(date) {
-  const date = new Date(date);
- return year.toString() + month.toString().padStart(2, "0");
+  const tempdate = new Date(date);
+  return (
+    tempdate.getFullYear().toString() +
+    (tempdate.getMonth() + 1).toString().padStart(2, "0")
+  );
 }
 export function getNumberOfCurrentMonth() {
   const date = new Date();
@@ -63,7 +66,7 @@ export function getStockHistoryDefaultPeriod(transactions) {
   return [start, end];
 }
 
-export const getDateAndTime = dateTime => {
+export function getDateAndTime(dateTime) {
   const month = (dateTime.getMonth() + 1).toString().padStart(2, "0");
   const day = dateTime.getDate().toString().padStart(2, "0");
   const year = dateTime.getFullYear().toString();
@@ -73,7 +76,7 @@ export const getDateAndTime = dateTime => {
     minute: "numeric",
   });
   return { date, time };
-};
+}
 
 export function getCurrentMonthName() {
   return months[getNumberOfCurrentMonth() + 1];

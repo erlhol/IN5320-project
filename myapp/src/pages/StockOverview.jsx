@@ -91,6 +91,7 @@ const StockInventory = props => {
     allMonthsData,
     monthlyStock,
     currentSearch,
+    props.transactionData,
   ]);
 
   const refetchData = dispensing => {

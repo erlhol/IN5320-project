@@ -48,17 +48,9 @@ export const mergeCommodityAndValue = (
         );
 
         if (matchedTransCommodity) {
-          const moreRecent =
-            commodityData[key].lastDispensingDate === "" ||
-            new Date(matchedTrans.date) >
-              new Date(commodityData[key].lastDispensingDate);
-          commodityData[key].lastDispensingDate = moreRecent
-            ? matchedTrans.date
-            : commodityData[key].lastDispensingDate;
-
-          commodityData[key].lastDispensingAmount = moreRecent
-            ? matchedTransCommodity?.amount.toString().slice(1)
-            : commodityData[key].lastDispensingAmount;
+          commodityData[key].lastDispensingDate = matchedTrans.date;
+          commodityData[key].lastDispensingAmount =
+            matchedTransCommodity?.amount.toString().slice(1);
         }
       }
     }
