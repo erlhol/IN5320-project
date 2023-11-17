@@ -111,6 +111,9 @@ const CommodityTable = props => {
     );
 
   const checkSelectAllCheckmark = () => {
+    if (displayedCommodities.length === 0) {
+      return false;
+    }
     return displayedCommodities.every(commodity =>
       props.preselectedCommodities.some(
         selected => selected.commodityName === commodity.commodityName
@@ -151,7 +154,7 @@ const CommodityTable = props => {
             )
         )
       );
-      props.setNumberMultiselected(0);
+      props.setNumberMultiselected(props.numberMultiSelected - displayedCommodities.length);
     }
   };
 
@@ -229,58 +232,64 @@ const CommodityTable = props => {
             </DataTableRow>
           </TableHead>
           <TableBody>
-            {displayedCommodities.map((commodity, i) => (
-              <DataTableRow key={i}>
-                {/* if the row should be selected, add the property: selected */}
-                <DataTableCell
-                  className={commonclasses.clickable}
-                  width={spacers.dp48}
-                >
-                  <Checkbox
-                    onChange={() => preselectCommodity(commodity)}
-                    checked={checked(commodity)}
-                  />
-                  {/* if it should be checked, add the property: checked */}
-                </DataTableCell>
-                <DataTableCell
-                  className={commonclasses.clickable}
-                  onClick={() => handleSetSelectedStock(commodity)}
-                >
-                  {commodity.commodityName}
-                </DataTableCell>
-                <DataTableCell
-                  className={commonclasses.clickable}
-                  onClick={() => handleSetSelectedStock(commodity)}
-                >
-                  {commodity.endBalance}
-                </DataTableCell>
-                <DataTableCell
-                  className={commonclasses.clickable}
-                  onClick={() => handleSetSelectedStock(commodity)}
-                >
-                  {commodity.consumption}
-                </DataTableCell>
-                <DataTableCell
-                  className={commonclasses.clickable}
-                  onClick={() => handleSetSelectedStock(commodity)}
-                >
-                  <div className={classes.commodityTableLastDispensing}>
-                    <span>{commodity.lastDispensingDate}</span>
-                    <span>{commodity.lastDispensingAmount}</span>
-                  </div>
-                </DataTableCell>
-                <DataTableCell className={classes.dispenseColumn}>
-                  <Button
-                    name="Small button"
-                    onClick={() => dispenseSingleCommodity(commodity)}
-                    small
-                    value="default"
+            {displayedCommodities.length > 0 &&
+              displayedCommodities.map((commodity, i) => (
+                <DataTableRow key={i}>
+                  {/* if the row should be selected, add the property: selected */}
+                  <DataTableCell
+                    className={commonclasses.clickable}
+                    width={spacers.dp48}
                   >
-                    Dispense
-                  </Button>
-                </DataTableCell>
+                    <Checkbox
+                      onChange={() => preselectCommodity(commodity)}
+                      checked={checked(commodity)}
+                    />
+                    {/* if it should be checked, add the property: checked */}
+                  </DataTableCell>
+                  <DataTableCell
+                    className={commonclasses.clickable}
+                    onClick={() => handleSetSelectedStock(commodity)}
+                  >
+                    {commodity.commodityName}
+                  </DataTableCell>
+                  <DataTableCell
+                    className={commonclasses.clickable}
+                    onClick={() => handleSetSelectedStock(commodity)}
+                  >
+                    {commodity.endBalance}
+                  </DataTableCell>
+                  <DataTableCell
+                    className={commonclasses.clickable}
+                    onClick={() => handleSetSelectedStock(commodity)}
+                  >
+                    {commodity.consumption}
+                  </DataTableCell>
+                  <DataTableCell
+                    className={commonclasses.clickable}
+                    onClick={() => handleSetSelectedStock(commodity)}
+                  >
+                    <div className={classes.commodityTableLastDispensing}>
+                      <span>{commodity.lastDispensingDate}</span>
+                      <span>{commodity.lastDispensingAmount}</span>
+                    </div>
+                  </DataTableCell>
+                  <DataTableCell className={classes.dispenseColumn}>
+                    <Button
+                      name="Small button"
+                      onClick={() => dispenseSingleCommodity(commodity)}
+                      small
+                      value="default"
+                    >
+                      Dispense
+                    </Button>
+                  </DataTableCell>
+                </DataTableRow>
+              ))}
+            {displayedCommodities.length === 0 && (
+              <DataTableRow>
+                <DataTableCell colSpan="6">No commodities found</DataTableCell>
               </DataTableRow>
-            ))}
+            )}
           </TableBody>
           <TableFoot>
             <DataTableRow>

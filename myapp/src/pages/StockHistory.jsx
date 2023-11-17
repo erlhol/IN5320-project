@@ -112,15 +112,19 @@ const TransactionHistory = props => {
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
                 <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay> */}
-      <div className={globalClasses.transactionsContainer}>
-        {Object.keys(visibleTrans).map((date, i) => (
-          <TransactionsForDay
-            key={i}
-            date={date}
-            transactions={visibleTrans[date]}
-          />
-        ))}
-      </div>
+      {!Object.keys(visibleTrans).length == 0 ? (
+        <div className={globalClasses.transactionsContainer}>
+          {Object.keys(visibleTrans).map((date, i) => (
+            <TransactionsForDay
+              key={i}
+              date={date}
+              transactions={visibleTrans[date]}
+            />
+          ))}
+        </div>
+      ) : (
+        <div>No transactions found</div>
+      )}
 
       {modalPresent && (
         <CommodityTransferModal

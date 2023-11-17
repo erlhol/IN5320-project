@@ -27,6 +27,7 @@ const CustomDatePicker = ({ selectedPeriod, setSelectedPeriod }) => {
           <CustomRangeInput
             datePickerRef={datePickerRef}
             value={selectedPeriod}
+            setSelectedPeriod={setSelectedPeriod}
           />
         }
       />
@@ -34,7 +35,7 @@ const CustomDatePicker = ({ selectedPeriod, setSelectedPeriod }) => {
   );
 };
 
-function CustomRangeInput({ datePickerRef, value }) {
+function CustomRangeInput({ datePickerRef, value, setSelectedPeriod }) {
   const handleFocus = () => {
     if (datePickerRef.current) {
       datePickerRef.current.openCalendar();
@@ -48,8 +49,10 @@ function CustomRangeInput({ datePickerRef, value }) {
     <InputField
       onFocus={handleFocus}
       value={formatPeriod([from, to])}
-      inputWidth={"200px"}
+      inputWidth={"220px"}
       placeholder="Filter by date"
+      type="search"
+      onChange={() => setSelectedPeriod([])} //needed for reset button
     />
   );
 }
