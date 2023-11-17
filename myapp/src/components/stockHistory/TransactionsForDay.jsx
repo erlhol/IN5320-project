@@ -93,7 +93,7 @@ const TransactionsForDay = props => {
                         {getTransactionAmount(transaction.commodities)}
                       </div>
                       {transaction.commodities.length === 1 ? (
-                        <div>
+                        <div className={classes.updatedStockInfo}>
                           Updated stock:{" "}
                           {transaction.commodities[0].balanceAfterTrans}
                         </div>
