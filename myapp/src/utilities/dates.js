@@ -16,7 +16,7 @@ const months = [
   "December",
 ];
 
-function getMonth(monthNumber) {
+export function getMonth(monthNumber) {
   return months[monthNumber];
 }
 
@@ -39,6 +39,11 @@ export function getPeriods() {
 
 export function getCurrentMonth() {
   return year.toString() + month.toString().padStart(2, "0");
+}
+
+export function getNumberOfCurrentMonth() {
+  const date = new Date();
+  return date.getMonth(); // to be consitant with starting at 1
 }
 
 export function getMonthAbbrivation() {

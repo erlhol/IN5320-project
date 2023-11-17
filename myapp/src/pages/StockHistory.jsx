@@ -64,6 +64,10 @@ const TransactionHistory = props => {
     );
   };
 
+  const onAlertHidden = () => {
+    setAlertBarText("");
+  };
+
   return (
     <>
       {/* Navigation buttons to add stock or new dispensing */}
@@ -103,13 +107,16 @@ const TransactionHistory = props => {
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
                 <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay> */}
-      {Object.keys(visibleTrans).map((date, i) => (
-        <TransactionsForDay
-          key={i}
-          date={date}
-          transactions={visibleTrans[date]}
-        />
-      ))}
+      <div className={classes.transactionsContainer}>
+        {Object.keys(visibleTrans).map((date, i) => (
+          <TransactionsForDay
+            key={i}
+            date={date}
+            transactions={visibleTrans[date]}
+          />
+        ))}
+      </div>
+
       {modalPresent && (
         <CommodityTransferModal
           onClose={handleOnModalChange}
@@ -120,7 +127,11 @@ const TransactionHistory = props => {
         />
       )}
       {alertBarText && (
-        <AlertBar type="success" className={classes.alertBar}>
+        <AlertBar
+          type="success"
+          className={classes.alertBar}
+          onHidden={onAlertHidden}
+        >
           {alertBarText}
         </AlertBar>
       )}

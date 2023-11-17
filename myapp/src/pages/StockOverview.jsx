@@ -102,6 +102,10 @@ const StockInventory = props => {
     );
   };
 
+  const onAlertHidden = () => {
+    setAlertBarText("");
+  };
+
   if (allMonthsError)
     return <span>ERROR in getting stock data: {allMonthsError.message}</span>;
 
@@ -160,8 +164,13 @@ const StockInventory = props => {
               }
             />
           )}
+
           {alertBarText && (
-            <AlertBar type="success" className={classes.alertBar}>
+            <AlertBar
+              type="success"
+              className={classes.alertBar}
+              onHidden={onAlertHidden}
+            >
               {alertBarText}
             </AlertBar>
           )}

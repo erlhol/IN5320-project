@@ -87,7 +87,6 @@ export const categorizeTransByDate = transactions => {
   return sortedData;
 };
 
-// To show a specific number recent transactions :
 export const getMostRecentTransactionsObject = (
   categorizedTrans,
   nrTranNeeded
@@ -116,6 +115,54 @@ export const checkDateInFuture = dateString => {
   const now = new Date();
   return date > now;
 };
+
+export const getCommoditiesLowInStock = (
+  stockDataPerMonth,
+  currentStockData
+) => {
+  const sumEndBalances = {};
+
+  stockDataPerMonth.forEach(periodData => {
+    periodData.forEach(commodity => {
+      const { commodityId, endBalance } = commodity;
+      sumEndBalances[commodityId] = sumEndBalances[commodityId] || 0;
+      sumEndBalances[commodityId] += endBalance;
+    });
+  });
+
+  const lowInStockCommodities = currentStockData.filter(commodity => {
+    const average = Math.round(
+      sumEndBalances[commodity.commodityId] / stockDataPerMonth.length
+    );
+    const threshold = 0.2 * average;
+    return commodity.endBalance < threshold;
+  });
+
+  return lowInStockCommodities.sort((a, b) =>
+    a.commodityName.localeCompare(b.commodityName)
+  );
+};
+
+// export const getRecentTransactions = transactions => {
+//   const categorizedTransactions = categorizeTransByDate(transactions);
+//   const recentTransactionsObject = {};
+//   let nrTransactionsAdded = 0;
+
+//   for (const date in categorizedTransactions) {
+//     const transactionForDate = categorizedTransactions[date];
+
+//     transactionForDate.forEach(trans => {
+//       if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
+//       if (nrTransactionsAdded < 5) {
+//         recentTransactionsObject[date].push(trans);
+//         nrTransactionsAdded++;
+//       }
+//     });
+//     if (nrTransactionsAdded === 5) break;
+//   }
+
+//   return recentTransactionsObject;
+// };
 
 export const getTransByPeriod = (transactions, startDate, endDate) => {
   const filteredTrans = {};
