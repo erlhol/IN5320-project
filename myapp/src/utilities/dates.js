@@ -61,8 +61,8 @@ export function getStockHistoryDefaultPeriod() {
 }
 
 export const getDateAndTime = dateTime => {
-  const month = (dateTime.getMonth() + 1).toString();
-  const day = dateTime.getDate().toString();
+  const month = (dateTime.getMonth() + 1).toString().padStart(2, "0");
+  const day = dateTime.getDate().toString().padStart(2, "0");
   const year = dateTime.getFullYear().toString();
   const date = `${month}/${day}/${year}`; // Format: "11/7/2023"
   const time = dateTime.toLocaleTimeString("en-US", {
