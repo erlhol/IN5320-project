@@ -8,7 +8,7 @@ import {
   IconCalendar24,
 } from "@dhis2/ui";
 import classes from "../../App.module.css";
-import ConsumptionHistoryChart from "./ConsumptionHistoryChart";
+import ConsumptionHistoryChart from "./charts/ConsumptionHistoryChart";
 import DetailViewInfoBox from "../common/DetailViewInfoBox";
 import TransactionsForDay from "../stockHistory/TransactionsForDay";
 import {

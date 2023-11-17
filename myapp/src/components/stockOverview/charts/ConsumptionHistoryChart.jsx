@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
-import { getMonthAbbrivation } from "../../utilities/dates";
+import { getMonthAbbrivation } from "../../../utilities/dates";
 import { CircularLoader } from "@dhis2/ui";
 
 const ConsumptionHistoryChart = props => {
