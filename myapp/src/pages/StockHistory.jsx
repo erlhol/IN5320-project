@@ -98,7 +98,7 @@ const TransactionHistory = props => {
         />
         <Search
           name="recipient"
-          placeholder="Search Recipient"
+          placeholder="Search recipient"
           width={"320px"}
           onSearchChange={onSearch}
           currentSearch={selectedReceipient}
