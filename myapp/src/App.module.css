@@ -5,6 +5,10 @@
   min-height: 100vh;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .inlineFlex {
   display: flex;
   align-items: center;
@@ -162,6 +166,14 @@
 
 /* transactionDetailModal */
 
+.transDetailModalContent {
+  min-height: 400px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 .transDetailModalWrapper {
   min-width: 400px;
 }
@@ -197,17 +209,19 @@
   font-weight: bold;
 }
 
-.transDetailTableCaption {
-  font-size: large;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  font-weight: 500;
-}
-
 .detailViewInfoBoxesContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+}
+
+.transDetailTableCaption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.transDetailTable {
+  margin-top: 16px;
 }
 
 /* StockDetail */

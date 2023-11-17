@@ -86,32 +86,65 @@ export const categorizeTransByDate = transactions => {
   const sortedData = Object.fromEntries(dataArray);
   return sortedData;
 };
-// For dashBoard:
-// export const getMostRecentTransactionsObject = (
-//   categorizedTrans,
-//   nrTranNeeded
-// ) => {
-//   const mostRecentTransactionsObject = {};
-//   let nrTransactionsAdded = 0;
 
-//   for (const date in categorizedTrans) {
-//     const transactions = categorizedTrans[date];
-//     transactions.forEach(trans => {
-//       if (!mostRecentTransactionsObject[date])
-//         mostRecentTransactionsObject[date] = [];
-//       if (nrTransactionsAdded < nrTranNeeded) {
-//         mostRecentTransactionsObject[date].push(trans);
-//         nrTransactionsAdded++;
-//       }
-//     });
-//     if (nrTransactionsAdded === nrTranNeeded) break;
-//   }
+// To show a specific number recent transactions :
+export const getMostRecentTransactionsObject = (
+  categorizedTrans,
+  nrTranNeeded
+) => {
+  const mostRecentTransactionsObject = {};
+  let nrTransactionsAdded = 0;
 
-//   return mostRecentTransactionsObject;
-// };
+  for (const date in categorizedTrans) {
+    const transactions = categorizedTrans[date];
+    transactions.forEach(trans => {
+      if (!mostRecentTransactionsObject[date])
+        mostRecentTransactionsObject[date] = [];
+      if (nrTransactionsAdded < nrTranNeeded) {
+        mostRecentTransactionsObject[date].push(trans);
+        nrTransactionsAdded++;
+      }
+    });
+    if (nrTransactionsAdded === nrTranNeeded) break;
+  }
+
+  return mostRecentTransactionsObject;
+};
 
 export const checkDateInFuture = dateString => {
   const date = new Date(dateString);
   const now = new Date();
   return date > now;
+};
+
+export const getTransByPeriod = (transactions, startDate, endDate) => {
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const dateFormatted = new Date(date);
+    if (dateFormatted >= startDate && dateFormatted <= endDate)
+      filteredTrans[date] = transactions[date];
+  }
+  return filteredTrans;
+};
+
+export const getTransByCommodityName = (transactions, commodityNameQuery) => {
+  if (!commodityNameQuery) return transactions;
+  const filteredTrans = {};
+  for (const date in transactions) {
+    const transactionsForDate = transactions[date];
+
+    const matchedTrans = transactionsForDate.filter(transaction =>
+      transaction.commodities.some(commodity =>
+        commodity.commodityName
+          .toLowerCase()
+          .includes(commodityNameQuery.toLowerCase())
+      )
+    );
+
+    if (matchedTrans.length !== 0) {
+      if (!filteredTrans[date]) filteredTrans[date] = matchedTrans;
+      else filteredTrans[date] = filteredTrans[date].concat(matchedTrans);
+    }
+  }
+  return filteredTrans;
 };

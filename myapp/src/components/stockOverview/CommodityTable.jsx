@@ -14,14 +14,14 @@ import {
   IconInfo24,
   MenuItem,
 } from "@dhis2/ui";
+import { spacers } from "@dhis2/ui";
 import StockDetail from "./StockDetail";
 import PreselectionHeader from "./PreselectionHeader";
-import { spacers } from "@dhis2/ui";
 import classes from "./StockOverview.module.css";
+import commonclasses from "../../App.module.css";
 
 const CommodityTable = props => {
   const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
-
   // State for the current pageSize selected
   const [pageSize, setPageSize] = useState(10);
 
@@ -168,6 +168,8 @@ const CommodityTable = props => {
         <StockDetail
           selectedStock={selectedStock}
           onClose={handleSetSelectedStock}
+          transactions={props.transactions}
+          monthlyStockData={props.monthlyStockData}
         />
       )}
       <div className={classes.commodityTable}>
@@ -232,7 +234,10 @@ const CommodityTable = props => {
             {displayedCommodities.map((commodity, i) => (
               <DataTableRow key={i}>
                 {/* if the row should be selected, add the property: selected */}
-                <DataTableCell width={spacers.dp48}>
+                <DataTableCell
+                  className={commonclasses.clickable}
+                  width={spacers.dp48}
+                >
                   <Checkbox
                     onChange={() => preselectCommodity(commodity)}
                     checked={checked(commodity)}
@@ -240,21 +245,25 @@ const CommodityTable = props => {
                   {/* if it should be checked, add the property: checked */}
                 </DataTableCell>
                 <DataTableCell
+                  className={commonclasses.clickable}
                   onClick={() => handleSetSelectedStock(commodity)}
                 >
                   {commodity.commodityName}
                 </DataTableCell>
                 <DataTableCell
+                  className={commonclasses.clickable}
                   onClick={() => handleSetSelectedStock(commodity)}
                 >
                   {commodity.endBalance}
                 </DataTableCell>
                 <DataTableCell
+                  className={commonclasses.clickable}
                   onClick={() => handleSetSelectedStock(commodity)}
                 >
                   {commodity.consumption}
                 </DataTableCell>
                 <DataTableCell
+                  className={commonclasses.clickable}
                   onClick={() => handleSetSelectedStock(commodity)}
                 >
                   <div className={classes.commodityTableLastDispensing}>

@@ -1,33 +1,59 @@
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import { getMonthAbbrivation } from "../../utilities/dates";
+import { CircularLoader } from "@dhis2/ui";
+
 const ConsumptionHistoryChart = props => {
-  const chartOptions = {
-    chart: {
-      id: props.commodity.commodityName,
-    },
-    xaxis: {
-      categories: getMonthAbbrivation(),
-    },
-    markers: {
-      size: 4,
-    },
-  };
+  const [chartData, setChartData] = useState(null);
 
-  // TODO: replace the mock data with real values
-  const chartSeries = [
-    {
-      name: "Monthly Consumption",
-      data: [100, 250, 100, 10, 290, 225, 225, 75, 90, 280, 260, 250],
-    },
-  ];
+  useEffect(() => {
+    const chosenCommodityId = props.commodity.commodityId;
+    const chosenCommodityData = props.monthlyStockData
+      .map(innerArray =>
+        innerArray.filter(
+          commodity => chosenCommodityId === commodity.commodityId
+        )
+      )
+      .map(arr => arr[0].consumption);
 
-  return (
-    <ReactApexChart
-      options={chartOptions}
-      series={chartSeries}
-      type="line"
-      height={"250"}
-    />
-  );
+    setChartData({
+      chartOptions: {
+        chart: {
+          id: props.commodity.commodityName,
+        },
+        dataLabels: {
+          enabled: true,
+        },
+        xaxis: {
+          categories: getMonthAbbrivation(),
+        },
+        stroke: {
+          curve: "straight",
+          width: 3,
+        },
+        markers: {
+          size: 1,
+        },
+      },
+      chartSeries: [
+        {
+          name: "Consumption",
+          data: chosenCommodityData,
+        },
+      ],
+    });
+  }, [props]);
+
+  if (chartData) {
+    return (
+      <ReactApexChart
+        options={chartData.chartOptions}
+        series={chartData.chartSeries}
+        type="line"
+        height={200}
+      />
+    );
+  }
+  return <CircularLoader />;
 };
 export default ConsumptionHistoryChart;
