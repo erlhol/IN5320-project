@@ -63,7 +63,7 @@ In addition to the DHIS2 UI package, we use a couple of additional packages.
 
 ## Development process
 
-We have worked together on the app by using a kanban board to visualize tasks. All features have been added in sepereate branches that are merged to main when completed. We have used pull requests to ensure code quality and that every team member and encourage a shared understanding of the project.
+We have worked together on the app by using a kanban board to visualize tasks. All features have been added in sepereate branches that are merged to main when completed. We have used pull requests to ensure code quality and encourage a shared understanding of the project.
 
 ## Contributors
 
