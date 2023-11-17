@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AlertBar, IconCalendar24 } from "@dhis2/ui";
+import { AlertBar, SingleSelect, SingleSelectOption } from "@dhis2/ui";
 import classes from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
@@ -8,15 +8,11 @@ import { categorizeTransByDate } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
-// NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import CustomDatePicker from "../components/common/CustomDatePicker";
 
 const TransactionHistory = props => {
   const [modalPresent, setModalPresent] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState([
-    getStockHistoryDefaultPeriod().start,
-    getStockHistoryDefaultPeriod().end,
-  ]);
+  const [selectedPeriod, setSelectedPeriod] = useState([]);
   const [selectedReceipient, setSelectedReceipient] = useState("");
   const [selectedCommodity, setSelectedCommodity] = useState("");
   const [visibleTrans, setVisibleTrans] = useState(() =>
@@ -46,13 +42,28 @@ const TransactionHistory = props => {
   const filterTrans = () => {
     return props?.transactionData?.filter(transaction => {
       const transactionDate = new Date(transaction.date);
+      transactionDate.setHours(0, 0, 0, 0);
+      const defaultPeriod = getStockHistoryDefaultPeriod(props.transactionData);
+      const startDate = selectedPeriod[0]
+        ? new Date(selectedPeriod[0])
+        : new Date(defaultPeriod[0]);
+      const endDate = selectedPeriod[1]
+        ? new Date(selectedPeriod[1]) //use selected end if already selected
+        : new Date(
+            selectedPeriod[0]
+              ? new Date(selectedPeriod[0])
+              : new Date(defaultPeriod[1])
+          );
+
+      startDate.setHours(0, 0, 0, 0);
+      endDate.setHours(0, 0, 0, 0);
       return (
         transaction?.commodities?.some(commodity =>
           search(commodity, selectedCommodity, "commodityName")
         ) &&
         search(transaction, selectedReceipient, "dispensedTo") &&
-        transactionDate >= new Date(selectedPeriod[0]) &&
-        transactionDate <= new Date(selectedPeriod[1] ? selectedPeriod[1] : selectedPeriod[0])
+        transactionDate >= startDate &&
+        transactionDate <= endDate
       );
     });
   };
@@ -87,7 +98,7 @@ const TransactionHistory = props => {
         />
         <Search
           name="recipient"
-          placeholder="Recipient"
+          placeholder="Search Recipient"
           width={"320px"}
           onSearchChange={onSearch}
           currentSearch={selectedReceipient}

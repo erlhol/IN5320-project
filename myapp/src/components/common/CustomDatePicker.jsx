@@ -1,13 +1,12 @@
 import React, { useRef } from "react";
+// NOTE: Calender from dhis2/ui doesn't work. So we have to choose react-multi-date-picker
 import DatePicker from "react-multi-date-picker";
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import "react-multi-date-picker/styles/colors/teal.css";
 import { InputField } from "@dhis2/ui";
 
 const CustomDatePicker = ({ selectedPeriod, setSelectedPeriod }) => {
-  console.log(selectedPeriod);
   const handleChange = newDates => {
-    console.log([newDates[0], newDates[1]]);
     setSelectedPeriod([newDates[0], newDates[1]]);
   };
 
@@ -16,7 +15,7 @@ const CustomDatePicker = ({ selectedPeriod, setSelectedPeriod }) => {
   return (
     <div>
       <DatePicker
-        ref={datePickerRef} 
+        ref={datePickerRef}
         value={[selectedPeriod[0], selectedPeriod[1]]}
         onChange={e => handleChange(e)}
         range
@@ -50,6 +49,7 @@ function CustomRangeInput({ datePickerRef, value }) {
       onFocus={handleFocus}
       value={formatPeriod([from, to])}
       inputWidth={"200px"}
+      placeholder="Filter by date"
     />
   );
 }
