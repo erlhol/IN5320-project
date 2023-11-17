@@ -60,7 +60,7 @@ export const mergeCommodityAndValue = (
   return commodityList;
 };
 
-export const mergeDataForDashboard = (dataValues, dataSetElements) => {
+export const getMonthlyStockData = (dataValues, dataSetElements) => {
   const commodities = mergeCommodityAndValue(dataValues, dataSetElements, null);
   const groupedCommodities = commodities.reduce((result, commodity) => {
     const periodIndex = result.findIndex(

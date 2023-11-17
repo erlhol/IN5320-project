@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  MenuItem,
+  ModalTitle,
   Modal,
   ModalContent,
   IconDimensionData16,
@@ -22,7 +22,6 @@ const StockDetail = props => {
     props.selectedStock.commodityName
   );
 
-  // TODO: merge with dashboard function
   const firstFiveTransactions = getMostRecentTransactionsObject(
     filteredByName,
     5
@@ -30,8 +29,8 @@ const StockDetail = props => {
 
   return (
     <Modal large onClose={() => props.onClose(null)}>
-      <ModalContent>
-        <h2>{props.selectedStock.commodityName}</h2>
+      <ModalTitle>{props.selectedStock.commodityName}</ModalTitle>
+      <ModalContent className={classes.detailViewInfoBoxesContent}>
         <div className={classes.detailViewInfoBoxesContainer}>
           <DetailViewInfoBox
             infoString={"Stock balance"}
@@ -50,19 +49,25 @@ const StockDetail = props => {
             icon={<IconCalendar24 />}
           />
         </div>
-        <h3 className={classes.subtitleDetailView}>Consumption History</h3>
-        <ConsumptionHistoryChart
-          commodity={props.selectedStock}
-          monthlyStockData={props.monthlyStockData}
-        />
-        <h3>Recent Transactions</h3>
-        {Object.keys(firstFiveTransactions).map((date, i) => (
-          <TransactionsForDay
-            key={i}
-            date={date}
-            transactions={firstFiveTransactions[date]}
+        <div>
+          <div className={classes.modalSubHeadline}>Consumption History</div>
+          <ConsumptionHistoryChart
+            commodity={props.selectedStock}
+            monthlyStockData={props.monthlyStockData}
           />
-        ))}
+        </div>
+        <div>
+          <div className={classes.modalSubHeadline}>Recent Transactions</div>
+          <div className={classes.transactionsContainer}>
+            {Object.keys(firstFiveTransactions).map((date, i) => (
+              <TransactionsForDay
+                key={i}
+                date={date}
+                transactions={firstFiveTransactions[date]}
+              />
+            ))}
+          </div>
+        </div>
       </ModalContent>
     </Modal>
   );

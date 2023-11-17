@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { AlertBar, SingleSelect, SingleSelectOption } from "@dhis2/ui";
-import classes from "../App.module.css";
+import { AlertBar, IconCalendar24 } from "@dhis2/ui";
+import globalClasses from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
@@ -88,7 +88,7 @@ const TransactionHistory = props => {
         primaryButtonClick={() => handleOnModalChange("new_dispensing")}
       />
       {/* The different search and filter options */}
-      <div className={classes.filterOptions}>
+      <div className={globalClasses.filterOptions}>
         <Search
           name="commodity"
           placeholder="Search commodity"
@@ -98,18 +98,21 @@ const TransactionHistory = props => {
         />
         <Search
           name="recipient"
-          placeholder="Search Recipient"
+          placeholder="Search recipient"
           width={"320px"}
           onSearchChange={onSearch}
           currentSearch={selectedReceipient}
         />
-        <CustomDatePicker selectedPeriod={selectedPeriod} setSelectedPeriod={setSelectedPeriod} />
+        <CustomDatePicker
+          selectedPeriod={selectedPeriod}
+          setSelectedPeriod={setSelectedPeriod}
+        />
       </div>
 
       {/* Multiple transactions can be listed here: */}
       {/* <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay>
                 <TransactionsForDay date={transaction_by_day.date} transactions={transaction_by_day.transactions}></TransactionsForDay> */}
-      <div className={classes.transactionsContainer}>
+      <div className={globalClasses.transactionsContainer}>
         {Object.keys(visibleTrans).map((date, i) => (
           <TransactionsForDay
             key={i}
@@ -131,7 +134,7 @@ const TransactionHistory = props => {
       {alertBarText && (
         <AlertBar
           type="success"
-          className={classes.alertBar}
+          className={globalClasses.alertBar}
           onHidden={onAlertHidden}
         >
           {alertBarText}

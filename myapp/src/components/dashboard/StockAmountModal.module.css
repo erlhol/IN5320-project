@@ -1,0 +1,26 @@
+/* stock amount modal */
+.stockInfoModalContent {
+  margin-top: 24px;
+}
+
+.stockInfoModalCommodities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stockInfoModalEndBalance {
+  margin-top: 8px;
+  color: #6e7a8a;
+  font-size: 14px;
+}
+
+.commoditiesLowTag {
+  color: #6f3205 !important;
+  background-color: #fff8e1 !important;
+}
+
+.commoditiesOutTag {
+  color: #330202 !important;
+  background-color: #ffe5e8 !important;
+}

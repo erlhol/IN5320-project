@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Modal, ModalTitle, ModalContent, Divider, Tag } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import classes from "./StockAmountModal.module.css";
 
 const StockAmountModal = props => {
   return (

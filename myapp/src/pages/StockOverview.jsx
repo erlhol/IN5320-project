@@ -8,7 +8,7 @@ import Search from "../components/common/Search";
 import CommodityTable from "../components/stockOverview/CommodityTable";
 import {
   mergeCommodityAndValue,
-  mergeDataForDashboard,
+  getMonthlyStockData,
   categorizeTransByDate,
 } from "../utilities/dataUtility";
 import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
@@ -74,7 +74,7 @@ const StockInventory = props => {
         props.transactionData
       );
 
-      const mStockData = mergeDataForDashboard(
+      const mStockData = getMonthlyStockData(
         monthlyStock?.dataValues?.dataValues,
         monthlyStock?.commodities?.dataSetElements
       );

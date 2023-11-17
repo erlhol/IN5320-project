@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Common.module.css";
+import classes from "./DetailViewInfoBox.module.css";
 
 const DetailViewInfoBox = props => {
   return (

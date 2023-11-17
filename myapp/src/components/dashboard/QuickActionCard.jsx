@@ -2,7 +2,7 @@ import React from "react";
 import { colors } from "@dhis2/ui";
 
 import { Card, IconImportItems24, IconExportItems24 } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import classes from "./QuickActionCard.module.css";
 
 const QuickActionCard = ({ onTransferModalChange }) => {
   return (

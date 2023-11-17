@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, IconMore24, Tag, Box } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import globalClasses from "../../App.module.css";
+import classes from "./TransactionsForDay.module.css";
+
 import TransactionDetailModal from "./TransactionDetailModal";
 
 const TransactionsForDay = props => {
@@ -40,7 +42,7 @@ const TransactionsForDay = props => {
   };
 
   return (
-    <div>
+    <div className={globalClasses.clickable}>
       <div className={classes.transactionsDate}>{props.date}</div>
       <div className={classes.transactionsItems}>
         {props.transactions?.map((transaction, i) => {
@@ -50,7 +52,6 @@ const TransactionsForDay = props => {
               onClick={() => handleCardClick(transaction)}
               className={classes.transactionItemContainer}
             >
-              {/* TODO: fix the space-between to be equal - not taking text lenght into account */}
               <Box height="76px">
                 <Card className={classes.transactionItem}>
                   <div className={classes.transactionItemFirstHalf}>
@@ -65,7 +66,9 @@ const TransactionsForDay = props => {
                     <div className={classes.transactionActors}>
                       <p>
                         <span>By: </span>
-                        {transaction.dispensedBy}
+                        {transaction.type == "Dispensing"
+                          ? transaction.dispensedBy
+                          : transaction.dispensedTo}
                       </p>
                       {transaction.type === "Dispensing" && (
                         <p>
@@ -97,7 +100,6 @@ const TransactionsForDay = props => {
                       ) : null}
                     </div>
                   </div>
-                  <IconMore24 />
                 </Card>
               </Box>
             </div>

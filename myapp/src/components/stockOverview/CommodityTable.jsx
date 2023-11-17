@@ -11,11 +11,9 @@ import {
   DataTableCell,
   TableFoot,
   Pagination,
-  IconInfo24,
-  MenuItem,
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
-import StockDetail from "./StockDetail";
+import StockDetail from "./StockDetailModal";
 import PreselectionHeader from "./PreselectionHeader";
 import classes from "./StockOverview.module.css";
 import commonclasses from "../../App.module.css";
@@ -198,7 +196,7 @@ const CommodityTable = props => {
                 }
                 sortIconTitle="Sort by Commodity Name"
               >
-                Commodity Name
+                Commodity name
               </DataTableColumnHeader>
               <DataTableColumnHeader
                 onSortIconClick={() => handleSort("endBalance")}
@@ -210,7 +208,7 @@ const CommodityTable = props => {
                 sortIconTitle="Sort by Stock Balance"
                 width={spacers.dp192}
               >
-                Stock Balance
+                Stock balance
               </DataTableColumnHeader>
               <DataTableColumnHeader
                 onSortIconClick={() => handleSort("consumption")}
@@ -222,10 +220,10 @@ const CommodityTable = props => {
                 sortIconTitle="Sort by Consumption"
                 width={spacers.dp192}
               >
-                Monthly Consumption
+                Consumption
               </DataTableColumnHeader>
               <DataTableColumnHeader width={spacers.dp256}>
-                Last Dispensing
+                Last dispensing
               </DataTableColumnHeader>
               <DataTableColumnHeader width={spacers.dp128} />
             </DataTableRow>

@@ -15,17 +15,19 @@ import {
   Box,
 } from "@dhis2/ui";
 import { spacers } from "@dhis2/ui";
-import classes from "../../App.module.css";
+import globalClasses from "../../App.module.css";
+import classes from "./TransactionDetailModal.module.css";
+
 import DetailViewInfoBox from "../common/DetailViewInfoBox";
 
 export default function TransactionDetailModal(props) {
   return (
     <Modal onClose={() => props.onClose()} position="middle" large>
       <ModalTitle>Transaction Detail</ModalTitle>
-      <ModalContent className={classes.transDetailModalContent}>
-        <div className={classes.detailViewInfoBoxesContainer}>
+      <ModalContent className={globalClasses.detailViewInfoBoxesContent}>
+        <div className={globalClasses.detailViewInfoBoxesContainer}>
           <DetailViewInfoBox
-            infoString={"Date and Time"}
+            infoString={"Date and time"}
             infoValue={props.transaction.date + " " + props.transaction.time}
             icon={<IconCalendar24 />}
           />
@@ -36,10 +38,10 @@ export default function TransactionDetailModal(props) {
           />
         </div>
         <div>
-          <div className={classes.transDetailTableCaption}>
+          <div className={globalClasses.modalSubHeadline}>
             {props.transType} Commodities
           </div>
-          <Table className={classes.transDetailTable}>
+          <Table>
             <TableHead>
               <TableRowHead>
                 <TableCellHead width={spacers.dp250} className={classes.bold}>
