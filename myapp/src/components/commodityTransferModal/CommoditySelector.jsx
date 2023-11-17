@@ -43,9 +43,14 @@ const CommoditySelector = props => {
     );
   };
 
-  const validateInput = (value, stockBalance) => {
+  const validateInput = (value, stockBalance, dispensing) => {
     if (value == "" || value == null || value == undefined || value == 0) {
+      if (dispensing) {
+        return "Enter amount to dispense";
+      }
       return "Enter amount to restock";
+    } else if (!Number.isInteger(Number(value))) {
+      return "Only whole amounts allowed";
     } else if (value < 0) {
       return "Amount must be a positive";
     } else if (value > stockBalance && props.dispensing) {
@@ -129,7 +134,9 @@ const CommoditySelector = props => {
                       type="number"
                       name={commodity.commodityId}
                       component={InputFieldFF}
-                      validate={e => validateInput(e, commodity.endBalance)}
+                      validate={e =>
+                        validateInput(e, commodity.endBalance, props.dispensing)
+                      }
                     />
                     <Button
                       small
