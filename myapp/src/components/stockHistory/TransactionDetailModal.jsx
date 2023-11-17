@@ -31,7 +31,9 @@ export default function TransactionDetailModal(props) {
             icon={<IconCalendar24 />}
           />
           <DetailViewInfoBox
-            infoString={"Recipient"}
+            infoString={
+              props.transType === "Dispensed" ? "Recipient" : "Restocked by"
+            }
             infoValue={props.transaction.dispensedTo}
             icon={<IconLogOut24 />}
           />

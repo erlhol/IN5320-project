@@ -174,7 +174,7 @@ const StockInventory = props => {
 
           {alertBarText && (
             <AlertBar
-              type="success"
+              success
               className={classes.alertBar}
               onHidden={onAlertHidden}
             >

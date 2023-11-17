@@ -227,7 +227,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
       )}
       {alertBarText && (
         <AlertBar
-          type="success"
+          success
           className={globalClasses.alertBar}
           onHidden={onAlertHidden}
         >
