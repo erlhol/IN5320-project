@@ -27,7 +27,7 @@ export default function TransactionDetailModal(props) {
       <ModalContent className={globalClasses.detailViewInfoBoxesContent}>
         <div className={globalClasses.detailViewInfoBoxesContainer}>
           <DetailViewInfoBox
-            infoString={"Date and Time"}
+            infoString={"Date and time"}
             infoValue={props.transaction.date + " " + props.transaction.time}
             icon={<IconCalendar24 />}
           />
