@@ -143,27 +143,6 @@ export const getCommoditiesLowInStock = (
   );
 };
 
-// export const getRecentTransactions = transactions => {
-//   const categorizedTransactions = categorizeTransByDate(transactions);
-//   const recentTransactionsObject = {};
-//   let nrTransactionsAdded = 0;
-
-//   for (const date in categorizedTransactions) {
-//     const transactionForDate = categorizedTransactions[date];
-
-//     transactionForDate.forEach(trans => {
-//       if (!recentTransactionsObject[date]) recentTransactionsObject[date] = [];
-//       if (nrTransactionsAdded < 5) {
-//         recentTransactionsObject[date].push(trans);
-//         nrTransactionsAdded++;
-//       }
-//     });
-//     if (nrTransactionsAdded === 5) break;
-//   }
-
-//   return recentTransactionsObject;
-// };
-
 export const getTransByPeriod = (transactions, startDate, endDate) => {
   const filteredTrans = {};
   for (const date in transactions) {

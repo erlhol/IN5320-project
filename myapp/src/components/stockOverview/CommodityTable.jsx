@@ -17,6 +17,7 @@ import StockDetail from "./StockDetailModal";
 import PreselectionHeader from "./PreselectionHeader";
 import classes from "./StockOverview.module.css";
 import commonclasses from "../../App.module.css";
+import { getCurrentMonthName } from "../../utilities/dates";
 
 const CommodityTable = props => {
   const [selectedStock, setSelectedStock] = useState(null); // No stock selected by default
@@ -223,10 +224,10 @@ const CommodityTable = props => {
                 sortIconTitle="Sort by Consumption"
                 width={spacers.dp192}
               >
-                Consumption
+                Consumption for {getCurrentMonthName()}
               </DataTableColumnHeader>
               <DataTableColumnHeader width={spacers.dp256}>
-                Last dispensing
+                Last dispensed amount
               </DataTableColumnHeader>
               <DataTableColumnHeader width={spacers.dp128} />
             </DataTableRow>

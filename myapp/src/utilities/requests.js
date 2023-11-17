@@ -1,7 +1,4 @@
 // Global variables:
-
-import { getCurrentMonth } from "./dates";
-
 const orgUnit = "OZ1olxsTyNa"; // id for our organization
 const lifeSavingComDataSet = "ULowA8V3ucd"; // id for life saving commodities
 const consumption = "rQLFnNXXIL0";

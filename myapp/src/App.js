@@ -5,12 +5,11 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDataQuery, useDataMutation } from "@dhis2/app-runtime";
 import classes from "./App.module.css";
 import { CircularLoader } from "@dhis2/ui";
-import { transRequest, transUpdateRequest } from "./utilities/requests";
-import mockData from "./data/mockdata_11-05_AGGREGATED.json";
+import { transRequest } from "./utilities/requests";
 import Sidenav from "./components/common/Sidenav";
 import Dashboard from "./pages/Dashboard";
 import StockInventory from "./pages/StockOverview";

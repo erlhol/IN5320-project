@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { AlertBar, IconCalendar24 } from "@dhis2/ui";
+import { SingleSelect, SingleSelectOption } from "@dhis2/ui";
 import globalClasses from "../App.module.css";
 import Header from "../components/common/Header";
 import Search from "../components/common/Search";
 import TransactionsForDay from "../components/stockHistory/TransactionsForDay";
 import { categorizeTransByDate } from "../utilities/dataUtility";
-import CommodityTransferModal from "../components/commodityTransferModal/CommodityTransferModal";
 import { search } from "../utilities/search";
 import { getStockHistoryDefaultPeriod } from "../utilities/dates";
 import CustomDatePicker from "../components/common/CustomDatePicker";
 
 const TransactionHistory = props => {
-  const [modalPresent, setModalPresent] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState([]);
   const [selectedReceipient, setSelectedReceipient] = useState("");
   const [selectedCommodity, setSelectedCommodity] = useState("");
+  const [selectedTransactionType, setSelectedTransactionType] = useState("all");
   const [visibleTrans, setVisibleTrans] = useState(() =>
     categorizeTransByDate(props.transactionData)
   );
-  const [alertBarText, setAlertBarText] = useState("");
 
   useEffect(() => {
     const updatedTrans = categorizeTransByDate(filterTrans());
@@ -27,12 +25,9 @@ const TransactionHistory = props => {
     selectedPeriod,
     selectedCommodity,
     selectedReceipient,
+    selectedTransactionType,
     props.transactionData,
   ]);
-
-  const handleOnModalChange = () => {
-    setModalPresent(previousValue => !previousValue);
-  };
 
   const onSearch = event => {
     if (event.name === "commodity") return setSelectedCommodity(event.value);
@@ -63,30 +58,17 @@ const TransactionHistory = props => {
         ) &&
         search(transaction, selectedReceipient, "dispensedTo") &&
         transactionDate >= startDate &&
-        transactionDate <= endDate
+        transactionDate <= endDate &&
+        (selectedTransactionType !== "all"
+          ? transaction.type === selectedTransactionType
+          : true)
       );
     });
   };
 
-  const refetchData = async dispensing => {
-    await props.refetchTransData();
-    setAlertBarText(
-      dispensing ? "Dispensing successful" : "Restock successful"
-    );
-  };
-
-  const onAlertHidden = () => {
-    setAlertBarText("");
-  };
-
   return (
     <>
-      {/* Navigation buttons to add stock or new dispensing */}
-      <Header
-        title="Stock History"
-        primaryButtonLabel="New Dispensing"
-        primaryButtonClick={() => handleOnModalChange("new_dispensing")}
-      />
+      <Header title="Stock History" />
       {/* The different search and filter options */}
       <div className={globalClasses.filterOptions}>
         <Search
@@ -107,6 +89,15 @@ const TransactionHistory = props => {
           selectedPeriod={selectedPeriod}
           setSelectedPeriod={setSelectedPeriod}
         />
+        <SingleSelect
+          selected={selectedTransactionType}
+          onChange={e => setSelectedTransactionType(e.selected)}
+          inputWidth="500px"
+        >
+          <SingleSelectOption label="All transactions" value="all" default />
+          <SingleSelectOption label="Restock" value="Restock" />
+          <SingleSelectOption label="Dispensing" value="Dispensing" />
+        </SingleSelect>
       </div>
 
       {/* Multiple transactions can be listed here: */}
@@ -124,25 +115,6 @@ const TransactionHistory = props => {
         </div>
       ) : (
         <div>No transactions found</div>
-      )}
-
-      {modalPresent && (
-        <CommodityTransferModal
-          onClose={handleOnModalChange}
-          dispensing
-          existedTransData={props.transactionData}
-          refetchData={refetchData}
-          preselectedCommodities={[]}
-        />
-      )}
-      {alertBarText && (
-        <AlertBar
-          type="success"
-          className={globalClasses.alertBar}
-          onHidden={onAlertHidden}
-        >
-          {alertBarText}
-        </AlertBar>
       )}
     </>
   );

@@ -21,6 +21,7 @@ const ConsumptionHistoryChart = props => {
         chart: {
           id: props.commodity.commodityName,
         },
+        colors: ["#A9BE3B"],
         dataLabels: {
           enabled: true,
         },
