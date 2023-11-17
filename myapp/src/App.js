@@ -94,7 +94,7 @@ const MyAppContent = () => {
               element={
                 <Dashboard
                   transactionData={transactionData}
-                  refetchTransData={() => refetch()}
+                  refetchTransData={refetch}
                 />
               }
             />
