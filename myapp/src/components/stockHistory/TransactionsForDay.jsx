@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card, IconMore24, Tag, Box } from "@dhis2/ui";
-import globalClasses from "../../App.module.css";
 import classes from "./TransactionsForDay.module.css";
 
 import TransactionDetailModal from "./TransactionDetailModal";
@@ -42,7 +41,7 @@ const TransactionsForDay = props => {
   };
 
   return (
-    <div className={globalClasses.clickable}>
+    <div>
       <div className={classes.transactionsDate}>{props.date}</div>
       <div className={classes.transactionsItems}>
         {props.transactions?.map((transaction, i) => {
