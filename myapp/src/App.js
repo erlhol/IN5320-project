@@ -94,20 +94,25 @@ const MyAppContent = () => {
               element={
                 <Dashboard
                   transactionData={transactionData}
-                  refetchTransData={() => refetch()}
+                  refetchTransData={refetch}
                 />
               }
             />
             <Route
               path="/stock-overview"
-              element={<StockInventory transactionData={transactionData} />}
+              element={
+                <StockInventory
+                  transactionData={transactionData}
+                  refetchTransData={refetch}
+                />
+              }
             />
             <Route
               path="/stock-history"
               element={
                 <StockHistory
                   transactionData={transactionData}
-                  refetchTransData={() => refetch()}
+                  refetchTransData={refetch}
                 />
               }
             />

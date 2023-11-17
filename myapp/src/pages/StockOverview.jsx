@@ -97,6 +97,8 @@ const StockInventory = props => {
 
   const refetchData = dispensing => {
     refetch();
+    // refetchTransData so that the data will be updated in transaction history after submitting
+    props.refetchTransData();
     setAlertBarText(
       dispensing ? "Dispensing successful" : "Restock successful"
     );
