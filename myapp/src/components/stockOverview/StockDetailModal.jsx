@@ -15,6 +15,7 @@ import {
   getTransByCommodityName,
   getMostRecentTransactionsObject,
 } from "../../utilities/dataUtility";
+import { getCurrentMonthName } from "../../utilities/dates";
 
 const StockDetail = props => {
   const filteredByName = getTransByCommodityName(
@@ -38,12 +39,12 @@ const StockDetail = props => {
             icon={<IconDimensionData16></IconDimensionData16>}
           />
           <DetailViewInfoBox
-            infoString={"Consumption"}
+            infoString={`Consumption for ${getCurrentMonthName()}`}
             infoValue={props.selectedStock.consumption}
             icon={<IconArrowDown24></IconArrowDown24>}
           />
           <DetailViewInfoBox
-            infoString={"Last dispensing"}
+            infoString={"Last dispensing amount"}
             infoValue={props.selectedStock.lastDispensingAmount}
             infoValueText={props.selectedStock.lastDispensingDate}
             icon={<IconCalendar24 />}

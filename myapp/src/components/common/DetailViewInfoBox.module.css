@@ -6,8 +6,8 @@
   align-items: center;
   border: 1px solid #e8edf2;
   height: 76px;
-  gap: 16px;
-  padding: 16px;
+  gap: 12px;
+  padding: 16px 12px;
 }
 
 .infoBoxContainer {
