@@ -65,6 +65,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
   const [stockAmountModalPresent, setStockAmountModalPresent] = useState(false);
   const [stockAmountModalTitle, setStockAmountModalTitle] = useState("");
   const [stockAmountModalData, setStockAmountModalData] = useState([]);
+  const [allCommodities, setAllCommodities] = useState(null);
 
   const [transferModalPresent, setTransferModalPresent] = useState(null);
   const [alertBarText, setAlertBarText] = useState("");
@@ -76,6 +77,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
         currentStock.commodities?.dataSetElements,
         transactionData
       );
+      setAllCommodities(currentStockData);
 
       const monthlyStockData = getMonthlyStockData(
         monthlyStock.dataValues?.dataValues,
@@ -220,7 +222,7 @@ const Dashboard = ({ transactionData, refetchTransData }) => {
           onClose={handleOnTransferModalChange}
           dispensing={transferModalPresent === "dispensing"}
           refetchData={refetchData}
-          allCommodities={currentStock.commodities?.dataSetElements}
+          allCommodities={allCommodities}
           existedTransData={transactionData}
           preselectedCommodities={[]}
         />
