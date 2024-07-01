@@ -4,6 +4,9 @@
 
 App developed for the DHIS2 platform using the DHIS2 Demo Instance. For UI we follow DHIS2's design system: https://ui.dhis2.nu
 
+## Pre-requisite
+You need a DHIS2 user to login to the webapp. See this page for intstructions: https://dhis2-app-course.ifi.uio.no/learn/dhis2/getting-started/development-environment/dhis2-instance/
+
 ## Run the app
 
 To run the app for the first time you will run this command to install all packages requried. We use yarn for package management.
